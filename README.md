@@ -1,6 +1,0 @@
-spork
-=====
-
--jg
--dn
-Sporkkkkkkkk

@@ -43,3 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Enable ActiveRecord session store
+gem 'activerecord-session_store'

@@ -55,5 +55,5 @@ production:
   encoding: unicode
   database: spork_production
   pool: 5
-  username: spork
+  username: myapp
   password:

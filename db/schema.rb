@@ -11,10 +11,88 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120102915) do
+ActiveRecord::Schema.define(version: 20140128051610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "category"
+    t.integer  "restaurant_id"
+    t.integer  "picture_id"
+    t.integer  "food_id"
+    t.integer  "drink_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id"
+    t.string   "content"
+    t.integer  "restaurant_id"
+    t.integer  "picture_id"
+    t.integer  "food_id"
+    t.integer  "drink_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "drinks", force: true do |t|
+    t.string   "drink_name"
+    t.integer  "restaurant_id"
+    t.string   "price"
+    t.integer  "alcoholic_strength"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "foods", force: true do |t|
+    t.string   "dish_name"
+    t.integer  "restaurant_id"
+    t.string   "price"
+    t.string   "description"
+    t.integer  "size"
+    t.integer  "calories"
+    t.string   "nutrition"
+    t.integer  "presentation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menus", force: true do |t|
+    t.integer  "food_id"
+    t.integer  "drink_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pictures", force: true do |t|
+    t.integer  "restaurant_id"
+    t.integer  "picture_id"
+    t.integer  "food_id"
+    t.integer  "drink_id"
+    t.string   "file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "item_id"
+    t.integer  "score"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "restaurants", force: true do |t|
+    t.string   "location"
+    t.string   "description"
+    t.string   "hours"
+    t.integer  "menu_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false
@@ -25,5 +103,24 @@ ActiveRecord::Schema.define(version: 20140120102915) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "description"
+    t.integer  "restaurant_id"
+    t.integer  "picture_id"
+    t.integer  "food_id"
+    t.integer  "drink_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "location"
+    t.integer  "rating_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

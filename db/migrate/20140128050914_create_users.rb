@@ -3,7 +3,8 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.column :first_name,	:string
       t.column :last_name, :string
-      t.column :location, :string
+      t.column :latitude, :decimal, {:precision=>10, :scale=>6}
+      t.column :longitude :decimal, {:precision=>10, :scale=>6}
       t.column :rating_score, :integer
       t.timestamps
     end

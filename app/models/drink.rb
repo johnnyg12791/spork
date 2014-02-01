@@ -4,4 +4,8 @@ class Drink < ActiveRecord::Base
 	has_many	:ratings
 	has_and_belongs_to_many	:tags
 
+	validates :name, :length => { :minimum => 1 }
+
+
+
 end

@@ -1,10 +1,13 @@
 class CreateRatings < ActiveRecord::Migration
   def up
     create_table :ratings do |t|
-	  t.column :item_id,	:integer # DO WE NEED TO DIFFERENTIATE FOOD/DRINK/RESTAURANT ID
+    t.column :user_id,  :integer
+    t.column :type, :integer
+    t.column :item_id,  :integer
 	  t.column :score,	:integer
-	  t.column :user_id,	:integer
-      t.timestamps
+    t.column :comment, :string # CAN BE EMPTY IF JUST SCORE
+    t.column :date_time,  :datetime
+    t.timestamps
     end
   end
 

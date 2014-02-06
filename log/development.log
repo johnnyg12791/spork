@@ -6274,3 +6274,357 @@ Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-01 15
   [1m[35mFood Load (28.0ms)[0m  SELECT "foods".* FROM "foods" ORDER BY "foods"."id" ASC LIMIT 1
   [1m[36mDrink Load (43.7ms)[0m  [1mSELECT "drinks".* FROM "drinks" ORDER BY "drinks"."id" ASC LIMIT 1[0m
   [1m[35mCategory Load (20.8ms)[0m  SELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT 1
+  [1m[36mPictures Load (12.4ms)[0m  [1mSELECT "pictures".* FROM "pictures" ORDER BY "pictures"."id" ASC LIMIT 1[0m
+  [1m[35mPictures Load (14.5ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."id" = $1 LIMIT 1  [["id", "axeandpalm"]]
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:14:17 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (133.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UserController#login as HTML
+  [1m[35mActiveRecord::SessionStore::Session Load (69.5ms)[0m  SELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = 'b9c55651ddcf080f1f10cd694b257f27' ORDER BY "sessions"."id" ASC LIMIT 1
+  Rendered user/login.html.erb within layouts/application (45.2ms)
+Completed 200 OK in 472ms (Views: 364.9ms | ActiveRecord: 73.4ms)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (15.0ms)[0m  COMMIT
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:14:20 -0800
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:20:05 -0800
+Processing by UserController#login as HTML
+  [1m[36mActiveRecord::SessionStore::Session Load (0.7ms)[0m  [1mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = 'b9c55651ddcf080f1f10cd694b257f27' ORDER BY "sessions"."id" ASC LIMIT 1[0m
+  Rendered user/login.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:20:06 -0800
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+Processing by UserController#login as HTML
+  [1m[35mActiveRecord::SessionStore::Session Load (0.7ms)[0m  SELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = 'b9c55651ddcf080f1f10cd694b257f27' ORDER BY "sessions"."id" ASC LIMIT 1
+  Rendered user/login.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:20:48 -0800
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+Processing by UserController#login as HTML
+  [1m[36mActiveRecord::SessionStore::Session Load (0.7ms)[0m  [1mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = 'b9c55651ddcf080f1f10cd694b257f27' ORDER BY "sessions"."id" ASC LIMIT 1[0m
+  Rendered user/login.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:22:48 -0800
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:23:13 -0800
+Processing by UserController#login as HTML
+  [1m[35mActiveRecord::SessionStore::Session Load (0.7ms)[0m  SELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = 'b9c55651ddcf080f1f10cd694b257f27' ORDER BY "sessions"."id" ASC LIMIT 1
+  Rendered user/login.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:23:13 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:23:14 -0800
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+Processing by UserController#login as HTML
+  [1m[36mActiveRecord::SessionStore::Session Load (1.1ms)[0m  [1mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = 'b9c55651ddcf080f1f10cd694b257f27' ORDER BY "sessions"."id" ASC LIMIT 1[0m
+  Rendered user/login.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:24:25 -0800
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+Processing by UserController#login as HTML
+  Rendered user/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 56ms (Views: 55.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36mSQL (171.1ms)[0m  [1mINSERT INTO "sessions" ("created_at", "data", "session_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Thu, 06 Feb 2014 06:28:10 UTC +00:00], ["data", "BAh7BkkiEF9jc3JmX3Rva2VuBjoGRUZJIjFTSEMzazZZN1hzWDNTVUhHY1N5\naUYrdSswVXVJWDRSZEtNWUlldXMwREZZPQY7AEY=\n"], ["session_id", "6f12237ae485765ad273e27b2557401d"], ["updated_at", Thu, 06 Feb 2014 06:28:10 UTC +00:00]]
+  [1m[35m (21.9ms)[0m  COMMIT
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:10 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:28:11 -0800
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+Processing by UserController#login as HTML
+  Rendered user/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "sessions" ("created_at", "data", "session_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Thu, 06 Feb 2014 06:28:39 UTC +00:00], ["data", "BAh7BkkiEF9jc3JmX3Rva2VuBjoGRUZJIjFFMEE5VXdCWlFvV3Zvcm9pZENH\nL1MrWmNodSs0dEgwRVBsVlpOME14MGZJPQY7AEY=\n"], ["session_id", "69d424423e922e7e086eb2c1459e8103"], ["updated_at", Thu, 06 Feb 2014 06:28:39 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:28:39 -0800
+
+
+Started GET "/user/login" for 127.0.0.1 at 2014-02-05 22:31:23 -0800
+Processing by UserController#login as HTML
+  [1m[35mActiveRecord::SessionStore::Session Load (1.0ms)[0m  SELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = '69d424423e922e7e086eb2c1459e8103' ORDER BY "sessions"."id" ASC LIMIT 1
+  Rendered user/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 37ms (Views: 33.9ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-05 22:31:24 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-05 22:31:24 -0800

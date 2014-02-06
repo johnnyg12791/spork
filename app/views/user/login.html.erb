@@ -34,7 +34,19 @@
 
       console.log("2");
 
-      FB.login();
+      //FB.login();
+       FB.login(function(response) {
+        console.log(authResponse);
+        if(response.authResponse) {
+          console.log("loggedin1");
+        } else {
+          console.log("canceled1");
+        }
+
+      });
+
+
+
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -44,7 +56,19 @@
 
       console.log("3");
 
-      FB.login();
+      FB.login(function(response) {
+        console.log(authResponse);
+        if(response.authResponse) {
+          console.log("loggedin2");
+        } else {
+          console.log("canceled2");
+        }
+
+      });
+
+
+
+
     }
   });
   };
@@ -64,7 +88,31 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
+      console.log(response);
+
+      var user_data = {first_name: response.first_name, last_name: response.last_name, userID: response.id};
+      
+    $.ajax({
+      url: "/user/main_page",
+      type: "POST",
+      data: user_data
+    }).done(function(data) {
+      console.log(data); 
+      })
+    .fail(function() {
+      alert("error"); 
+    })
+    .always(function() { 
+      alert("complete"); 
+      $(location).attr('href', '/user/main_page')
+    })
+
     });
+
+    
+
+    console.log("ajax");
+
   }
 </script>
 

@@ -6,4 +6,7 @@ class Food < ActiveRecord::Base
 
     validates :dish_name, :length => { :minimum => 1 }
 
+    def self.filter(query)
+    	return ["optiooooonsssss", "more options!"]
+    end
 end

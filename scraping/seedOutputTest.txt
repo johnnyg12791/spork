@@ -1,0 +1,11 @@
+'''
+#this is a seed.rb test
+#I want an array of restuarant-info arrays:
+#[['coho', '7am-10pm' 'come eat], ['treehouse', '', ''], ['tap', 'burgers', '']]
+#And an array of arrays of menu item-arrays at coho (yup, 3 levels???)
+#[
+#[['panini', '4.99', 'bread and lettuce'], ['salad', '5.99', 'lettuce']], 
+#[['burger', ''], ['burrito', '']], 
+#[[chicken]],
+#]
+'''

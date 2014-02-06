@@ -5996,3 +5996,93 @@ Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-01-28 23
 
 
 Started GET "/assets/spork.png" for 127.0.0.1 at 2014-01-28 23:29:20 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140128050914)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (38.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "location" character varying(255), "rating_score" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128050914"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRestaurants (20140128051504)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "restaurants" ("id" serial primary key, "location" character varying(255), "description" character varying(255), "hours" character varying(255), "menu_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051504"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMenus (20140128051518)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "menus" ("id" serial primary key, "food_id" integer, "drink_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051518"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFoods (20140128051524)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "foods" ("id" serial primary key, "dish_name" character varying(255), "restaurant_id" integer, "price" character varying(255), "description" character varying(255), "size" integer, "calories" integer, "nutrition" character varying(255), "presentation" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051524"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateDrinks (20140128051533)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "drinks" ("id" serial primary key, "drink_name" character varying(255), "restaurant_id" integer, "price" character varying(255), "alcoholic_strength" integer, "description" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051533"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20140128051541)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "category" character varying(255), "restaurant_id" integer, "picture_id" integer, "food_id" integer, "drink_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051541"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePictures (20140128051548)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "pictures" ("id" serial primary key, "restaurant_id" integer, "picture_id" integer, "food_id" integer, "drink_id" integer, "file_name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051548"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRatings (20140128051557)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "ratings" ("id" serial primary key, "item_id" integer, "score" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051557"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140128051603)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "user_id" integer, "content" character varying(255), "restaurant_id" integer, "picture_id" integer, "food_id" integer, "drink_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051603"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTags (20140128051610)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "tags" ("id" serial primary key, "description" character varying(255), "restaurant_id" integer, "picture_id" integer, "food_id" integer, "drink_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128051610"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-03 22:54:06 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConstructionController#index as HTML
+  [1m[35mActiveRecord::SessionStore::Session Load (6.5ms)[0m  SELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = '53f270e66b74c0cb219fb3384d42734b' ORDER BY "sessions"."id" ASC LIMIT 1
+  Rendered construction/index.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 723ms (Views: 695.9ms | ActiveRecord: 10.5ms)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (10.9ms)[0m  INSERT INTO "sessions" ("created_at", "data", "session_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", Tue, 04 Feb 2014 06:54:07 UTC +00:00], ["data", "BAh7BkkiEF9jc3JmX3Rva2VuBjoGRUZJIjFNcU1NYzFlbzNvMnc0U0lERHFG\ndUtIdzl2VTc5MEI4TitKSVVId244YjR3PQY7AEY=\n"], ["session_id", "07d5ca4c0d844d31b0b174a50396c5e0"], ["updated_at", Tue, 04 Feb 2014 06:54:07 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-03 22:54:07 -0800
+
+
+Started GET "/assets/construction.css?body=1" for 127.0.0.1 at 2014-02-03 22:54:07 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-03 22:54:07 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-03 22:54:07 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-03 22:54:07 -0800
+
+
+Started GET "/assets/construction.js?body=1" for 127.0.0.1 at 2014-02-03 22:54:07 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-03 22:54:07 -0800
+
+
+Started GET "/assets/spork.png" for 127.0.0.1 at 2014-02-03 22:54:07 -0800
+
+
+Started GET "/assets/construction_background.jpg" for 127.0.0.1 at 2014-02-03 22:54:07 -0800

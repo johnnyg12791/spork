@@ -18,21 +18,8 @@ ActiveRecord::Schema.define(version: 20140128051610) do
 
   create_table "categories", force: true do |t|
     t.string   "category"
-    t.integer  "restaurant_id"
-    t.integer  "picture_id"
-    t.integer  "food_id"
-    t.integer  "drink_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "comments", force: true do |t|
-    t.integer  "user_id"
-    t.string   "content"
-    t.integer  "restaurant_id"
-    t.integer  "picture_id"
-    t.integer  "food_id"
-    t.integer  "drink_id"
+    t.integer  "type"
+    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,36 +47,32 @@ ActiveRecord::Schema.define(version: 20140128051610) do
     t.datetime "updated_at"
   end
 
-  create_table "menus", force: true do |t|
-    t.integer  "food_id"
-    t.integer  "drink_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pictures", force: true do |t|
-    t.integer  "restaurant_id"
-    t.integer  "picture_id"
-    t.integer  "food_id"
-    t.integer  "drink_id"
     t.string   "file_name"
+    t.datetime "date_time"
+    t.integer  "user_id"
+    t.integer  "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "ratings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "type"
     t.integer  "item_id"
     t.integer  "score"
-    t.integer  "user_id"
+    t.string   "comment"
+    t.datetime "date_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "restaurants", force: true do |t|
-    t.string   "location"
+    t.string   "name"
+    t.decimal  "latitude",    precision: 10, scale: 6
+    t.decimal  "longitude",   precision: 10, scale: 6
     t.string   "description"
-    t.string   "hours"
-    t.integer  "menu_id"
+    t.datetime "hours"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,10 +89,8 @@ ActiveRecord::Schema.define(version: 20140128051610) do
 
   create_table "tags", force: true do |t|
     t.string   "description"
-    t.integer  "restaurant_id"
-    t.integer  "picture_id"
-    t.integer  "food_id"
-    t.integer  "drink_id"
+    t.integer  "type"
+    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,7 +98,9 @@ ActiveRecord::Schema.define(version: 20140128051610) do
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "location"
+    t.integer  "fb_id"
+    t.decimal  "latitude",     precision: 10, scale: 6
+    t.decimal  "longitude",    precision: 10, scale: 6
     t.integer  "rating_score"
     t.datetime "created_at"
     t.datetime "updated_at"

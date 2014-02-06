@@ -9,5 +9,4 @@ class Food < ActiveRecord::Base
     def self.filter(query)
     	return ["optiooooonsssss", "more options!"]
     end
-
 end

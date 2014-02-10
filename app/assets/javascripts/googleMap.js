@@ -55,10 +55,13 @@
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
-       /* var marker = new google.maps.Marker({
+   /*     var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location
-        });*/
+        });
+        bounds.extend(marker.position);
+        map.fitBounds(bounds);
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');*/
         findRestaurants(results[0].geometry.location);
       } else {
         alert("Geocode was not successful for the following reason: " + status);
@@ -69,6 +72,14 @@
 
   function findRestaurants(location) {
     alert("in findRestaurants");
+       var marker = new google.maps.Marker({
+            map: map,
+            position: location
+        });
+        bounds.extend(marker.position);
+        map.fitBounds(bounds);
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+
     var loc_data = {lat: location.d, lon: location.e};
   console.log(location);
     $.ajax({

@@ -11,3 +11,6 @@
  *= require_self
  *= require_tree .
  */
+/*html, body {
+  min-height: 100%;
+}*/

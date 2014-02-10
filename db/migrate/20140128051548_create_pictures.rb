@@ -1,15 +1,12 @@
 class CreatePictures < ActiveRecord::Migration
-  def up
+  def change
     create_table :pictures do |t|
-      t.column :file_name,	:string
-      t.column :date_time,  :datetime
-      t.column :user_id,    :integer
-      t.column :type, :integer
+      t.references :imageable, polymorphic: true
+      t.string :file_name
+      t.string :picture_type
+      t.datetime :date_time
+
       t.timestamps
     end
-  end
-
-  def down
-  	drop_table	:pictures
   end
 end

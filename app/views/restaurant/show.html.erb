@@ -1,0 +1,70 @@
+<div class="search-bar">
+  <div class="logo"></div>
+  <div class="search-field input-group input-group-sm">
+    <span class="input-group-addon">Search For</span>
+    <input type="text" class="form-control" placeholder="Food, Restaurant, etc.">
+  </div>
+  <div class="text"></div>
+  <div class="search-field input-group input-group-sm">
+    <span class="input-group-addon">Near</span>
+    <input type="text" class="form-control" placeholder="Location">
+  </div>
+  <div class="button">
+    <button>
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  </div>
+</div>
+
+<div id="restaurant-page" class="container">
+  <h1><%= @restaurant.name %></h1>
+  <div class="stars"></div>
+
+  <div class="hero">
+    <% image_tag(@banner_img_urls.first, alt: "Hero image of #{@restaurant.name}") %>
+  </div>
+
+  <div class="row info">
+    <div class="col-md-2">
+      <h3>Hours</h3>
+    </div>
+    <div class="col-md-4">
+      <p>hrs</p>
+    </div>
+    <div class="col-md-2">
+      <h3>Address</h3>
+    </div>
+    <div class="col-md-4">
+      <p>address</p>
+    </div>
+  </div>
+
+  <div class="top-rated">
+    <h1>Top Rated
+      <small>link to menu>></small>
+    </h1>
+    <div class="row image-tile-row">
+      <% for i in 1..4 %>
+        <div class="col-md-3">
+          <%= image_tag("test.jpg", :alt => "test") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="reviews">
+    <h1>Reviews (<%= @num_reviews %>)</h1>
+
+    <div class="review">
+      <div class="col-md-1">
+        <%= image_tag("test.jpg", :alt => "test", height: "100px", width: "100px") %>
+      </div>
+      <div class="col-md-11">
+        <h2>Review for Item</h2>
+        <h4>****</h4>
+        <p>Review body text</p>
+      </div>
+    </div>
+  </div>
+
+</div>

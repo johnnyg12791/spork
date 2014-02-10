@@ -17,16 +17,19 @@ ActiveRecord::Schema.define(version: 20140128051610) do
   enable_extension "plpgsql"
 
   create_table "categories", force: true do |t|
+    t.integer  "restaurant_id"
+    t.integer  "drink_id"
+    t.integer  "food_id"
     t.string   "category"
-    t.integer  "type"
+    t.string   "type"
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "drinks", force: true do |t|
-    t.string   "drink_name"
     t.integer  "restaurant_id"
+    t.string   "drink_name"
     t.string   "price"
     t.integer  "alcoholic_strength"
     t.string   "description"
@@ -35,31 +38,33 @@ ActiveRecord::Schema.define(version: 20140128051610) do
   end
 
   create_table "foods", force: true do |t|
-    t.string   "dish_name"
     t.integer  "restaurant_id"
+    t.string   "dish_name"
     t.string   "price"
     t.string   "description"
     t.integer  "size"
     t.integer  "calories"
-    t.string   "nutrition"
+    t.integer  "nutrition"
     t.integer  "presentation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "pictures", force: true do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
     t.string   "file_name"
+    t.string   "picture_type"
     t.datetime "date_time"
-    t.integer  "user_id"
-    t.integer  "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "ratings", force: true do |t|
+    t.integer  "food_id"
+    t.integer  "drink_id"
     t.integer  "user_id"
-    t.integer  "type"
-    t.integer  "item_id"
+    t.string   "type"
     t.integer  "score"
     t.string   "comment"
     t.datetime "date_time"
@@ -89,8 +94,9 @@ ActiveRecord::Schema.define(version: 20140128051610) do
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "tags", force: true do |t|
+    t.integer  "restaurant_id"
     t.string   "description"
-    t.integer  "type"
+    t.string   "type"
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"

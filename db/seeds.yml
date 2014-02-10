@@ -48,4 +48,4 @@ pictures:
     file_name: "coho_banner.jpg"
     picture_type: "banner"
     imageable_id: 1
-    imageable_type: restaurant
+    imageable_type: "Restaurant"

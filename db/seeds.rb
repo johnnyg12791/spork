@@ -8,8 +8,8 @@
 
 seed_file = File.join(Rails.root, 'db', 'seeds.yml')
 config = YAML::load_file(seed_file)
-r = Restaurant.create(config["restaurants"])
-r.first.foods = Food.create(config["foods"])
-r.first.pictures = Picture.create(config["pictures"])
+Restaurant.create(config["restaurants"])
+Food.create(config["foods"])
+Picture.create(config["pictures"])
 
 #Formatted file located in seeds.yml

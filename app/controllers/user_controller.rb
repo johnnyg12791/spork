@@ -12,10 +12,9 @@ class UserController < ApplicationController
   	else
   		@user = users
   	end
-  	
 #  	render :nothing => true
   	#redirect_to(:controller => 'user', :action => 'mainPage') #+ String(@user.id))
-
   end
+
 
 end

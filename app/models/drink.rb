@@ -6,6 +6,8 @@ class Drink < ActiveRecord::Base
 
 	validates :name, :length => { :minimum => 1 }
 
-
+    def self.filter(query)
+    	return ["optiooooonsssss", "more options!"]
+    end
 
 end

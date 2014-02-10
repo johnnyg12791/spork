@@ -4,9 +4,23 @@
 import urllib2
 from bs4 import BeautifulSoup
 import csv
+import unicodedata
 
-URL = ("http://www.allmenus.com/custom-results/-/699018-palo-alto-ca/?filters=filter_delivery,")
+#URL = ("http://www.allmenus.com/custom-results/-/699018-palo-alto-ca/?filters=filter_delivery,")
+URL = ("http://www.allmenus.com/ca/palo-alto/-/&filters=none")
 OUTPUT_FILENAME = ("output4.csv")
+
+
+def get_restaurant_dict():
+  web_page = urllib2.urlopen(URL).read()
+  soup = BeautifulSoup(web_page)
+  restaurant_table = soup.find('div', attrs={'id': 'restaurant_list'})
+  restaurant_list = restaurant_table.findAll('p')
+  restaurant_dict = ParseRestaurantList(restaurant_list)
+  #print restaurant_dict
+  for key, value in restaurant_dict.items():
+    restaurant_dict[key] = "http://www.allmenus.com" + value
+  return restaurant_dict  
 
 
 def main():
@@ -18,6 +32,8 @@ def main():
   #print restaurant_dict
   for key, value in restaurant_dict.items():
     restaurant_dict[key] = "http://www.allmenus.com" + value
+  print restaurant_dict
+  raw_input("")
   #print restaurant_dict
   CreateOutputFile(restaurant_dict)
 
@@ -30,9 +46,9 @@ def CreateOutputFile(restaurant_dict):
 def ParseRestaurantList(restaurant_list):
   restaurant_dict = {}
   for restaurant_string in restaurant_list:
-    restaurant_string = str(restaurant_string)
-    #print restaurant_string
-    #raw_input("")
+    restaurant_string = unicode(restaurant_string)
+    restaurant_string = unicodedata.normalize('NFKD',restaurant_string).encode('ascii', 'ignore')
+
     if(restaurant_string.find("<a href") != -1 and restaurant_string.find("Order online") == -1):
       #print restaurant_string
       #print restaurant_string.find("href")

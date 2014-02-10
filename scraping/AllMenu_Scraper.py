@@ -16,13 +16,7 @@ def get_menu_from_url(URL):
   return {}
 
 def main():
-  web_page = urllib2.urlopen(URL).read()
-  soup = BeautifulSoup(web_page)
-  menu = soup.find('div', attrs={'id': 'menu'})
-  print menu
-  #print menu
-  item_list = menu.findAll('li')
-  item_dict = ParseMenuList(item_list)
+  item_dict = get_menu_from_url(URL)
   ConvertToCSV(item_dict)
 
 def ConvertToCSV(item_dict):

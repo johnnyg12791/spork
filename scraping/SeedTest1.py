@@ -1,5 +1,6 @@
 from AllMenu_GetRestaurants import *
 from AllMenu_Scraper import *
+import time
 
 '''
 This is a seed.rb test
@@ -31,18 +32,22 @@ def format_arrays():
   restaurant_dict = get_restaurant_dict()
   #start with 2
   restaurant_id = 2
-  for name, url in restaurant_dict.items():
-    print name
+  for name, url_address in restaurant_dict.items():
     restaurant_array = []
     #name, lat, long, desc, hours
     restaurant_array.append(name)    
     restaurant_array.append('0.0')#latitude
     restaurant_array.append('0.0')#longitude #Would we rather(also) have the actual address? probably...
+    restaurant_array.append(url_address[1])#Address
     restaurant_array.append('Good Food')#description #allmenus.com does not seem to have that?
     restaurant_array.append('1pm-10pm')#hours (gettable in string format)
-    
+    #Print
+    print restaurant_array
+    raw_input("")
+
     #Now I want to go get the URL and access the menu items
-    menu_items = get_menu_from_url(url)
+    menu_items = get_menu_from_url(url_address[0])
+    time.sleep(2.0)
     #print menu_items
     #raw_input("")
     items_in_restaurant = []

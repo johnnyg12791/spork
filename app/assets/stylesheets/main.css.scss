@@ -1,0 +1,38 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#home-hero-overlay {
+  background-image: url('hero.png');
+  background-size: cover;
+  background-position: 0% 28%;
+  height: 400px;
+  color: white;
+}
+#home-hero-overlay form {
+  text-align: center;
+}
+#main-search {
+ margin: 200px auto 0px auto;
+}
+#main-search input {
+  width: 250px;
+  font-size: 17px;
+  height: 40px;
+}
+#main-search span {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+#main-search > div, #main-search > span {
+  margin-right: 25px;
+}
+#main-search button {
+  height: 40px;
+  background-color: #C41E3A;
+}
+#showcase-item-rating {
+  text-align: right;
+  margin-right: 45px;
+  text-shadow: 0 0 2px #000000;
+}

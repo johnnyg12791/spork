@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140128051610) do
     t.string   "name"
     t.decimal  "latitude",    precision: 10, scale: 6
     t.decimal  "longitude",   precision: 10, scale: 6
+    t.string   "address"
     t.string   "description"
     t.datetime "hours"
     t.datetime "created_at"

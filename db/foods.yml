@@ -1,0 +1,35 @@
+-
+  dish_name: 'Panini'
+  restaurant_id: 1
+  price: '4.95'
+  description: 'Hot and Fresh'
+  size: 5
+  calories: 500
+  nutrition: 'Good'
+  presentation: 4)
+
+-
+  dish_name: 'Sandwhich'
+  restaurant_id: 1
+  price: '5.50'
+  description: 'Meat optional'
+  size: 4
+  calories: 400
+  nutrition: 'Bad'
+  presentation: 3)
+
+-
+  dish_name: 'Salad'
+  restaurant_id: 1
+  price: '6.95'
+  description: 'Lots of green'
+  size: 3
+  calories: 300
+  nutrition: 'Healthy'
+  presentation: 4)
+
+-
+  dish_name: 'John Food'
+  restaurant_id: 1
+  price: '4.00'
+  description: 'stuff'

@@ -1,13 +1,14 @@
 class CreateRatings < ActiveRecord::Migration
   def up
     create_table :ratings do |t|
-    t.column :user_id,  :integer
-    t.column :type, :integer
-    t.column :item_id,  :integer
-	  t.column :score,	:integer
-    t.column :comment, :string # CAN BE EMPTY IF JUST SCORE
-    t.column :date_time,  :datetime
-    t.timestamps
+      t.belongs_to :food
+      t.belongs_to :drink
+      t.belongs_to :user
+      t.column :type, :string
+  	  t.column :score,	:integer
+      t.column :comment, :string # CAN BE EMPTY IF JUST SCORE
+      t.column :date_time,  :datetime
+      t.timestamps
     end
   end
 

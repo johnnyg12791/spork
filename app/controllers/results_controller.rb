@@ -6,7 +6,7 @@ class ResultsController < ApplicationController
 		# @results = foods + drinks
 	end
 
-    def getRestaurants
+    def get_restaurants
  		#render :nothing => true
    	    lat = params[:lat]
  	    lon = params[:lon]

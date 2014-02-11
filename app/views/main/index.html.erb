@@ -27,30 +27,32 @@
   </div>
 </div>
 
-</script>
 
- <script type="text/javascript" src="/assets/getCurrentLocation.js"></script>
-
-<h2 id="currently-popular-heading">Currently Popular Near Palo Alto, CA</h2>
-
-<% for i in (1..2) %>
-<div class="row popular-items-row">
-  <% for i in (1..6) %>
-  <div class="col-md-2">
-    <div class="popular-item">
-      <%= image_tag("sushi.jpg") %>
-      <div>
-        <% for i in (1..4) %>
-        <span class="glyphicon glyphicon-star"></span>
-        <% end %>
-        <span class="popular-item-price">$5.95</span>
-      </div>
-      <div>Dragon Roll</div>
-      <div>
-        at <a href="">Sushi88</a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 id="currently-popular-heading">Currently Popular Near Palo Alto, CA</h2>
+    </div>
+  </div>
+  <% for i in (1..2) %>
+  <div class="row popular-items-row">
+    <% for i in (1..6) %>
+    <div class="col-md-2">
+      <div class="popular-item">
+        <%= image_tag("sushi.jpg") %>
+        <div>
+          <% for i in (1..4) %>
+          <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <span class="popular-item-price">$5.95</span>
+        </div>
+        <div>Dragon Roll</div>
+        <div>
+          at <a href="">Sushi88</a>
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
   <% end %>
 </div>
-<% end %>

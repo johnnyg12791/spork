@@ -32,3 +32,6 @@ body {
   background-color: #8B0000;
   color: #ffffff;
 }
+#login-modal {
+  text-align: center;
+}

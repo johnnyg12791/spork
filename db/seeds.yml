@@ -3,6 +3,7 @@ restaurants:
     name: 'CoHo'
     latitude: 37.4238362
     longitude: -122.170774
+    address: "1233 Fake St. Stanford, CA"
     description: "The Coffee House, yum"
     hours: "7am - Midnight"
   - 

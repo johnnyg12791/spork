@@ -1462,7 +1462,7 @@
     description: Good Food
     hours: 1pm-10pm
   -
-    name: Ramona's Restaurant
+    name: "Ramona's Restaurant"
     latitude: 0.0
     longitude: 0.0
     address: 2313 Birch St, Palo Alto 94306

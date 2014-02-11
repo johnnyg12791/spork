@@ -1,4 +1,5 @@
 (function(window, document, undefined) {
+  var searched_loc = $('.temp_information').data('temp');
   console.log("in");
   var initialLocation;
   var sanFrancisco = new google.maps.LatLng(37.7756, -122.4193);
@@ -18,7 +19,12 @@
                 infowindow.close();
             });
     // Try W3C Geolocation (Preferred)
-    if(navigator.geolocation) {
+    if(searched_loc != null) {
+       initialLocation = searched_loc;
+       performGeocoding(initialLocation);
+       //map.setCenter(initialLocation);
+       //findRestaurants(initialLocation);
+    } else if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
         map.setCenter(initialLocation);
@@ -65,17 +71,37 @@
         findRestaurants(results[0].geometry.location);
       } else {
         alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-  }
+        if(navigator.geolocation) {
+          alert("Setting your current location instead")
+          navigator.geolocation.getCurrentPosition(function(position) {
+            initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+            map.setCenter(initialLocation);
+            findRestaurants(initialLocation);
+          });
+        } else {
+          alert("Since we cannot use your current location, setting San Francisco as default");
+          initialLocation = sanFrancisco;
+          map.setCenter(initialLocation);
+          findRestaurants(initialLocation);
+        }
+     }
+  });
+ }
 
 
   function findRestaurants(location) {
-    alert("in findRestaurants");
+   // alert("in findRestaurants");
        var marker = new google.maps.Marker({
             map: map,
-            position: location
+            position: location,
+            title: "Your Location"
         });
+        google.maps.event.addListener(marker, 'click', function() {
+                console.log("MARKER TIME");
+                console.log(marker);
+                infowindow.setContent(this.title);
+                infowindow.open(map, this);
+            });
         bounds.extend(marker.position);
         map.fitBounds(bounds);
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');

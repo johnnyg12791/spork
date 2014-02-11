@@ -2,17 +2,18 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIeZVzBMzDY_tx6DpJJXNQpO708P6KiM&sensor=false"></script>
 
 <div class="jumbotron" id="home-hero-overlay">
-  <form class="form-inline" role="form" id="main-search">
+  <form class="form-inline" role="form" id="main-search" action="/results/search" method="POST">
     <div class="form-group">
       <label class="sr-only" for="search-item">What are you looking for?</label>
       <input type="text" class="form-control" id="search-item" placeholder="e.g. pale ales, tacos, sushi">
     </div>
     <span>near</span>
     <div class="form-group">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
       <label class="sr-only" for="search-location">Where are you looking for it?</label>
-      <input type="text" class="form-control" id="search-location" placeholder="e.g. Palo Alto, CA">
+      <input type="text" class="form-control" id="search-location" name="searchbar" placeholder="e.g. Palo Alto, CA">
     </div>
-    <button type="submit" class="btn btn-default">
+    <button type="submit" class="btn btn-default" id="search-button">
       <span class="glyphicon glyphicon-search"></span>
     </button>
   </form>
@@ -23,6 +24,22 @@
     <div id>Seared Scallops at The French Laundry</div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+  function search(button) {
+    console.log(this);
+    console.log(button);
+    var searchbar = document.getElementById("search-location");
+    var address = searchbar.value;
+    $.post("/results/search", {location: address}, function(data) {
+      console.log(data);
+    });
+  }
+
+
+
+</script>
 
  <script type="text/javascript" src="/assets/getCurrentLocation.js"></script>
 

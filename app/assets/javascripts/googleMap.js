@@ -6,7 +6,9 @@
   var bounds = new google.maps.LatLngBounds();
   var infowindow = new google.maps.InfoWindow();
 
-  initialize();
+  var markersArray = [];
+
+  //initialize();
 
   function initialize() {
     var myOptions = {
@@ -46,6 +48,7 @@
   }
 
   $('#mapsearch').click(function() {
+    clearOverlays();
     console.log("searched");
     var str = $('#map-bar').serialize();
     //$.post("/results/search", str);
@@ -69,7 +72,8 @@
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');*/
         findRestaurants(results[0].geometry.location);
       } else {
-        alert("Geocode was not successful for the following reason: " + status);
+        alert("Your requested address could not be found!");
+        //alert("Geocode was not successful for the following reason: " + status);
         if(navigator.geolocation) {
           alert("Setting your current location instead")
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -87,14 +91,23 @@
   });
  }
 
+  function clearOverlays() {
+    bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < markersArray.length; i++ ) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length = 0;
+  }
+
 
   function findRestaurants(location) {
    // alert("in findRestaurants");
        var marker = new google.maps.Marker({
-            map: map,
+            //map: map,
             position: location,
             title: "Your Location"
         });
+        markersArray.push(marker);
         google.maps.event.addListener(marker, 'click', function() {
                 console.log("MARKER TIME");
                 console.log(marker);
@@ -103,6 +116,7 @@
             });
         bounds.extend(marker.position);
         map.fitBounds(bounds);
+        marker.setMap(map);
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
 
     var loc_data = {lat: location.d, lon: location.e};
@@ -121,14 +135,13 @@
             position: latlng,
             title:  place.name
           });
-
+          markersArray.push(marker);
          google.maps.event.addListener(marker, 'click', function() {
                 console.log("MARKER TIME");
                 console.log(marker);
                 infowindow.setContent(this.title);
                 infowindow.open(map, this);
             });
-
           bounds.extend(latlng);
           map.fitBounds(bounds);
           marker.setMap(map);

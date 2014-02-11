@@ -4,14 +4,17 @@
   <title>Spork</title>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
-  <%= yield :javascript_includes %>
+  <%= javascript_include_tag "facebook_sdk.js" %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+  <%= yield :javascript_includes %> 
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div id="fb-root"></div>
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="application-header">
   <div class="container">
@@ -26,9 +29,20 @@
       </div>
     </form>
     <% end %>
-    <button type="button" class="btn btn-default navbar-btn" id="application-header-login">Login</button>
+    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal" id="application-header-login">Log in</button>
   </div>
 </nav>
+
+<div class="modal fade" id="login-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Log in with Facebook to rate dishes</h2>
+        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= yield %>
 

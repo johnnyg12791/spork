@@ -1,23 +1,16 @@
 
 You are visiting the profile of:
 <%= @user2.first_name + ' ' + @user2.last_name %>
-<br>
-The facebook id of this user is: <%= @user2.fb_id %>
-<br>
+
 <br>
 Here are <%= @user2.first_name %>'s reviews:
 
-<%= 
+<% for review in @review_display_info %>
+<div>
+  A <%= review[0] %> at <%= review[1] %>, for a score of: <%= review[2] %> =>"<%= review[3] %>"
+  <br>
+</div>
+<% end %>
 
-for review in @review_display_info
-  puts "hi"
-
-end
-  #puts info[0]
-  #puts info[1]
-  #puts info[2]
-
-
-%>
 
 

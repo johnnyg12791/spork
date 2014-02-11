@@ -1,4 +1,4 @@
-<div class="search-bar">
+<!-- <div class="search-bar">
   <div class="logo"></div>
   <div class="search-field input-group input-group-sm">
     <span class="input-group-addon">Search For</span>
@@ -14,14 +14,14 @@
       <span class="glyphicon glyphicon-search"></span>
     </button>
   </div>
-</div>
+</div> -->
 
 <div id="restaurant-page" class="container">
   <h1><%= @restaurant.name %></h1>
   <div class="stars"></div>
 
   <div class="hero">
-    <% image_tag(@banner_img_urls.first, alt: "Hero image of #{@restaurant.name}") %>
+    <%= image_tag("coho_banner.jpg", alt: "Hero image of #{@restaurant.name}") %>
   </div>
 
   <div class="row info">
@@ -29,13 +29,13 @@
       <h3>Hours</h3>
     </div>
     <div class="col-md-4">
-      <p>hrs</p>
+      <p><%= @restaurant.hours %></p>
     </div>
     <div class="col-md-2">
       <h3>Address</h3>
     </div>
     <div class="col-md-4">
-      <p>address</p>
+      <p><%= @restaurant.address %></p>
     </div>
   </div>
 
@@ -45,8 +45,8 @@
     </h1>
     <div class="row image-tile-row">
       <% for i in 1..4 %>
-        <div class="col-md-3">
-          <%= image_tag("test.jpg", :alt => "test") %>
+        <div class="col-md-2">
+          <%= render "shared/item_square" %>
         </div>
       <% end %>
     </div>
@@ -55,16 +55,18 @@
   <div class="reviews">
     <h1>Reviews (<%= @num_reviews %>)</h1>
 
-    <div class="review">
-      <div class="col-md-1">
-        <%= image_tag("test.jpg", :alt => "test", height: "100px", width: "100px") %>
+    <% for review in @ratings %>
+      <div class="review">
+        <div class="col-md-1">
+          <%= image_tag("test.jpg", :alt => "test", height: "100px", width: "100px") %>
+        </div>
+        <div class="col-md-11">
+          <h2><%= review.ratable.dish_name %></h2>
+          <h4><%= review.score %> Stars</h4>
+          <p><%= review.comment %></p>
+        </div>
       </div>
-      <div class="col-md-11">
-        <h2>Review for Item</h2>
-        <h4>****</h4>
-        <p>Review body text</p>
-      </div>
-    </div>
+    <% end %>
   </div>
 
 </div>

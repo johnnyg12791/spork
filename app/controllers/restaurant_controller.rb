@@ -1,10 +1,18 @@
 class RestaurantController < ApplicationController
   def show
-    @restaurant = Restaurant.first
-    @banner_img_urls = @restaurant.pictures.where(type: "banner")
+    @restaurant = Restaurant.find_by_id(params[:id])
+    @restaurant_images = @restaurant.pictures
+    @hero_image = @restaurant_images.where(picture_type: "banner").first.file_name
+
+    @ratings = Rating.where(ratable_id: @restaurant.foods)
+    @num_reviews = @ratings.count
     
-    @num_reviews = 0;
     #todo return rating (avg of all ratings)
+
+    respond_to do |format|
+      format.json {render json: { restaurant: @restaurant, img: @hero_image }}
+      format.html {render layout: true }
+    end
     
   end
 end

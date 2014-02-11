@@ -81,85 +81,107 @@ users:
 
 ratings:
   -
-    food_id: 1
+    ratable_id: 1
+    ratable_type: "Food"
     user_id: 1
     score: 3
     comment: "tasty"
   -
-    food_id: 1
+    ratable_id: 1
+    ratable_type: "Food"
     user_id: 1
     score: 4
     comment: "delcious"
   -
-    food_id: 1
+    ratable_id: 1
+    ratable_type: "Food"
     user_id: 1
     score: 2
     comment: "not my favorite"
   -
-    food_id: 2
+    ratable_id: 2
+    ratable_type: "Food"
     user_id: 1
     score: 3
     comment: "tasty"
   -
-    food_id: 2
+    ratable_id: 2
+    ratable_type: "Food"
     user_id: 1
     score: 3
     comment: "yum yum"
   -
-    food_id: 3
+    ratable_id: 3
+    ratable_type: "Food"
     user_id: 1
     score: 3
     comment: "tasty"
   -
-    food_id: 3
+    ratable_id: 3
+    ratable_type: "Food"
     user_id: 1
     score: 4
     comment: "delcious"
   -
-    food_id: 3
+    ratable_id: 3
+    ratable_type: "Food"
     user_id: 1
     score: 1
     comment: "do not buy"
   -
-    food_id: 4
+    ratable_id: 4
+    ratable_type: "Food"
     user_id: 1
     score: 2
     comment: "tasty"
   -
-    food_id: 4
+    ratable_id: 4
+    ratable_type: "Food"
     user_id: 1
     score: 5
     comment: "yum yum"
   -
-    food_id: 5
+    ratable_id: 5
+    ratable_type: "Food"
     user_id: 1
     score: 3
     comment: "yum yum"
   -
-    food_id: 5
+    ratable_id: 5
+    ratable_type: "Food"
     user_id: 1
     score: 3
     comment: "tasty"
   -
-    food_id: 6
+    ratable_id: 6
+    ratable_type: "Food"
     user_id: 1
     score: 4
     comment: "delcious"
   -
-    food_id: 6
+    ratable_id: 6
+    ratable_type: "Food"
     user_id: 1
     score: 1
     comment: "do not buy"
   -
-    food_id: 7
+    ratable_id: 7
+    ratable_type: "Food"
     user_id: 1
     score: 2
     comment: "tasty"
   -
-    food_id: 7
+    ratable_id: 7
+    ratable_type: "Food"
     user_id: 1
     score: 5
     comment: "yum yum"
+  -
+    ratable_id: 1
+    ratable_type: "Food"
+    comment: "It's okay"
+    score: 3
+    user_id: 1
 
 
 pictures:
@@ -167,4 +189,4 @@ pictures:
     file_name: "coho_banner.jpg"
     picture_type: "banner"
     imageable_id: 1
-    imageable_type: restaurant
+    imageable_type: "Restaurant"

@@ -36,7 +36,16 @@ window.fbAsyncInit = function() {
       FB.login();
     }
   });
+
+  FB.Event.subscribe('auth.statusChange', function(response) {
+    if (response.status === 'connected') {
+      $('#app-login-button').css('display', 'none');
+      $('#app-logout-button').css('display', 'inline');
+    }
+  });
+
   };
+
 
   // Load the SDK asynchronously
   (function(d){

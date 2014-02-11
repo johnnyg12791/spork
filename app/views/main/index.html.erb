@@ -11,13 +11,13 @@
     </div>
     <span>near</span>
     <div class="form-group">
-      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
       <label class="sr-only" for="search-location">Where are you looking for it?</label>
       <input type="text" class="form-control" id="search-location" name="searchbar" placeholder="e.g. Palo Alto, CA">
     </div>
     <button type="submit" class="btn btn-default" id="search-button">
       <span class="glyphicon glyphicon-search"></span>
     </button>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   </form>
   <div id="showcase-item-rating">
     <% for i in (1..4) %>

@@ -29,7 +29,12 @@
       </div>
     </form>
     <% end %>
-    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal" id="application-header-login">Log in</button>
+    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal" id="app-login-button">
+      Log in
+    </button>
+    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#logout-modal" id="app-logout-button">
+      <img src='http://graph.facebook.com/danielnoe10/picture?height=10'>
+    </button>
   </div>
 </nav>
 
@@ -39,6 +44,17 @@
       <div class="modal-body">
         <h2>Log in with Facebook to rate dishes</h2>
         <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="logout-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+        <h2>This will also log you out of Facebook.</h2>
       </div>
     </div>
   </div>

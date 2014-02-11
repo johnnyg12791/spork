@@ -109,7 +109,7 @@
     var loc_data = {lat: location.d, lon: location.e};
   console.log(location);
     $.ajax({
-      url: "/results/getRestaurants",
+      url: "/results/get_restaurants",
       type: "POST",
       data: loc_data,
       success: function(data, textStatus, xhr) {

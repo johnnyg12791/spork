@@ -18,7 +18,7 @@ body {
   padding-top: 50px;
 }
 #application-header {
-  background-color: #BD0822;
+  background-color: #8B0000;
   border: none;
 }
 #application-header-brand {
@@ -29,6 +29,6 @@ body {
 }
 #application-header-login {
   float:right;
-  background-color: #BD0822;
+  background-color: #8B0000;
   color: #ffffff;
 }

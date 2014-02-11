@@ -1,10 +1,13 @@
 class ResultsController < ApplicationController
 	def search
-		@query = params[:query]
-		@foods = Food.filter(@query)
-		@drinks = Drink.filter(@query)
+		
+		#@query = params[:query]
+		#@foods = Food.filter(@query)
+		#@drinks = Drink.filter(@query)
 
 		@search_loc = params[:searchbar]
+		@item_search = params[:itemsearch]
+
 
 		# @results = foods + drinks
 	end

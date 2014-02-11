@@ -5,17 +5,29 @@ restaurants:
     longitude: -122.170774
     description: "The Coffee House, yum"
     hours: "7am - Midnight"
+  - 
+    name: 'Tree House'
+    latitude: 37.4248362
+    longitude: -122.170774
+    description: "Burritos and Burgers"
+    hours: "11am - 1am"
+  -
+    name: 'The Axe and Palm'
+    latitude: 37.4248362
+    longitude: -122.172774
+    description: "French fries, chicken fingers and other food on the farm"
+    hours: "1pm - 2am"
 
 foods:
   -
     dish_name: 'Panini'
     restaurant_id: 1
     price: '4.95'
-    description: 'Hot and Fresh'
+    description: 'Hot and Fresh, Swiss Cheese and Chicken'
     size: 5
     calories: 500
     nutrition: 'Good'
-    presentation: 4)
+    presentation: 4
 
   -
     dish_name: 'Sandwhich'
@@ -25,23 +37,129 @@ foods:
     size: 4
     calories: 400
     nutrition: 'Bad'
-    presentation: 3)
+    presentation: 3
 
   -
     dish_name: 'Salad'
     restaurant_id: 1
     price: '6.95'
-    description: 'Lots of green'
+    description: 'Lots of vegetables'
     size: 3
     calories: 300
     nutrition: 'Healthy'
-    presentation: 4)
+    presentation: 4
 
   -
-    dish_name: 'John Food'
-    restaurant_id: 1
-    price: '4.00'
-    description: 'stuff'
+    dish_name: 'Cheeseburger'
+    restaurant_id: 2
+    price: '5.00'
+    description: '1/4 lb Meat patty with swiss cheese and fries'
+
+  -
+    dish_name: 'Chicken Burrito'
+    restaurant_id: 2
+    price: '5.99'
+    description: 'Rice, Beans, Cheese and Chicken in a delicious tortilla'
+
+  -
+    dish_name: 'Chicken Fingers'
+    restaurant_id: 3
+    price: '5.99'
+    description: '6 Chicken Fingers and fries or a side salad'
+  -
+    dish_name: 'Hamburger'
+    restaurant_id: 3
+    price: '5.99'
+    description: '1/3 lb lean beef with fries or a side salad'
+
+users:
+  -
+    first_name: 'John'
+    last_name: 'Gold'
+    fb_id: 321
+    rating_score: 3
+
+ratings:
+  -
+    food_id: 1
+    user_id: 1
+    score: 3
+    comment: "tasty"
+  -
+    food_id: 1
+    user_id: 1
+    score: 4
+    comment: "delcious"
+  -
+    food_id: 1
+    user_id: 1
+    score: 2
+    comment: "not my favorite"
+  -
+    food_id: 2
+    user_id: 1
+    score: 3
+    comment: "tasty"
+  -
+    food_id: 2
+    user_id: 1
+    score: 3
+    comment: "yum yum"
+  -
+    food_id: 3
+    user_id: 1
+    score: 3
+    comment: "tasty"
+  -
+    food_id: 3
+    user_id: 1
+    score: 4
+    comment: "delcious"
+  -
+    food_id: 3
+    user_id: 1
+    score: 1
+    comment: "do not buy"
+  -
+    food_id: 4
+    user_id: 1
+    score: 2
+    comment: "tasty"
+  -
+    food_id: 4
+    user_id: 1
+    score: 5
+    comment: "yum yum"
+      -
+    food_id: 5
+    user_id: 1
+    score: 3
+    comment: "yum yum"
+  -
+    food_id: 5
+    user_id: 1
+    score: 3
+    comment: "tasty"
+  -
+    food_id: 6
+    user_id: 1
+    score: 4
+    comment: "delcious"
+  -
+    food_id: 6
+    user_id: 1
+    score: 1
+    comment: "do not buy"
+  -
+    food_id: 7
+    user_id: 1
+    score: 2
+    comment: "tasty"
+  -
+    food_id: 7
+    user_id: 1
+    score: 5
+    comment: "yum yum"
 
 
 pictures:

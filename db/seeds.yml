@@ -12,7 +12,7 @@ restaurants:
     description: "Burritos and Burgers"
     hours: "11am - 1am"
   -
-    name: 'The Axe and Palm'
+    name: 'Cheese and Palm'
     latitude: 37.4248362
     longitude: -122.172774
     description: "French fries, chicken fingers and other food on the farm"

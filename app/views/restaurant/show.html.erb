@@ -55,16 +55,18 @@
   <div class="reviews">
     <h1>Reviews (<%= @num_reviews %>)</h1>
 
-    <div class="review">
-      <div class="col-md-1">
-        <%= image_tag("test.jpg", :alt => "test", height: "100px", width: "100px") %>
+    <% for review in @ratings %>
+      <div class="review">
+        <div class="col-md-1">
+          <%= image_tag("test.jpg", :alt => "test", height: "100px", width: "100px") %>
+        </div>
+        <div class="col-md-11">
+          <h2><%= review.ratable.dish_name %></h2>
+          <h4><%= review.score %> Stars</h4>
+          <p><%= review.comment %></p>
+        </div>
       </div>
-      <div class="col-md-11">
-        <h2>Review for Item</h2>
-        <h4>****</h4>
-        <p>Review body text</p>
-      </div>
-    </div>
+    <% end %>
   </div>
 
 </div>

@@ -49,3 +49,17 @@ pictures:
     picture_type: "banner"
     imageable_id: 1
     imageable_type: "Restaurant"
+
+users:
+  -
+    first_name: "Wending"
+    last_name: "Lu"
+    rating_score: 3
+
+ratings:
+  -
+    ratable_id: 1
+    ratable_type: "Food"
+    comment: "It's okay"
+    score: 3
+    user_id: 1

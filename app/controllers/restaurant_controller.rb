@@ -4,8 +4,8 @@ class RestaurantController < ApplicationController
     @restaurant_images = @restaurant.pictures
     @hero_image = @restaurant_images.where(picture_type: "banner").first.file_name
 
-    @num_reviews = 0;
-    @ratings = @restaurant.foods.ratings
+    @ratings = Rating.where(ratable_id: @restaurant.foods)
+    @num_reviews = @ratings.count
     
     #todo return rating (avg of all ratings)
 

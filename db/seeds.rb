@@ -11,5 +11,7 @@ config = YAML::load_file(seed_file)
 Restaurant.create(config["restaurants"])
 Food.create(config["foods"])
 Picture.create(config["pictures"])
+User.create(config["users"])
+Rating.create(config["ratings"])
 
 #Formatted file located in seeds.yml

@@ -5,6 +5,8 @@ class RestaurantController < ApplicationController
     @hero_image = @restaurant_images.where(picture_type: "banner").first.file_name
 
     @num_reviews = 0;
+    @ratings = @restaurant.foods.ratings
+    
     #todo return rating (avg of all ratings)
 
     respond_to do |format|

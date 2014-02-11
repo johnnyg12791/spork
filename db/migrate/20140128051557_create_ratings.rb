@@ -1,13 +1,12 @@
 class CreateRatings < ActiveRecord::Migration
   def up
     create_table :ratings do |t|
-      t.belongs_to :food
-      t.belongs_to :drink
-      t.belongs_to :user
+      t.references :ratable, polymorphic: true
       t.column :type, :string
   	  t.column :score,	:integer
       t.column :comment, :string # CAN BE EMPTY IF JUST SCORE
       t.column :date_time,  :datetime
+      
       t.timestamps
     end
   end

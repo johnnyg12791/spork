@@ -3,6 +3,7 @@ restaurants:
     name: 'CoHo'
     latitude: 37.4238362
     longitude: -122.170774
+    address: "1233 Fake St. Stanford, CA"
     description: "The Coffee House, yum"
     hours: "7am - Midnight"
   - 
@@ -12,7 +13,7 @@ restaurants:
     description: "Burritos and Burgers"
     hours: "11am - 1am"
   -
-    name: 'The Axe and Palm'
+    name: 'Cheese and Palm'
     latitude: 37.4248362
     longitude: -122.172774
     description: "French fries, chicken fingers and other food on the farm"

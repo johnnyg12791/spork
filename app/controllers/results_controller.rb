@@ -7,10 +7,15 @@ class ResultsController < ApplicationController
 
 		@search_loc = params[:searchbar]
 		@item_search = params[:itemsearch]
-		if @item_search != nil
+		puts "ITEMMMMMMMM"
+		puts @item_search
+		puts @item_search
+		puts @item_search
+		if @item_search != nil && @item_search.length != 0
+			puts "INSIIIIDEEE"
 			@restaurants = Restaurant.select("id").where("lower(name) like ? OR lower(description) like ?", "%#{@item_search.downcase}%", "%#{@item_search.downcase}%")
 			@dishes = []
-			numRestaurants = restaurants.length
+			numRestaurants = @restaurants.length
 			if numRestaurants != 0
 				for i in 0..numRestaurants
 					@dishes.concat(Food.where("restaurant_id = ?", @restaurants[i].id))
@@ -23,7 +28,7 @@ class ResultsController < ApplicationController
 		# @results = foods + drinks
 	end
 
-    def getRestaurants
+    def get_restaurants
  		#render :nothing => true
    	    lat = params[:lat]
  	    lon = params[:lon]

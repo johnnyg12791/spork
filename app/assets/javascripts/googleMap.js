@@ -1,6 +1,5 @@
 (function(window, document, undefined) {
   var searched_loc = $('.temp_information').data('loc');
-  console.log("in");
   var initialLocation;
   var sanFrancisco = new google.maps.LatLng(37.7756, -122.4193);
   var geocoder = new google.maps.Geocoder();

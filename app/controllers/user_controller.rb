@@ -12,12 +12,12 @@ class UserController < ApplicationController
     @review_display_info = []
     reviews_array.each do |review|
       info = []
-      item = Food.find(review.food_id)
+      item = Food.find(review.ratable_id)
       restaurant = Restaurant.find(item.restaurant_id)
       restaurant_name = restaurant.name
       item_name = item.dish_name
       info.push(item_name)
-      info.push(restaurant_name)
+      info.push([restaurant_name, item.restaurant_id])
       info.push(review.score)
       info.push(review.comment)
       @review_display_info.push(info)

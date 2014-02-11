@@ -6,11 +6,25 @@
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  
+  <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="application-header">
+  <div class="container">
+    <a class="navbar-brand" href="#" id="application-header-brand">Spork</a>
+    <% if params[:controller] != 'main' && params[:action] != 'index' then %>
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </form>
+    <% end %>
+    <button type="button" class="btn btn-default navbar-btn" id="application-header-login">Login</button>
+  </div>
+</nav>
 
 <%= yield %>
 

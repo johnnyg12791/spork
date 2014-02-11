@@ -14,3 +14,21 @@
 /*html, body {
   min-height: 100%;
 }*/
+body {
+  padding-top: 50px;
+}
+#application-header {
+  background-color: #BD0822;
+  border: none;
+}
+#application-header-brand {
+  font-family: 'The Girl Next Door', cursive;  
+  font-size: 35px;
+  font-weight: bold;
+  color: #ffffff;
+}
+#application-header-login {
+  float:right;
+  background-color: #BD0822;
+  color: #ffffff;
+}

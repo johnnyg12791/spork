@@ -1,5 +1,6 @@
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIeZVzBMzDY_tx6DpJJXNQpO708P6KiM&sensor=false"></script>
+<script type="text/javascript" src="/assets/getCurrentLocation.js"></script>
 
 <div class="jumbotron" id="home-hero-overlay">
   <form class="form-inline" role="form" id="main-search" action="/results/search" method="POST">
@@ -24,20 +25,6 @@
     <div id>Seared Scallops at The French Laundry</div>
   </div>
 </div>
-
-
-<script type="text/javascript">
-  function search(button) {
-    console.log(this);
-    console.log(button);
-    var searchbar = document.getElementById("search-location");
-    var address = searchbar.value;
-    $.post("/results/search", {location: address}, function(data) {
-      console.log(data);
-    });
-  }
-
-
 
 </script>
 

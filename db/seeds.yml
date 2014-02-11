@@ -130,7 +130,7 @@ ratings:
     user_id: 1
     score: 5
     comment: "yum yum"
-      -
+  -
     food_id: 5
     user_id: 1
     score: 3

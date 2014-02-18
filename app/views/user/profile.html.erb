@@ -1,0 +1,17 @@
+
+You are visiting the profile of:
+<%= @user2.first_name + ' ' + @user2.last_name %>
+
+<br>
+Here are <%= @user2.first_name %>'s reviews:
+
+<% for review in @review_display_info %>
+<div>
+  A <%= review[0] %> at <a href="../../restaurant/show/<%= review[1][1] %>" >
+  <%= review[1][0] %> </a>, for a score of: <%= review[2] %> =>"<%= review[3] %>"
+  <br>
+</div>
+<% end %>
+
+
+

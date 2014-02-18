@@ -18,7 +18,7 @@ body {
   padding-top: 50px;
 }
 #application-header {
-  background-color: #BD0822;
+  background-color: #8B0000;
   border: none;
 }
 #application-header-brand {
@@ -27,8 +27,14 @@ body {
   font-weight: bold;
   color: #ffffff;
 }
-#application-header-login {
+#app-login-button, #app-logout-button {
   float:right;
-  background-color: #BD0822;
+  background-color: #8B0000;
   color: #ffffff;
+}
+#app-logout-button {
+  display: none;
+}
+#login-modal, #logout-modal {
+  text-align: center;
 }

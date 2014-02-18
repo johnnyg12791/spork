@@ -1,3 +1,6 @@
+<%= content_tag :div, class: "temp_information", data: {loc: @search_loc, item: @item_search } do %>
+<% end %>
+
 <div class="map-search">
 <form id="map-bar">
   Location: <input name="location">
@@ -11,25 +14,4 @@
 
  <script type="text/javascript" src="/assets/googleMap.js"></script>
 
-
-
-
-
-<div class="search">
-    <h3>RESULTS</h3>
-    <p>
-    The best <%= @query %> in town is:
-    </p>
-    <table class="results" cellspacing="0">
-      <% for option in @foods do %>
-        <tr class="foods">
-          <td><%= option %></td>
-        </tr>
-      <% end %>
-      <% for option in @drinks do %>
-        <tr class="drinks">
-          <td><%= option %></td>
-        </tr>
-      <% end %>
-    </table>
-</div>
+<p><%= @dishes %></p>

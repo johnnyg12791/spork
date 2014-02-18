@@ -32,7 +32,7 @@ def output_restaurant_yml(restaurants, file):
   with open(file, 'w') as fout:
     for restaurant in restaurants:
       fout.write('  -' + '\n')
-      fout.write('    name: ' + '\'' + restaurant[0] + '\'' + '\n')
+      fout.write('    name: ' + '\"' + restaurant[0] + '\"' + '\n')
       fout.write('    latitude: ' + restaurant[1] + '\n')
       fout.write('    longitude: ' + restaurant[2] + '\n')
       fout.write('    address: '+ '\''  + restaurant[3] + '\'' + '\n')
@@ -46,10 +46,10 @@ def output_foods_yml(foods, file):
     for restaurant_menu in foods:
       for menu_item in restaurant_menu:
         fout.write('  -' + '\n')
-        fout.write('    dish_name: '+ '\''  + menu_item[0] + '\'' + '\n')
+        fout.write('    dish_name: '+ '\"'  + menu_item[0] + '\"' + '\n')
         fout.write('    restaurant_id: ' + str(menu_item[1]) + '\n')
         fout.write('    price: '+ '\''  + menu_item[2] + '\'' + '\n')
-        fout.write('    description: '+ '\''  + menu_item[3] + '\'' + '\n')
+        fout.write('    description: '+ '\"'  + menu_item[3] + '\"' + '\n')
         #fout.write('    size: ' + menu_item[0] + '\n')
         #fout.write('    dish_name: ' + menu_item[0] + '\n')
 

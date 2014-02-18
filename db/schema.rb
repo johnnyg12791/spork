@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20140128051610) do
   end
 
   create_table "ratings", force: true do |t|
-    t.integer  "food_id"
-    t.integer  "drink_id"
+    t.integer  "ratable_id"
+    t.string   "ratable_type"
     t.integer  "user_id"
     t.string   "type"
     t.integer  "score"

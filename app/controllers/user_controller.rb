@@ -3,18 +3,27 @@ class UserController < ApplicationController
 
   end
 
-  def main_page
-  	data = params[:first_name]#user_data]
-  	users = User.where("fb_id = ?", params[:userID])
-  	if(users.length == 0)
-  		@user = User.new(:first_name => params[:first_name], :last_name => params[:last_name], :fb_id => params[:userID])
-  		@user.save(:validate => false)
-  	else
-  		@user = users
-  	end
-#  	render :nothing => true
-  	#redirect_to(:controller => 'user', :action => 'mainPage') #+ String(@user.id))
-  end
+  def profile
+    curr_user = params[:id]
+    #@user2 = User.where("id = ?", params[:id])
+    @user2 = User.find_by id: curr_user
+    reviews_array = Rating.where("user_id = ?", curr_user)
+    #want to get name of restuarant, item_name
+    @review_display_info = []
+    reviews_array.each do |review|
+      info = []
+      item = Food.find(review.ratable_id)
+      restaurant = Restaurant.find(item.restaurant_id)
+      restaurant_name = restaurant.name
+      item_name = item.dish_name
+      info.push(item_name)
+      info.push([restaurant_name, item.restaurant_id])
+      info.push(review.score)
+      info.push(review.comment)
+      @review_display_info.push(info)
 
+    end
+
+  end
 
 end

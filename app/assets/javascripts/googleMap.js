@@ -1,12 +1,14 @@
 (function(window, document, undefined) {
-  console.log("in");
+  var searched_loc = $('.temp_information').data('loc');
   var initialLocation;
   var sanFrancisco = new google.maps.LatLng(37.7756, -122.4193);
   var geocoder = new google.maps.Geocoder();
   var bounds = new google.maps.LatLngBounds();
   var infowindow = new google.maps.InfoWindow();
 
-  initialize();
+  var markersArray = [];
+
+  //initialize();
 
   function initialize() {
     var myOptions = {
@@ -18,7 +20,12 @@
                 infowindow.close();
             });
     // Try W3C Geolocation (Preferred)
-    if(navigator.geolocation) {
+    if(searched_loc != null) {
+       initialLocation = searched_loc;
+       performGeocoding(initialLocation);
+       //map.setCenter(initialLocation);
+       //findRestaurants(initialLocation);
+    } else if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
         map.setCenter(initialLocation);
@@ -41,6 +48,7 @@
   }
 
   $('#mapsearch').click(function() {
+    clearOverlays();
     console.log("searched");
     var str = $('#map-bar').serialize();
     //$.post("/results/search", str);
@@ -64,26 +72,57 @@
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');*/
         findRestaurants(results[0].geometry.location);
       } else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
+        alert("Your requested address could not be found!");
+        //alert("Geocode was not successful for the following reason: " + status);
+        if(navigator.geolocation) {
+          alert("Setting your current location instead")
+          navigator.geolocation.getCurrentPosition(function(position) {
+            initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+            map.setCenter(initialLocation);
+            findRestaurants(initialLocation);
+          });
+        } else {
+          alert("Since we cannot use your current location, setting San Francisco as default");
+          initialLocation = sanFrancisco;
+          map.setCenter(initialLocation);
+          findRestaurants(initialLocation);
+        }
+     }
+  });
+ }
+
+  function clearOverlays() {
+    bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < markersArray.length; i++ ) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length = 0;
   }
 
 
   function findRestaurants(location) {
-    alert("in findRestaurants");
+   // alert("in findRestaurants");
        var marker = new google.maps.Marker({
-            map: map,
-            position: location
+            //map: map,
+            position: location,
+            title: "Your Location"
         });
+        markersArray.push(marker);
+        google.maps.event.addListener(marker, 'click', function() {
+                console.log("MARKER TIME");
+                console.log(marker);
+                infowindow.setContent(this.title);
+                infowindow.open(map, this);
+            });
         bounds.extend(marker.position);
         map.fitBounds(bounds);
+        marker.setMap(map);
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
 
     var loc_data = {lat: location.d, lon: location.e};
   console.log(location);
     $.ajax({
-      url: "/results/getRestaurants",
+      url: "/results/get_restaurants",
       type: "POST",
       data: loc_data,
       success: function(data, textStatus, xhr) {
@@ -96,14 +135,13 @@
             position: latlng,
             title:  place.name
           });
-
+          markersArray.push(marker);
          google.maps.event.addListener(marker, 'click', function() {
                 console.log("MARKER TIME");
                 console.log(marker);
                 infowindow.setContent(this.title);
                 infowindow.open(map, this);
             });
-
           bounds.extend(latlng);
           map.fitBounds(bounds);
           marker.setMap(map);

@@ -18,7 +18,7 @@ foods:
     presentation: 4)
 
   -
-    dish_name: 'Sandwhich'
+    dish_name: 'Sandwich'
     restaurant_id: 1
     price: '5.50'
     description: 'Meat optional'

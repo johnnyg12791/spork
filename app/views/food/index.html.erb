@@ -1,0 +1,34 @@
+<% if @food == 0 %>
+  <p id="error">Sorry, the food you clicked on is not in our database.</p>
+<%else%>
+ <!--  <%if session["user_id"] == @user.id %> -->
+    <p class = "button"><%= button_to "Review Item", :controller => "ratings", :action => "new" %></p>
+<!--   <% end %> -->
+  <p id="header">Pictures of <%=@food.dish_name%>:</p>
+    <table>
+    <% for picture in @pictures do %>
+    <tr>
+      <td>
+        <div class="picture">
+          <p><img src="/images/<%=picture.file_name%>"></p>
+          <p class = "button"><%= button_to "Review Item", :controller => "ratings", :action => "new", :id => @food.id%></p>
+        </div>
+      </td>
+      <tr>
+      <p class = "rating">Rating: <%=@avg_rating%></p>
+      <div class = "comments">
+      <% ratings = picture.ratings%>
+      <%for rating in ratings do %>
+      <td>
+<!--           <p><%=link_to rating.user.first_name, :controller => "users", :action => "profile", :id =>user.user_id %> says:</p> -->
+          <p><%=rating.comment%></p>
+          <p><%=comment.date_time%></p>
+        </td>
+      <%end%>
+      </div>
+     </tr>
+    </tr>
+    <%end%>
+  </table>
+<%end%>
+  

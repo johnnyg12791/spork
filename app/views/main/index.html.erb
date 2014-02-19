@@ -1,9 +1,4 @@
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIeZVzBMzDY_tx6DpJJXNQpO708P6KiM&sensor=false" %>
-  <%= javascript_include_tag "getCurrentLocation.js" %>
-<% end %>
-
-<div class="jumbotron" id="home-hero-overlay">
+<div class="jumbotron" id="main-jumbotron">
   <form class="form-inline" role="form" id="main-search" action="/results/search" method="POST">
     <div class="form-group">
       <label class="sr-only" for="search-item">What are you looking for?</label>
@@ -11,6 +6,9 @@
     </div>
     <span>near</span>
     <div class="form-group">
+      <button type="button" class="btn btn-default" id="location-button">
+        <span class="glyphicon glyphicon-map-marker" ></span>
+      </button>
       <label class="sr-only" for="search-location">Where are you looking for it?</label>
       <input type="text" class="form-control" id="search-location" name="searchbar" placeholder="e.g. Palo Alto, CA">
     </div>
@@ -30,14 +28,14 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <h2 id="currently-popular-heading">Currently Popular Near Palo Alto, CA</h2>
     </div>
   </div>
 <% for i in (1..2) %>
   <div class="row popular-items-row">
     <% for i in (1..6) %>
-      <div class="col-md-2">
+      <div class="col-sm-2">
         <%= render "shared/item_square" %>
       </div>
     <% end %>

@@ -1,14 +1,14 @@
-// Place all the styles related to the home controller here.
+// Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#home-hero-overlay {
+#main-jumbotron {
   background-image: url('hero.png');
   background-size: cover;
   background-position: 0% 28%;
   height: 400px;
   color: white;
 }
-#home-hero-overlay form {
+#main-jumbotron form {
   text-align: center;
 }
 #main-search {
@@ -21,8 +21,9 @@
 }
 #main-search span {
   font-size: 20px;
-  color: white;
+  color: #ffffff;
   font-weight: bold;
+  text-shadow: 0 0 2px #000000;
 }
 #main-search > div, #main-search > span {
   margin-right: 25px;

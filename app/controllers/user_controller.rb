@@ -1,6 +1,24 @@
+require 'json'
+
 class UserController < ApplicationController
   def login
+    fb_user_data = params[:fb_user_data]
+    user = User.find_by_fb_id(fb_user_data[:id])
+    if(!user) then
+      user = User.new
+      user.first_name = fb_user_data[:first_name]
+      user.last_name = fb_user_data[:last_name]
+      user.fb_id = fb_user_data[:id]
+      user.rating_score = 0
+      user.save
+    end
+    session[:fb_id] = fb_user_data[:id]
+    render nothing: true
+  end
 
+  def logout
+    session.clear
+    render nothing: true
   end
 
   def profile
@@ -21,9 +39,7 @@ class UserController < ApplicationController
       info.push(review.score)
       info.push(review.comment)
       @review_display_info.push(info)
-
     end
-
   end
 
 end

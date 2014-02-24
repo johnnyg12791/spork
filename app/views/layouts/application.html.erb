@@ -6,7 +6,6 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIeZVzBMzDY_tx6DpJJXNQpO708P6KiM&sensor=false"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= yield :javascript_includes %> 
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -30,12 +29,15 @@
       </div>
     </form>
     <% end %>
+    <% if session[:fb_id] == nil then %>
     <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal" id="app-login-button">
-      Log in
+      Log In
     </button>
+    <% else %>
     <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#logout-modal" id="app-logout-button">
-      <img src='http://graph.facebook.com/danielnoe10/picture?height=10'>
+      <img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=10'>
     </button>
+    <% end %>
   </div>
 </nav>
 

@@ -20,10 +20,14 @@ class ResultsController < ApplicationController
 			end
 			@dishes = @dishes.concat(Food.where("lower(dish_name) like ? OR lower(description) like ?", "%#{@item_search.downcase}%", "%#{@item_search.downcase}%"))
 			@dishes = @dishes.uniq
-			puts @dishes
-			@dishes = @dishes.sort_by{|dish| Rating.average(:score, :conditions => {:ratable_id => dish.id}) }
+			@dishes = @dishes.sort_by{|dish| 
+				if((Rating.exists? :ratable_id => dish.id) == nil)
+					0
+				else 
+					Rating.average(:score, :conditions => {:ratable_id => dish.id}) 
+				end
+			}
 		end
-		# @results = foods + drinks
 	end
 
 

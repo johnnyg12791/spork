@@ -3,6 +3,7 @@
 <head>
   <title>Spork</title>
   <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <%= javascript_include_tag "jquery.cookie.js" %>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIeZVzBMzDY_tx6DpJJXNQpO708P6KiM&sensor=false"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -29,14 +30,23 @@
       </div>
     </form>
     <% end %>
-    <% if session[:fb_id] == nil then %>
-    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal" id="app-login-button">
-      Log In
-    </button>
-    <% else %>
-    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#logout-modal" id="app-logout-button">
-      <img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=10'>
-    </button>
+    <ul class="nav navbar-nav navbar-right">
+      <% if session[:fb_id] == nil then %>
+      <li><a href="#" data-toggle="modal" data-target="#login-modal">Log In</a></li>
+      <!--<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal" id="app-login-button">
+        Log In
+      </button>-->
+      <% else %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="user-dropdown-button">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Profile</a></li>
+          <li role="presentation"><a role="menuitem" tabidnex="-1" href="/user/logout">Log Out</a></li>
+        </ul>
+      </li>
+      <!--<button type="button" class="btn btn-default navbar-btn dropdown-toggle sr-only" data-toggle="dropdown" id="user-dropdown-button">
+        <img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=10'>
+      </button>-->
     <% end %>
   </div>
 </nav>
@@ -46,22 +56,13 @@
     <div class="modal-content">
       <div class="modal-body">
         <h2>Log in with Facebook to rate dishes</h2>
-        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="false"></div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="logout-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
-        <h2>This will also log you out of Facebook.</h2>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <%= yield %>
 

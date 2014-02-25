@@ -27,11 +27,11 @@ body {
   font-weight: bold;
   color: #ffffff;
 }
-#app-login-button, #app-logout-button {
+#app-login-button, #user-downdown-button {
   float:right;
   background-color: #8B0000;
   color: #ffffff;
 }
-#login-modal, #logout-modal {
+#login-modal {
   text-align: center;
 }

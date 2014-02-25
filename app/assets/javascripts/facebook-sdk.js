@@ -6,32 +6,41 @@ window.fbAsyncInit = function() {
     xfbml      : true
   });
 
-  FB.Event.subscribe('auth.login', function(response) {
-    console.log('login');
-    FB.api(
-      "/me",
-      function (response) {
-        if (response && !response.error) {
-          $.ajax({
-            type: "POST",
-            url: "/user/login",
-            async: false,
-            data: { fb_user_data: response }
-          });
-          $('#login-modal').modal('hide');
-        }
+  FB.Event.subscribe('auth.statusChange', function(response) {
+    if (response.status === 'connected') {
+      console.log('login');
+      if (!$.cookie('login_status') || $.cookie('login_status') != 'connected') {
+        FB.api(
+          "/me",
+          function (response) {
+            if (response && !response.error) {
+              $.ajax({
+                type: "POST",
+                url: "/user/login",
+                async: false,
+                data: { fb_user_data: response }
+              });
+              $('#login-modal').modal('hide');
+              $.cookie('login_status', 'connected');
+              location.reload(true);
+            }
+          }
+        );
       }
-    );
-  });
-
-  FB.Event.subscribe('auth.logout', function(response) {
-    console.log('logout');
-    $.ajax({
-    type: "GET",
-    url: "/user/logout",
-    async: false
-    });
-    $('#logout-modal').modal('hide');
+    }
+    else if (response.status === 'unknown') {
+      console.log('logout');
+      if ($.cookie('login_status') != 'unknown') {
+        $.ajax({
+          type: "GET",
+          url: "/user/logout",
+          async: false
+        });
+        $('#logout-modal').modal('hide');
+        $.cookie('login_status', 'unknown');
+        location.reload(true);
+      }
+    }
   });
 
 };

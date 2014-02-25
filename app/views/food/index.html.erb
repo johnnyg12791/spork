@@ -1,0 +1,23 @@
+<% if @food == 0 %>
+  <p id="error">Sorry, the food you clicked on is not in our database.</p>
+<%else%>
+  <%if @pictures%>
+  <p id="header">Pictures of <%=@food.dish_name%>:</p>
+    <table>
+    <% for picture in @pictures do %>
+    <tr>
+      <td>
+        <div class="picture">
+          <p><img src="/images/<%=picture.file_name%>"></p>
+        </div>
+      </td>
+      <tr>
+        <div class = "rating"> Rating goes here </div>
+     </tr>
+    </tr>
+    <%end%>
+    <table>
+  <%end%>
+  <p>Food id: <%=@food.id%></p> 
+  <p class = "button"><%= button_to "Review Item", :controller => "rating", :action => "new", :id => @food.id%></p>
+<%end%>

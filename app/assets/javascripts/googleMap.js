@@ -99,6 +99,29 @@
     markersArray.length = 0;
   }
 
+/*
+  function getPics(rest_id) {
+     rest_data = {id: rest_id}
+     $.ajax({
+      url: "/results/get_pictures",
+      type: "POST",
+      data: rest_data,
+      success: function(data, textStatus, xhr) {
+        console.log("success");
+        return data;
+      }
+    }).done(function(data) {
+      console.log(data); 
+    })
+    .fail(function() {
+      console.log("error")
+    })
+    .always(function() { 
+      console.log("complete"); 
+      //$(location).attr('href', '/user/main_page')
+    })
+    console.log("ajax");
+  }*/
 
   function findRestaurants(location) {
    // alert("in findRestaurants");
@@ -109,8 +132,6 @@
         });
         markersArray.push(marker);
         google.maps.event.addListener(marker, 'click', function() {
-                console.log("MARKER TIME");
-                console.log(marker);
                 infowindow.setContent(this.title);
                 infowindow.open(map, this);
             });
@@ -120,32 +141,41 @@
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
 
     var loc_data = {lat: location.d, lon: location.e};
-  console.log(location);
     $.ajax({
       url: "/results/get_restaurants",
       type: "POST",
       data: loc_data,
       success: function(data, textStatus, xhr) {
-        console.log(map);
         console.log(data);
         for(var i = 0; i < data.length; i++) {
-          var place = data[i];
+          var place = data[i].restaurant;
+          var pictures = data[i].pictures;
           var latlng = new google.maps.LatLng(place.latitude, place.longitude);
           var marker = new google.maps.Marker({
             position: latlng,
-            title:  place.name
+            title:  place.name,
+            id: place.id,
+            description: place.description,
+            pictures: pictures
           });
           markersArray.push(marker);
-         google.maps.event.addListener(marker, 'click', function() {
-                console.log("MARKER TIME");
-                console.log(marker);
-                infowindow.setContent(this.title);
+          google.maps.event.addListener(marker, 'click', function() {
+                var contentString = "<a href='/restaurant/show/" + this.id + "'>" + this.title + "</a></br> " + this.description;
+                if(this.pictures) {
+                  contentString = contentString + "</br>";
+                  var numPics = this.pictures.length;
+                  var numPicsToDisplay = (numPics < 3) ? numPics : 3;
+                  for(var i = 0; i < numPicsToDisplay; i++) {
+                    contentString = contentString + "<img src='/assets/" + this.pictures[i].file_name + "' width='40' height='40'>";
+                  }
+                }
+                console.log(contentString);
+                infowindow.setContent(contentString);//this.title);
                 infowindow.open(map, this);
             });
           bounds.extend(latlng);
           map.fitBounds(bounds);
           marker.setMap(map);
-          console.log(marker);
         }
       }
     }).done(function(data) {

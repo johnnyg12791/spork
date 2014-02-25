@@ -2,16 +2,22 @@ import urllib2
 from bs4 import BeautifulSoup
 import csv
 
-URL = ("http://sanfrancisco.menupages.com/restaurants/amicis-east-coast-pizzeria/menu")
+TEST_URL = ("http://sanfrancisco.menupages.com/restaurants/amicis-east-coast-pizzeria/menu")
 
-def main():
+def get_menu_from_url(URL):
   web_page = urllib2.urlopen(URL).read()
   soup = BeautifulSoup(web_page)
   menu = soup.find('div', attrs={'id': 'restaurant-menu'})
-  #print menu
-  item_list = menu.findAll('tr')
-  item_dict = ParseMenuList(item_list)
-  ConvertToCSV(item_dict)
+  if(menu != None):
+    item_list = menu.findAll('tr')
+    item_dict = ParseMenuList(item_list)
+    return item_dict
+  return {}
+
+
+def main():
+  item_dict = get_menu_from_url(TEST_URL)
+  print item_dict
 
 def ConvertToCSV(item_dict):
   with open('output3.csv', 'w') as fout:

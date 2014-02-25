@@ -24,7 +24,7 @@ class UserController < ApplicationController
   def profile
     curr_user = params[:id]
     #@user2 = User.where("id = ?", params[:id])
-    @user2 = User.find_by id: curr_user
+    @user = User.find_by id: curr_user
     reviews_array = Rating.where("user_id = ?", curr_user)
     #want to get name of restuarant, item_name
     @review_display_info = []
@@ -40,6 +40,34 @@ class UserController < ApplicationController
       info.push(review.comment)
       @review_display_info.push(info)
     end
-  end
 
-end
+
+    def update
+      @user = User.find(params[:id])
+      @user.first_name = params[:user][:first_name]
+      @user.last_name = params[:user][:last_name]
+      if @user.save then
+        redirect_to(:action => :profile)
+      else
+        render(:action => :edit)
+      end
+    end #end of update
+
+
+    def create
+      @var1 = "var1"
+    end
+
+
+    def new
+      @user = User.new(params[:user])
+      if @user.save then
+        redirect_to(:action => :show)
+      else
+        render(:action => :edit)
+      end
+    end #end of new
+
+  end #end of class
+
+end #end of file

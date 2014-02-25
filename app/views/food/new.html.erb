@@ -1,0 +1,10 @@
+<%= form_for @food, :url => {:controller => "food", :action => "create", :validate => false} do |form| %>
+    <table class="form">
+		<tr>
+			<td class="label">Choose photo to upload:</td>
+			<td><%= form.file_field :upload %></td> 
+		</tr>
+	</table>
+	<%= form.submit("Upload") %>
+<% end %>
+

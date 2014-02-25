@@ -1,18 +1,18 @@
 <% if flash[:notice] %>
 	<div><%= flash[:notice] %></div> 
 <% end %>
-
+<p>Food ID: <%=@food.id%></p>
+<p> <%=@rating%></p>
 <% if @food == 0 %>
 	<p id="error">Sorry, the food you clicked is not in our database.</p>
 <%else%>
+	<% if @photos %>
 	<div class="photos">
 	<%for photo in @photos %>
       	<p><img src="/images/<%=photo.file_name%>"></p>
     <%end%>
   	</div>
-	<% if !session["user_id"].nil? %>
-	  <p>food: <%=@food.id%></p>
-  		<p>session: <%=session["user_id"]%></p>
+  	<%end%>
 	<%= form_for @rating, :url => {:controller => "rating", :action => "create", :id => @food.id, :validate => false} do |form| %>
 	    <table class="form">
 			<tr>
@@ -21,21 +21,19 @@
 			</tr>
 			<tr>
 				<td class="label">Score:</td>
-				<td><%= radio_button_tag(:score, "1") %></td>
 				<td><%= label_tag(:score_one, "one") %></td>
-				<td><%= radio_button_tag(:score, "2") %></td>
+				<td><%= radio_button_tag(:score, "1") %></td>
 				<td><%= label_tag(:score_two, "two") %></td>
-				<td><%= radio_button_tag(:score, "3") %></td>
+				<td><%= radio_button_tag(:score, "2") %></td>
 				<td><%= label_tag(:score_three, "three") %></td>
-				<td><%= radio_button_tag(:score, "4") %></td>
+				<td><%= radio_button_tag(:score, "3") %></td>
 				<td><%= label_tag(:score_four, "four") %></td>
-				<td><%= radio_button_tag(:score, "5") %></td>
+				<td><%= radio_button_tag(:score, "4") %></td>
 				<td><%= label_tag(:score_five, "five") %></td>
+				<td><%= radio_button_tag(:score, "5") %></td>
 			</tr>
 		</table>
 		<%= form.submit("Add Rating") %>
 	<% end %>
-	<%else%>
-		<p>Log in in order to rate food!</p>
-	<%end%>
+
 <%end%>

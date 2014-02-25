@@ -14,24 +14,29 @@ class RatingController < ApplicationController
 	end
 
 	def create
-		if session["user_id"].nil?
-			render(:action => :new, :id => params[:id])
-		else 
+		# if session["user_id"].nil?
+		# 	render(:action => :new, :id => params[:id])
+		# else 
+
+
+		@food = Food.find_by_id(params[:id])
 	  	@rating = Rating.new
 	  		@rating.ratable_id = params[:id]
-	  		# @rating.ratable_type =
-	  		@rating.user_id = session["user_id"]
-	  		# @rating.type =
+	  		@rating.ratable_type = "food"
+	  		# @rating.user_id = session["user_id"]
+	  		@rating.user_id = 1
+	  		@rating.type = "food1"
 	  		@rating.score = params[:rating][:score]
 	  		@rating.comment = params[:rating][:comment]
 		  	@rating.date_time = Time.now
-	   		if @rating.save()
-	   		flash[:notice] = "Rating successfully created!"
-	     	redirect_to(:controller => "foods", :action => "index", :id => @food.id) #go back to page with all pictures
+
+	   		if @rating.save
+		   		flash[:notice] = "Rating successfully created!"
+		     	redirect_to(:controller => "food", :action => "index", :id => @food.id) #go back to page with all pictures
 	   		else
 	    	 	render(:action => :new, :id => @food.id)
 	 	 end
-	 end
+	 # end
 	end
 end
 

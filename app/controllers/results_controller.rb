@@ -7,6 +7,8 @@ class ResultsController < ApplicationController
 
 		@search_loc = params[:searchbar]
 		@item_search = params[:itemsearch]
+		puts @search_loc
+		puts @item_search
 		if @item_search != nil && @item_search.length != 0
 			@restaurants = Restaurant.select("id").where("lower(name) like ? OR lower(description) like ?", "%#{@item_search.downcase}%", "%#{@item_search.downcase}%")
 			@dishes = []
@@ -18,6 +20,7 @@ class ResultsController < ApplicationController
 			end
 			@dishes = @dishes.concat(Food.where("lower(dish_name) like ? OR lower(description) like ?", "%#{@item_search.downcase}%", "%#{@item_search.downcase}%"))
 			@dishes = @dishes.uniq
+			puts @dishes
 			@dishes = @dishes.sort_by{|dish| Rating.average(:score, :conditions => {:ratable_id => dish.id}) }
 		end
 		# @results = foods + drinks
@@ -25,13 +28,29 @@ class ResultsController < ApplicationController
 
 
     def get_restaurants
- 		#render :nothing => true
    	    lat = params[:lat]
  	    lon = params[:lon]
- 	    #@restaurants = Restaurant.all()
- 	    @restaurants = Restaurant.where("(3959*acos(cos(radians(?))*cos(radians(latitude))*cos(radians(longitude)-radians(?)) + sin(radians(?))*sin(radians(latitude)))) < 50", lat, lon, lat)
- 	    #@restaurants = Restaurant.find(1)
- 	    render(:json => @restaurants)
-  	
+ 	    @restaurants = Restaurant.where("(3959*acos(cos(radians(?))*cos(radians(latitude))*cos(radians(longitude)-radians(?)) + sin(radians(?))*sin(radians(latitude)))) < 5", lat, lon, lat)
+ 	    @restaurants_with_pics = @restaurants.map do |rest| {:restaurant => rest, :pictures => rest.pictures} end
+ 
+
+ 	    render(:json => @restaurants_with_pics)
+
  	end
+
+ 	def get_pictures
+ 		restaurant_id = params[:id]
+ 		puts restaurant_id
+ 		puts restaurant_id
+ 		puts restaurant_id
+ 		@pictures = Restaurant.find(restaurant_id).pictures
+ 		render(:json => @pictures)
+ 	end
+
+
+
 end
+
+
+
+

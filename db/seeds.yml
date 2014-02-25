@@ -420,7 +420,7 @@ restaurants:
     hours: "1pm-10pm"
   -
     name: "Village Cheese House"
-    address: "855 El Camino Real #157, Palo Alto 94301"
+    address: "855 El Camino Real, Palo Alto 94301"
     description: "Good Food"
     hours: "1pm-10pm"
   -
@@ -760,7 +760,7 @@ restaurants:
     hours: "1pm-10pm"
   -
     name: "Howie's Artisan Pizza"
-    address: "855 West El Camino Real #60, Palo Alto 94301"
+    address: "855 West El Camino Real, Palo Alto 94301"
     description: "Good Food"
     hours: "1pm-10pm"
   -

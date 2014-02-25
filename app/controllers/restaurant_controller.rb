@@ -23,6 +23,13 @@ class RestaurantController < ApplicationController
       format.json {render json: { restaurant: @restaurant, img: @hero_image }}
       format.html {render layout: true }
     end
-    
   end
+
+
+  
+  def username_from_id(id)
+    @User = User.find_by_id(params[:id])
+  end
+
+  helper_method :username_from_id
 end

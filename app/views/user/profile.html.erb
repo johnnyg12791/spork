@@ -12,12 +12,3 @@ Here are <%= @user.first_name %>'s reviews:
   <br>
 </div>
 <% end %>
-
-<br><br>
-<%= form_for(@user, method: :post,
-    url: {action: :update, id: @user.id}) do |form| %>
-  <%= form.text_field(:first_name) %>
-  <%= form.text_field(:last_name) %>
-  <%= form.submit "Modify User" %>
-<% end %>
-

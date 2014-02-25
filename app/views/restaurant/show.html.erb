@@ -52,7 +52,11 @@
               <span class="glyphicon glyphicon-star-empty"></span>
             <% end %>
           </p>
-          <p><%= review.comment %></p>
+          <% user = username_from_id(review.user_id) %>
+          <% if user %>
+          <p>"<%= review.comment %>"
+            - <a href="/user/profile/<%= review.user_id %>"><%= "#{user.first_name} #{user.last_name}" %> </a></p>
+          <% end %>
         </div>
       </div>
     <% end %>

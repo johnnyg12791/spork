@@ -5,9 +5,11 @@
 <% if @food == 0 %>
 	<p id="error">Sorry, the food you clicked is not in our database.</p>
 <%else%>
-<!--  	<div class="photo">
-      	<p><img src="/images/<%=@photo.file_name%>"></p>
-  	</div> -->
+	<div class="photos">
+	<%for photo in @photos %>
+      	<p><img src="/images/<%=photo.file_name%>"></p>
+    <%end%>
+  	</div>
 	<% if !session["user_id"].nil? %>
 	  <p>food: <%=@food.id%></p>
   		<p>session: <%=session["user_id"]%></p>

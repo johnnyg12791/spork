@@ -5,9 +5,11 @@ class RatingController < ApplicationController
 		if (Food.find_by_id(food_id).nil?)
 			@rating = 0
 			@food = 0
+			@photos = 0
 		else
 			@rating = Rating.new
 			@food = Food.find_by_id(food_id)
+			@photos = @food.pictures
 		end
 	end
 
@@ -20,7 +22,7 @@ class RatingController < ApplicationController
 	  		# @rating.ratable_type =
 	  		@rating.user_id = session["user_id"]
 	  		# @rating.type =
-	  		@rating.score = params[:score]
+	  		@rating.score = params[:rating][:score]
 	  		@rating.comment = params[:rating][:comment]
 		  	@rating.date_time = Time.now
 	   		if @rating.save()

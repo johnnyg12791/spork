@@ -32,9 +32,6 @@ body {
   background-color: #8B0000;
   color: #ffffff;
 }
-#app-logout-button {
-  display: none;
-}
 #login-modal, #logout-modal {
   text-align: center;
 }

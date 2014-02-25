@@ -12,7 +12,9 @@ class UserController < ApplicationController
       user.rating_score = 0
       user.save
     end
-    session[:fb_id] = fb_user_data[:id]
+    session[:user_id] = user.id
+    session[:first_name] = user.first_name
+    session[:fb_id] = user.fb_id
     render nothing: true
   end
 

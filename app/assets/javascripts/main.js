@@ -34,7 +34,7 @@ function handleNoGeolocation(errorFlag) {
   }
 }
 
-window.onload=function() {
+$(document).ready(function() {
   getCurrLoc();
-  document.getElementById("location-button").onclick=getCurrLoc;
-}
+  $("#location-button").click(getCurrLoc);
+});

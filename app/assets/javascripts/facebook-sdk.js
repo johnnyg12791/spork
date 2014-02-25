@@ -1,46 +1,9 @@
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '206449699555270',
-    status     : true,
+    status     : false,
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true
-  });
-
-  FB.Event.subscribe('auth.statusChange', function(response) {
-    if (response.status === 'connected') {
-      console.log('login');
-      if (!$.cookie('login_status') || $.cookie('login_status') != 'connected') {
-        FB.api(
-          "/me",
-          function (response) {
-            if (response && !response.error) {
-              $.ajax({
-                type: "POST",
-                url: "/user/login",
-                async: false,
-                data: { fb_user_data: response }
-              });
-              $('#login-modal').modal('hide');
-              $.cookie('login_status', 'connected');
-              location.reload(true);
-            }
-          }
-        );
-      }
-    }
-    else if (response.status === 'unknown') {
-      console.log('logout');
-      if ($.cookie('login_status') != 'unknown') {
-        $.ajax({
-          type: "GET",
-          url: "/user/logout",
-          async: false
-        });
-        $('#logout-modal').modal('hide');
-        $.cookie('login_status', 'unknown');
-        location.reload(true);
-      }
-    }
   });
 
 };

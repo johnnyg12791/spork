@@ -1,4 +1,6 @@
 function getCurrLoc() {
+  $("#location-button-icon").hide();
+  $("#location-button-loading-gif").show();
   var geocoder = new google.maps.Geocoder();
   var pos;
   if(navigator.geolocation) {
@@ -17,6 +19,8 @@ function getCurrLoc() {
         else {
           console.log('Geocoder failed due to: ' + status);
         }
+        $("#location-button-icon").show();
+        $("#location-button-loading-gif").hide();
       });
     });
   } 
@@ -36,5 +40,8 @@ function handleNoGeolocation(errorFlag) {
 
 $(document).ready(function() {
   getCurrLoc();
-  $("#location-button").click(getCurrLoc);
+  $("#location-button").click(function() {
+    getCurrLoc();
+    
+  });
 });

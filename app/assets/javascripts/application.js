@@ -15,17 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
-  $('#fb-login-button').click(function() {
-    FB.login(function(response){
-      appLogin();
-    });
-  });
-  $('#app-logout-button').click(function() {
-    appLogout();
-  });
-});
-
 function appLogin() {
   FB.api(
     "/me",
@@ -52,3 +41,14 @@ function appLogout() {
   });
   location.reload(true);
 }
+
+$(document).ready(function() {
+  $('#fb-login-button').click(function() {
+    FB.login(function(response){
+      appLogin();
+    });
+  });
+  $('#app-logout-button').click(function() {
+    appLogout();
+  });
+});

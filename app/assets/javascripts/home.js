@@ -1,6 +1,5 @@
 function getCurrLoc() {
-  $("#location-button-icon").hide();
-  $("#location-button-loading-gif").show();
+  getCurrLocUI(true);
   var geocoder = new google.maps.Geocoder();
   var pos;
   if(navigator.geolocation) {
@@ -10,7 +9,8 @@ function getCurrLoc() {
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
             var searchbar = document.getElementById("search-location");
-            searchbar.value = results[1].formatted_address;
+            var formattedAddress = results[1].formatted_address;
+            searchbar.value = formattedAddress;
           }
           else {
             console.log('No results found');
@@ -19,8 +19,7 @@ function getCurrLoc() {
         else {
           console.log('Geocoder failed due to: ' + status);
         }
-        $("#location-button-icon").show();
-        $("#location-button-loading-gif").hide();
+        getCurrLocUI(false, formattedAddress);
       });
     });
   } 
@@ -38,10 +37,31 @@ function handleNoGeolocation(errorFlag) {
   }
 }
 
+function getCurrLocUI(on, location) {
+  if (on == true) {
+    $("#location-button-icon").hide();
+    $("#location-button-loading-gif").show();
+    $("#location-button").attr("title", "Getting current location");
+    $("#location-button").tooltip();
+    $("#popular-items-heading").html("Getting your location...");
+    $("#popular-items-progress-bar").show();
+    $("#popular-items").fadeTo("fast", 0.25);
+  }
+  if (on == false) {
+    $("#location-button-icon").show();
+    $("#location-button-loading-gif").hide();
+    $("#location-button").attr("title", "Get current location");
+    $("#location-button").tooltip();
+    $("#popular-items-heading").html("Currently popular near " + location + ":");
+    $("#popular-items-progress-bar").slideUp();
+    $("#popular-items").fadeTo("slow", 1.0);
+  }
+}
+
 $(document).ready(function() {
   getCurrLoc();
+
   $("#location-button").click(function() {
-    getCurrLoc();
-    
+    getCurrLoc();   
   });
 });

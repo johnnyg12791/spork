@@ -43,10 +43,10 @@
 
     <% for review in @ratings %>
       <div class="review">
-        <div class="col-md-1">
+        <div class="col-md-2 left">
           <%= image_tag("test.jpg", :alt => "test", height: "100px", width: "100px") %>
         </div>
-        <div class="col-md-11">
+        <div class="col-md-10 right">
           <h2><%= review.ratable.dish_name %></h2>
           <p>
             <% for star in 1..review.score %>

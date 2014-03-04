@@ -23,14 +23,6 @@ class FoodController < ApplicationController
 		end
 	end
 
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.string   "file_name"
-    t.string   "picture_type"
-    t.datetime "date_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-
 	def create
 		if session["user_id"].nil?
 			render(:action => :new)

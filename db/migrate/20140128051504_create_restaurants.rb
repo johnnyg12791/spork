@@ -6,7 +6,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.column :longitude, :decimal, {:precision=>10, :scale=>6}
       t.column :address, :string
       t.column :description,	:string
-      t.column :hours,		:datetime
+      t.column :hours,		:string
       t.timestamps
     end
   end

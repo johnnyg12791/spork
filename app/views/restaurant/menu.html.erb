@@ -1,0 +1,23 @@
+<div id="restaurant-menu" class="container">
+  <small>
+    <%= link_to "<< Back to #{@restaurant.name}", controller: "restaurant", action: "show", id: @restaurant.id %>
+  </small>
+  <h1><%= @restaurant.name %> Menu</h1>
+
+  <% for food in @foods %>
+    <div class="food">
+      <div class="row">
+        <div class="col-md-5">
+          <h4><%= link_to food.dish_name, controller: "food", action: "index", id: food.id %></h4>
+        </div>
+        <div class="col-md-3">
+          <h4>$<%= food.price %></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= food.description %>
+        </div>
+      </div>
+    </div>
+  <% end %>

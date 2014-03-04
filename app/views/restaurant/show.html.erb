@@ -30,8 +30,10 @@
       <small><%= link_to "Menu >>", {controller: "restaurant", action: "menu", id: @restaurant.id } %></small>
     </h1>
     <div class="row image-tile-row">
-      <% for i in 1..4 %>
+      <% numToDisplay = (@foods_by_rating.length < 4) ? @foods_by_rating.length : 4 %>
+      <% for i in 0..numToDisplay-1 %>
         <div class="col-md-2">
+          <%= @foods_by_rating[i].to_json %>
           <%= render "shared/item_square" %>
         </div>
       <% end %>

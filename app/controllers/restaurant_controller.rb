@@ -2,9 +2,7 @@ class RestaurantController < ApplicationController
   def show
     @restaurant = Restaurant.find_by_id(params[:id])
     if @restaurant.nil?
-      puts "cannot find"
-      #TODO: render an alternate, safe, cannot-find page
-      return
+      raise ActionController::RoutingError.new('No such restaurant')
     end
 
     begin
@@ -25,10 +23,11 @@ class RestaurantController < ApplicationController
     end
   end
 
-
-  
-  def username_from_id(id)
-    @User = User.find_by_id(params[:id])
+  def menu
+    @restaurant = Restaurant.find_by_id(params[:id])
+    if @restaurant.nil?
+      raise ActionController::RoutingError.new('No such restaurant')
+    end
   end
 
   helper_method :username_from_id

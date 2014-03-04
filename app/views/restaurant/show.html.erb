@@ -7,23 +7,27 @@
   </div>
 
   <div class="row info">
-    <div class="col-md-2">
-      <h3>Hours</h3>
-    </div>
-    <div class="col-md-4">
-      <h3><%= @restaurant.hours %></h3>
-    </div>
-    <div class="col-md-2">
-      <h3>Address</h3>
-    </div>
-    <div class="col-md-4">
-      <p><%= @restaurant.address %></p>
-    </div>
+    <% if @restaurant.hours %>
+      <div class="col-md-2">
+        <h3>Hours</h3>
+      </div>
+      <div class="col-md-4">
+        <h3><%= @restaurant.hours %></h3>
+      </div>
+    <% end %>
+    <% if @restaurant.address %>
+      <div class="col-md-2">
+        <h3>Address</h3>
+      </div>
+      <div class="col-md-4">
+        <p><%= @restaurant.address %></p>
+      </div>
+    <% end %>
   </div>
 
   <div class="top-rated">
     <h1>Top Rated
-      <small>link to menu>></small>
+      <small><%= link_to "Menu >>", {controller: "restaurant", action: "menu", id: @restaurant.id } %></small>
     </h1>
     <div class="row image-tile-row">
       <% for i in 1..4 %>
@@ -52,11 +56,13 @@
               <span class="glyphicon glyphicon-star-empty"></span>
             <% end %>
           </p>
-          <% user = username_from_id(review.user_id) %>
-          <% if user %>
-          <p>"<%= review.comment %>"
-            - <a href="/user/profile/<%= review.user_id %>"><%= "#{user.first_name} #{user.last_name}" %> </a></p>
+          <% if user = User.find_by_id(review.user_id) %>
+            <h3>
+              Review by <%= link_to "#{user.first_name} #{user.last_name}", 
+                {controller: "user", action: "profile", id: user.id } %>
+            </h3>
           <% end %>
+          <p>"<%= review.comment %>"</p>
         </div>
       </div>
     <% end %>

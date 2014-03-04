@@ -28,6 +28,13 @@ class RestaurantController < ApplicationController
     if @restaurant.nil?
       raise ActionController::RoutingError.new('No such restaurant')
     end
+
+    ## IF WE EVER IMPLEMENT CATEGORIES -> Hash by categories
+    # @foods = Food.where(restaurant_id: @restaurant.id).inject(Hash.new{|h, k| h[k] = []}) do |h, food| 
+    #   h[food.category] << food
+    # }
+
+    @foods = Food.where(restaurant_id: @restaurant.id)
   end
 
   helper_method :username_from_id

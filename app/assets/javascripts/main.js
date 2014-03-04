@@ -9,6 +9,11 @@ function getCurrLoc() {
           if (results[1]) {
             var searchbar = document.getElementById("search-location");
             searchbar.value = results[1].formatted_address;
+            var latBar = document.getElementById("lat-location");
+            var lngBar = document.getElementById("lng-location");
+            latBar.value = position.coords.latitude;
+            lngBar.value = position.coords.longitude;
+
           }
           else {
             console.log('No results found');

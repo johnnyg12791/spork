@@ -1,5 +1,18 @@
 (function(window, document, undefined) {
   var searched_loc = $('.temp_information').data('loc');
+
+  var searched_dishes = $('.temp_information').data('dishes');
+  var searched_restaurants = $('.temp_information').data('restaurants');
+
+  if(searched_dishes.length == 0) {
+    alert("Your search query yielded no restaurants nearby with that item");
+    alert("Broaden your distance, or try a new search query (searching for no items yields all restaurants nearby");
+  }
+  console.log(searched_dishes);
+  console.log(searched_restaurants);
+  //alert(searched_restaurants);
+  //alert(searched_dishes);
+
   var initialLocation;
   var sanFrancisco = new google.maps.LatLng(37.7756, -122.4193);
   var geocoder = new google.maps.Geocoder();
@@ -7,8 +20,6 @@
   var infowindow = new google.maps.InfoWindow();
 
   var markersArray = [];
-
-  //initialize();
 
   function initialize() {
     var myOptions = {
@@ -139,7 +150,39 @@
         map.fitBounds(bounds);
         marker.setMap(map);
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-
+        for(var i = 0; i < searched_restaurants.length; i++) {
+          var place = searched_restaurants[i].restaurant;
+          var pictures = searched_restaurants[i].pictures;
+          var latlng = new google.maps.LatLng(place.latitude, place.longitude);
+          var marker = new google.maps.Marker({
+            position: latlng,
+            title:  place.name,
+            id: place.id,
+            description: place.description,
+            pictures: pictures
+          });
+          markersArray.push(marker);
+          google.maps.event.addListener(marker, 'click', function() {
+                var contentString = "<a href='/restaurant/show/" + this.id + "'>" + this.title + "</a></br> " + this.description;
+                if(this.pictures) {
+                  contentString = contentString + "</br>";
+                  var numPics = this.pictures.length;
+                  var numPicsToDisplay = (numPics < 3) ? numPics : 3;
+                  for(var i = 0; i < numPicsToDisplay; i++) {
+                    contentString = contentString + "<img src='/assets/" + this.pictures[i].file_name + "' width='40' height='40'>";
+                  }
+                }
+                infowindow.setContent(contentString);//this.title);
+                infowindow.open(map, this);
+            });
+          bounds.extend(latlng);
+          map.fitBounds(bounds);
+          marker.setMap(map);
+      }
+  }
+        
+      
+/*
     var loc_data = {lat: location.d, lon: location.e};
     $.ajax({
       url: "/results/get_restaurants",
@@ -191,7 +234,7 @@
 
     console.log("ajax");
   }
-  
+  */
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

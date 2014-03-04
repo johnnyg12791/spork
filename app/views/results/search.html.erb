@@ -1,4 +1,4 @@
-<%= content_tag :div, class: "temp_information", data: {loc: @search_loc, item: @item_search } do %>
+<%= content_tag :div, class: "temp_information", data: {loc: @search_loc, item: @item_search, dishes: @dishes, restaurants: @restaurants, latitude: @lat, longitude: @lon} do %>
 <% end %>
  
 <div id="map-canvas" style="width:100%;height:380px;"></div>

@@ -1584,6 +1584,16 @@ foods:
     description: "so good"
 
 
+    dish_name: 'chicken parmesan'
+    restaurant_id: 27
+    price: '10.00'
+    description: 'best chicken parmesan with cheese'
+
+    dish_name: 'steak'
+    restaurant_id: 84
+    price: '10.00'
+    description: 'juicy'
+
 users:
   -
     first_name: 'John'
@@ -1595,7 +1605,7 @@ ratings:
   -
     ratable_id: 1
     ratable_type: "Food"
-    user_id: 1
+    user_id: 2
     score: 3
     comment: "tasty"
   -

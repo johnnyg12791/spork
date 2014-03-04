@@ -1,36 +1,39 @@
-// Place all the styles related to the main controller here.
+// Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#main-jumbotron {
+#home-jumbotron {
   background-image: url('hero.png');
   background-size: cover;
   background-position: 0% 28%;
   height: 400px;
   color: white;
 }
-#main-jumbotron form {
+#home-jumbotron form {
   text-align: center;
 }
-#main-search {
+#home-search {
  margin: 200px auto 0px auto;
 }
-#main-search input {
+#home-search input {
   width: 250px;
   font-size: 17px;
   height: 40px;
 }
-#main-search span {
+#home-search span {
   font-size: 20px;
   color: #ffffff;
   font-weight: bold;
   text-shadow: 0 0 2px #000000;
 }
-#main-search > div, #main-search > span {
+#home-search > div, #home-search > span {
   margin-right: 25px;
 }
-#main-search button {
+#home-search button {
   height: 40px;
   background-color: #8B0000;
+}
+#location-button-loading-gif {
+  display:none;
 }
 #showcase-item-rating {
   text-align: right;
@@ -39,8 +42,14 @@
   font-weight: bold;
   text-shadow: 0 0 2px #000000;
 }
-#currently-popular-heading {
+#popular-items-progress-bar {
+  margin: 0px auto;
+  width: 33%;
+}
+#popular-items-heading {
   margin-left: 15px;
+  text-align: center;
+  font-weight: bold;
 }
 .popular-items-row {
   margin: 0px 0px 25px 0px;

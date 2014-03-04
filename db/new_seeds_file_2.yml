@@ -1,3 +1,1540 @@
+restaurants:
+  - 
+    name: 'CoHo'
+    address: "Fake Street, Santa Clara, CA 95054, USA"
+    latitude: 37.3832599
+    longitude: -121.9838996
+    description: "The Coffee House, yum"
+    hours: "7am - Midnight"
+  - 
+    name: "Bay Cafe & Deli"
+    address: "1875 Embarcadero Road, Palo Alto, CA 94303, USA"
+    latitude: 37.4537357
+    longitude: -122.1159767
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Baskin-Robbins"
+    address: "1741 East Bayshore Road, Ravenswood Shopping Center, Palo Alto, CA 94303, USA"
+    latitude: 37.4615567
+    longitude: -122.1380419
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Mediteranean Wraps"
+    address: "425 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4261045
+    longitude: -122.1448127
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Three Brothers"
+    address: "1760 West Bayshore Road, East Palo Alto, CA 94303, USA"
+    latitude: 37.4568096
+    longitude: -122.1352631
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Como Estas Taqueria"
+    address: "2605 Middlefield Road, Palo Alto, CA 94306, USA"
+    latitude: 37.4344996
+    longitude: -122.1301095
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Oren's Hummus Shop"
+    address: "261 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.44571699999999
+    longitude: -122.162173
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Joy"
+    address: "339 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4464715
+    longitude: -122.1612308
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Babbo's Mediterranean Bistro"
+    address: "717 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.4427123
+    longitude: -122.1701965
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Jade Palace"
+    address: "151 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.428369
+    longitude: -122.142267
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Some Kind Of Place"
+    address: "85 Lower Town, Sampford Peverell, Tiverton, Devon EX16 7FA, UK"
+    latitude: 50.9204036
+    longitude: -3.3760307
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Jin Sho"
+    address: "454 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4258339
+    longitude: -122.1454355
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Bistro 412"
+    address: "412 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.445063
+    longitude: -122.163948
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Reposado Restaurant"
+    address: "236 Hamilton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4442417
+    longitude: -122.1609623
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Golden Wok"
+    address: "2107 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4270823
+    longitude: -122.1480743
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Haagen Dazs"
+    address: "203 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4448841
+    longitude: -122.1627973
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Fleming's Prime Steakhouse & Wine Bar"
+    address: "180 El Camino Real, Palo Alto, CA 94304, USA"
+    latitude: 37.4455791
+    longitude: -122.1708655
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Jack in the Box"
+    address: "3885 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.417424
+    longitude: -122.1305389
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Bon Vivant Cafe"
+    address: "535 Bryant Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4456
+    longitude: -122.160749
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Fish Market"
+    address: "3150 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.420812
+    longitude: -122.139086
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Taxi's Hamburgers"
+    address: "403 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4471848
+    longitude: -122.160372
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cafe Douce France"
+    address: "855 El Camino Real, Town & Country Village, Palo Alto, CA 94301, USA"
+    latitude: 37.4390065
+    longitude: -122.1589078
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Stanford Grill Restaurant"
+    address: "198 Junipero Serra Boulevard, Stanford University, Stanford, CA 94305, USA"
+    latitude: 37.4220009
+    longitude: -122.1832173
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Pizza A Go-Go"
+    address: "220 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.444848
+    longitude: -122.162266
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Vino Locale Wine Bar"
+    address: "431 Kipling Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4482881
+    longitude: -122.1603909
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "California Pizza Kitchen"
+    address: "136 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.4396599
+    longitude: -122.1738015
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Coconuts Caribbean Restaurant & Bar"
+    address: "642 Ramona Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4439307
+    longitude: -122.1601739
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Miyake"
+    address: "121 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.443838
+    longitude: -122.1637531
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "N.O.L.A."
+    address: "535 Ramona Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4450239
+    longitude: -122.161324
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Il Fornaio"
+    address: "520 Cowper Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4479038
+    longitude: -122.1588608
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Palo Alto Baking Company"
+    address: "381 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4267072
+    longitude: -122.1444915
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Westfresh"
+    address: "2237 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4260126
+    longitude: -122.1469183
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Gyros Gyros"
+    address: "498 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.448308
+    longitude: -122.1592192
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Ace of Sandwiches"
+    address: "3864 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4169872
+    longitude: -122.13131
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Togo's Eatery"
+    address: "1741 East Bayshore Road, Ravenswood Shopping Center, Palo Alto, CA 94303, USA"
+    latitude: 37.4615567
+    longitude: -122.1380419
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Satura Cakes"
+    address: "320 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4462167
+    longitude: -122.1612528
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Robaii"
+    address: "496 Hamilton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4472975
+    longitude: -122.1579639
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Patxi's Chicago Pizza"
+    address: "441 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.445147
+    longitude: -122.163068
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Sushi House"
+    address: "855 El Camino Real, Town & Country Village, Palo Alto, CA 94301, USA"
+    latitude: 37.4390065
+    longitude: -122.1589078
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Restaurant Soleil"
+    address: "675 El Camino Real, Palo Alto, CA 94301, USA"
+    latitude: 37.4404591
+    longitude: -122.1631322
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Spice Kit"
+    address: "340 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4270605
+    longitude: -122.1444233
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Mayfield Bakery and Cafe"
+    address: "855 El Camino Real, Town & Country Village, Palo Alto, CA 94301, USA"
+    latitude: 37.4390065
+    longitude: -122.1589078
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Pommard Catering, Deli & Pizza"
+    address: "3163 Middlefield Road, Palo Alto, CA 94306, USA"
+    latitude: 37.429604
+    longitude: -122.122747
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "St Michael's Alley"
+    address: "806 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4422564
+    longitude: -122.158951
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Elbe Restaurant"
+    address: "117 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4439565
+    longitude: -122.1638731
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Florentine"
+    address: "1057 Sand Hill Road, Palo Alto, CA 94304, USA"
+    latitude: 37.435321
+    longitude: -122.1809945
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Olive Garden Italian Restaurant"
+    address: "2515 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.424752
+    longitude: -122.144299
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Hattoriya"
+    address: "799 San Antonio Road, Palo Alto, CA 94303, USA"
+    latitude: 37.4203392
+    longitude: -122.1022398
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cafe Sprout"
+    address: "168 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.444218
+    longitude: -122.162836
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Lavanda"
+    address: "185 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.444726
+    longitude: -122.163156
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The HoneyBaked Ham Company"
+    address: "4113 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4144444
+    longitude: -122.1262613
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Peking Duck Restaurant"
+    address: "2310 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4252908
+    longitude: -122.1468323
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Starbucks Coffee"
+    address: "2000 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.427389
+    longitude: -122.1492176
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Kanpai"
+    address: "330 Lytton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.447024
+    longitude: -122.162179
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "China Delight"
+    address: "461 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4450868
+    longitude: -122.1633826
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Indochine"
+    address: "2710 Middlefield Road, Palo Alto, CA 94306, USA"
+    latitude: 37.433381
+    longitude: -122.1293252
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Andronico's Market"
+    address: "500 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.438797
+    longitude: -122.172292
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Quattro Restaurant and Bar"
+    address: "2050 University Avenue, East Palo Alto, CA 94303, USA"
+    latitude: 37.4603394
+    longitude: -122.1423824
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Bistro Maxine"
+    address: "548 Ramona Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4446367
+    longitude: -122.1613075
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Rangoon Ruby"
+    address: "445 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.44505120000001
+    longitude: -122.1631067
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "New York New York"
+    address: "125 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4440604
+    longitude: -122.1637784
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Madison & Fifth"
+    address: "367 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.44698
+    longitude: -122.160998
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Casa Isabel"
+    address: "2434 Park Boulevard, Palo Alto, CA 94306, USA"
+    latitude: 37.4280785
+    longitude: -122.142736
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Fresh Taste Chinese Cuisine"
+    address: "2111 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4269748
+    longitude: -122.1481827
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Kicks LLC"
+    address: "3824 La Selva Drive, Palo Alto, CA 94306, USA"
+    latitude: 37.4168624
+    longitude: -122.1320964
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Cheesecake Factory"
+    address: "375 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.447061
+    longitude: -122.160918
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Espresso Bar"
+    address: "550 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.43916100000001
+    longitude: -122.174049
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "La Parrilla Grill"
+    address: "2395 University Avenue, Palo Alto, CA 94303, USA"
+    latitude: 37.4714244
+    longitude: -122.1399373
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cafe Brioche"
+    address: "445 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.43427
+    longitude: -122.138639
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Playa Grill & Margarita Bar"
+    address: "244 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.4426773
+    longitude: -122.1704746
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Uzumaki Japanese Restaurant and Sushi Bar"
+    address: "451 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4257269
+    longitude: -122.1451629
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Driftwood Deli & Market"
+    address: "3450 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4191099
+    longitude: -122.1350935
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Gourmet Vegetarian Dinners by Peninsula Macrobioti"
+    address: "305 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4328919
+    longitude: -122.1400171
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Green Elephant Gourmet"
+    address: "3950 Middlefield Road, Charleston Shopping Center, Palo Alto, CA 94303, USA"
+    latitude: 37.4186435
+    longitude: -122.1091467
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Mango Caribbean Restaurant & Bar"
+    address: "435 Hamilton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4468587
+    longitude: -122.1586463
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Ver"
+    address: "530 Bryant Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4456491
+    longitude: -122.1612386
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Bangkok Cuisine"
+    address: "407 Lytton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4481509
+    longitude: -122.161638
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cafe Baklava"
+    address: "445 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.44505120000001
+    longitude: -122.1631067
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Old Pro"
+    address: "2865 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4227003
+    longitude: -122.1411597
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Straits Cafe"
+    address: "3295 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.420857
+    longitude: -122.136995
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Zibibbo"
+    address: "430 Kipling Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4480739
+    longitude: -122.1605297
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Village Cheese House"
+    address: "855 El Camino Real, Town & Country Village, Palo Alto, CA 94301, USA"
+    latitude: 37.4390065
+    longitude: -122.1589078
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Zara Fine Turkish Cuisine"
+    address: "260 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4277397
+    longitude: -122.1438448
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Hobee's"
+    address: "El Camino Real, Palo Alto, CA 94301, USA"
+    latitude: 37.4373823
+    longitude: -122.1600561
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "R & B Seafood"
+    address: "2209 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4263577
+    longitude: -122.1472223
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Schaub's Meat Fish & Poultry"
+    address: "395 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.4396599
+    longitude: -122.1738015
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Caffe Riace Ristorante Italian"
+    address: "200 Sheridan Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.426749
+    longitude: -122.140729
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Tamarine"
+    address: "546 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4488277
+    longitude: -122.1583446
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Prolific Oven"
+    address: "550 Waverley Street, Palo Alto, CA 94301, USA"
+    latitude: 37.446449
+    longitude: -122.159911
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Max's Opera Cafe Palo Alto"
+    address: "711 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.44268539999999
+    longitude: -122.1702273
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Lulu's"
+    address: "855 El Camino Real, Town & Country Village, Palo Alto, CA 94301, USA"
+    latitude: 37.4390065
+    longitude: -122.1589078
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Palo Alto Sol"
+    address: "408 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4265125
+    longitude: -122.1447645
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Calafia Cafe"
+    address: "855 El Camino Real, Town & Country Village, Palo Alto, CA 94301, USA"
+    latitude: 37.4390065
+    longitude: -122.1589078
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Sancho's Taqueria"
+    address: "491 Lytton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4489978
+    longitude: -122.1608828
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cafe Venetia"
+    address: "95 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4435438
+    longitude: -122.164046
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Hyderabad House"
+    address: "448 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4476222
+    longitude: -122.159751
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Spin Night Club"
+    address: "260 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.42793899999999
+    longitude: -122.143932
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Subway"
+    address: "4131 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4130408
+    longitude: -122.1251109
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Taco Del Mar"
+    address: "365 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4268062
+    longitude: -122.1441495
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Fandango Pizza"
+    address: "3163 Middlefield Road, Palo Alto, CA 94306, USA"
+    latitude: 37.429604
+    longitude: -122.122747
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Pizz'a Chicago"
+    address: "4115 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.414358
+    longitude: -122.125973
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Mac Arthur Park"
+    address: "27 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.442811
+    longitude: -122.165447
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Ming's"
+    address: "1700 Embarcadero Road, Palo Alto, CA 94303, USA"
+    latitude: 37.4495525
+    longitude: -122.1189391
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Treehouse"
+    address: "459 Lagunita Drive, Stanford University, Stanford, CA 94305, USA"
+    latitude: 37.424096
+    longitude: -122.170656
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Hong Kong Restaurant"
+    address: "3691 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4185624
+    longitude: -122.1328289
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Three Brothers Tacos"
+    address: "2220 University Avenue, East Palo Alto, CA 94303, USA"
+    latitude: 37.4664374
+    longitude: -122.1410727
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "University Cafe"
+    address: "271 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.445798
+    longitude: -122.162093
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Homma's Brown Rice Sushi"
+    address: "2363 Birch Street, Palo Alto, CA 94306, USA"
+    latitude: 37.427805
+    longitude: -122.144248
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "New Bamboo"
+    address: "543 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4441656
+    longitude: -122.1619413
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Zucca Palo Alto"
+    address: "541 Bryant Street, Palo Alto, CA 94301, USA"
+    latitude: 37.445557
+    longitude: -122.16051
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "A.G. Ferrari Foods"
+    address: "200 Hamilton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.443919
+    longitude: -122.1613082
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cafe Sophia Coffee Roasting Company"
+    address: "2706 Middlefield Road, Palo Alto, CA 94306, USA"
+    latitude: 37.4331187
+    longitude: -122.1297487
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Boston Market"
+    address: "3375 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4201499
+    longitude: -122.1358133
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Sea by Alexander's Steakhouse"
+    address: "4269 West El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4046822
+    longitude: -122.1180926
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Counter"
+    address: "369 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4267533
+    longitude: -122.1442856
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Shokolaat"
+    address: "516 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4484415
+    longitude: -122.1589847
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Melt"
+    address: "180 El Camino Real, Palo Alto, CA 94304, USA"
+    latitude: 37.4455791
+    longitude: -122.1708655
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Tacolicious"
+    address: "632 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4435095
+    longitude: -122.1610831
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "McDonald's"
+    address: "190 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.4448125
+    longitude: -122.1711645
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cib"
+    address: "3398 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4193753
+    longitude: -122.1356497
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Hunan Garden"
+    address: "3345 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4202895
+    longitude: -122.1359872
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Rojoz Gourmet Wraps"
+    address: "3906 Middlefield Road, Palo Alto, CA 94303, USA"
+    latitude: 37.4197755
+    longitude: -122.1099626
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Buca Di Beppo"
+    address: "643 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.443546
+    longitude: -122.160527
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Kan Zeman Mediterranean"
+    address: "274 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.445624
+    longitude: -122.161498
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Scott's Seafood Palo Alto"
+    address: "Palo Alto Drive, Mesquite, TX 75150, USA"
+    latitude: 32.8453507
+    longitude: -96.6311425
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Illusions Fayrouz Dining & Entertainment"
+    address: "260 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4277397
+    longitude: -122.1438448
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Taqueria Azteca"
+    address: "321 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.42706
+    longitude: -122.143766
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Evvia Estiatorio"
+    address: "420 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4452379
+    longitude: -122.1636801
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Pluto's"
+    address: "482 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4476955
+    longitude: -122.1598268
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Tea Time"
+    address: "542 Ramona Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4446694
+    longitude: -122.1614086
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Mountain Mike's Pizza"
+    address: "3918 Middlefield Road, Palo Alto, CA 94303, USA"
+    latitude: 37.4196335
+    longitude: -122.1098374
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Baja Fresh Mexican Grill"
+    address: "3990 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4154989
+    longitude: -122.1288954
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "4290 Bistro & Bar"
+    address: "4290 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.406371
+    longitude: -122.1202896
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Mike's Cafe Etc."
+    address: "2680 Middlefield Road, Palo Alto, CA 94306, USA"
+    latitude: 37.4337376
+    longitude: -122.1298882
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Taco Bell"
+    address: "3850 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4171628
+    longitude: -122.1313954
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Empire Grill & Tap Room"
+    address: "651 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4433596
+    longitude: -122.1605025
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Emmanuel Pizza"
+    address: "1489 East Bayshore Road, Palo Alto, CA 94303, USA"
+    latitude: 37.4631342
+    longitude: -122.1444599
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Spalti Ristorante"
+    address: "417 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4339123
+    longitude: -122.1385922
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Hukilau"
+    address: "642 Ramona Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4439307
+    longitude: -122.1601739
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "La Strada"
+    address: "335 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4464209
+    longitude: -122.1612894
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Michael's Gelato & Cafe"
+    address: "440 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.447555
+    longitude: -122.159804
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Saint Michaels Alley"
+    address: "806 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4422564
+    longitude: -122.158951
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Peninsula Creamery"
+    address: "900 High Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4405083
+    longitude: -122.1590195
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Osteria"
+    address: "247 Hamilton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4445372
+    longitude: -122.1611266
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Compadres"
+    address: "3877 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4174735
+    longitude: -122.1308215
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Sundance The Steakhouse"
+    address: "1921 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.428583
+    longitude: -122.149568
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Celia's Mexican Restaurant"
+    address: "3740 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.417502
+    longitude: -122.132084
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Fanny & Alexander"
+    address: "412 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.445063
+    longitude: -122.163948
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Kirk's Steakburgers"
+    address: "Palo Alto Drive, Mesquite, TX 75150, USA"
+    latitude: 32.8453507
+    longitude: -96.6311425
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Howie's Artisan Pizza"
+    address: "855 El Camino Real, Town & Country Village, Palo Alto, CA 94301, USA"
+    latitude: 37.4390065
+    longitude: -122.1589078
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Siam Royal"
+    address: "338 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.446389
+    longitude: -122.1610189
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "I Tapas & Wine Bar"
+    address: "445 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.44505120000001
+    longitude: -122.1631067
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Darbar Indian Cuisine"
+    address: "129 Lytton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4447278
+    longitude: -122.1650292
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Gordon Biersch"
+    address: "640 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4432934
+    longitude: -122.161028
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Campo Pizzeria"
+    address: "185 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.444726
+    longitude: -122.163156
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Thaiphoon"
+    address: "543 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4441656
+    longitude: -122.1619413
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Sushi Tomo"
+    address: "201 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.444963
+    longitude: -122.162921
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Da Sichuan"
+    address: "3781 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4178933
+    longitude: -122.1316309
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Nordstrom Cafe Bistro"
+    address: "550 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.43916100000001
+    longitude: -122.174049
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Long Life Noodle Company"
+    address: "393 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.44139699999999
+    longitude: -122.173119
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "La Morenita"
+    address: "800 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.44206
+    longitude: -122.158944
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Gravity Bistro and Wine Bar"
+    address: "544 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.443983
+    longitude: -122.162082
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Tootsie's"
+    address: "700 Welch Road, Stanford University, Palo Alto, CA 94304, USA"
+    latitude: 37.4375899
+    longitude: -122.1730067
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Tengu Sushi"
+    address: "700 Welch Road, Stanford University, Palo Alto, CA 94304, USA"
+    latitude: 37.4375899
+    longitude: -122.1730067
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Fresh Taste Mandarin Kitchen"
+    address: "2107 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4270823
+    longitude: -122.1480743
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cocina Mexicana"
+    address: "408 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.426653
+    longitude: -122.14499
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Taqueria El Grullense"
+    address: "3636 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4181463
+    longitude: -122.1331953
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Gourmet Franks"
+    address: "199 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.4426721
+    longitude: -122.1711619
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Palo Alto Cafe"
+    address: "2675 Middlefield Road, Palo Alto, CA 94306, USA"
+    latitude: 37.4337652
+    longitude: -122.1298728
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Oakville Grocery"
+    address: "715 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.4427033
+    longitude: -122.1702068
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Cheese Steak Shop"
+    address: "2305 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.425736
+    longitude: -122.14643
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Junnoon"
+    address: "150 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.444083
+    longitude: -122.162969
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Simply Sandwiches"
+    address: "2435 Ash Street, Palo Alto, CA 94306, USA"
+    latitude: 37.4263889
+    longitude: -122.1442949
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Coupa Cafe"
+    address: "Escondido Mall, Stanford University, Stanford, CA 94305, USA"
+    latitude: 37.4253463
+    longitude: -122.1661241
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Max's Opera Cafe of Palo Alto"
+    address: "711 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.44268539999999
+    longitude: -122.1702273
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Umami Burger"
+    address: "452 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.44752
+    longitude: -122.1596713
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Wahoo's"
+    address: "2305 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.425736
+    longitude: -122.14643
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Bulgogi BBQ"
+    address: "2390 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4250192
+    longitude: -122.1463476
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Joanie's Cafe"
+    address: "405 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4263941
+    longitude: -122.1445894
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "KFC - Kentucky Fried Chicken"
+    address: "851 San Antonio Road, Palo Alto, CA 94303, USA"
+    latitude: 37.422363
+    longitude: -122.1017265
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cool Cafe"
+    address: "346 Lomita Drive, Stanford University, Stanford, CA 94305, USA"
+    latitude: 37.4323942
+    longitude: -122.1704014
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Ike's Place"
+    address: "475 Via Ortega, Stanford University, Stanford, CA 94305, USA"
+    latitude: 37.427662
+    longitude: -122.1749263
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Rose & Crown English Food"
+    address: "547 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.44415619999999
+    longitude: -122.1619263
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Mantra Restaurant & Lounge"
+    address: "632 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4435095
+    longitude: -122.1610831
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cafe Renaissance"
+    address: "321 Hamilton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4454398
+    longitude: -122.1602581
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Tandoori Oven"
+    address: "365 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4333669
+    longitude: -122.139401
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Neiman Marcus"
+    address: "400 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.441201
+    longitude: -122.173065
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cafe Pro Bono"
+    address: "2437 Birch Street, Palo Alto, CA 94306, USA"
+    latitude: 37.427346
+    longitude: -122.143358
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Bella Luna"
+    address: "233 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4452231
+    longitude: -122.162473
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Bay Cafe and Restaurant & Banquet Hall"
+    address: "1875 Embarcadero Road, Palo Alto, CA 94303, USA"
+    latitude: 37.4537357
+    longitude: -122.1159767
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Jing Jing Szechwan & Hunan Gourmet"
+    address: "443 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4451045
+    longitude: -122.1632812
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Pampas Palo Alto"
+    address: "529 Alma Street, Palo Alto, CA 94301, USA"
+    latitude: 37.443071
+    longitude: -122.162821
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "La Bodeguita Del Medio"
+    address: "463 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4254593
+    longitude: -122.1451677
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The 3rd Door"
+    address: "131 Lytton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.444909
+    longitude: -122.165009
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Trader Vic's"
+    address: "4269 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4075265
+    longitude: -122.1205238
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Mandarin Gourmet Restaurant"
+    address: "420 Ramona Street, Palo Alto, CA 94301, USA"
+    latitude: 37.445675
+    longitude: -122.163215
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Quiznos Sub"
+    address: "3924 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.416353
+    longitude: -122.1297883
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Papa Murphy's"
+    address: "2730 Middlefield Road, Palo Alto, CA 94306, USA"
+    latitude: 37.433146
+    longitude: -122.129583
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Salsa"
+    address: "454 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4342773
+    longitude: -122.1382443
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Cho's Mandarin Dim Sun"
+    address: "213 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4282067
+    longitude: -122.1432514
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Gobble"
+    address: "100 Palm Drive, Stanford University, Stanford, CA 94305, USA"
+    latitude: 37.43792759999999
+    longitude: -122.1667718
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "San Francisco Soup Company"
+    address: "1950 University Avenue, Palo Alto, CA 94303, USA"
+    latitude: 37.4593213
+    longitude: -122.1418293
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "The Oaxacan Kitchen"
+    address: "2323 Birch Street, Palo Alto, CA 94306, USA"
+    latitude: 37.4277705
+    longitude: -122.1445903
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "So Gong Dong Tofu House"
+    address: "4127 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4137821
+    longitude: -122.125388
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Bistro Elan"
+    address: "448 North California Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.4342064
+    longitude: -122.1383033
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Spot A Pizza Place"
+    address: "115 Hamilton Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.442904
+    longitude: -122.162521
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Palo Alto Creamery"
+    address: "566 Emerson Street, Palo Alto, CA 94301, USA"
+    latitude: 37.4440227
+    longitude: -122.1617699
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Jamba Juice"
+    address: "459 Lagunita Drive, Stanford University, Stanford, CA 94305, USA"
+    latitude: 37.424096
+    longitude: -122.170656
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Fuki Sushi"
+    address: "4119 El Camino Real, Palo Alto, CA 94306, USA"
+    latitude: 37.4139883
+    longitude: -122.125721
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Krung Siam"
+    address: "423 University Avenue, Palo Alto, CA 94301, USA"
+    latitude: 37.447573
+    longitude: -122.160355
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Ramona's Restaurant"
+    address: "2313 Birch Street, Palo Alto, CA 94306, USA"
+    latitude: 37.427937
+    longitude: -122.1445
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "P.F. Chang's"
+    address: "900 Stanford Shopping Center, Palo Alto, CA 94304, USA"
+    latitude: 37.44377370000001
+    longitude: -122.168345
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Plantation Deli Cafe"
+    address: "109 South California Avenue, Palo Alto, CA 94306, USA"
+    latitude: 37.4285024
+    longitude: -122.142845
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Just Lunch"
+    address: "1950 University Avenue, East Palo Alto, CA 94303, USA"
+    latitude: 37.4593213
+    longitude: -122.1418293
+    description: "Good Food"
+    hours: "1pm-10pm"
+  -
+    name: "Taipan"
+    address: "560 Waverley Street, Palo Alto, CA 94301, USA"
+    latitude: 37.446364
+    longitude: -122.159776
+    description: "Good Food"
+    hours: "1pm-10pm"
+
+
+
+foods:
+  -
+    dish_name: 'Panini'
+    restaurant_id: 1
+    price: '4.95'
+    description: 'Hot and Fresh, Swiss Cheese and Chicken'
+    size: 5
+    calories: 500
+    nutrition: 'Good'
+    presentation: 4
+  -
+    dish_name: 'Sandwhich'
+    restaurant_id: 1
+    price: '5.50'
+    description: 'Meat optional'
+    size: 4
+    calories: 400
+    nutrition: 'Bad'
+    presentation: 3
+  -
+    dish_name: 'Salad'
+    restaurant_id: 1
+    price: '6.95'
+    description: 'Lots of vegetables'
+    size: 3
+    calories: 300
+    nutrition: 'Healthy'
+    presentation: 4
   -
     dish_name: "Short Stack of Pancakes"
     restaurant_id: 2
@@ -357,7 +1894,7 @@
     dish_name: "Shape And Serving Size"
     restaurant_id: 3
     price: ''
-    description: "Round 9" (serves up to 16), round 6" (serves up to 8), square 2/3 sheet (serves up to 16), square 1/6 sheet (serves up to 4), rectangle full sheet (serves up to 24), rectangle 1/2 sheet (serves up to 12), rectangle 1/3 sheet (serves up to 8), rectangle 1/4 sheet (serves up to 6), full roll (serves up to 8), 1/2 roll (serves up to 4), specialty."
+    description: "Round 9' (serves up to 16), round 6' (serves up to 8), square 2/3 sheet (serves up to 16), square 1/6 sheet (serves up to 4), rectangle full sheet (serves up to 24), rectangle 1/2 sheet (serves up to 12), rectangle 1/3 sheet (serves up to 8), rectangle 1/4 sheet (serves up to 6), full roll (serves up to 8), 1/2 roll (serves up to 4), specialty."
   -
     dish_name: "Be Mine Mini Valentine Cake"
     restaurant_id: 3
@@ -1322,7 +2859,7 @@
     dish_name: "Chocolate Babka"
     restaurant_id: 7
     price: '$11.95'
-    description: "9" chocolate swirl cake"
+    description: "9' chocolate swirl cake"
   -
     dish_name: "Tabule"
     restaurant_id: 7
@@ -1382,7 +2919,7 @@
     dish_name: "Poppyseed Babka"
     restaurant_id: 7
     price: '$11.95'
-    description: "9" poppyseed swril cake"
+    description: "9' poppyseed swril cake"
   -
     dish_name: "French Fries"
     restaurant_id: 7
@@ -3164,7 +4701,7 @@
     price: '$12.50 - $19.50'
     description: ""
   -
-    dish_name: "Our 8" Snack Pizzas"
+    dish_name: "Our 8' Snack Pizzas"
     restaurant_id: 14
     price: '$5.95'
     description: "Come with fresh mozzarella cheese and can be loaded with up to two toppings of your choice for little diners. Extra charge for additional toppings."
@@ -3267,7 +4804,7 @@
     dish_name: "Cheese"
     restaurant_id: 14
     price: '$11.00 - $17.00'
-    description: "Additional 10" $1.50, 14" $2.50"
+    description: "Additional 10' $1.50, 14' $2.50"
   -
     dish_name: "Arugula"
     restaurant_id: 14
@@ -4392,7 +5929,7 @@
     dish_name: "New Zealand Petite Lamb Chops"
     restaurant_id: 17
     price: ''
-    description: "Pistachio-mint pesto, "F17" sauce, polenta fries"
+    description: "Pistachio-mint pesto, 'F17' sauce, polenta fries"
   -
     dish_name: "Lite Filet Mignon"
     restaurant_id: 17
@@ -9936,7 +11473,7 @@
   -
     dish_name: "Assorted Sodas"
     restaurant_id: 34
-    price: ''
+    price: '$1.25'
     description: ""
   -
     dish_name: "Deluxe Brand Ham"
@@ -10687,7 +12224,7 @@
     dish_name: "Maple Banana Rama"
     restaurant_id: 36
     price: '$3.95'
-    description: "Home-made Bavarian cream, sliced organic banana and maple syrup around an extra crispy "puff"."
+    description: "Home-made Bavarian cream, sliced organic banana and maple syrup around an extra crispy 'puff'."
   -
     dish_name: "Creme Fraiche Cheesecake"
     restaurant_id: 36
@@ -12294,7 +13831,7 @@
     price: '$11.00'
     description: "TOSSED WITH A DIJON PARSLEY VINAIGRETTE"
   -
-    dish_name: "THE "ABC" BURGER A 1/2 LB. HAMBURGER"
+    dish_name: "THE 'ABC' BURGER A 1/2 LB. HAMBURGER"
     restaurant_id: 44
     price: '$11.00'
     description: "WITH AVOCADO, BACON, AND JACK CHEESE, LETTUCE, TOMATO, AND RED ONION, SERVED WITH FRENCH FRIES"
@@ -23284,7 +24821,7 @@
     price: '$13.95'
     description: ""
   -
-    dish_name: "Hand Battered "Big Slice" Onion Ring Tower"
+    dish_name: "Hand Battered 'Big Slice' Onion Ring Tower"
     restaurant_id: 79
     price: '$5.95'
     description: "a full pound of our addictive, beer battered onion rings - served w/ cracked pepper ranch dipping sauce"
@@ -23354,7 +24891,7 @@
     price: '$9.95'
     description: "pan seared sirloin w/ butter, white wine & terriyaki - w/ garlic toasts and creamed horseradish"
   -
-    dish_name: ""The Pro""
+    dish_name: "'The Pro'"
     restaurant_id: 79
     price: '$15.95'
     description: "sausage, pepperoni, red onions, black olives, mushrooms & roasted garlic"
@@ -23384,7 +24921,7 @@
     price: '$8.95'
     description: "w/ american cheese, peppers, onions & house bbq sauce"
   -
-    dish_name: ""It's In There!" Cobb Salad"
+    dish_name: "'It's In There!' Cobb Salad"
     restaurant_id: 79
     price: '$12.95'
     description: "grilled chicken breast, smoked applewood bacon, blue & cheddar cheeses, and chopped tomatoes on top of a bed of fresh mixed greens"
@@ -23419,7 +24956,7 @@
     price: '$9.95'
     description: "housemade sauce w/ whole milk mozzarella and fresh herbs"
   -
-    dish_name: ""Great Coaches Cover" Pu-Pu Platter "
+    dish_name: "'Great Coaches Cover' Pu-Pu Platter "
     restaurant_id: 79
     price: '$16.95'
     description: "spring rolls (4), buffalo wings, loaded skins, ky. chicken fingers, onion rings & garlic fries - w/ assorted sauces"
@@ -23534,7 +25071,7 @@
     price: '$10.95'
     description: "house smoked turkey breast w/ melted gouda, smoked bacon, tomato & hollandaise on wheat"
   -
-    dish_name: ""East-West" Seared Rare Ahi & Roasted Garlic Tiger Prawns"
+    dish_name: "'East-West' Seared Rare Ahi & Roasted Garlic Tiger Prawns"
     restaurant_id: 79
     price: '$17.95'
     description: "over mandarin oranges, slivered green onions, carrots, celery & mixed greens w/ wasabi-teriyaki sauce"
@@ -23554,10 +25091,10 @@
     price: '$15.95'
     description: "w/ sour cream & onions"
   -
-    dish_name: ""That's How I Roll""
+    dish_name: "'That's How I Roll'"
     restaurant_id: 79
     price: '$8.95'
-    description: "mix n' match any 3 spring rolls "filet cheesesteak" - mozzarella, peppers & onions "smokin chicken" - smoked gouda, peppers & carmelized onions "prawn scampi" - garlic, mozzarella & lemon-butter portobello - brie, cheddar, sun-dried tomato & artichoke heart"
+    description: "mix n' match any 3 spring rolls 'filet cheesesteak' - mozzarella, peppers & onions 'smokin chicken' - smoked gouda, peppers & carmelized onions 'prawn scampi' - garlic, mozzarella & lemon-butter portobello - brie, cheddar, sun-dried tomato & artichoke heart"
   -
     dish_name: "Bada Bang"
     restaurant_id: 79
@@ -23567,7 +25104,7 @@
     dish_name: "Award Winning Baby Back Ribs"
     restaurant_id: 79
     price: '$15.95 - $23.95'
-    description: ""ribs to die for" -palo alto daily hardwood hickory slow smoked for 6hrs til' fall off the bone tender - w/ house bbq"
+    description: "'ribs to die for' -palo alto daily hardwood hickory slow smoked for 6hrs til' fall off the bone tender - w/ house bbq"
   -
     dish_name: "Smoked & Carved Sirloin Of Tri-Tip"
     restaurant_id: 79
@@ -23577,7 +25114,7 @@
     dish_name: "Op's Famous Garlic Fries"
     restaurant_id: 79
     price: '$5.50'
-    description: ""best garlic fries" -sj mercury chili-cheese garlic fries add $2.00 hollandaise & truffle garlic oil fries add $2.00"
+    description: "'best garlic fries' -sj mercury chili-cheese garlic fries add $2.00 hollandaise & truffle garlic oil fries add $2.00"
   -
     dish_name: "12 Oz. Slow Roasted Prime Rib Or 1Lb. King Crab Legs"
     restaurant_id: 79
@@ -23589,7 +25126,7 @@
     price: '$16.95'
     description: "an 8oz. portion of this tender, fresh, maple syrup & kosher salt treat from the sea"
   -
-    dish_name: ""Cowboy Cut" 18 Oz. Bone-In Harris Ranch Ribeye"
+    dish_name: "'Cowboy Cut' 18 Oz. Bone-In Harris Ranch Ribeye"
     restaurant_id: 79
     price: '$24.95'
     description: ""
@@ -23602,7 +25139,7 @@
     dish_name: "Portobello Mushroom & Three Cheese Potato Skins"
     restaurant_id: 79
     price: '$7.95'
-    description: "loaded! w/ brie, cheddar, mozzarella & green onions-topped w/ sour cream & sides of ranch & hollandaise. add "pig candy" $2.00"
+    description: "loaded! w/ brie, cheddar, mozzarella & green onions-topped w/ sour cream & sides of ranch & hollandaise. add 'pig candy' $2.00"
   -
     dish_name: "Sesame Seared Rare Hawaiian Ahi"
     restaurant_id: 79
@@ -25792,7 +27329,7 @@
     dish_name: "Brownie Mud Pie"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. a max's favorite fudgy brownie topped with coffee ice cream, caramel sauce, hot fudge and toasted almonds. "
+    description: "'this is a bad place for a diet...' sinfully yours. a max's favorite fudgy brownie topped with coffee ice cream, caramel sauce, hot fudge and toasted almonds. "
   -
     dish_name: "Not-So-Mini Reuben"
     restaurant_id: 90
@@ -25847,7 +27384,7 @@
     dish_name: "Espresso Splash"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. a heaping dish of ice cream with a hot shot of espresso and fresh whipped cream. "
+    description: "'this is a bad place for a diet...' sinfully yours. a heaping dish of ice cream with a hot shot of espresso and fresh whipped cream. "
   -
     dish_name: "10-Oz Top Sirloin"
     restaurant_id: 90
@@ -25864,10 +27401,10 @@
     price: '$0.00'
     description: "chopped eggs and hot grilled onions"
   -
-    dish_name: "Dr. Jeff Saal's, "The Painkiller" "
+    dish_name: "Dr. Jeff Saal's, 'The Painkiller' "
     restaurant_id: 90
     price: '$0.00'
-    description: "injected wed. only, with a pinch of valium." ask for gatolinium! big b.l.t., add avocado"
+    description: "injected wed. only, with a pinch of valium.' ask for gatolinium! big b.l.t., add avocado"
   -
     dish_name: "Sugar-Free Low-Carb Hot Fudge Sundae"
     restaurant_id: 90
@@ -25964,7 +27501,7 @@
     price: '$0.00'
     description: "buffalo style--hot, spicy and sticky"
   -
-    dish_name: "Vickie B., "The Italian Princess""
+    dish_name: "Vickie B., 'The Italian Princess'"
     restaurant_id: 90
     price: '$0.00'
     description: "corned beef, pastrami and swiss with 1000 island dressing"
@@ -26137,7 +27674,7 @@
     dish_name: "Macaroon Crumble"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. heaping scoop of ice cream, creamy marshmallow, hot fudge, and fresh coconut macaroon crumbled all over plain macaroon. chocolate covered macaroon. "
+    description: "'this is a bad place for a diet...' sinfully yours. heaping scoop of ice cream, creamy marshmallow, hot fudge, and fresh coconut macaroon crumbled all over plain macaroon. chocolate covered macaroon. "
   -
     dish_name: "Fresh Orange Juice"
     restaurant_id: 90
@@ -26162,9 +27699,9 @@
     dish_name: "Warm Blueberry Parfait"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. layers of blueberry, ice cream and real, fresh whipped cream with puff pastry sticks. "
+    description: "'this is a bad place for a diet...' sinfully yours. layers of blueberry, ice cream and real, fresh whipped cream with puff pastry sticks. "
   -
-    dish_name: "Billy And Russ, "Two Good Guys""
+    dish_name: "Billy And Russ, 'Two Good Guys'"
     restaurant_id: 90
     price: '$0.00'
     description: "corned beef and pastrami"
@@ -26202,7 +27739,7 @@
     dish_name: "Double Decadence Chocolate Fudge"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. fudgy brownie topped with a heaping scoop of ice cream, creamy marshmallow and hot fudge. plain double decadence brownie"
+    description: "'this is a bad place for a diet...' sinfully yours. fudgy brownie topped with a heaping scoop of ice cream, creamy marshmallow and hot fudge. plain double decadence brownie"
   -
     dish_name: "New Castle Brown Ale Augstiner"
     restaurant_id: 90
@@ -26267,7 +27804,7 @@
     dish_name: "Ultimate Banana Split"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. for two or more. vanilla, chocolate and coffee ice creams topped with hot fudge, caramel and strawberry sauces with bits of macaroon, brownie, and 7-layer, topped with a drizzle of marshmallow sauce and lots of walnuts, peanuts and almonds. "
+    description: "'this is a bad place for a diet...' sinfully yours. for two or more. vanilla, chocolate and coffee ice creams topped with hot fudge, caramel and strawberry sauces with bits of macaroon, brownie, and 7-layer, topped with a drizzle of marshmallow sauce and lots of walnuts, peanuts and almonds. "
   -
     dish_name: "A Full Pound Of French Fries"
     restaurant_id: 90
@@ -26469,7 +28006,7 @@
     price: '$0.00'
     description: "vanilla bean, dark chocolate, coffee, fat-free, no sugar added vanilla"
   -
-    dish_name: "Barry And Marshall "They Love Our Chef's Liver""
+    dish_name: "Barry And Marshall 'They Love Our Chef's Liver'"
     restaurant_id: 90
     price: '$0.00'
     description: "corned beef and pastrami with chicken livers and hot grilled onions"
@@ -26532,7 +28069,7 @@
     dish_name: "7-Layer Cookie"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. with walnuts, topped with a heaping scoop of ice cream, creamy marshmallow and hot fudge. plain 7-layer cookie. "
+    description: "'this is a bad place for a diet...' sinfully yours. with walnuts, topped with a heaping scoop of ice cream, creamy marshmallow and hot fudge. plain 7-layer cookie. "
   -
     dish_name: "Grandma's Honey-Roasted Chicken"
     restaurant_id: 90
@@ -28787,7 +30324,7 @@
     dish_name: "Gluten Free Pizza"
     restaurant_id: 101
     price: '$16.95'
-    description: "10" gluten free pizza with cheese. "
+    description: "10' gluten free pizza with cheese. "
   -
     dish_name: "Martinelli&reg Apple Juice"
     restaurant_id: 101
@@ -28987,7 +30524,7 @@
     dish_name: "The Eddie Gaedel Pizza"
     restaurant_id: 101
     price: '$16.75 - $26.25'
-    description: "Gulf shrimp, garlic, red onions, capers, fresh dill. For serious "shrimp" lovers."
+    description: "Gulf shrimp, garlic, red onions, capers, fresh dill. For serious 'shrimp' lovers."
   -
     dish_name: "Snapple kiwi strawberry juice "
     restaurant_id: 101
@@ -28997,7 +30534,7 @@
     dish_name: "The Ernie Banks Pizza"
     restaurant_id: 101
     price: '$16.75 - $26.25'
-    description: "Ginger sauce, Thai chicken, red onions, shiitake mushrooms, peanuts, shredded carrots and cilantro. "Let's eat two.""
+    description: "Ginger sauce, Thai chicken, red onions, shiitake mushrooms, peanuts, shredded carrots and cilantro. 'Let's eat two.'"
   -
     dish_name: "Spaghetti Kid's Meal"
     restaurant_id: 101
@@ -29014,7 +30551,7 @@
     price: '$10.45'
     description: "Our traditional meatball sandwich topped with red onions and provolone cheese and French fries."
   -
-    dish_name: ""Meaty" Mushroom Salad"
+    dish_name: "'Meaty' Mushroom Salad"
     restaurant_id: 101
     price: '$11.95'
     description: "Roasted shiitake, portobello, and burron mushrooms with diced and sun dried tomatoes, shredded carrots, almonds and cilantro tossed with soy ginger."
@@ -29169,12 +30706,12 @@
     price: '$11.75'
     description: "thinly shaved ham with soup of the day and french fries"
   -
-    dish_name: ""Harry's Bar" Steak Sandwich"
+    dish_name: "'Harry's Bar' Steak Sandwich"
     restaurant_id: 102
     price: '$15.95'
     description: "filet mignon with french fries"
   -
-    dish_name: "Classic "Mac Park" Potato Skins"
+    dish_name: "Classic 'Mac Park' Potato Skins"
     restaurant_id: 102
     price: '$6.95'
     description: "with sour cream and ranch"
@@ -29219,7 +30756,7 @@
     price: '$12.95'
     description: "fresh tomatoes, garlic, basil, extra virgin olive oil, add chicken or shrimp $3.95"
   -
-    dish_name: ""Macpark" Club"
+    dish_name: "'Macpark' Club"
     restaurant_id: 102
     price: '$12.50'
     description: "chicken breast, bacon, lettuce, tomatoes with housemade potato chips"
@@ -29229,7 +30766,7 @@
     price: '$7.95'
     description: "spiced pecans, dried fruit, feta cheese and lemon-shallot dressing"
   -
-    dish_name: ""Macpark" Salad"
+    dish_name: "'Macpark' Salad"
     restaurant_id: 102
     price: '$6.50'
     description: "tomatoes and creamy blue cheese / dijon dressing"
@@ -29244,7 +30781,7 @@
     price: '$13.50'
     description: "avocado, radish sprouts and dijon mayonnaise"
   -
-    dish_name: ""Macpark" Beef Tower"
+    dish_name: "'Macpark' Beef Tower"
     restaurant_id: 102
     price: '$18.95'
     description: "grilled beef tenderloin medallions, demi glaze, herbs, melted gorgonzola cheese, grilled tomatoes"
@@ -29254,12 +30791,12 @@
     price: '$17.25'
     description: ""
   -
-    dish_name: ""Macpark" Sampler Platter"
+    dish_name: "'Macpark' Sampler Platter"
     restaurant_id: 102
     price: '$9.95'
     description: "ribs, calamari, potato skins and onion strings"
   -
-    dish_name: ""Macpark" Burger "
+    dish_name: "'Macpark' Burger "
     restaurant_id: 102
     price: '$13.50'
     description: "jack cheese and our famous barbecue sauce, topped with crispy onion strings"
@@ -29294,7 +30831,7 @@
     price: '$11.50'
     description: "with housemade potato chips and cole slaw"
   -
-    dish_name: ""Maria Elena""
+    dish_name: "'Maria Elena'"
     restaurant_id: 102
     price: '$9.25'
     description: "mixed baby greens, pears, walnuts, gorgonzola cheese and lemon vinaigrette"
@@ -36424,7 +37961,7 @@
     price: '$0.00'
     description: ""
   -
-    dish_name: ""GOT" 2% Milk"
+    dish_name: "'GOT' 2% Milk"
     restaurant_id: 129
     price: '$1.25'
     description: ""
@@ -36934,7 +38471,7 @@
     price: ''
     description: "A fresh roll loaded with choice of chicken, salami, ham, louisiana-style hot sausage or canadian style bacon, crisp lettuce, fresh tomato and your choice of cheese. Served with pickle and chips"
   -
-    dish_name: "10" Small"
+    dish_name: "10' Small"
     restaurant_id: 131
     price: ''
     description: "Feeds 1-2 people"
@@ -36974,7 +38511,7 @@
     price: ''
     description: "Lots of mushrooms, black olives, bell peppers, artichoke hearts, and fresh tomatoes"
   -
-    dish_name: "12" Medium"
+    dish_name: "12' Medium"
     restaurant_id: 131
     price: ''
     description: "Feeds 2-3 people"
@@ -37004,7 +38541,7 @@
     price: ''
     description: "Plain or with cheese"
   -
-    dish_name: "20" Mountain"
+    dish_name: "20' Mountain"
     restaurant_id: 131
     price: ''
     description: "Feeds 6-8 people"
@@ -37014,7 +38551,7 @@
     price: ''
     description: "Tender chicken pieces, tomatoes, olives, mushrooms and fresh green onions with a creamy garlic white or traditional red sauce"
   -
-    dish_name: "14" Large"
+    dish_name: "14' Large"
     restaurant_id: 131
     price: ''
     description: "Feeds 3-4 people"
@@ -37284,7 +38821,7 @@
     price: '$2.75'
     description: ""
   -
-    dish_name: "Original "Baja Style" Tacos and Classic Style"
+    dish_name: "Original 'Baja Style' Tacos and Classic Style"
     restaurant_id: 132
     price: '$2.25 - $2.45'
     description: ""
@@ -38447,7 +39984,7 @@
     dish_name: "Pork Cutlet"
     restaurant_id: 139
     price: '$7.75'
-    description: "Katsu" Style  Panko breaded pork filets that are lightly fried and served with our very own Hukilau BBQ sauce."
+    description: "Katsu' Style  Panko breaded pork filets that are lightly fried and served with our very own Hukilau BBQ sauce."
   -
     dish_name: "Tako Poke"
     restaurant_id: 139
@@ -39637,24 +41174,24 @@
     dish_name: "Ceviche Del Cocinero"
     restaurant_id: 145
     price: '$11.00'
-    description: "fresh white fish "cooks" in the juice of lemons and limes - then served a la guadalajara on blue corn tostaditas with your favorite bottled hot sauce."
+    description: "fresh white fish 'cooks' in the juice of lemons and limes - then served a la guadalajara on blue corn tostaditas with your favorite bottled hot sauce."
   -
     dish_name: "Queso Fundido"
     restaurant_id: 145
     price: '$6.50'
     description: "cheese melted with fresh chilies and tomatoes, and served with warmed fresh papagayo corn tortillas"
   -
-    dish_name: ""Local Boy""
+    dish_name: "'Local Boy'"
     restaurant_id: 145
     price: '$23.50'
     description: "by the pitcher"
   -
-    dish_name: ""Top Shelf" Margarita"
+    dish_name: "'Top Shelf' Margarita"
     restaurant_id: 145
     price: '$27.50'
     description: "by the pitcher"
   -
-    dish_name: ""Your Call" Rita"
+    dish_name: "'Your Call' Rita"
     restaurant_id: 145
     price: '$2.00'
     description: "the price of your favorite tequila shot plus"
@@ -39779,7 +41316,7 @@
     price: '$9.50'
     description: ""
   -
-    dish_name: ""Back Bar Margarita""
+    dish_name: "'Back Bar Margarita'"
     restaurant_id: 145
     price: '$6.50'
     description: "by the pitcher"
@@ -39802,7 +41339,7 @@
     dish_name: "Seafood Ala Diabla"
     restaurant_id: 145
     price: '$24.50'
-    description: ""seafood of the devil" gets its name from the garlic and chilies in this saute of fresh fish, gulf prawns, bay scallops, and peppers, served fajita style with black beans, guacamole, sour cream, and salsa fresca. with warmed fresh corn tortillas."
+    description: "'seafood of the devil' gets its name from the garlic and chilies in this saute of fresh fish, gulf prawns, bay scallops, and peppers, served fajita style with black beans, guacamole, sour cream, and salsa fresca. with warmed fresh corn tortillas."
   -
     dish_name: "Enchiladas Poblanas"
     restaurant_id: 145
@@ -39912,7 +41449,7 @@
     dish_name: "Mazatlan shrimp Bucket"
     restaurant_id: 145
     price: '$25.00'
-    description: ""peel and eat". served with a tangy cocktail sauce - perfect with a bucket of beer or la torre"
+    description: "'peel and eat'. served with a tangy cocktail sauce - perfect with a bucket of beer or la torre"
   -
     dish_name: "Chicken Cilantro"
     restaurant_id: 145
@@ -47817,7 +49354,7 @@
     dish_name: "Mexican Quesadilla"
     restaurant_id: 167
     price: '$4.99'
-    description: "6" Flour tortilla, choice of meat, melted cheese, side lettuce and tomato."
+    description: "6' Flour tortilla, choice of meat, melted cheese, side lettuce and tomato."
   -
     dish_name: "Caldo 7 Mares"
     restaurant_id: 167
@@ -48084,10 +49621,10 @@
     price: '$7.50 - $8.50'
     description: "Fish burrito."
   -
-    dish_name: "Regular Quesadilla (6")"
+    dish_name: "Regular Quesadilla (6')"
     restaurant_id: 167
     price: '$3.99'
-    description: "6" Flour tortilla with melted cheese with side lettuce and tomato."
+    description: "6' Flour tortilla with melted cheese with side lettuce and tomato."
   -
     dish_name: "1 Flauta & 1 Crispy Taco"
     restaurant_id: 167
@@ -52507,7 +54044,7 @@
     dish_name: "Organic Whole Grain Farro Pasta"
     restaurant_id: 188
     price: '$14.95'
-    description: "with portobello mushrooms, broccoli, 	    	 and green peas in a fresh tomato-herb sauce"
+    description: "with portobello mushrooms, broccoli,           and green peas in a fresh tomato-herb sauce"
   -
     dish_name: "Cappellini"
     restaurant_id: 188
@@ -55447,7 +56984,7 @@
     dish_name: "1. Select a size:"
     restaurant_id: 198
     price: ''
-    description: "12" medium (serves 12), 14" large (serves 23) or 16" family size (serves 4-6)."
+    description: "12' medium (serves 12), 14' large (serves 23) or 16' family size (serves 4-6)."
   -
     dish_name: "Gourmet Chicken Garlic"
     restaurant_id: 198
@@ -58142,9 +59679,7 @@
     dish_name: "Takara Plum Wine"
     restaurant_id: 209
     price: '$7.00'
-    description: "enjoy this after dinner drink with a plum,
-
-on the rocks or straight up."
+    description: "enjoy this after dinner drink with a plum, on the rocks or straight up."
   -
     dish_name: "Rainbow Roll"
     restaurant_id: 209
@@ -59001,7 +60536,7 @@ on the rocks or straight up."
     price: '$8.95 - $7.95'
     description: "pan fried rice with chicken, pork, shrimps, and fresh pineapple"
   -
-    dish_name: "Medium 14" 1-Topping Pizza"
+    dish_name: "Medium 14' 1-Topping Pizza"
     restaurant_id: 211
     price: '$16.00'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59011,7 +60546,7 @@ on the rocks or straight up."
     price: '$8.50'
     description: "Mozzarella cheese, spicy tomato sauce, sausage, beef, linguica, mushrooms, and onions in an enclosed whole wheat crust."
   -
-    dish_name: "Medium 14" 3-Topping Pizza"
+    dish_name: "Medium 14' 3-Topping Pizza"
     restaurant_id: 211
     price: '$19.00'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59031,12 +60566,12 @@ on the rocks or straight up."
     price: '$8.50'
     description: "Mozzarella cheese, spicy tomato sauce, and cooked in an enclosed whole wheat crust."
   -
-    dish_name: "Large 16" 3-Topping Pizza"
+    dish_name: "Large 16' 3-Topping Pizza"
     restaurant_id: 211
     price: '$22.75'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Medium 14" Cheese Pizza"
+    dish_name: "Medium 14' Cheese Pizza"
     restaurant_id: 211
     price: '$14.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59056,7 +60591,7 @@ on the rocks or straight up."
     price: '$8.50'
     description: "Mozzarella cheese, spicy tomato sauce, and cooked in an enclosed whole wheat crust."
   -
-    dish_name: "Large 16" 1-Topping Pizza"
+    dish_name: "Large 16' 1-Topping Pizza"
     restaurant_id: 211
     price: '$19.25'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59076,7 +60611,7 @@ on the rocks or straight up."
     price: '$15.25 - $22.25'
     description: "Ham, mushrooms, bell peppers, and pineapple on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" 4-Topping Pizza"
+    dish_name: "Small 12' 4-Topping Pizza"
     restaurant_id: 211
     price: '$16.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59084,7 +60619,7 @@ on the rocks or straight up."
     dish_name: "Vegetarian Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Vegetarian Pizza"
     restaurant_id: 211
@@ -59094,7 +60629,7 @@ on the rocks or straight up."
     dish_name: "BBQ Chicken Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Greek Calzone"
     restaurant_id: 211
@@ -59104,19 +60639,19 @@ on the rocks or straight up."
     dish_name: "Sausage Ball Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Clams and Fresh Garlic Pizza"
     restaurant_id: 211
     price: '$15.25 - $22.25'
     description: "Clams and fresh garlic on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Medium 14" 4-Topping Pizza"
+    dish_name: "Medium 14' 4-Topping Pizza"
     restaurant_id: 211
     price: '$20.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Large 16" 2-Topping Pizza"
+    dish_name: "Large 16' 2-Topping Pizza"
     restaurant_id: 211
     price: '$21.00'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59124,7 +60659,7 @@ on the rocks or straight up."
     dish_name: "Combination Sub"
     restaurant_id: 211
     price: '$7.25'
-    description: "Ham, salami, and pepperoni served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Ham, salami, and pepperoni served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Fiesta Special Pizza"
     restaurant_id: 211
@@ -59134,14 +60669,14 @@ on the rocks or straight up."
     dish_name: "Cheese Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
-    dish_name: "Large 16" 4-Topping Pizza"
+    dish_name: "Large 16' 4-Topping Pizza"
     restaurant_id: 211
     price: '$24.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Medium 14" 2-Topping Pizza"
+    dish_name: "Medium 14' 2-Topping Pizza"
     restaurant_id: 211
     price: '$17.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59164,7 +60699,7 @@ on the rocks or straight up."
     dish_name: "Salami Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Chicken and Fresh Garlic Pizza"
     restaurant_id: 211
@@ -59174,7 +60709,7 @@ on the rocks or straight up."
     dish_name: "Chicken Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Broccoli Chicken w/Peanuts and Red Tomatoes"
     restaurant_id: 211
@@ -59191,7 +60726,7 @@ on the rocks or straight up."
     price: '$15.25 - $22.25'
     description: "Salami, pepperoni, mushrooms, and sausage on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" Cheese Pizza"
+    dish_name: "Small 12' Cheese Pizza"
     restaurant_id: 211
     price: '$11.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59199,7 +60734,7 @@ on the rocks or straight up."
     dish_name: "Ham Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Vegetarian Calzone"
     restaurant_id: 211
@@ -59209,7 +60744,7 @@ on the rocks or straight up."
     dish_name: "Pesto Chicken Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "BBQ Chicken Pizza"
     restaurant_id: 211
@@ -59221,7 +60756,7 @@ on the rocks or straight up."
     price: '$15.25 - $22.25'
     description: "Ham, salami, pepperoni, Italian sausage, linguica, and ground beef on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" 2-Topping Pizza"
+    dish_name: "Small 12' 2-Topping Pizza"
     restaurant_id: 211
     price: '$14.00'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59244,7 +60779,7 @@ on the rocks or straight up."
     dish_name: "Pepperoni Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Pesto Primavera Pizza"
     restaurant_id: 211
@@ -59261,17 +60796,17 @@ on the rocks or straight up."
     price: '$15.25 - $22.25'
     description: "Spinach, mushrooms, zucchini, olives, and fresh garlic on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" 3-Topping Pizza"
+    dish_name: "Small 12' 3-Topping Pizza"
     restaurant_id: 211
     price: '$15.25'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Large 16" Cheese Pizza"
+    dish_name: "Large 16' Cheese Pizza"
     restaurant_id: 211
     price: '$17.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" 1-Topping Pizza"
+    dish_name: "Small 12' 1-Topping Pizza"
     restaurant_id: 211
     price: '$12.75'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59899,7 +61434,7 @@ on the rocks or straight up."
     dish_name: "Suicide"
     restaurant_id: 213
     price: '$1.99 - $2.65'
-    description: "this "eye opener" combined coffee and espresso. "
+    description: "this 'eye opener' combined coffee and espresso. "
   -
     dish_name: "Soup With French Bread"
     restaurant_id: 213
@@ -60221,7 +61756,7 @@ on the rocks or straight up."
     price: '$0.00'
     description: ""
   -
-    dish_name: "Burst "O" Berry"
+    dish_name: "Burst 'O' Berry"
     restaurant_id: 213
     price: '$0.00'
     description: "blackberry, strawberry, raspberry, blueberry, large"
@@ -60955,3 +62490,123 @@ on the rocks or straight up."
     restaurant_id: 215
     price: '$4.80'
     description: ""
+
+
+users:
+  -
+    first_name: 'John'
+    last_name: 'Gold'
+    fb_id: 321
+    rating_score: 3
+
+ratings:
+  -
+    ratable_id: 1
+    ratable_type: "Food"
+    user_id: 1
+    score: 3
+    comment: "tasty"
+  -
+    ratable_id: 1
+    ratable_type: "Food"
+    user_id: 1
+    score: 4
+    comment: "delcious"
+  -
+    ratable_id: 1
+    ratable_type: "Food"
+    user_id: 1
+    score: 2
+    comment: "not my favorite"
+  -
+    ratable_id: 2
+    ratable_type: "Food"
+    user_id: 1
+    score: 3
+    comment: "tasty"
+  -
+    ratable_id: 2
+    ratable_type: "Food"
+    user_id: 1
+    score: 3
+    comment: "yum yum"
+  -
+    ratable_id: 3
+    ratable_type: "Food"
+    user_id: 1
+    score: 3
+    comment: "tasty"
+  -
+    ratable_id: 3
+    ratable_type: "Food"
+    user_id: 1
+    score: 4
+    comment: "delcious"
+  -
+    ratable_id: 3
+    ratable_type: "Food"
+    user_id: 1
+    score: 1
+    comment: "do not buy"
+  -
+    ratable_id: 4
+    ratable_type: "Food"
+    user_id: 1
+    score: 2
+    comment: "tasty"
+  -
+    ratable_id: 4
+    ratable_type: "Food"
+    user_id: 1
+    score: 5
+    comment: "yum yum"
+  -
+    ratable_id: 5
+    ratable_type: "Food"
+    user_id: 1
+    score: 3
+    comment: "yum yum"
+  -
+    ratable_id: 5
+    ratable_type: "Food"
+    user_id: 1
+    score: 3
+    comment: "tasty"
+  -
+    ratable_id: 6
+    ratable_type: "Food"
+    user_id: 1
+    score: 4
+    comment: "delcious"
+  -
+    ratable_id: 6
+    ratable_type: "Food"
+    user_id: 1
+    score: 1
+    comment: "do not buy"
+  -
+    ratable_id: 7
+    ratable_type: "Food"
+    user_id: 1
+    score: 2
+    comment: "tasty"
+  -
+    ratable_id: 7
+    ratable_type: "Food"
+    user_id: 1
+    score: 5
+    comment: "yum yum"
+  -
+    ratable_id: 1
+    ratable_type: "Food"
+    comment: "It's okay"
+    score: 3
+    user_id: 1
+
+
+pictures:
+  -
+    file_name: "coho_banner.jpg"
+    picture_type: "banner"
+    imageable_id: 1
+    imageable_type: "Restaurant"

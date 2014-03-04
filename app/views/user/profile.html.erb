@@ -1,9 +1,9 @@
 
 You are visiting the profile of:
-<%= @user2.first_name + ' ' + @user2.last_name %>
+<%= @user.first_name + ' ' + @user.last_name %>
 
 <br>
-Here are <%= @user2.first_name %>'s reviews:
+Here are <%= @user.first_name %>'s reviews:
 
 <% for review in @review_display_info %>
 <div>
@@ -12,6 +12,3 @@ Here are <%= @user2.first_name %>'s reviews:
   <br>
 </div>
 <% end %>
-
-
-

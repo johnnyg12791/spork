@@ -357,7 +357,7 @@
     dish_name: "Shape And Serving Size"
     restaurant_id: 3
     price: ''
-    description: "Round 9" (serves up to 16), round 6" (serves up to 8), square 2/3 sheet (serves up to 16), square 1/6 sheet (serves up to 4), rectangle full sheet (serves up to 24), rectangle 1/2 sheet (serves up to 12), rectangle 1/3 sheet (serves up to 8), rectangle 1/4 sheet (serves up to 6), full roll (serves up to 8), 1/2 roll (serves up to 4), specialty."
+    description: "Round 9' (serves up to 16), round 6' (serves up to 8), square 2/3 sheet (serves up to 16), square 1/6 sheet (serves up to 4), rectangle full sheet (serves up to 24), rectangle 1/2 sheet (serves up to 12), rectangle 1/3 sheet (serves up to 8), rectangle 1/4 sheet (serves up to 6), full roll (serves up to 8), 1/2 roll (serves up to 4), specialty."
   -
     dish_name: "Be Mine Mini Valentine Cake"
     restaurant_id: 3
@@ -1322,7 +1322,7 @@
     dish_name: "Chocolate Babka"
     restaurant_id: 7
     price: '$11.95'
-    description: "9" chocolate swirl cake"
+    description: "9' chocolate swirl cake"
   -
     dish_name: "Tabule"
     restaurant_id: 7
@@ -1382,7 +1382,7 @@
     dish_name: "Poppyseed Babka"
     restaurant_id: 7
     price: '$11.95'
-    description: "9" poppyseed swril cake"
+    description: "9' poppyseed swril cake"
   -
     dish_name: "French Fries"
     restaurant_id: 7
@@ -3164,7 +3164,7 @@
     price: '$12.50 - $19.50'
     description: ""
   -
-    dish_name: "Our 8" Snack Pizzas"
+    dish_name: "Our 8' Snack Pizzas"
     restaurant_id: 14
     price: '$5.95'
     description: "Come with fresh mozzarella cheese and can be loaded with up to two toppings of your choice for little diners. Extra charge for additional toppings."
@@ -3267,7 +3267,7 @@
     dish_name: "Cheese"
     restaurant_id: 14
     price: '$11.00 - $17.00'
-    description: "Additional 10" $1.50, 14" $2.50"
+    description: "Additional 10' $1.50, 14' $2.50"
   -
     dish_name: "Arugula"
     restaurant_id: 14
@@ -4392,7 +4392,7 @@
     dish_name: "New Zealand Petite Lamb Chops"
     restaurant_id: 17
     price: ''
-    description: "Pistachio-mint pesto, "F17" sauce, polenta fries"
+    description: "Pistachio-mint pesto, 'F17' sauce, polenta fries"
   -
     dish_name: "Lite Filet Mignon"
     restaurant_id: 17
@@ -10687,7 +10687,7 @@
     dish_name: "Maple Banana Rama"
     restaurant_id: 36
     price: '$3.95'
-    description: "Home-made Bavarian cream, sliced organic banana and maple syrup around an extra crispy "puff"."
+    description: "Home-made Bavarian cream, sliced organic banana and maple syrup around an extra crispy 'puff'."
   -
     dish_name: "Creme Fraiche Cheesecake"
     restaurant_id: 36
@@ -12294,7 +12294,7 @@
     price: '$11.00'
     description: "TOSSED WITH A DIJON PARSLEY VINAIGRETTE"
   -
-    dish_name: "THE "ABC" BURGER A 1/2 LB. HAMBURGER"
+    dish_name: "THE 'ABC' BURGER A 1/2 LB. HAMBURGER"
     restaurant_id: 44
     price: '$11.00'
     description: "WITH AVOCADO, BACON, AND JACK CHEESE, LETTUCE, TOMATO, AND RED ONION, SERVED WITH FRENCH FRIES"
@@ -23284,7 +23284,7 @@
     price: '$13.95'
     description: ""
   -
-    dish_name: "Hand Battered "Big Slice" Onion Ring Tower"
+    dish_name: "Hand Battered 'Big Slice' Onion Ring Tower"
     restaurant_id: 79
     price: '$5.95'
     description: "a full pound of our addictive, beer battered onion rings - served w/ cracked pepper ranch dipping sauce"
@@ -23354,7 +23354,7 @@
     price: '$9.95'
     description: "pan seared sirloin w/ butter, white wine & terriyaki - w/ garlic toasts and creamed horseradish"
   -
-    dish_name: ""The Pro""
+    dish_name: "'The Pro'"
     restaurant_id: 79
     price: '$15.95'
     description: "sausage, pepperoni, red onions, black olives, mushrooms & roasted garlic"
@@ -23384,7 +23384,7 @@
     price: '$8.95'
     description: "w/ american cheese, peppers, onions & house bbq sauce"
   -
-    dish_name: ""It's In There!" Cobb Salad"
+    dish_name: "'It's In There!' Cobb Salad"
     restaurant_id: 79
     price: '$12.95'
     description: "grilled chicken breast, smoked applewood bacon, blue & cheddar cheeses, and chopped tomatoes on top of a bed of fresh mixed greens"
@@ -23419,7 +23419,7 @@
     price: '$9.95'
     description: "housemade sauce w/ whole milk mozzarella and fresh herbs"
   -
-    dish_name: ""Great Coaches Cover" Pu-Pu Platter "
+    dish_name: "'Great Coaches Cover' Pu-Pu Platter "
     restaurant_id: 79
     price: '$16.95'
     description: "spring rolls (4), buffalo wings, loaded skins, ky. chicken fingers, onion rings & garlic fries - w/ assorted sauces"
@@ -23534,7 +23534,7 @@
     price: '$10.95'
     description: "house smoked turkey breast w/ melted gouda, smoked bacon, tomato & hollandaise on wheat"
   -
-    dish_name: ""East-West" Seared Rare Ahi & Roasted Garlic Tiger Prawns"
+    dish_name: "'East-West' Seared Rare Ahi & Roasted Garlic Tiger Prawns"
     restaurant_id: 79
     price: '$17.95'
     description: "over mandarin oranges, slivered green onions, carrots, celery & mixed greens w/ wasabi-teriyaki sauce"
@@ -23554,10 +23554,10 @@
     price: '$15.95'
     description: "w/ sour cream & onions"
   -
-    dish_name: ""That's How I Roll""
+    dish_name: "'That's How I Roll'"
     restaurant_id: 79
     price: '$8.95'
-    description: "mix n' match any 3 spring rolls "filet cheesesteak" - mozzarella, peppers & onions "smokin chicken" - smoked gouda, peppers & carmelized onions "prawn scampi" - garlic, mozzarella & lemon-butter portobello - brie, cheddar, sun-dried tomato & artichoke heart"
+    description: "mix n' match any 3 spring rolls 'filet cheesesteak' - mozzarella, peppers & onions 'smokin chicken' - smoked gouda, peppers & carmelized onions 'prawn scampi' - garlic, mozzarella & lemon-butter portobello - brie, cheddar, sun-dried tomato & artichoke heart"
   -
     dish_name: "Bada Bang"
     restaurant_id: 79
@@ -23567,7 +23567,7 @@
     dish_name: "Award Winning Baby Back Ribs"
     restaurant_id: 79
     price: '$15.95 - $23.95'
-    description: ""ribs to die for" -palo alto daily hardwood hickory slow smoked for 6hrs til' fall off the bone tender - w/ house bbq"
+    description: "'ribs to die for' -palo alto daily hardwood hickory slow smoked for 6hrs til' fall off the bone tender - w/ house bbq"
   -
     dish_name: "Smoked & Carved Sirloin Of Tri-Tip"
     restaurant_id: 79
@@ -23577,7 +23577,7 @@
     dish_name: "Op's Famous Garlic Fries"
     restaurant_id: 79
     price: '$5.50'
-    description: ""best garlic fries" -sj mercury chili-cheese garlic fries add $2.00 hollandaise & truffle garlic oil fries add $2.00"
+    description: "'best garlic fries' -sj mercury chili-cheese garlic fries add $2.00 hollandaise & truffle garlic oil fries add $2.00"
   -
     dish_name: "12 Oz. Slow Roasted Prime Rib Or 1Lb. King Crab Legs"
     restaurant_id: 79
@@ -23589,7 +23589,7 @@
     price: '$16.95'
     description: "an 8oz. portion of this tender, fresh, maple syrup & kosher salt treat from the sea"
   -
-    dish_name: ""Cowboy Cut" 18 Oz. Bone-In Harris Ranch Ribeye"
+    dish_name: "'Cowboy Cut' 18 Oz. Bone-In Harris Ranch Ribeye"
     restaurant_id: 79
     price: '$24.95'
     description: ""
@@ -23602,7 +23602,7 @@
     dish_name: "Portobello Mushroom & Three Cheese Potato Skins"
     restaurant_id: 79
     price: '$7.95'
-    description: "loaded! w/ brie, cheddar, mozzarella & green onions-topped w/ sour cream & sides of ranch & hollandaise. add "pig candy" $2.00"
+    description: "loaded! w/ brie, cheddar, mozzarella & green onions-topped w/ sour cream & sides of ranch & hollandaise. add 'pig candy' $2.00"
   -
     dish_name: "Sesame Seared Rare Hawaiian Ahi"
     restaurant_id: 79
@@ -25792,7 +25792,7 @@
     dish_name: "Brownie Mud Pie"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. a max's favorite fudgy brownie topped with coffee ice cream, caramel sauce, hot fudge and toasted almonds. "
+    description: "'this is a bad place for a diet...' sinfully yours. a max's favorite fudgy brownie topped with coffee ice cream, caramel sauce, hot fudge and toasted almonds. "
   -
     dish_name: "Not-So-Mini Reuben"
     restaurant_id: 90
@@ -25847,7 +25847,7 @@
     dish_name: "Espresso Splash"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. a heaping dish of ice cream with a hot shot of espresso and fresh whipped cream. "
+    description: "'this is a bad place for a diet...' sinfully yours. a heaping dish of ice cream with a hot shot of espresso and fresh whipped cream. "
   -
     dish_name: "10-Oz Top Sirloin"
     restaurant_id: 90
@@ -25864,10 +25864,10 @@
     price: '$0.00'
     description: "chopped eggs and hot grilled onions"
   -
-    dish_name: "Dr. Jeff Saal's, "The Painkiller" "
+    dish_name: "Dr. Jeff Saal's, 'The Painkiller' "
     restaurant_id: 90
     price: '$0.00'
-    description: "injected wed. only, with a pinch of valium." ask for gatolinium! big b.l.t., add avocado"
+    description: "injected wed. only, with a pinch of valium.' ask for gatolinium! big b.l.t., add avocado"
   -
     dish_name: "Sugar-Free Low-Carb Hot Fudge Sundae"
     restaurant_id: 90
@@ -25964,7 +25964,7 @@
     price: '$0.00'
     description: "buffalo style--hot, spicy and sticky"
   -
-    dish_name: "Vickie B., "The Italian Princess""
+    dish_name: "Vickie B., 'The Italian Princess'"
     restaurant_id: 90
     price: '$0.00'
     description: "corned beef, pastrami and swiss with 1000 island dressing"
@@ -26137,7 +26137,7 @@
     dish_name: "Macaroon Crumble"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. heaping scoop of ice cream, creamy marshmallow, hot fudge, and fresh coconut macaroon crumbled all over plain macaroon. chocolate covered macaroon. "
+    description: "'this is a bad place for a diet...' sinfully yours. heaping scoop of ice cream, creamy marshmallow, hot fudge, and fresh coconut macaroon crumbled all over plain macaroon. chocolate covered macaroon. "
   -
     dish_name: "Fresh Orange Juice"
     restaurant_id: 90
@@ -26162,9 +26162,9 @@
     dish_name: "Warm Blueberry Parfait"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. layers of blueberry, ice cream and real, fresh whipped cream with puff pastry sticks. "
+    description: "'this is a bad place for a diet...' sinfully yours. layers of blueberry, ice cream and real, fresh whipped cream with puff pastry sticks. "
   -
-    dish_name: "Billy And Russ, "Two Good Guys""
+    dish_name: "Billy And Russ, 'Two Good Guys'"
     restaurant_id: 90
     price: '$0.00'
     description: "corned beef and pastrami"
@@ -26202,7 +26202,7 @@
     dish_name: "Double Decadence Chocolate Fudge"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. fudgy brownie topped with a heaping scoop of ice cream, creamy marshmallow and hot fudge. plain double decadence brownie"
+    description: "'this is a bad place for a diet...' sinfully yours. fudgy brownie topped with a heaping scoop of ice cream, creamy marshmallow and hot fudge. plain double decadence brownie"
   -
     dish_name: "New Castle Brown Ale Augstiner"
     restaurant_id: 90
@@ -26267,7 +26267,7 @@
     dish_name: "Ultimate Banana Split"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. for two or more. vanilla, chocolate and coffee ice creams topped with hot fudge, caramel and strawberry sauces with bits of macaroon, brownie, and 7-layer, topped with a drizzle of marshmallow sauce and lots of walnuts, peanuts and almonds. "
+    description: "'this is a bad place for a diet...' sinfully yours. for two or more. vanilla, chocolate and coffee ice creams topped with hot fudge, caramel and strawberry sauces with bits of macaroon, brownie, and 7-layer, topped with a drizzle of marshmallow sauce and lots of walnuts, peanuts and almonds. "
   -
     dish_name: "A Full Pound Of French Fries"
     restaurant_id: 90
@@ -26469,7 +26469,7 @@
     price: '$0.00'
     description: "vanilla bean, dark chocolate, coffee, fat-free, no sugar added vanilla"
   -
-    dish_name: "Barry And Marshall "They Love Our Chef's Liver""
+    dish_name: "Barry And Marshall 'They Love Our Chef's Liver'"
     restaurant_id: 90
     price: '$0.00'
     description: "corned beef and pastrami with chicken livers and hot grilled onions"
@@ -26532,7 +26532,7 @@
     dish_name: "7-Layer Cookie"
     restaurant_id: 90
     price: '$0.00'
-    description: ""this is a bad place for a diet..." sinfully yours. with walnuts, topped with a heaping scoop of ice cream, creamy marshmallow and hot fudge. plain 7-layer cookie. "
+    description: "'this is a bad place for a diet...' sinfully yours. with walnuts, topped with a heaping scoop of ice cream, creamy marshmallow and hot fudge. plain 7-layer cookie. "
   -
     dish_name: "Grandma's Honey-Roasted Chicken"
     restaurant_id: 90
@@ -28787,7 +28787,7 @@
     dish_name: "Gluten Free Pizza"
     restaurant_id: 101
     price: '$16.95'
-    description: "10" gluten free pizza with cheese. "
+    description: "10' gluten free pizza with cheese. "
   -
     dish_name: "Martinelli&reg Apple Juice"
     restaurant_id: 101
@@ -28987,7 +28987,7 @@
     dish_name: "The Eddie Gaedel Pizza"
     restaurant_id: 101
     price: '$16.75 - $26.25'
-    description: "Gulf shrimp, garlic, red onions, capers, fresh dill. For serious "shrimp" lovers."
+    description: "Gulf shrimp, garlic, red onions, capers, fresh dill. For serious 'shrimp' lovers."
   -
     dish_name: "Snapple kiwi strawberry juice "
     restaurant_id: 101
@@ -28997,7 +28997,7 @@
     dish_name: "The Ernie Banks Pizza"
     restaurant_id: 101
     price: '$16.75 - $26.25'
-    description: "Ginger sauce, Thai chicken, red onions, shiitake mushrooms, peanuts, shredded carrots and cilantro. "Let's eat two.""
+    description: "Ginger sauce, Thai chicken, red onions, shiitake mushrooms, peanuts, shredded carrots and cilantro. 'Let's eat two.'"
   -
     dish_name: "Spaghetti Kid's Meal"
     restaurant_id: 101
@@ -29014,7 +29014,7 @@
     price: '$10.45'
     description: "Our traditional meatball sandwich topped with red onions and provolone cheese and French fries."
   -
-    dish_name: ""Meaty" Mushroom Salad"
+    dish_name: "'Meaty' Mushroom Salad"
     restaurant_id: 101
     price: '$11.95'
     description: "Roasted shiitake, portobello, and burron mushrooms with diced and sun dried tomatoes, shredded carrots, almonds and cilantro tossed with soy ginger."
@@ -29169,12 +29169,12 @@
     price: '$11.75'
     description: "thinly shaved ham with soup of the day and french fries"
   -
-    dish_name: ""Harry's Bar" Steak Sandwich"
+    dish_name: "'Harry's Bar' Steak Sandwich"
     restaurant_id: 102
     price: '$15.95'
     description: "filet mignon with french fries"
   -
-    dish_name: "Classic "Mac Park" Potato Skins"
+    dish_name: "Classic 'Mac Park' Potato Skins"
     restaurant_id: 102
     price: '$6.95'
     description: "with sour cream and ranch"
@@ -29219,7 +29219,7 @@
     price: '$12.95'
     description: "fresh tomatoes, garlic, basil, extra virgin olive oil, add chicken or shrimp $3.95"
   -
-    dish_name: ""Macpark" Club"
+    dish_name: "'Macpark' Club"
     restaurant_id: 102
     price: '$12.50'
     description: "chicken breast, bacon, lettuce, tomatoes with housemade potato chips"
@@ -29229,7 +29229,7 @@
     price: '$7.95'
     description: "spiced pecans, dried fruit, feta cheese and lemon-shallot dressing"
   -
-    dish_name: ""Macpark" Salad"
+    dish_name: "'Macpark' Salad"
     restaurant_id: 102
     price: '$6.50'
     description: "tomatoes and creamy blue cheese / dijon dressing"
@@ -29244,7 +29244,7 @@
     price: '$13.50'
     description: "avocado, radish sprouts and dijon mayonnaise"
   -
-    dish_name: ""Macpark" Beef Tower"
+    dish_name: "'Macpark' Beef Tower"
     restaurant_id: 102
     price: '$18.95'
     description: "grilled beef tenderloin medallions, demi glaze, herbs, melted gorgonzola cheese, grilled tomatoes"
@@ -29254,12 +29254,12 @@
     price: '$17.25'
     description: ""
   -
-    dish_name: ""Macpark" Sampler Platter"
+    dish_name: "'Macpark' Sampler Platter"
     restaurant_id: 102
     price: '$9.95'
     description: "ribs, calamari, potato skins and onion strings"
   -
-    dish_name: ""Macpark" Burger "
+    dish_name: "'Macpark' Burger "
     restaurant_id: 102
     price: '$13.50'
     description: "jack cheese and our famous barbecue sauce, topped with crispy onion strings"
@@ -29294,7 +29294,7 @@
     price: '$11.50'
     description: "with housemade potato chips and cole slaw"
   -
-    dish_name: ""Maria Elena""
+    dish_name: "'Maria Elena'"
     restaurant_id: 102
     price: '$9.25'
     description: "mixed baby greens, pears, walnuts, gorgonzola cheese and lemon vinaigrette"
@@ -36424,7 +36424,7 @@
     price: '$0.00'
     description: ""
   -
-    dish_name: ""GOT" 2% Milk"
+    dish_name: "'GOT' 2% Milk"
     restaurant_id: 129
     price: '$1.25'
     description: ""
@@ -36934,7 +36934,7 @@
     price: ''
     description: "A fresh roll loaded with choice of chicken, salami, ham, louisiana-style hot sausage or canadian style bacon, crisp lettuce, fresh tomato and your choice of cheese. Served with pickle and chips"
   -
-    dish_name: "10" Small"
+    dish_name: "10' Small"
     restaurant_id: 131
     price: ''
     description: "Feeds 1-2 people"
@@ -36974,7 +36974,7 @@
     price: ''
     description: "Lots of mushrooms, black olives, bell peppers, artichoke hearts, and fresh tomatoes"
   -
-    dish_name: "12" Medium"
+    dish_name: "12' Medium"
     restaurant_id: 131
     price: ''
     description: "Feeds 2-3 people"
@@ -37004,7 +37004,7 @@
     price: ''
     description: "Plain or with cheese"
   -
-    dish_name: "20" Mountain"
+    dish_name: "20' Mountain"
     restaurant_id: 131
     price: ''
     description: "Feeds 6-8 people"
@@ -37014,7 +37014,7 @@
     price: ''
     description: "Tender chicken pieces, tomatoes, olives, mushrooms and fresh green onions with a creamy garlic white or traditional red sauce"
   -
-    dish_name: "14" Large"
+    dish_name: "14' Large"
     restaurant_id: 131
     price: ''
     description: "Feeds 3-4 people"
@@ -37284,7 +37284,7 @@
     price: '$2.75'
     description: ""
   -
-    dish_name: "Original "Baja Style" Tacos and Classic Style"
+    dish_name: "Original 'Baja Style' Tacos and Classic Style"
     restaurant_id: 132
     price: '$2.25 - $2.45'
     description: ""
@@ -38447,7 +38447,7 @@
     dish_name: "Pork Cutlet"
     restaurant_id: 139
     price: '$7.75'
-    description: "Katsu" Style  Panko breaded pork filets that are lightly fried and served with our very own Hukilau BBQ sauce."
+    description: "Katsu' Style  Panko breaded pork filets that are lightly fried and served with our very own Hukilau BBQ sauce."
   -
     dish_name: "Tako Poke"
     restaurant_id: 139
@@ -39637,24 +39637,24 @@
     dish_name: "Ceviche Del Cocinero"
     restaurant_id: 145
     price: '$11.00'
-    description: "fresh white fish "cooks" in the juice of lemons and limes - then served a la guadalajara on blue corn tostaditas with your favorite bottled hot sauce."
+    description: "fresh white fish 'cooks' in the juice of lemons and limes - then served a la guadalajara on blue corn tostaditas with your favorite bottled hot sauce."
   -
     dish_name: "Queso Fundido"
     restaurant_id: 145
     price: '$6.50'
     description: "cheese melted with fresh chilies and tomatoes, and served with warmed fresh papagayo corn tortillas"
   -
-    dish_name: ""Local Boy""
+    dish_name: "'Local Boy'"
     restaurant_id: 145
     price: '$23.50'
     description: "by the pitcher"
   -
-    dish_name: ""Top Shelf" Margarita"
+    dish_name: "'Top Shelf' Margarita"
     restaurant_id: 145
     price: '$27.50'
     description: "by the pitcher"
   -
-    dish_name: ""Your Call" Rita"
+    dish_name: "'Your Call' Rita"
     restaurant_id: 145
     price: '$2.00'
     description: "the price of your favorite tequila shot plus"
@@ -39779,7 +39779,7 @@
     price: '$9.50'
     description: ""
   -
-    dish_name: ""Back Bar Margarita""
+    dish_name: "'Back Bar Margarita'"
     restaurant_id: 145
     price: '$6.50'
     description: "by the pitcher"
@@ -39802,7 +39802,7 @@
     dish_name: "Seafood Ala Diabla"
     restaurant_id: 145
     price: '$24.50'
-    description: ""seafood of the devil" gets its name from the garlic and chilies in this saute of fresh fish, gulf prawns, bay scallops, and peppers, served fajita style with black beans, guacamole, sour cream, and salsa fresca. with warmed fresh corn tortillas."
+    description: "'seafood of the devil' gets its name from the garlic and chilies in this saute of fresh fish, gulf prawns, bay scallops, and peppers, served fajita style with black beans, guacamole, sour cream, and salsa fresca. with warmed fresh corn tortillas."
   -
     dish_name: "Enchiladas Poblanas"
     restaurant_id: 145
@@ -39912,7 +39912,7 @@
     dish_name: "Mazatlan shrimp Bucket"
     restaurant_id: 145
     price: '$25.00'
-    description: ""peel and eat". served with a tangy cocktail sauce - perfect with a bucket of beer or la torre"
+    description: "'peel and eat'. served with a tangy cocktail sauce - perfect with a bucket of beer or la torre"
   -
     dish_name: "Chicken Cilantro"
     restaurant_id: 145
@@ -47817,7 +47817,7 @@
     dish_name: "Mexican Quesadilla"
     restaurant_id: 167
     price: '$4.99'
-    description: "6" Flour tortilla, choice of meat, melted cheese, side lettuce and tomato."
+    description: "6' Flour tortilla, choice of meat, melted cheese, side lettuce and tomato."
   -
     dish_name: "Caldo 7 Mares"
     restaurant_id: 167
@@ -48084,10 +48084,10 @@
     price: '$7.50 - $8.50'
     description: "Fish burrito."
   -
-    dish_name: "Regular Quesadilla (6")"
+    dish_name: "Regular Quesadilla (6')"
     restaurant_id: 167
     price: '$3.99'
-    description: "6" Flour tortilla with melted cheese with side lettuce and tomato."
+    description: "6' Flour tortilla with melted cheese with side lettuce and tomato."
   -
     dish_name: "1 Flauta & 1 Crispy Taco"
     restaurant_id: 167
@@ -55447,7 +55447,7 @@
     dish_name: "1. Select a size:"
     restaurant_id: 198
     price: ''
-    description: "12" medium (serves 12), 14" large (serves 23) or 16" family size (serves 4-6)."
+    description: "12' medium (serves 12), 14' large (serves 23) or 16' family size (serves 4-6)."
   -
     dish_name: "Gourmet Chicken Garlic"
     restaurant_id: 198
@@ -58142,7 +58142,7 @@
     dish_name: "Takara Plum Wine"
     restaurant_id: 209
     price: '$7.00'
-    description: "enjoy this after dinner drink with a plum,
+    description: ""enjoy this after dinner drink with a plum,
 
 on the rocks or straight up."
   -
@@ -59001,7 +59001,7 @@ on the rocks or straight up."
     price: '$8.95 - $7.95'
     description: "pan fried rice with chicken, pork, shrimps, and fresh pineapple"
   -
-    dish_name: "Medium 14" 1-Topping Pizza"
+    dish_name: "Medium 14' 1-Topping Pizza"
     restaurant_id: 211
     price: '$16.00'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59011,7 +59011,7 @@ on the rocks or straight up."
     price: '$8.50'
     description: "Mozzarella cheese, spicy tomato sauce, sausage, beef, linguica, mushrooms, and onions in an enclosed whole wheat crust."
   -
-    dish_name: "Medium 14" 3-Topping Pizza"
+    dish_name: "Medium 14' 3-Topping Pizza"
     restaurant_id: 211
     price: '$19.00'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59031,12 +59031,12 @@ on the rocks or straight up."
     price: '$8.50'
     description: "Mozzarella cheese, spicy tomato sauce, and cooked in an enclosed whole wheat crust."
   -
-    dish_name: "Large 16" 3-Topping Pizza"
+    dish_name: "Large 16' 3-Topping Pizza"
     restaurant_id: 211
     price: '$22.75'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Medium 14" Cheese Pizza"
+    dish_name: "Medium 14' Cheese Pizza"
     restaurant_id: 211
     price: '$14.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59056,7 +59056,7 @@ on the rocks or straight up."
     price: '$8.50'
     description: "Mozzarella cheese, spicy tomato sauce, and cooked in an enclosed whole wheat crust."
   -
-    dish_name: "Large 16" 1-Topping Pizza"
+    dish_name: "Large 16' 1-Topping Pizza"
     restaurant_id: 211
     price: '$19.25'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59076,7 +59076,7 @@ on the rocks or straight up."
     price: '$15.25 - $22.25'
     description: "Ham, mushrooms, bell peppers, and pineapple on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" 4-Topping Pizza"
+    dish_name: "Small 12' 4-Topping Pizza"
     restaurant_id: 211
     price: '$16.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59084,7 +59084,7 @@ on the rocks or straight up."
     dish_name: "Vegetarian Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Vegetarian Pizza"
     restaurant_id: 211
@@ -59094,7 +59094,7 @@ on the rocks or straight up."
     dish_name: "BBQ Chicken Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Greek Calzone"
     restaurant_id: 211
@@ -59104,19 +59104,19 @@ on the rocks or straight up."
     dish_name: "Sausage Ball Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Clams and Fresh Garlic Pizza"
     restaurant_id: 211
     price: '$15.25 - $22.25'
     description: "Clams and fresh garlic on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Medium 14" 4-Topping Pizza"
+    dish_name: "Medium 14' 4-Topping Pizza"
     restaurant_id: 211
     price: '$20.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Large 16" 2-Topping Pizza"
+    dish_name: "Large 16' 2-Topping Pizza"
     restaurant_id: 211
     price: '$21.00'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59124,7 +59124,7 @@ on the rocks or straight up."
     dish_name: "Combination Sub"
     restaurant_id: 211
     price: '$7.25'
-    description: "Ham, salami, and pepperoni served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Ham, salami, and pepperoni served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Fiesta Special Pizza"
     restaurant_id: 211
@@ -59134,14 +59134,14 @@ on the rocks or straight up."
     dish_name: "Cheese Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
-    dish_name: "Large 16" 4-Topping Pizza"
+    dish_name: "Large 16' 4-Topping Pizza"
     restaurant_id: 211
     price: '$24.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Medium 14" 2-Topping Pizza"
+    dish_name: "Medium 14' 2-Topping Pizza"
     restaurant_id: 211
     price: '$17.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59164,7 +59164,7 @@ on the rocks or straight up."
     dish_name: "Salami Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Chicken and Fresh Garlic Pizza"
     restaurant_id: 211
@@ -59174,7 +59174,7 @@ on the rocks or straight up."
     dish_name: "Chicken Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Broccoli Chicken w/Peanuts and Red Tomatoes"
     restaurant_id: 211
@@ -59191,7 +59191,7 @@ on the rocks or straight up."
     price: '$15.25 - $22.25'
     description: "Salami, pepperoni, mushrooms, and sausage on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" Cheese Pizza"
+    dish_name: "Small 12' Cheese Pizza"
     restaurant_id: 211
     price: '$11.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59199,7 +59199,7 @@ on the rocks or straight up."
     dish_name: "Ham Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Vegetarian Calzone"
     restaurant_id: 211
@@ -59209,7 +59209,7 @@ on the rocks or straight up."
     dish_name: "Pesto Chicken Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "BBQ Chicken Pizza"
     restaurant_id: 211
@@ -59221,7 +59221,7 @@ on the rocks or straight up."
     price: '$15.25 - $22.25'
     description: "Ham, salami, pepperoni, Italian sausage, linguica, and ground beef on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" 2-Topping Pizza"
+    dish_name: "Small 12' 2-Topping Pizza"
     restaurant_id: 211
     price: '$14.00'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59244,7 +59244,7 @@ on the rocks or straight up."
     dish_name: "Pepperoni Sub"
     restaurant_id: 211
     price: '$6.25'
-    description: "Served on a 9" sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
+    description: "Served on a 9' sesame French roll with melted mozzarella cheese, lettuce, and mayonnaise."
   -
     dish_name: "Pesto Primavera Pizza"
     restaurant_id: 211
@@ -59261,17 +59261,17 @@ on the rocks or straight up."
     price: '$15.25 - $22.25'
     description: "Spinach, mushrooms, zucchini, olives, and fresh garlic on your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" 3-Topping Pizza"
+    dish_name: "Small 12' 3-Topping Pizza"
     restaurant_id: 211
     price: '$15.25'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Large 16" Cheese Pizza"
+    dish_name: "Large 16' Cheese Pizza"
     restaurant_id: 211
     price: '$17.50'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
   -
-    dish_name: "Small 12" 1-Topping Pizza"
+    dish_name: "Small 12' 1-Topping Pizza"
     restaurant_id: 211
     price: '$12.75'
     description: "Made with your choice of fresh, hand-spun thick crust or whole wheat crust."
@@ -59899,7 +59899,7 @@ on the rocks or straight up."
     dish_name: "Suicide"
     restaurant_id: 213
     price: '$1.99 - $2.65'
-    description: "this "eye opener" combined coffee and espresso. "
+    description: "this 'eye opener' combined coffee and espresso. "
   -
     dish_name: "Soup With French Bread"
     restaurant_id: 213
@@ -60221,7 +60221,7 @@ on the rocks or straight up."
     price: '$0.00'
     description: ""
   -
-    dish_name: "Burst "O" Berry"
+    dish_name: "Burst 'O' Berry"
     restaurant_id: 213
     price: '$0.00'
     description: "blackberry, strawberry, raspberry, blueberry, large"

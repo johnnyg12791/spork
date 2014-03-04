@@ -1,13 +1,14 @@
-<div class="jumbotron" id="main-jumbotron">
-  <form class="form-inline" role="form" id="main-search" action="/results/search" method="POST">
+<div class="jumbotron" id="home-jumbotron">
+  <form class="form-inline" role="form" id="home-search" action="/results/search" method="POST">
     <div class="form-group">
       <label class="sr-only" for="search-item">What are you looking for?</label>
       <input type="text" class="form-control" id="search-item" name="itemsearch" placeholder="e.g. pale ales, tacos, sushi">
     </div>
     <span>near</span>
     <div class="form-group">
-      <button type="button" class="btn btn-default" id="location-button">
-        <span class="glyphicon glyphicon-map-marker" ></span>
+      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Get current location" id="location-button">
+        <span class="glyphicon glyphicon-map-marker" id="location-button-icon"></span>
+        <img src="/assets/712.GIF" id="location-button-loading-gif">
       </button>
       <label class="sr-only" for="search-location">Where are you looking for it?</label>
       <input type="text" class="form-control" id="search-location" name="searchbar" placeholder="e.g. Palo Alto, CA">
@@ -32,19 +33,26 @@
 </div>
 
 
-<div class="container-fluid">
+<div class="container-fluid" id="popular-items-container">
   <div class="row">
     <div class="col-sm-12">
-      <h2 id="currently-popular-heading">Currently Popular Near Palo Alto, CA</h2>
+      <h2 id="popular-items-heading">Getting your location...</h2>
+      <div class="progress progress-striped active" id="popular-items-progress-bar">
+        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:100%">
+        </div>
+      </div>
     </div>
   </div>
-<% for i in (1..2) %>
-  <div class="row popular-items-row">
-    <% for i in (1..6) %>
-      <div class="col-sm-2">
-        <%= render "shared/item_square" %>
-      </div>
-    <% end %>
-  </div>
+  <br/>
+  <div id="popular-items">
+  <% for i in (1..2) %>
+    <div class="row popular-items-row">
+      <% for i in (1..6) %>
+        <div class="col-sm-2">
+          <%= render "shared/item_square" %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
+  </div>
 </div>

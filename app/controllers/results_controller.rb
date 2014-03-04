@@ -40,6 +40,7 @@ class ResultsController < ApplicationController
 				end
 			}
 		@restaurants = @restaurants.map do |rest| {:restaurant => rest, :pictures => rest.pictures} end
+		@dishes = @dishes.map do |dish| {:dish => dish, :pictures => dish.pictures} end	
 		if(@render) then
 			render(:json => {:restaurants => @restaurants, :dishes => @dishes})
 		end

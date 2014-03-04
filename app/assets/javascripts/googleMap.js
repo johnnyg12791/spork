@@ -58,16 +58,49 @@
     findRestaurants(initialLocation);
   }
 
-  $('#mapsearch').click(function() {
+
+
+
+  $('#updatemap').click(function() {
+    var distance = document.getElementById("distanceMap").value;
+   
+    if(isNaN(distance) == true) {
+      alert("Please enter a real number for distance");
+      return;
+    }
     clearOverlays();
-    console.log("searched");
-    var str = $('#map-bar').serialize();
+    var distanceNum = parseFloat(distance);
+    var data = {"distance": distanceNum, "searchbar": searched_loc, "latbar": $('.temp_information').data('latitude'), "lngbar": $('.temp_information').data('longitude'), "itemsearch": $('.temp_information').data('item')};
+    $.ajax({
+      url: "/results/getDishesAndRestaurants?render=true",
+      type: "POST",
+      data: data,
+      success: function(data, textStatus, xhr) {
+        console.log("success");
+        //return data;
+      }
+    }).done(function(data) {
+      console.log(data.restaurants);
+      searched_restaurants = data.restaurants;
+      performGeocoding(initialLocation);
+      
+    })
+    .fail(function() {
+      console.log("error")
+    })
+    .always(function() { 
+      console.log("complete"); 
+      //$(location).attr('href', '/user/main_page')
+    })
+  });
+
+
+    //findRestaurants(initialLocation);
     //$.post("/results/search", str);
-    performGeocoding(str);
+    //performGeocoding(str);
     //var newLoc = new google.maps.LatLng(18.1234, -145.9845);
     //map.setCenter(newLoc);
-    console.log("searched2");
-  })
+ // })
 
 
   function performGeocoding(address) {
@@ -135,7 +168,6 @@
   }*/
 
   function findRestaurants(location) {
-   // alert("in findRestaurants");
        var marker = new google.maps.Marker({
             //map: map,
             position: location,

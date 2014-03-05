@@ -4,10 +4,10 @@
   var searched_dishes = $('.temp_information').data('dishes');
   var searched_restaurants = $('.temp_information').data('restaurants');
 
-  if(searched_dishes.length == 0) {
-    alert("Your search query yielded no restaurants nearby with that item");
-    alert("Broaden your distance, or try a new search query (searching for no items yields all restaurants nearby");
-  }
+  // if(searched_dishes.length == 0) {
+  //   alert("Your search query yielded no restaurants nearby with that item");
+  //   alert("Broaden your distance, or try a new search query (searching for no items yields all restaurants nearby");
+  // }
   console.log(searched_dishes);
   console.log(searched_restaurants);
   //alert(searched_restaurants);

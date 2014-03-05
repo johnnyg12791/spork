@@ -7,7 +7,7 @@ class ResultsController < ApplicationController
 
 	def getDishesAndRestaurants()
 		if(@render == nil)
-			@render = params[:render]
+			@render = params[:json]
 		end
 		@search_loc = params[:searchbar]
 		@lat = params[:latbar]
@@ -23,7 +23,11 @@ class ResultsController < ApplicationController
 				@lon = results["results"][0]["geometry"]["location"]["lng"]
 			end
 		end
-		@item_search = params[:itemsearch]
+
+		@item_search = "";
+		if (params[:itemsearch]) then
+			@item_search = params[:itemsearch]
+		end
 
 		distance = 5
 		if(params[:distance]) then
@@ -47,15 +51,12 @@ class ResultsController < ApplicationController
 	end
 
 
-    def get_restaurants
-   	    lat = params[:lat]
- 	    lon = params[:lon]
- 	    @restaurants = Restaurant.where("(3959*acos(cos(radians(?))*cos(radians(latitude))*cos(radians(longitude)-radians(?)) + sin(radians(?))*sin(radians(latitude)))) < 5", lat, lon, lat)
- 	    @restaurants_with_pics = @restaurants.map do |rest| {:restaurant => rest, :pictures => rest.pictures} end
- 
-
- 	    render(:json => @restaurants_with_pics)
-
+  def get_restaurants
+	  lat = params[:lat]
+	  lon = params[:lon]
+	  @restaurants = Restaurant.where("(3959*acos(cos(radians(?))*cos(radians(latitude))*cos(radians(longitude)-radians(?)) + sin(radians(?))*sin(radians(latitude)))) < 5", lat, lon, lat)
+	  @restaurants_with_pics = @restaurants.map do |rest| {:restaurant => rest, :pictures => rest.pictures} end
+		render(:json => @restaurants_with_pics)
  	end
 
  	def get_pictures
@@ -66,8 +67,6 @@ class ResultsController < ApplicationController
  		@pictures = Restaurant.find(restaurant_id).pictures
  		render(:json => @pictures)
  	end
-
-
 
 end
 

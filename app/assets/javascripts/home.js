@@ -9,12 +9,22 @@ function getCurrLoc() {
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
             var searchbar = document.getElementById("search-location");
-            var formattedAddress = results[1].formatted_address;
-            searchbar.value = formattedAddress;
             var latBar = document.getElementById("lat-location");
             var lngBar = document.getElementById("lng-location");
+            var formattedAddress = results[1].formatted_address;
             latBar.value = position.coords.latitude;
             lngBar.value = position.coords.longitude;
+            // var ajax = $.ajax({
+            //   type: "POST",
+            //   url: "/results/getDishesAndRestaurants?json=true",
+            //   data: { latBar: latBar.value, lngBar: lngBar.value }
+            // });
+            // ajax.done(function(response) {
+            //   console.log(response);
+            // });
+            // ajax.fail(function(response, status) {
+            //   //do something
+            // });
           }
           else {
             console.log('No results found');

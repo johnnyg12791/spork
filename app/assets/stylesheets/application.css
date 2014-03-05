@@ -41,7 +41,7 @@ body {
   padding: 0px !important;
 }
 #header-fb-pic {
-  max-height: 50px;
+  height: 50px;
 }
 #fb-login-button {
   width:300px;

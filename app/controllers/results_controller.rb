@@ -1,3 +1,5 @@
+require 'net/http'
+
 class ResultsController < ApplicationController
 	def search
 		@render = false;
@@ -24,7 +26,7 @@ class ResultsController < ApplicationController
 			end
 		end
 
-		@item_search = "";
+		@item_search = ""
 		if (params[:itemsearch]) then
 			@item_search = params[:itemsearch]
 		end

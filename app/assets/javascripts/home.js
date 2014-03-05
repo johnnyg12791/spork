@@ -12,6 +12,7 @@ function getCurrLoc() {
             var latBar = document.getElementById("lat-location");
             var lngBar = document.getElementById("lng-location");
             var formattedAddress = results[1].formatted_address;
+            searchbar.value = formattedAddress;
             latBar.value = position.coords.latitude;
             lngBar.value = position.coords.longitude;
             // var ajax = $.ajax({

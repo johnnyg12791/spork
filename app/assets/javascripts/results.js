@@ -1,13 +1,12 @@
-(function(window, document, undefined) {
+$(document).ready(function() {
   var searched_loc = $('.temp_information').data('loc');
-
   var searched_dishes = $('.temp_information').data('dishes');
   var searched_restaurants = $('.temp_information').data('restaurants');
 
-  // if(searched_dishes.length == 0) {
-  //   alert("Your search query yielded no restaurants nearby with that item");
-  //   alert("Broaden your distance, or try a new search query (searching for no items yields all restaurants nearby");
-  // }
+  if(searched_dishes.length == 0) {
+    alert("Your search query yielded no restaurants nearby with that item");
+    alert("Broaden your distance, or try a new search query (searching for no items yields all restaurants nearby");
+  }
   console.log(searched_dishes);
   console.log(searched_restaurants);
   //alert(searched_restaurants);
@@ -72,7 +71,7 @@
     var distanceNum = parseFloat(distance);
     var data = {"distance": distanceNum, "searchbar": searched_loc, "latbar": $('.temp_information').data('latitude'), "lngbar": $('.temp_information').data('longitude'), "itemsearch": $('.temp_information').data('item')};
     $.ajax({
-      url: "/results/getDishesAndRestaurants?render=true",
+      url: "/results/getDishesAndRestaurants?json=true",
       type: "POST",
       data: data,
       success: function(data, textStatus, xhr) {
@@ -270,4 +269,4 @@
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-})(this, this.document);
+});

@@ -49,7 +49,9 @@
           <%= image_tag("test.jpg", :alt => "test", height: "100px", width: "100px") %>
         </div>
         <div class="col-md-10 right">
-          <h2><%= review.ratable.dish_name %></h2>
+          <a href="../../food/index/<%=review.ratable.id%>">
+            <h2><%= review.ratable.dish_name %></h2>
+          </a>
           <p>
             <% for star in 1..review.score %>
               <span class="glyphicon glyphicon-star"></span>

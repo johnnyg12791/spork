@@ -47,7 +47,6 @@ def ParseMenuList(item_list):
     description = ''
     if(description_start_index != (-1+len("\"description\">"))):
       description = item_string[description_start_index:description_end_index]
-
     item_dict[item_name] = [price, description]
 
 

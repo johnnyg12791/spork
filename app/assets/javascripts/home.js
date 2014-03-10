@@ -9,15 +9,11 @@ function getCurrLoc() {
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
             var searchbar = document.getElementById("search-location");
-            var latBar = document.getElementById("lat-location");
-            var lngBar = document.getElementById("lng-location");
             var formattedAddress = results[1].formatted_address;
             searchbar.value = formattedAddress;
-            latBar.value = position.coords.latitude;
-            lngBar.value = position.coords.longitude;
             // var ajax = $.ajax({
             //   type: "POST",
-            //   url: "/results/getDishesAndRestaurants?json=true",
+            //   url: "/results/get_dishes_and_restaurants?json=true",
             //   data: { latBar: latBar.value, lngBar: lngBar.value }
             // });
             // ajax.done(function(response) {
@@ -34,6 +30,10 @@ function getCurrLoc() {
         else {
           console.log('Geocoder failed due to: ' + status);
         }
+        var lat = document.getElementById("search-location-lat");
+        var lng = document.getElementById("search-location-long");
+        lat.value = position.coords.latitude;
+        lng.value = position.coords.longitude;
         getCurrLocUI(false, formattedAddress);
       });
     });

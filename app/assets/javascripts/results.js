@@ -63,15 +63,16 @@ $(document).ready(function() {
   $('#updatemap').click(function() {
     var distance = document.getElementById("distanceMap").value;
    
-    if(isNaN(distance) == true) {
+    if (isNaN(distance)) {
       alert("Please enter a real number for distance");
       return;
     }
     clearOverlays();
     var distanceNum = parseFloat(distance);
-    var data = {"distance": distanceNum, "searchbar": searched_loc, "latbar": $('.temp_information').data('latitude'), "lngbar": $('.temp_information').data('longitude'), "itemsearch": $('.temp_information').data('item')};
+    var data = {"search_distance": distanceNum, "search_loc": searched_loc, "search_lat": $('.temp_information').data('latitude'), 
+      "search_long": $('.temp_information').data('longitude'), "search_item": $('.temp_information').data('item')};
     $.ajax({
-      url: "/results/getDishesAndRestaurants?json=true",
+      url: "/results/search?json=true",
       type: "POST",
       data: data,
       success: function(data, textStatus, xhr) {
@@ -142,30 +143,6 @@ $(document).ready(function() {
     markersArray.length = 0;
   }
 
-/*
-  function getPics(rest_id) {
-     rest_data = {id: rest_id}
-     $.ajax({
-      url: "/results/get_pictures",
-      type: "POST",
-      data: rest_data,
-      success: function(data, textStatus, xhr) {
-        console.log("success");
-        return data;
-      }
-    }).done(function(data) {
-      console.log(data); 
-    })
-    .fail(function() {
-      console.log("error")
-    })
-    .always(function() { 
-      console.log("complete"); 
-      //$(location).attr('href', '/user/main_page')
-    })
-    console.log("ajax");
-  }*/
-
   function findRestaurants(location) {
        var marker = new google.maps.Marker({
             //map: map,
@@ -212,60 +189,6 @@ $(document).ready(function() {
       }
   }
         
-      
-/*
-    var loc_data = {lat: location.d, lon: location.e};
-    $.ajax({
-      url: "/results/get_restaurants",
-      type: "POST",
-      data: loc_data,
-      success: function(data, textStatus, xhr) {
-        console.log(data);
-        for(var i = 0; i < data.length; i++) {
-          var place = data[i].restaurant;
-          var pictures = data[i].pictures;
-          var latlng = new google.maps.LatLng(place.latitude, place.longitude);
-          var marker = new google.maps.Marker({
-            position: latlng,
-            title:  place.name,
-            id: place.id,
-            description: place.description,
-            pictures: pictures
-          });
-          markersArray.push(marker);
-          google.maps.event.addListener(marker, 'click', function() {
-                var contentString = "<a href='/restaurant/show/" + this.id + "'>" + this.title + "</a></br> " + this.description;
-                if(this.pictures) {
-                  contentString = contentString + "</br>";
-                  var numPics = this.pictures.length;
-                  var numPicsToDisplay = (numPics < 3) ? numPics : 3;
-                  for(var i = 0; i < numPicsToDisplay; i++) {
-                    contentString = contentString + "<img src='/assets/" + this.pictures[i].file_name + "' width='40' height='40'>";
-                  }
-                }
-                console.log(contentString);
-                infowindow.setContent(contentString);//this.title);
-                infowindow.open(map, this);
-            });
-          bounds.extend(latlng);
-          map.fitBounds(bounds);
-          marker.setMap(map);
-        }
-      }
-    }).done(function(data) {
-      console.log(data); 
-      })
-    .fail(function() {
-      console.log("error")
-    })
-    .always(function() { 
-      console.log("complete"); 
-      //$(location).attr('href', '/user/main_page')
-    })
-
-    console.log("ajax");
-  }
-  */
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

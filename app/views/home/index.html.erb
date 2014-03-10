@@ -1,8 +1,8 @@
 <div class="jumbotron" id="home-jumbotron">
-  <form class="form-inline" role="form" id="home-search" action="/results/search" method="POST">
+  <form class="form-inline" role="form" id="home-search" action="/results/search?json=false" method="POST">
     <div class="form-group">
       <label class="sr-only" for="search-item">What are you looking for?</label>
-      <input type="text" class="form-control" id="search-item" name="itemsearch" placeholder="e.g. pale ales, tacos, sushi">
+      <input type="text" class="form-control" id="search-item" name="search_item" placeholder="e.g. tacos, sushi">
     </div>
     <span>near</span>
     <div class="form-group">
@@ -11,9 +11,9 @@
         <img src="/assets/712.GIF" id="location-button-loading-gif">
       </button>
       <label class="sr-only" for="search-location">Where are you looking for it?</label>
-      <input type="text" class="form-control" id="search-location" name="searchbar" placeholder="e.g. Palo Alto, CA">
-      <input type="hidden" class="form-control" id="lat-location" name="latbar" value="37.441880">
-      <input type="hidden" class="form-control" id="lng-location" name="lngbar" value="-122.143020">
+      <input type="text" class="form-control" id="search-location" name="search_loc" placeholder="e.g. Palo Alto, CA">
+      <input type="hidden" class="form-control" id="search-location-lat" name="search_lat" value="37.441880">
+      <input type="hidden" class="form-control" id="search-location-long" name="search_long" value="-122.143020">
     </div>
     <button type="submit" class="btn btn-default" id="search-button">
       <span class="glyphicon glyphicon-search"></span>

@@ -6,7 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-seed_file = File.join(Rails.root, 'db', 'new_seeds_file.yml')
+seed_file = File.join(Rails.root, 'db', 'final_seeds.yml')
+#if you want to test
+#seed_file = File.join(Rails.root, 'db', 'new_seeds_file.yml')
 config = YAML::load_file(seed_file)
 Restaurant.create(config["restaurants"])
 Food.create(config["foods"])

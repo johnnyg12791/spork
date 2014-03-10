@@ -62605,3 +62605,8 @@ pictures:
     picture_type: "banner"
     imageable_id: 1
     imageable_type: "Restaurant"
+  -
+    file_name: "food_items/cheeseburger_1.jpeg"
+    picture_type: "banner"
+    imageable_id: 2
+    imageable_type: "Food"

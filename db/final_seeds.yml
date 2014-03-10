@@ -53,7 +53,7 @@ restaurants:
     address: "339 University Avenue, Palo Alto, CA 94301, USA"
     latitude: 37.4464715
     longitude: -122.1612308
-    description: "Mexican
+    description: "Mexican"
     hours: "1pm-10pm"
   -
     name: "Babbo's Mediterranean Bistro"
@@ -1068,7 +1068,7 @@ restaurants:
     address: "129 Lytton Avenue, Palo Alto, CA 94301, USA"
     latitude: 37.4447278
     longitude: -122.1650292
-    description: "Indian
+    description: "Indian"
     hours: "1pm-10pm"
   -
     name: "Gordon Biersch"

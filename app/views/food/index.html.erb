@@ -1,31 +1,150 @@
-<% if @food == 0 %>
-  <p id="error">Sorry, the food you clicked on is not in our database.</p>
-<%else%>
-  <%if @pictures%>
-  <p id="header">Pictures of <%=@food.dish_name%>:</p>
-    <table>
-    <% for picture in @pictures do %>
-    <tr>
-      <td>
-        <div class="picture">
-          <p><img src="/images/<%=picture.file_name%>"></p>
-        </div>
-      </td>
-    </tr>
-    <%end%>
-    <table>
-  <%end%>
+<div id="food-page" class="container">
+ <h1 style="text-align:center;"><%=@food.dish_name %></h1>
+ <div class="stars"></div>
+
+  <div class="info">
+  <table>
   <tr>
-  <% if @ratings %>
-    <div class = "rating"> Reviews:</div>
-    <%for rating in @ratings%>
+    <td><h1>Information</h1></td>
+    <% if @food.restaurant_id%>
+      <tr>
+<!--       <div class="col-md-2"> -->
+        <td>
+        <h3>From</h3>
+        </td>
+      <!-- </div> -->
+<!--       <div class="col-md-4"> -->
+        <td>
+        <p><%=Restaurant.find(@food.restaurant_id).name %></p>
+        </td>
+      <!-- </div> -->
+      </tr>
+    <% end %>
+    <% if @food.price %>
+      <tr>
+      <!-- <div class="col-md-2"> -->
+        <td>
+        <h3>Price</h3>
+        </td>
+      <!-- </div> -->
+      <!-- <div class="col-md-4"> -->
+        <td>
+        <p><%= @food.price %></p>
+        </td>
+      <!-- </div> -->
+      </tr>
+    <% end %>
+    <% if @food.size %>
+      <tr>
+      <!-- <div class="col-md-2"> -->
+        <td>
+        <h3>Size</h3>
+        </td>
+      <!-- </div> -->
+      <!-- <div class="col-md-4"> -->
       <td>
-        <p><%=rating.comment%></p>
-        <p>Score: <%=rating.score%></p>
+        <p><%= @food.size %></p>
+        </td>
+      </div>
+      </tr>
+    <% end %>
+    <% if @food.calories %>
+    <tr>
+      <!-- <div class="col-md-2"> -->
+      <td>
+        <h3>Calories</h3>
+        </td>
+      <!-- </div> -->
+      <!-- <div class="col-md-4"> -->
+      <td>
+        <p><%= @food.calories %></p>
+        </td>
+      <!-- </div> -->
+      </tr>
+    <% end %>
+    <% if @food.nutrition %>
+    <tr>
+      <!-- <div class="col-md-2"> -->
+        <td>
+        <h3>Nutrition</h3>
+        </td>
+      <!-- </div> -->
+      <!-- <div class="col-md-4"> -->
+      <td>
+        <p><%= @food.nutrition %></p>
       </td>
+      <!-- </div> -->
+      </tr>
+    <% end %>
+    <% if @food.presentation %>
+    <tr>
+      <!-- <div class="col-md-2"> -->
+      <td>
+        <h3>Presentation</h3>
+        </td>
+      <!-- </div> -->
+      <!-- <div class="col-md-4"> -->
+      <td>
+        <p><%= @food.presentation %></p>
+        </td>
+      <!-- </div> -->
+      </tr>
+    <% end %>
+    <tr>
+    <tr>
+      <div class="description">
+      <%if @food.description %>
+      <td><h1>Description</h1></td>
+      <!-- <div class="col-md-4"> -->
+      <td>
+        <p><%=@food.description%></p>
+        </td>
+      <!-- </div> -->
+      <%end%>
+      </div>
+    </tr>
+    </table>
+  </div>
+
+  <div class="food-images">
+  <%if @pictures.length > 0 %>
+    <h1>Photos</h1>
+    <div class="row image-tile-row">
+      <% numToDisplay = @pictures.length%>
+      <% for pic in @pictures%>
+        <div class="col-md-2">
+          <%= @pic%>
+        </div>
+      <% end %>
+    </div>
     <%end%>
-  </tr>
-  <%end%>
-  <p>Food id: <%=@food.id%></p> 
-  <p class = "button"><%= button_to "Review Item", :controller => "rating", :action => "new", :id => @food.id%></p>
-<%end%>
+  </div>
+
+
+  <div class="reviews">
+  <%if @ratings %>
+    <h1>Reviews</h1>
+    <% for review in @ratings %>
+      <div class="review">
+          <p>
+            <% for star in 1..review.score %>
+              <span class="glyphicon glyphicon-star"></span>
+            <% end %>
+            <% for star in review.score+1..5 %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+            <% end %>
+          </p>
+          <% if user = User.find_by_id(review.user_id) %>
+            <h3>
+              Review by <%= link_to "#{user.first_name} #{user.last_name}", 
+                {controller: "user", action: "profile", id: user.id } %>
+            </h3>
+          <% end %>
+          <p>"<%= review.comment %>"</p>
+        </div>
+      </div>
+    <% end %>
+    <%end%>
+  </div>
+
+</div>

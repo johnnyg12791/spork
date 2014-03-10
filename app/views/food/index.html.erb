@@ -3,19 +3,19 @@
  <div class="stars"></div>
 
   <div class="info">
-  <table>
+  <table align="center">
   <tr>
-    <td><h1>Information</h1></td>
+  <td>
+    <table align="right">
+      <tr><td><h1>Information</h1></td></tr>
     <% if @food.restaurant_id%>
       <tr>
 <!--       <div class="col-md-2"> -->
-        <td>
-        <h3>From</h3>
-        </td>
+        <td><b>From</b></td>
       <!-- </div> -->
 <!--       <div class="col-md-4"> -->
         <td>
-        <p><%=Restaurant.find(@food.restaurant_id).name %></p>
+        <%=Restaurant.find(@food.restaurant_id).name %>
         </td>
       <!-- </div> -->
       </tr>
@@ -90,11 +90,14 @@
       <!-- </div> -->
       </tr>
     <% end %>
-    <tr>
-    <tr>
+    </table>
+</td>
+<td>
+
+    <table align="left">
       <div class="description">
       <%if @food.description %>
-      <td><h1>Description</h1></td>
+      <tr><td><h1>Description</h1></td></tr>
       <!-- <div class="col-md-4"> -->
       <td>
         <p><%=@food.description%></p>
@@ -102,6 +105,20 @@
       <!-- </div> -->
       <%end%>
       </div>
+    </table>
+    </td>
+  </tr>
+  </table>
+
+
+
+
+  
+
+
+
+
+
     </tr>
     </table>
   </div>

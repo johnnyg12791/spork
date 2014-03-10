@@ -11,12 +11,20 @@
           <p><img src="/images/<%=picture.file_name%>"></p>
         </div>
       </td>
-      <tr>
-        <div class = "rating"> Rating goes here </div>
-     </tr>
     </tr>
     <%end%>
     <table>
+  <%end%>
+  <tr>
+  <% if @ratings %>
+    <div class = "rating"> Reviews:</div>
+    <%for rating in @ratings%>
+      <td>
+        <p><%=rating.comment%></p>
+        <p>Score: <%=rating.score%></p>
+      </td>
+    <%end%>
+  </tr>
   <%end%>
   <p>Food id: <%=@food.id%></p> 
   <p class = "button"><%= button_to "Review Item", :controller => "rating", :action => "new", :id => @food.id%></p>

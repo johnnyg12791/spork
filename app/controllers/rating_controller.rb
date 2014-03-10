@@ -26,9 +26,10 @@ class RatingController < ApplicationController
 	  		# @rating.user_id = session["user_id"]
 	  		@rating.user_id = 1
 	  		@rating.type = "food1"
-	  		@rating.score = params[:rating][:score]
+	  		@rating.score = params[:score]
 	  		@rating.comment = params[:rating][:comment]
 		  	@rating.date_time = Time.now
+		  	puts params[:score]
 
 	   		if @rating.save
 		   		flash[:notice] = "Rating successfully created!"

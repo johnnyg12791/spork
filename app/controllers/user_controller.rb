@@ -12,7 +12,9 @@ class UserController < ApplicationController
       user.rating_score = 0
       user.save
     end
-    session[:fb_id] = fb_user_data[:id]
+    session[:user_id] = user.id
+    session[:first_name] = user.first_name
+    session[:fb_id] = user.fb_id
     render nothing: true
   end
 
@@ -34,10 +36,12 @@ class UserController < ApplicationController
       restaurant = Restaurant.find(item.restaurant_id)
       restaurant_name = restaurant.name
       item_name = item.dish_name
+      item_id = item.id
       info.push(item_name)
       info.push([restaurant_name, item.restaurant_id])
       info.push(review.score)
       info.push(review.comment)
+      info.push(item_id)
       @review_display_info.push(info)
     end
 

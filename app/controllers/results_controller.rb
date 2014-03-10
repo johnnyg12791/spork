@@ -1,57 +1,71 @@
+require 'net/http'
+
 class ResultsController < ApplicationController
+
 	def search
-		
-		#@query = params[:query]
-		#@foods = Food.filter(@query)
-		#@drinks = Drink.filter(@query)
 
-		@search_loc = params[:searchbar]
-		@item_search = params[:itemsearch]
-		puts @search_loc
-		puts @item_search
-		if @item_search != nil && @item_search.length != 0
-			@restaurants = Restaurant.select("id").where("lower(name) like ? OR lower(description) like ?", "%#{@item_search.downcase}%", "%#{@item_search.downcase}%")
-			@dishes = []
-			numRestaurants = @restaurants.length
-			if numRestaurants != 0
-				for i in 0..numRestaurants-1
-					@dishes = @dishes.concat(Food.where("restaurant_id = ?", @restaurants[i].id))
-				end
-			end
-			@dishes = @dishes.concat(Food.where("lower(dish_name) like ? OR lower(description) like ?", "%#{@item_search.downcase}%", "%#{@item_search.downcase}%"))
-			@dishes = @dishes.uniq
-			@dishes = @dishes.sort_by{|dish| 
-				if((Rating.exists? :ratable_id => dish.id) == nil)
-					0
-				else 
-					Rating.average(:score, :conditions => {:ratable_id => dish.id}) 
-				end
-			}
+		@render_json = false
+		if (params[:json] == 'true') then
+			@render_json = true
 		end
+
+		@search_loc = params[:search_loc]
+		@search_lat = params[:search_lat]
+		@search_long = params[:search_long]
+		if @search_loc != nil
+			address = @search_loc.gsub(/\s/, "+")
+			uri = URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&sensor=false")
+			http = Net::HTTP.get_response(uri)
+			results = JSON.parse(http.body)
+			#formatted_address = results["results"][0]["formatted_address"]
+			if results["status"] != "ZERO_RESULTS"
+				@search_lat = results["results"][0]["geometry"]["location"]["lat"]
+				@search_long = results["results"][0]["geometry"]["location"]["lng"]
+			end
+		end
+
+		@search_item = ""
+		if (params[:search_item]) then
+			@search_item = params[:search_item]
+		end
+		@search_item.downcase
+
+		@search_distance = 5
+		if(params[:search_distance]) then
+			@search_distance = params[:search_distance]
+		end
+
+		@restaurants = Restaurant.find_by_sql(["SELECT distinct restaurants.id, restaurants.name, restaurants.description, 
+			restaurants.address, restaurants.latitude, restaurants.longitude, restaurants.hours from foods, restaurants WHERE 
+			(3959*acos(cos(radians(?))*cos(radians(restaurants.latitude))*cos(radians(restaurants.longitude)-radians(?)) + 
+			sin(radians(?))*sin(radians(restaurants.latitude)))) < ? AND ((lower(restaurants.name) like ? OR 
+			lower(restaurants.description) like ?) OR (lower(foods.dish_name) like ? OR lower(foods.description) like ?)) AND 
+			foods.restaurant_id = restaurants.id", @search_lat, @search_long, @search_lat, @search_distance, "%#{@search_item}%", 
+			"%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%"])
+
+		@dishes = Food.find_by_sql(["SELECT distinct foods.id, foods.dish_name, foods.price, foods.description, foods.size, 
+			foods.calories, foods.nutrition, foods.presentation from foods, restaurants WHERE 
+			(3959*acos(cos(radians(?))*cos(radians(restaurants.latitude))*cos(radians(restaurants.longitude)-radians(?)) + 
+			sin(radians(?))*sin(radians(restaurants.latitude)))) < ? AND ((lower(restaurants.name) like ? OR 
+			lower(restaurants.description) like ?) OR (lower(foods.dish_name) like ? OR lower(foods.description) like ?)) AND 
+			foods.restaurant_id = restaurants.id", @search_lat, @search_long, @search_lat, @search_distance, "%#{@search_item}%", 
+			"%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%"])
+
+		@dishes = @dishes.sort_by do |dish| 
+			if ((Rating.exists? :ratable_id => dish.id) == nil)
+				0
+			else 
+				Rating.average(:score, :conditions => {:ratable_id => dish.id}) 
+			end
+		end
+		@restaurants = @restaurants.map do |rest| {:restaurant => rest, :pictures => rest.pictures} end
+		@dishes = @dishes.map do |dish| {:dish => dish, :pictures => dish.pictures} end	
+
+		if(@render_json) then
+			render(:json => {:restaurants => @restaurants, :dishes => @dishes})
+		end
+
 	end
-
-
-    def get_restaurants
-   	    lat = params[:lat]
- 	    lon = params[:lon]
- 	    @restaurants = Restaurant.where("(3959*acos(cos(radians(?))*cos(radians(latitude))*cos(radians(longitude)-radians(?)) + sin(radians(?))*sin(radians(latitude)))) < 5", lat, lon, lat)
- 	    @restaurants_with_pics = @restaurants.map do |rest| {:restaurant => rest, :pictures => rest.pictures} end
- 
-
- 	    render(:json => @restaurants_with_pics)
-
- 	end
-
- 	def get_pictures
- 		restaurant_id = params[:id]
- 		puts restaurant_id
- 		puts restaurant_id
- 		puts restaurant_id
- 		@pictures = Restaurant.find(restaurant_id).pictures
- 		render(:json => @pictures)
- 	end
-
-
 
 end
 

@@ -27,11 +27,45 @@ body {
   font-weight: bold;
   color: #ffffff;
 }
-#app-login-button, #app-logout-button {
-  float:right;
-  background-color: #8B0000;
+#header-search-submit {
+  visibility: hidden;
+}
+#header-login-button {
+  background-color: #7B0000;
   color: #ffffff;
 }
-#login-modal, #logout-modal {
+#header-login-button:hover {
+  background-color: #6B0000;
+}
+#header-user-dropdown {
+  padding: 0px !important;
+}
+#header-fb-pic {
+  height: 50px;
+}
+#fb-login-button {
+  width:300px;
+  height:46px;
+  background-image: url('active_600.png');
+}
+#fb-login-button:active {
+  background-image: url('pressed_600.png');
+}
+#login-modal {
   text-align: center;
+}
+.item-square {
+  padding: 10px;
+  background-color: #dddddd;
+}
+.item-square img {
+  max-width: 100%;
+  border: 1px solid #888888;
+}
+.item-square .item-square-price {
+  float: right;
+}
+.item-square a {
+  color: blue;
+  font-style: italic;
 }

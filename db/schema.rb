@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140128051610) do
     t.integer  "restaurant_id"
     t.string   "dish_name"
     t.string   "price"
-    t.string   "description"
+    t.text     "description"
     t.integer  "size"
     t.integer  "calories"
     t.integer  "nutrition"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20140128051610) do
     t.decimal  "longitude",   precision: 10, scale: 6
     t.string   "address"
     t.string   "description"
-    t.datetime "hours"
+    t.string   "hours"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

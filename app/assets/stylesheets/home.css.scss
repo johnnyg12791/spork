@@ -1,0 +1,56 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#home-jumbotron {
+  background-image: url('hero.png');
+  background-size: cover;
+  background-position: 0% 28%;
+  height: 400px;
+  color: white;
+}
+#home-jumbotron form {
+  text-align: center;
+}
+#home-search {
+ margin: 200px auto 0px auto;
+}
+#home-search input {
+  width: 250px;
+  font-size: 17px;
+  height: 40px;
+}
+#home-search span {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 0 0 2px #000000;
+}
+#home-search > div, #home-search > span {
+  margin-right: 25px;
+}
+#home-search button {
+  height: 40px;
+  background-color: #8B0000;
+}
+#location-button-loading-gif {
+  display:none;
+}
+#showcase-item-rating {
+  text-align: right;
+  margin-right: 5%;
+  margin-top: 30px;
+  font-weight: bold;
+  text-shadow: 0 0 2px #000000;
+}
+#popular-items-progress-bar {
+  margin: 0px auto;
+  width: 450px;
+}
+#popular-items-heading {
+  margin-left: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+.popular-items-row {
+  margin: 0px 0px 25px 0px;
+}

@@ -4,8 +4,6 @@ restaurants:
     latitude: 37.4238362
     longitude: -122.170774
     address: "Fake Street, Santa Clara, CA 95054, USA"
-    latitude: 37.3832599
-    longitude: -121.9838996
     description: "The Coffee House, yum"
     hours: "7am - Midnight"
   - 
@@ -1574,6 +1572,27 @@ foods:
     restaurant_id: 3
     price: '5.99'
     description: '1/3 lb lean beef with fries or a side salad'
+  -
+    dish_name: "steak"
+    restaurant_id: 84
+    price: '6.99'
+    description: 'juicy'
+  -
+    dish_name: "Eggplant"
+    restaurant_id: 27
+    price: '8.99'
+    description: "so good"
+
+
+    dish_name: 'chicken parmesan'
+    restaurant_id: 27
+    price: '10.00'
+    description: 'best chicken parmesan with cheese'
+
+    dish_name: 'steak'
+    restaurant_id: 84
+    price: '10.00'
+    description: 'juicy'
 
 users:
   -
@@ -1586,7 +1605,7 @@ ratings:
   -
     ratable_id: 1
     ratable_type: "Food"
-    user_id: 1
+    user_id: 2
     score: 3
     comment: "tasty"
   -

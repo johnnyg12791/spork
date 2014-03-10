@@ -1,17 +1,18 @@
-<%= content_tag :div, class: "temp_information", data: {loc: @search_loc, item: @item_search } do %>
+<%= content_tag :div, class: "temp_information", data: {loc: @search_loc, item: @search_item, dishes: @dishes, 
+  restaurants: @restaurants, latitude: @search_lat, longitude: @search_long} do %>
 <% end %>
 
+<div id="results">
 <div class="map-search">
 <form id="map-bar">
-  Location: <input name="location">
+  Max Distance (in miles): <input id="distanceMap" name="distance">
 </form>
-  <button id="mapsearch">Search</button>
+  <button id="updatemap">Update Map</button>
 </div>
  
- <div id="map-canvas" style="width:500px;height:380px;"></div>
-
- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIeZVzBMzDY_tx6DpJJXNQpO708P6KiM&sensor=false"></script>
-
- <script type="text/javascript" src="/assets/googleMap.js"></script>
+<div id="map-canvas" style="width:100%;height:380px;"></div>
 
 <p><%= @dishes %></p>
+<p><%= @restaurants %></p>
+
+</div>

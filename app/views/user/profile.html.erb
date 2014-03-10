@@ -7,17 +7,10 @@ Here are <%= @user.first_name %>'s reviews:
 
 <% for review in @review_display_info %>
 <div>
-  A <%= review[0] %> at <a href="../../restaurant/show/<%= review[1][1] %>" >
-  <%= review[1][0] %> </a>, for a score of: <%= review[2] %> =>"<%= review[3] %>"
+  <a href="../../food/index/<%=review[4]%>"> <%= review[0] %> </a> at 
+  <a href="../../restaurant/show/<%= review[1][1] %>" >
+  <%= review[1][0] %> </a>,
+  for a score of: <%= review[2] %> =>"<%= review[3] %>"
   <br>
 </div>
 <% end %>
-
-<br><br>
-<%= form_for(@user, method: :post,
-    url: {action: :update, id: @user.id}) do |form| %>
-  <%= form.text_field(:first_name) %>
-  <%= form.text_field(:last_name) %>
-  <%= form.submit "Modify User" %>
-<% end %>
-

@@ -3,9 +3,11 @@
 <head>
   <title>Spork</title>
   <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <%= javascript_include_tag "jquery.cookie.js" %>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTIeZVzBMzDY_tx6DpJJXNQpO708P6KiM&sensor=false"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag params[:controller] %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -19,24 +21,31 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="application-header">
   <div class="container">
     <a class="navbar-brand" href="/" id="application-header-brand">Spork</a>
-    <% if params[:controller] != 'main' && params[:action] != 'index' then %>
-    <form class="navbar-form navbar-left" role="search">
+    <% if params[:controller] != 'home' || params[:action] != 'index' then %>
+    <form class="navbar-form navbar-left" role="search" action="/results/search?json=false" method="POST">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" name="search_item">
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Location">
+        <input type="text" class="form-control" placeholder="Location" name="search_loc">
       </div>
+      <button type="submit" class="btn btn-default" id="header-search-submit"></button>
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
     </form>
     <% end %>
-    <% if session[:fb_id] == nil then %>
-    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal" id="app-login-button">
-      Log In
-    </button>
-    <% else %>
-    <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#logout-modal" id="app-logout-button">
-      <img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=10'>
-    </button>
+    <ul class="nav navbar-nav navbar-right">
+      <% if session[:user_id] == nil then %>
+      <li><a href="#" data-toggle="modal" data-target="#login-modal" id="header-login-button">Log In</a></li>
+      <% else %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="header-user-dropdown">
+          <img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=25' id="header-fb-pic">
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="user-dropdown-button">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="/user/profile/<%= session[:user_id] %>">Profile</a></li>
+          <li role="presentation"><a role="menuitem" tabidnex="-1" href="#" id="app-logout-button">Log Out</a></li>
+        </ul>
+      </li>
     <% end %>
   </div>
 </nav>
@@ -46,18 +55,7 @@
     <div class="modal-content">
       <div class="modal-body">
         <h2>Log in with Facebook to rate dishes</h2>
-        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="logout-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
-        <h2>This will also log you out of Facebook.</h2>
+        <button id="fb-login-button"></button>
       </div>
     </div>
   </div>

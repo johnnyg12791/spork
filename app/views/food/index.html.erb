@@ -110,27 +110,13 @@
   </tr>
   </table>
 
-
-
-
-  
-
-
-
-
-
-    </tr>
-    </table>
-  </div>
-
   <div class="food-images">
   <%if @pictures.length > 0 %>
     <h1>Photos</h1>
     <div class="row image-tile-row">
-      <% numToDisplay = @pictures.length%>
-      <% for pic in @pictures%>
+      <% for photo in @pictures%>
         <div class="col-md-2">
-          <%= @pic%>
+          <p><img src="/assets/images/<%=photo.file_name%>"></p>
         </div>
       <% end %>
     </div>
@@ -139,7 +125,7 @@
 
 
   <div class="reviews">
-  <%if @ratings %>
+  <%if @num_reviews > 0%>
     <h1>Reviews</h1>
     <% for review in @ratings %>
       <div class="review">

@@ -41,7 +41,8 @@ class RestaurantController < ApplicationController
     #   h[food.category] << food
     # }
 
-    @foods = Food.where(restaurant_id: @restaurant.id)
+    @foods = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", @restaurant.id])
+#Food.where(restaurant_id: @restaurant.id)
   end
   
   def username_from_id(id)
@@ -49,4 +50,67 @@ class RestaurantController < ApplicationController
   end
 
   helper_method :username_from_id
+
+  def addDish
+      dishName = params[:name] # front end validated to ensure not ""
+      price = params[:price] # front end validated to ensure a real number
+      description = params[:description] # potentially ""
+      uploadedFile = params[:image] # potentially ""
+      toReviewBool = params[:reviewOrNot] # either true or false (String)
+      restaurantId = params[:restaurantId]
+      puts "rest ID"
+      puts restaurantId
+      if(price != "") then
+        price = "$" + price
+      end
+      food = Food.new(:dish_name => dishName, :price => price, :description => description, :restaurant_id => restaurantId)
+      food.save()
+      food_in_db = Food.where("restaurant_id = ? AND dish_name = ?", restaurantId, dishName)
+      if(uploadedFile != "") then
+        picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => food_in_db[0].id)
+        picture.save()
+        File.open(Rails.root.join('app', 'assets', 'images', 'food_items', uploadedFile.original_filename), 'wb') do |file|
+          file.write(uploadedFile.read)
+        end
+      end
+
+      if(toReviewBool == "true") then
+        rating = params[:rating] # 1-5
+        review = params[:review] # potentially ""
+        rating = Rating.new(:ratable_id => food_in_db[0].id, :ratable_type => "Food", :user_id => session[:user_id], :score => rating, :comment => review)
+        rating.save()
+      end
+
+      redirect_to(:action => 'menu/' + restaurantId)
+end
+
+  #   dishName = params[:name]
+  #   price = params[:price]
+  #   if(price != "") then
+  #     price = "$" + price
+  #   end
+  #   description = params[:description]
+  #   file = params[:dishFile]
+  #   restaurantId = params[:restaurantId]
+  #   food = Food.new(:dish_name => dishName, :price => price, :description => description, :restaurant_id => restaurantId)
+  #   food.save()
+  #   food_in_db = Food.where("restaurant_id = ? AND dish_name = ?", restaurantId, dishName)
+  #   if(file != "") then
+  #     picture = Picture.new(:file_name => file, :imageable_type => "Food", :imageable_id => food_in_db[0].id)
+  #     picture.save()
+  #   end
+  #   addingReview = params[:addReview]
+
+
+    # if(addingReview == "true") then
+    #   review = params[:review]
+    #   rating = params[:rating]
+    #   rating = Rating.new(:ratable_id => food_in_db[0].id, :ratable_type => "Food", :user_id => session[:user_id], :score => rating, :comment => review)
+    #   rating.save()
+    # end
+
+  #   render nothing: true
+  # end
+
+
 end

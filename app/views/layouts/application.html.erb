@@ -22,12 +22,12 @@
   <div class="container">
     <a class="navbar-brand" href="/" id="application-header-brand">Spork</a>
     <% if params[:controller] != 'home' || params[:action] != 'index' then %>
-    <form class="navbar-form navbar-left" role="search" action="/results/search" method="POST">
+    <form class="navbar-form navbar-left" role="search" action="/results/search?json=false" method="POST">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" name="search_item">
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Location">
+        <input type="text" class="form-control" placeholder="Location" name="search_loc">
       </div>
       <button type="submit" class="btn btn-default" id="header-search-submit"></button>
       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">

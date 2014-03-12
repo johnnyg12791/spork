@@ -1,153 +1,91 @@
-<div id="food-page" class="container">
- <h1 style="text-align:center;"><%=@food.dish_name %></h1>
- <div class="stars"></div>
-
-  <div class="info">
-  <table align="center">
-  <tr>
-  <td>
-    <table align="right">
-      <tr><td><h1>Information</h1></td></tr>
-    <% if @food.restaurant_id%>
-      <tr>
-<!--       <div class="col-md-2"> -->
-        <td><b>From</b></td>
-      <!-- </div> -->
-<!--       <div class="col-md-4"> -->
-        <td>
-        <%=Restaurant.find(@food.restaurant_id).name %>
-        </td>
-      <!-- </div> -->
-      </tr>
-    <% end %>
-    <% if @food.price %>
-      <tr>
-      <!-- <div class="col-md-2"> -->
-        <td>
-        <h3>Price</h3>
-        </td>
-      <!-- </div> -->
-      <!-- <div class="col-md-4"> -->
-        <td>
-        <p><%= @food.price %></p>
-        </td>
-      <!-- </div> -->
-      </tr>
-    <% end %>
-    <% if @food.size %>
-      <tr>
-      <!-- <div class="col-md-2"> -->
-        <td>
-        <h3>Size</h3>
-        </td>
-      <!-- </div> -->
-      <!-- <div class="col-md-4"> -->
-      <td>
-        <p><%= @food.size %></p>
-        </td>
-      </div>
-      </tr>
-    <% end %>
-    <% if @food.calories %>
-    <tr>
-      <!-- <div class="col-md-2"> -->
-      <td>
-        <h3>Calories</h3>
-        </td>
-      <!-- </div> -->
-      <!-- <div class="col-md-4"> -->
-      <td>
-        <p><%= @food.calories %></p>
-        </td>
-      <!-- </div> -->
-      </tr>
-    <% end %>
-    <% if @food.nutrition %>
-    <tr>
-      <!-- <div class="col-md-2"> -->
-        <td>
-        <h3>Nutrition</h3>
-        </td>
-      <!-- </div> -->
-      <!-- <div class="col-md-4"> -->
-      <td>
-        <p><%= @food.nutrition %></p>
-      </td>
-      <!-- </div> -->
-      </tr>
-    <% end %>
-    <% if @food.presentation %>
-    <tr>
-      <!-- <div class="col-md-2"> -->
-      <td>
-        <h3>Presentation</h3>
-        </td>
-      <!-- </div> -->
-      <!-- <div class="col-md-4"> -->
-      <td>
-        <p><%= @food.presentation %></p>
-        </td>
-      <!-- </div> -->
-      </tr>
-    <% end %>
-    </table>
-</td>
-<td>
-
-    <table align="left">
-      <div class="description">
-      <%if @food.description %>
-      <tr><td><h1>Description</h1></td></tr>
-      <!-- <div class="col-md-4"> -->
-      <td>
-        <p><%=@food.description%></p>
-        </td>
-      <!-- </div> -->
-      <%end%>
-      </div>
-    </table>
-    </td>
-  </tr>
-  </table>
-
-  <div class="food-images">
-  <%if @pictures.length > 0 %>
-    <h1>Photos</h1>
-    <div class="row image-tile-row">
-      <% for photo in @pictures%>
-        <div class="col-md-2">
-          <p><img src="/assets/<%=photo.file_name%>"></p>
-        </div>
-      <% end %>
+<div id="food-page" class="page container">
+  <div class="row">
+    <div class="col-md-7">
+      <h2>
+        <%= @food.dish_name %>
+        <br />
+        <small> At 
+          <%= link_to "#{@restaurant.name}", controller: "restaurant", 
+            action: "show", id: @restaurant.id %>
+        </small>
+      </h2>
+      <div class="stars"></div>
     </div>
-    <%end%>
+    <% if !@food.price.blank? %>
+      <div class="col-md-5">
+        <h1 class="price">
+          $<%= @food.price %>
+        </h1>
+      </div>
+    <% end %>
   </div>
 
+  <% #Food properties %>
+  <% if @food.description %>
+    <div class="row">
+      <div class="col-md-8">
+        <%=@food.description%>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="food-images row">
+    <% if @pictures.length > 0 %>
+      <h1>Photos</h1>
+      <div class="row image-tile-row">
+        <% for photo in @pictures %>
+          <div class="col-md-2">
+            <%= img_tag photo.file_name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @food.size %>
+    <div class="row">
+      <div class="col-md-2">
+        <strong>Size</strong>
+      </div>
+      <div class="col-md-4">
+        <%= @food.size %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @food.calories %>
+    <div class="col-md-2">
+      <strong>Calories</strong>
+    </div>
+    <div class="col-md-4">
+      <%= @food.calories %> kCal
+    </div>
+  <% end %>
 
   <div class="reviews">
-  <%if @num_reviews > 0%>
-    <h1>Reviews</h1>
+    <h3>Reviews (<%= @ratings.count %>)</h3>
     <% for review in @ratings %>
-      <div class="review">
-          <p>
-            <% for star in 1..review.score %>
-              <span class="glyphicon glyphicon-star"></span>
-            <% end %>
-            <% for star in review.score+1..5 %>
-              <span class="glyphicon glyphicon-star-empty"></span>
-            <% end %>
-          </p>
+      <div class="review row padded">
+        <div class="col-md-1">
+          <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
+        </div>
+        <div class="col-md-11">
+          <% for star in 1..review.score %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% for star in review.score+1..5 %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
           <% if user = User.find_by_id(review.user_id) %>
-            <h3>
+            <h4>
               Review by <%= link_to "#{user.first_name} #{user.last_name}", 
                 {controller: "user", action: "profile", id: user.id } %>
-            </h3>
+            </h4>
           <% end %>
           <p>"<%= review.comment %>"</p>
         </div>
       </div>
     <% end %>
-    <%end%>
   </div>
 
 </div>

@@ -6,7 +6,8 @@ class FoodController < ApplicationController
 		else
 			@food = Food.find_by_id(food_id)
 			@pictures = @food.pictures
-			# @ratings = Rating.where(ratable_id: @food)
+			@ratings = Rating.where(ratable_id: @food)
+			@num_reviews = @ratings.length
 			# @avg_rating = @food.get_avg_rating
 		end
 	end

@@ -4,7 +4,7 @@ class CreateFoods < ActiveRecord::Migration
       t.belongs_to :restaurant
     	t.string :dish_name
     	t.string :price
-      t.string :description
+      t.text :description
     	t.integer :size
     	t.integer :calories
     	t.integer :nutrition

@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20140128051610) do
     t.string   "dish_name"
     t.string   "price"
     t.text     "description"
+    t.float    "rating"
+    t.integer  "num_ratings"
     t.integer  "size"
     t.integer  "calories"
     t.integer  "nutrition"

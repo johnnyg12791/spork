@@ -35,29 +35,19 @@ class ResultsController < ApplicationController
 			@search_distance = params[:search_distance]
 		end
 
-		@restaurants = Restaurant.find_by_sql(["SELECT distinct restaurants.id, restaurants.name, restaurants.description, 
-			restaurants.address, restaurants.latitude, restaurants.longitude, restaurants.hours from foods, restaurants WHERE 
+		@restaurants = Restaurant.find_by_sql(["SELECT DISTINCT * from foods, restaurants WHERE
 			(3959*acos(cos(radians(?))*cos(radians(restaurants.latitude))*cos(radians(restaurants.longitude)-radians(?)) + 
 			sin(radians(?))*sin(radians(restaurants.latitude)))) < ? AND ((lower(restaurants.name) like ? OR 
 			lower(restaurants.description) like ?) OR (lower(foods.dish_name) like ? OR lower(foods.description) like ?)) AND 
 			foods.restaurant_id = restaurants.id LIMIT 100", @search_lat, @search_long, @search_lat, @search_distance, "%#{@search_item}%", 
 			"%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%"])
 
-		@dishes = Food.find_by_sql(["SELECT distinct foods.id, foods.restaurant_id, foods.dish_name, foods.price, foods.description, 
-			foods.size, foods.calories, foods.nutrition, foods.presentation from foods, restaurants WHERE 
+		@dishes = Food.find_by_sql(["SELECT DISTINCT * from foods, restaurants WHERE 
 			(3959*acos(cos(radians(?))*cos(radians(restaurants.latitude))*cos(radians(restaurants.longitude)-radians(?)) + 
 			sin(radians(?))*sin(radians(restaurants.latitude)))) < ? AND ((lower(restaurants.name) like ? OR 
 			lower(restaurants.description) like ?) OR (lower(foods.dish_name) like ? OR lower(foods.description) like ?)) AND 
-			foods.restaurant_id = restaurants.id LIMIT 100", @search_lat, @search_long, @search_lat, @search_distance, "%#{@search_item}%", 
-			"%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%"])
-
-		@dishes = @dishes.sort_by do |dish| 
-			if Rating.exists? :ratable_id => dish.id == nil
-				0
-			else 
-				Rating.average :score, :conditions => {:ratable_id => dish.id}
-			end
-		end
+			foods.restaurant_id = restaurants.id ORDER BY foods.rating DESC LIMIT 100", @search_lat, @search_long, @search_lat, @search_distance,
+			"%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%"])
 
 		if @render == 'json' then
 			render :json => {:restaurants => @restaurants, :dishes => @dishes}

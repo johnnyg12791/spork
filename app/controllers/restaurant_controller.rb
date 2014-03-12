@@ -15,11 +15,14 @@ class RestaurantController < ApplicationController
 
     @ratings = Rating.where(ratable_id: @restaurant.foods)
     @num_reviews = @ratings.count
-    
+    # @average_score = Rating.avg_rating || 0
+    @average_score = 0
+
+    #WHAT DOES THIS SQL QUERY DO? In general, you can be much clearer with Active Record
     @foods_by_rating = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", id])
+    # @foods_by_rating = Food.where(restaurant_id: @restaurant.id).order(avg_rating: desc)
 
     #@foods_by_rating = Food.find_by_sql(["select * from foods where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", restaurantid])
-    
     #foods_by_rating = Food.find_by_sql(["select foods.*, pictures.file_name from foods, pictures where foods.restaurant_id = ? AND pictures.imageable_id = foods.id ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", id])
 
     #Todo return rating (avg of all ratings)
@@ -60,13 +63,10 @@ class RestaurantController < ApplicationController
       restaurantId = params[:restaurantId]
       puts "rest ID"
       puts restaurantId
-      if(price != "") then
-        price = "$" + price
-      end
       food = Food.new(:dish_name => dishName, :price => price, :description => description, :restaurant_id => restaurantId)
       food.save()
       food_in_db = Food.where("restaurant_id = ? AND dish_name = ?", restaurantId, dishName)
-      if(uploadedFile != "") then
+      if(!uploadedFile.blank?) then
         picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => food_in_db[0].id)
         picture.save()
         File.open(Rails.root.join('app', 'assets', 'images', 'food_items', uploadedFile.original_filename), 'wb') do |file|

@@ -1,13 +1,12 @@
 class FoodController < ApplicationController
 	def index
-		food_id = params[:id]
-		if (Food.find_by_id(food_id).nil?)
-			@food = 0
+		@food = Food.find_by_id(params[:id])
+		if (@food.nil?)
+      raise ActionController::RoutingError.new('Food not found')
 		else
-			@food = Food.find_by_id(food_id)
+			@restaurant = Restaurant.find_by_id(@food.restaurant_id)
 			@pictures = @food.pictures
-			@ratings = Rating.where(ratable_id: @food)
-			@num_reviews = @ratings.length
+			@ratings = Rating.where(ratable_id: @food.id)
 			# @avg_rating = @food.get_avg_rating
 		end
 	end

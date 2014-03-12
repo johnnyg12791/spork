@@ -66,7 +66,7 @@ class RestaurantController < ApplicationController
       food = Food.new(:dish_name => dishName, :price => price, :description => description, :restaurant_id => restaurantId)
       food.save()
       food_in_db = Food.where("restaurant_id = ? AND dish_name = ?", restaurantId, dishName)
-      if(uploadedFile != "") then
+      if(!uploadedFile.blank?) then
         picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => food_in_db[0].id)
         picture.save()
         File.open(Rails.root.join('app', 'assets', 'images', 'food_items', uploadedFile.original_filename), 'wb') do |file|

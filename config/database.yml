@@ -48,7 +48,7 @@ test:
   encoding: unicode
   database: spork_test
   pool: 5
-  username: spork
+  #username: spork
   password:
 
 production:
@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: spork_production
   pool: 5
-  username: myapp
+  #username: myapp
   password:

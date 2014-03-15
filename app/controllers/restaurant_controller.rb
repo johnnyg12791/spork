@@ -55,7 +55,7 @@ class RestaurantController < ApplicationController
       dishName = params[:name] # front end validated to ensure not ""
       price = params[:price] # front end validated to ensure a real number
       description = params[:description] # potentially ""
-      uploadedFile = params[:image] # potentially ""
+      uploadedFile = params[:image] # potentially "" or nil
       toReviewBool = params[:reviewOrNot] # either true or false (String)
       restaurantId = params[:restaurantId]
       puts "rest ID"
@@ -66,7 +66,7 @@ class RestaurantController < ApplicationController
       food = Food.new(:dish_name => dishName, :price => price, :description => description, :restaurant_id => restaurantId)
       food.save()
       food_in_db = Food.where("restaurant_id = ? AND dish_name = ?", restaurantId, dishName)
-      if(uploadedFile != "") then
+      if(uploadedFile != "" and uploadedFile != nil) then
         picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => food_in_db[0].id)
         picture.save()
         File.open(Rails.root.join('app', 'assets', 'images', 'food_items', uploadedFile.original_filename), 'wb') do |file|
@@ -83,34 +83,5 @@ class RestaurantController < ApplicationController
 
       redirect_to(:action => 'menu/' + restaurantId)
 end
-
-  #   dishName = params[:name]
-  #   price = params[:price]
-  #   if(price != "") then
-  #     price = "$" + price
-  #   end
-  #   description = params[:description]
-  #   file = params[:dishFile]
-  #   restaurantId = params[:restaurantId]
-  #   food = Food.new(:dish_name => dishName, :price => price, :description => description, :restaurant_id => restaurantId)
-  #   food.save()
-  #   food_in_db = Food.where("restaurant_id = ? AND dish_name = ?", restaurantId, dishName)
-  #   if(file != "") then
-  #     picture = Picture.new(:file_name => file, :imageable_type => "Food", :imageable_id => food_in_db[0].id)
-  #     picture.save()
-  #   end
-  #   addingReview = params[:addReview]
-
-
-    # if(addingReview == "true") then
-    #   review = params[:review]
-    #   rating = params[:rating]
-    #   rating = Rating.new(:ratable_id => food_in_db[0].id, :ratable_type => "Food", :user_id => session[:user_id], :score => rating, :comment => review)
-    #   rating.save()
-    # end
-
-  #   render nothing: true
-  # end
-
 
 end

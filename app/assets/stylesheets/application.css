@@ -54,6 +54,13 @@ body {
 #login-modal {
   text-align: center;
 }
+.search-results h2 {
+  margin-left: 15px;
+  font-weight: bold;
+}
+.item-squares-row {
+  margin: 0px 0px 25px 0px;
+}
 .item-square {
   padding: 10px;
   background-color: #dddddd;
@@ -65,7 +72,11 @@ body {
 .item-square .item-square-price {
   float: right;
 }
-.item-square a {
+.item-square .item-link {
+  color: #000000;
+  font-weight: bold;
+}
+.item-square .restaurant-link {
   color: blue;
   font-style: italic;
 }

@@ -4,6 +4,10 @@ function getCurrLoc() {
   var pos;
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = document.getElementById("search-location-lat");
+      var lng = document.getElementById("search-location-long");
+      lat.value = position.coords.latitude;
+      lng.value = position.coords.longitude;
       pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       geocoder.geocode({'latLng': pos}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -11,17 +15,17 @@ function getCurrLoc() {
             var searchbar = document.getElementById("search-location");
             var formattedAddress = results[1].formatted_address;
             searchbar.value = formattedAddress;
-            // var ajax = $.ajax({
-            //   type: "POST",
-            //   url: "/results/get_dishes_and_restaurants?json=true",
-            //   data: { latBar: latBar.value, lngBar: lngBar.value }
-            // });
-            // ajax.done(function(response) {
-            //   console.log(response);
-            // });
-            // ajax.fail(function(response, status) {
-            //   //do something
-            // });
+            var ajax = $.ajax({
+              type: "POST",
+              url: "/results/search?render=partials_only",
+              data: { search_lat: lat.value, search_long: lng.value }
+            });
+            ajax.done(function(response) {
+              $('#popular-items').html(response);
+            });
+            ajax.fail(function(response, status) {
+              //do something
+            });
           }
           else {
             console.log('No results found');
@@ -30,10 +34,6 @@ function getCurrLoc() {
         else {
           console.log('Geocoder failed due to: ' + status);
         }
-        var lat = document.getElementById("search-location-lat");
-        var lng = document.getElementById("search-location-long");
-        lat.value = position.coords.latitude;
-        lng.value = position.coords.longitude;
         getCurrLocUI(false, formattedAddress);
       });
     });

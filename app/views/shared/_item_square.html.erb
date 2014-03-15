@@ -1,13 +1,23 @@
 <div class="item-square">
-  <%= image_tag("sushi.jpg") %>
-  <div>
-    <% for i in (1..4) %>
-    <span class="glyphicon glyphicon-star"></span>
-    <% end %>
-    <span class="popular-item-price">$5.95</span>
-  </div>
-  <div>Dragon Roll</div>
-  <div>
-    at <a href="">Sushi88</a>
-  </div>
+  <% if dish %>
+    <a href="/food/index/<%= dish.id %>">
+      <% if dish.pictures[1] == nil then %>
+        <%= image_tag('spork.jpg') %>
+      <% else %>
+        <%= image_tag(dish.pictures[1]) %>
+      <% end %>
+    </a>
+    <div>
+      <% if dish.rating == nil %>
+        <span>Not rated yet</span>
+      <% else for i in dish.rating.round %>
+        <span class="glyphicon glyphicon-star"></span>
+      <% end end %>
+      <span class="item-square-price"><%= dish.price %></span>
+    </div>
+    <a class="item-link" href="/food/index/<%= dish.id %>"><%= dish.dish_name %></a>
+    <div>
+      at <a class="restaurant-link" href="/restaurant/show/<%= dish.restaurant_id %>"><%= dish.restaurant.name %></a>
+    </div>
+  <% end %>
 </div>

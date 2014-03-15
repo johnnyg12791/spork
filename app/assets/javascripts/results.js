@@ -1,16 +1,6 @@
 $(document).ready(function() {
-  var searched_loc = $('.temp_information').data('loc');
-  var searched_dishes = $('.temp_information').data('dishes');
-  var searched_restaurants = $('.temp_information').data('restaurants');
-
-  if(searched_dishes.length == 0) {
-    alert("Your search query yielded no restaurants nearby with that item");
-    alert("Broaden your distance, or try a new search query (searching for no items yields all restaurants nearby");
-  }
-  console.log(searched_dishes);
-  console.log(searched_restaurants);
-  //alert(searched_restaurants);
-  //alert(searched_dishes);
+  var searched_loc = $('#results-search-data').data('loc');
+  var searched_restaurants = $('#results-search-data').data('restaurants');
 
   var initialLocation;
   var sanFrancisco = new google.maps.LatLng(37.7756, -122.4193);
@@ -69,10 +59,10 @@ $(document).ready(function() {
     }
     clearOverlays();
     var distanceNum = parseFloat(distance);
-    var data = {"search_distance": distanceNum, "search_loc": searched_loc, "search_lat": $('.temp_information').data('latitude'), 
-      "search_long": $('.temp_information').data('longitude'), "search_item": $('.temp_information').data('item')};
+    var data = {"search_distance": distanceNum, "search_loc": searched_loc, "search_lat": $('#results-search-data').data('search_lat'), 
+      "search_long": $('#results-search-data').data('search_longitude'), "search_item": $('#results-search-data').data('search_item')};
     $.ajax({
-      url: "/results/search?json=true",
+      url: "/results/search?render=json",
       type: "POST",
       data: data,
       success: function(data, textStatus, xhr) {
@@ -159,7 +149,7 @@ $(document).ready(function() {
         marker.setMap(map);
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
         for(var i = 0; i < searched_restaurants.length; i++) {
-          var place = searched_restaurants[i].restaurant;
+          var place = searched_restaurants[i];
           var pictures = searched_restaurants[i].pictures;
           var latlng = new google.maps.LatLng(place.latitude, place.longitude);
           var marker = new google.maps.Marker({

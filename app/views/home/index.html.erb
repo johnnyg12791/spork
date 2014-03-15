@@ -1,5 +1,5 @@
 <div class="jumbotron" id="home-jumbotron">
-  <form class="form-inline" role="form" id="home-search" action="/results/search?json=false" method="POST">
+  <form class="form-inline" role="form" id="home-search" action="/results/search?render=default" method="POST">
     <div class="form-group">
       <label class="sr-only" for="search-item">What are you looking for?</label>
       <input type="text" class="form-control" id="search-item" name="search_item" placeholder="e.g. tacos, sushi">
@@ -29,26 +29,16 @@
 </div>
 
 
-<div class="container-fluid" id="popular-items-container">
+<div class="container-fluid search-results">
   <div class="row">
     <div class="col-sm-12">
       <h2 id="popular-items-heading">Getting your location...</h2>
       <div class="progress progress-striped active" id="popular-items-progress-bar">
-        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:100%">
-        </div>
+        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:100%"></div>
       </div>
     </div>
   </div>
   <br/>
   <div id="popular-items">
-  <% for i in (1..2) %>
-    <div class="row popular-items-row">
-      <% for i in (1..6) %>
-        <div class="col-sm-2">
-          <%= render "shared/item_square" %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
   </div>
 </div>

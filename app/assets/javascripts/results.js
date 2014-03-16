@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  initPaginationListeners();
   var searched_loc = $('#results-search-data').data('loc');
   var searched_restaurants = $('#results-search-data').data('restaurants');
 

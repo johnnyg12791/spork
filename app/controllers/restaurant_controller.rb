@@ -39,13 +39,26 @@ class RestaurantController < ApplicationController
       raise ActionController::RoutingError.new('No such restaurant')
     end
 
+    current_menu = params[:current_menu]
+    @display_current_menu = true
+    if(current_menu.blank?) then ## no parameter - display only current menu
+      @display_current_menu = true
+    elsif current_menu == "true" ## if button clicked to display current menu 
+      @display_current_menu = true
+    else ## case where button was clicked to display all food items ever
+      @display_current_menu = false
+    end
+
     ## IF WE EVER IMPLEMENT CATEGORIES -> Hash by categories
     # @foods = Food.where(restaurant_id: @restaurant.id).inject(Hash.new{|h, k| h[k] = []}) do |h, food| 
     #   h[food.category] << food
     # }
+    if(@display_current_menu == false) then #display all food items ever
+      @foods = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", @restaurant.id])
+    else
+      @foods = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.on_menu = 'true' AND foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", @restaurant.id])
+    end
 
-    @foods = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", @restaurant.id])
-#Food.where(restaurant_id: @restaurant.id)
   end
   
   def username_from_id(id)
@@ -82,6 +95,60 @@ class RestaurantController < ApplicationController
       end
 
       redirect_to(:action => 'menu/' + restaurantId)
-end
+  end
+
+  def edit
+    puts "edit"
+    id = params[:id]
+    @restaurant = Restaurant.find_by_id(id)
+    if @restaurant.nil?
+      raise ActionController::RoutingError.new('No such restaurant')
+    end
+    @foods = Food.where("restaurant_id = ?", id)
+
+
+  end
+
+  def editSelected
+    
+    on_menu_ids = params[:on_menu_ids]
+    @restaurantId = params[:restaurantId]
+    if(on_menu_ids == nil) then
+      on_menu_ids = []
+    end
+    off_menu_ids = params[:off_menu_ids]
+    if(off_menu_ids == nil) then
+      off_menu_ids = []
+    end
+    all_ids = on_menu_ids.concat(off_menu_ids)
+    @foods_to_edit = Food.find(all_ids, :order => 'on_menu')
+
+
+  end
+
+  def updateMenu
+    restaurantId = params[:restaurantId]
+    dish_names = params[:dish_names]
+    dish_descriptions = params[:dish_descriptions]
+    dish_prices = params[:dish_prices]
+    dish_booleans = params[:dish_booleans]
+    foodIds = params[:foodIds]
+    for num in 0..dish_names.length-1
+      puts num
+      puts num
+      puts num
+      food = Food.find(foodIds[num])
+      food.dish_name = dish_names[num]
+      food.description = dish_descriptions[num]
+      food.price = dish_prices[num]
+      if(dish_booleans == "true") then
+        food.on_menu = true
+      else
+        food.on_menu = false
+      end
+      food.save()
+    end
+    redirect_to(:action => 'edit/' + restaurantId)
+  end
 
 end

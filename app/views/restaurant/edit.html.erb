@@ -1,0 +1,34 @@
+<p> Use the following form to update your menu: </p> 
+ <form id="adminForm" action="/restaurant/editSelected" method="post">
+    <input type="hidden" name="restaurantId" value=<%= @restaurant.id %> >
+	<div class="food-on-menu-form">
+		Food curently on menu: </br>
+		<% for food in @foods %>
+			<% if(food.on_menu == true) then %>
+			<div class="checkbox">
+		  		<label>
+		   		 	<input type="checkbox" name="on_menu_ids[]" value=<%=food.id %>> <%= food.dish_name %>
+		  		</label>
+			</div>
+			<% end %>
+	    <% end %>
+	</div>
+
+	</br>
+
+	<div class="food-prior-menu-form">
+		Food on menu at a prior point in time / different season:
+		<% for food in @foods %>
+			<% if(food.on_menu == false) then %>
+			<div class="checkbox">
+		  		<label>
+		   		 	<input type="checkbox" name="off_menu_ids[]" value=<%=food.id %>> <%= food.dish_name %>
+		  		</label>
+			</div>
+			<% end %>
+	    <% end %>
+	</div>
+    <input type="submit" value="Edit Menu" class="btn btn-primary" id="changeMenu" data-restaurantid=<%=@restaurant.id %>>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+</form>
+

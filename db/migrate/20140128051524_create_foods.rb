@@ -11,6 +11,7 @@ class CreateFoods < ActiveRecord::Migration
     	t.integer     :calories
     	t.integer     :nutrition
     	t.integer     :presentation
+      t.boolean :on_menu, :default => true
       t.timestamps
     end
   end

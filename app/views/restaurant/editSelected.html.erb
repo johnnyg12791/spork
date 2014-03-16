@@ -1,0 +1,32 @@
+ <form id="editDishesForm" action="/restaurant/updateMenu" method="post">
+
+	<table>
+		<tr>
+			<th>Dish Name</th>
+			<th>Description</th>
+			<th>Price ($)</th>
+			<th id="toggleAll">Currently On Menu (click here to toggle all)</th>
+		</tr>
+
+		<% for food in @foods_to_edit %>
+
+		<tr>
+	        <input type="hidden" name="foodIds[]" value=<%= food.id %> >
+			<td class="dishNameFields"><input id="dishName<%= food.id %>" name="dish_names[]" value=<%= food.dish_name %>></td>
+			<td><input id="dishDescription<%= food.id %>" size="50" name="dish_descriptions[]" value='<%= food.description %>'></td>
+			<td class="dishPriceFields"><input id="dishPrice<%= food.id %>" name="dish_prices[]" value=<%= food.price[1..food.price.length] %>></td>
+			<td class="boolColumn"><input id="dishBoolean<%= food.id %>" name="dish_booleans[]" readonly="readonly" value=<%= food.on_menu %>></td>
+		</tr>
+		<% end %>
+	</table>
+	   <input type="submit" value="Save Changes" class="btn btn-primary">
+
+	   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	   <input type="hidden" name="restaurantId" value=<%= @restaurantId %> >
+
+</form>
+</br>
+<div id="errorDiv"></div>
+
+
+

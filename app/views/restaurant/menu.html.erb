@@ -1,10 +1,31 @@
 <h1> <%= params[:error] %> </h1>
 
+
 <div id="restaurant-menu" class="container">
   <small>
     <%= link_to "<< Back to #{@restaurant.name}", controller: "restaurant", action: "show", id: @restaurant.id %>
   </small>
   <h1><%= @restaurant.name %> Menu</h1>
+
+<form action="/restaurant/edit/<%=@restaurant.id %>" method="post">
+  <button class="btn btn-primary">Update Menu</button></br>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+</form>
+
+<form id="changeMenuForm" action="/restaurant/menu/<%=@restaurant.id%>" method="post">
+  <div class="changeMenu">
+  <% if(@display_current_menu == true) then %>
+    <p>Showing all food items currently on the menu. To see all food items ever on menu, please click below:</p>
+    <button type="submit" name="current_menu" value="false" class="btn btn-primary">See all food items</button>
+  <% end %>
+  <% if(@display_current_menu == false) then %>
+   <p>Showing all food items ever on the menu. To see only food items currently on the menu, please click below:</p>
+    <button type="submit" name="current_menu" value="true" class="btn btn-primary">See only current menu items</button>
+  <% end %>
+  </div>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+</form>
+</br>
 
 <!-- Modal -->
 <div class="modal fade" id="addDishModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140128051610) do
     t.integer  "calories"
     t.integer  "nutrition"
     t.integer  "presentation"
+    t.boolean  "on_menu",       default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

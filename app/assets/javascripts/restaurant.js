@@ -22,51 +22,6 @@ $('#dishForm').submit(function (evt) {
    // window.history.back();
 });
 
- // $('#addDish').click(function() {
-
-  	// var price = document.getElementById("priceDish").value;
-  	// var dishName = document.getElementById("nameDish").value;
-   //  var description = document.getElementById("descriptionDish").value;
-   //  var file = document.getElementById("fileDish").value; // can be ""
-  	// if(dishName.length == 0) {
-  	// 	alert("Please enter a name for your dish");
-  	// 	return;
-  	// }  	
-   //  if (price.length != 0 && isNaN(price)) {
-   //    alert("Please enter a real number for price");
-   //    return;
-   //  }
-
-   //  var restaurantId = document.getElementById("addDish").getAttribute("data-restaurantid");
-   //  var data = {"dishName": dishName, "dishPrice": price, "dishFile": file, "restaurantId": restaurantId, "description": description, "addReview": false};
-   //  if(addingReview) {
-   //    var rating = document.getElementById("rating").value;
-   //    var review = document.getElementById("reviewDish").value;
-   //    data["rating"] = rating;
-   //    data["review"] = review;
-   //    data["addReview"] = true;
-   //  }
-
-  //   $.ajax({
-  //     url: "/restaurant/addDish",
-  //     type: "POST",
-  //     data: data,
-  //     success: function(data, textStatus, xhr) {
-  //       console.log("success");
-  //     }
-  //   }).done(function(data) {
-  //     window.location.replace("/restaurant/menu/" + restaurantId);      
-  //   })
-  //   .fail(function() {
-  //     console.log("error")
-  //   })
-  //   .always(function() { 
-  //     console.log("complete"); 
-  //     //$(location).attr('href', '/user/main_page')
-  //   })
-
-
-  // });
 
    $('#showReviewForm').click(function() {
     var hiddenDiv = $('#hiddenDish');
@@ -82,6 +37,65 @@ $('#dishForm').submit(function (evt) {
            addingReview = false;
            hiddenReviewBool.value = "false";
     }
+   });
+
+   $('.boolColumn').click(function () {
+    input = $(this).find('input');
+    changeValue(input);
+   });
+
+   $('#toggleAll').click(function () {
+      $('.boolColumn').each( function( index, element) {
+      input = $(this).find('input');
+      changeValue(input);
+     });
+   });
+
+   function changeValue(input) {
+      value = input[0].value;
+      if(value == "true") {
+        value = "false";
+      } else {
+        value = "true"
+      }
+     input[0].value = value;
+    }
+
+
+  $('#editDishesForm').submit(function (evt) {
+    var errorDiv = document.getElementById("errorDiv");
+    errorDiv.innerHTML = "";
+    dishNameError = "";
+    priceNameError = "";
+
+    dishNames = $(".dishNameFields");
+    for(var i=0; i<dishNames.length;i++) {
+      input = $(dishNames[i]).find('input')[0];
+      if(input.value == "") {
+        dishNameError = "All dishes need names!" + "</br>";
+        input.style.backgroundColor = '#FF4747';
+      }
+    }
+    prices = $(".dishPriceFields");
+    for(var i=0; i<prices.length; i++) {
+      input = $(prices[i]).find('input')[0];
+      price = input.value;
+      console.log(price);
+      if (price.length != 0 && isNaN(price) || price < 0.01) {
+        priceNameError = errorDiv.innerHTML + "All prices must be positive numbers" + "</br>";
+        input.style.backgroundColor = '#FF4747';
+      }
+    }
+    errorDiv.innerHTML = dishNameError + priceNameError;
+    if(errorDiv.innerHTML != "") {
+      evt.preventDefault();
+      errorDiv.innerHTML = errorDiv.innerHTML + "Please fix the above red entries before submitting";
+    }
+  });
+
+
+   $('td input').click(function () {
+    this.style.backgroundColor = "white";
    });
 
 });

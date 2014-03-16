@@ -1,0 +1,34 @@
+.pagination-row {
+  text-align: center;
+}
+#pagination-bar a {
+  cursor: pointer;
+}
+.item-squares-row {
+  margin: 0px 0px 25px 0px;
+}
+[class*=item-squares-page-] {
+  display: none;
+}
+.item-squares-page-1 {
+  display: block;
+}
+.item-square {
+  padding: 10px;
+  background-color: #dddddd;
+}
+.item-square img {
+  max-width: 100%;
+  border: 1px solid #888888;
+}
+.item-square .item-square-price {
+  float: right;
+}
+.item-square .item-link {
+  color: #000000;
+  font-weight: bold;
+}
+.item-square .restaurant-link {
+  color: blue;
+  font-style: italic;
+}

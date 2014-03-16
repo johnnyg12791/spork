@@ -54,29 +54,3 @@ body {
 #login-modal {
   text-align: center;
 }
-.search-results h2 {
-  margin-left: 15px;
-  font-weight: bold;
-}
-.item-squares-row {
-  margin: 0px 0px 25px 0px;
-}
-.item-square {
-  padding: 10px;
-  background-color: #dddddd;
-}
-.item-square img {
-  max-width: 100%;
-  border: 1px solid #888888;
-}
-.item-square .item-square-price {
-  float: right;
-}
-.item-square .item-link {
-  color: #000000;
-  font-weight: bold;
-}
-.item-square .restaurant-link {
-  color: blue;
-  font-style: italic;
-}

@@ -1,6 +1,5 @@
 <%= content_tag :div, id: "results-search-data", data: { search_item: @search_item, search_loc: @search_loc, search_lat: @search_lat, 
-  search_long: @search_long, restaurants: @restaurants } do %>
-<% end %>
+  search_long: @search_long, restaurants: @restaurants } do end %>
 
 <div class="map-search">
   <div id="map-bar">
@@ -18,5 +17,5 @@
       <h2>Search Results</h2>
     </div>
   </div>
-  <%= render :partial => "shared/search_results", :locals => {:restaurants => @restaurants, :dishes => @dishes} %>
+  <%= render :partial => "shared/item_squares", :locals => {:dishes => @dishes} %>
 </div>

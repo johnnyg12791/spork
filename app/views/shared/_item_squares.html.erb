@@ -1,0 +1,26 @@
+<% content_for :javascript_includes do javascript_include_tag '_item_squares.js' end %>
+
+<% num_pages = (@dishes.length / ResultsController::NUM_ITEMS_PER_PAGE).ceil %>
+<% num_rows = (@dishes.length / ResultsController::NUM_ITEMS_PER_ROW).ceil %>
+
+<div class="row pagination-row">
+  <div class="col-sm-12">
+    <ul id="pagination-bar">
+    </ul>
+  </div>
+</div>
+
+<% page_num = 1 %>
+<% for i in (1..num_rows) %>
+<div class="row item-squares-row item-squares-page-<%= page_num %>">
+  <% for j in (1..ResultsController::NUM_ITEMS_PER_ROW) %>
+  <div class="col-sm-2">
+    <% index = ((i-1)*ResultsController::NUM_ITEMS_PER_ROW)+(j-1) %>
+    <% if index <= @dishes.length %>
+      <%= render :partial => "shared/item_square", :locals => {:dish => dishes[index]} %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+<% if i % ResultsController::NUM_ROWS_PER_PAGE == 0 then page_num += 1 end %>
+<% end %>

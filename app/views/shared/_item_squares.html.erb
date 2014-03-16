@@ -17,7 +17,7 @@
   <div class="col-sm-2">
     <% index = ((i-1)*ResultsController::NUM_ITEMS_PER_ROW)+(j-1) %>
     <% if index <= @dishes.length %>
-      <%= render :partial => "shared/item_square", :locals => {:dish => dishes[index]} %>
+      <%= render :partial => "shared/item_square", :locals => {:dish => @dishes[index]} %>
     <% end %>
   </div>
   <% end %>

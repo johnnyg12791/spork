@@ -1,44 +1,62 @@
 function getCurrLoc() {
+  // change UI to show that we are searching for location
   getCurrLocUI(true);
+
+  //  init geocoder
   var geocoder = new google.maps.Geocoder();
-  var pos;
+
+  // try HTML5 geolocation
   if(navigator.geolocation) {
+    // if HTML5 geolocation is available...
     navigator.geolocation.getCurrentPosition(function(position) {
       var lat = document.getElementById("search-location-lat");
       var lng = document.getElementById("search-location-long");
+      // write lat and long back into the document (so it can be sent with the form)
       lat.value = position.coords.latitude;
       lng.value = position.coords.longitude;
-      pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      // prepare position for Google Maps
+      var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      // geocode position
       geocoder.geocode({'latLng': pos}, function(results, status) {
+        // if good response from geocoder
         if (status == google.maps.GeocoderStatus.OK) {
+          // if geocoder successful
           if (results[1]) {
+            // write formatted address into form
             var searchbar = document.getElementById("search-location");
             var formattedAddress = results[1].formatted_address;
             searchbar.value = formattedAddress;
+            // send ajax request to get most popular items near current location
             var ajax = $.ajax({
               type: "POST",
               url: "/results/search?render=partials_only",
               data: { search_lat: lat.value, search_long: lng.value }
             });
+            // if ajax successful, display results
             ajax.done(function(response) {
               $('#popular-items').html(response);
-              initPaginationListeners();
+              var numPages = $(response).filter('#data-for-paginator').data('num-pages');
+              initPagination(numPages);
               getCurrLocUI(false, formattedAddress);
             });
+            // if ajax is not successful...
             ajax.fail(function(response, status) {
               //do something
             });
           }
+          // geocoder not successful
           else {
             console.log('No results found');
           }
         }
+        // if bad response from geocoder...
         else {
           console.log('Geocoder failed due to: ' + status);
         }
       });
     });
   } 
+  // if HTML5 geolocation is not available...
   else {
     handleNoGeolocation(false);
   }

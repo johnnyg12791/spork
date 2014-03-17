@@ -1,21 +1,29 @@
-<%= content_tag :div, id: "results-search-data", data: { search_item: @search_item, search_loc: @search_loc, search_lat: @search_lat, 
-  search_long: @search_long, restaurants: @restaurants } do end %>
+<%= tag "div", { id: "results-data", data: { search_item: @search_item, search_loc: @search_loc, search_lat: @search_lat, 
+  search_long: @search_long, restaurants: @restaurants } }, true %></div>
 
-<div class="map-search">
-  <div id="map-bar">
-    Max Distance (in miles):
-    <input id="distanceMap" name="distance">
-    <button id="updatemap">Update Map</button>
-  </div>
-</div>
- 
 <div id="map-canvas" style="width:100%;height:380px;"></div>
 
-<div class="container-fluid search-results">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12" id="distance-selector">
+      <span>Search Distance:</span>
+      <a href='#' value='1'>1 Mile</a>
+      <span>&middot;</span>
+      <a href='#' value='3'>3 Miles</a>
+      <span>&middot;</span>
+      <a href='#' value='5'>5 Miles</a>
+      <span>&middot;</span>
+      <a href='#' value='10'>10 Miles</a>
+      <span>&middot;</span>
+      <a href='#' value='20'>20 Miles</a>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-12">
       <h2>Search Results</h2>
     </div>
+    <div id="search-results-container">
+      <%= render :partial => "shared/item_squares", :locals => {:dishes => @dishes, :with_json => false} %>
+    </div>
   </div>
-  <%= render :partial => "shared/item_squares", :locals => {:dishes => @dishes} %>
 </div>

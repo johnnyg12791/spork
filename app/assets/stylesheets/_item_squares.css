@@ -1,7 +1,7 @@
 .pagination-row {
   text-align: center;
 }
-#pagination-bar a {
+#paginator a {
   cursor: pointer;
 }
 .item-squares-row {
@@ -29,6 +29,5 @@
   font-weight: bold;
 }
 .item-square .restaurant-link {
-  color: blue;
   font-style: italic;
 }

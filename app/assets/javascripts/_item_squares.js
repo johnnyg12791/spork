@@ -1,4 +1,6 @@
-function initPaginationListeners() {
+//* This file must be included on any page that uses the pagination plugin *//
+
+function initPagination(numPages) {
 
   function onPageChanged(e, oldPage, newPage) {
     $('[class*=item-squares-page-' + oldPage + ']').hide();
@@ -7,7 +9,7 @@ function initPaginationListeners() {
 
   var options = {
     currentPage: 1,
-    totalPages: 5,
+    totalPages: numPages,
     size: 'large',
     bootstrapMajorVersion: 3,
     alignment: 'center',
@@ -23,9 +25,9 @@ function initPaginationListeners() {
     onPageChanged: onPageChanged,
   }
 
-  $('#pagination-bar').bootstrapPaginator(options);
+  $('#paginator').bootstrapPaginator(options);
   $("[title='Go to previous page']").parent().attr('class', '');
-  $('#pagination-bar').click(function() {
+  $('#paginator').click(function() {
     $("[title='Go to previous page']").parent().attr('class', '');
     $("[title='Go to next page']").parent().attr('class', '');
   });

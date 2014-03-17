@@ -16,13 +16,13 @@ class ResultsController < ApplicationController
 		@search_loc = params[:search_loc]
 		@search_lat = params[:search_lat]
 		@search_long = params[:search_long]
-		if @search_loc != nil
+		if @search_loc != nil then
 			address = @search_loc.gsub(/\s/, "+")
 			uri = URI.parse("http://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&sensor=false")
 			http = Net::HTTP.get_response(uri)
 			results = JSON.parse(http.body)
 			#formatted_address = results["results"][0]["formatted_address"]
-			if results["status"] != "ZERO_RESULTS"
+			if results["status"] != "ZERO_RESULTS" then
 				@search_lat = results["results"][0]["geometry"]["location"]["lat"]
 				@search_long = results["results"][0]["geometry"]["location"]["lng"]
 			end
@@ -53,11 +53,14 @@ class ResultsController < ApplicationController
 			foods.restaurant_id = restaurants.id ORDER BY foods.rating DESC NULLS LAST LIMIT 60", @search_lat, @search_long, @search_lat, 
 			@search_distance, "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%"])
 
-		if @render == 'json' then
+		if @render == 'json_only' then
 			render :json => {:restaurants => @restaurants, :dishes => @dishes}
 		elsif @render == 'partials_only' then
-			render :partial => "shared/item_squares", :locals => {:dishes => @dishes}
+			render :partial => 'shared/item_squares', :locals => {:dishes => @dishes, :with_json => false}
+		elsif @render == 'partials_and_json_only' then
+			render :partial => 'shared/item_squares', :locals => {:dishes => @dishes, :with_json => true, :restaurants => @restaurants}
 		end
+		# else search.html.erb (the default) will be rendered
 
 	end
 

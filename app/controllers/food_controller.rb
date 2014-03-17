@@ -1,4 +1,6 @@
 class FoodController < ApplicationController
+
+# Used to show the food page for a given food id. Displays the pictures and in the view, allows user to add a rating for the dish
 	def index
 		@food = Food.find_by_id(params[:id])
 		if (@food.nil?)
@@ -7,7 +9,6 @@ class FoodController < ApplicationController
 			@restaurant = Restaurant.find_by_id(@food.restaurant_id)
 			@pictures = @food.pictures
 			@ratings = Rating.where(ratable_id: @food.id)
-			# @avg_rating = @food.get_avg_rating
 		end
 	end
 
@@ -47,12 +48,11 @@ class FoodController < ApplicationController
 		end
 	end
 
+# Called when the user submits the add a rating form to add images to the database/file system, and add the rating to the database
 	def addRating
-
-
       uploadedFile = params[:image] # potentially "" or nil
-
       foodId = params[:foodId]
+      #if the user uploaded an image of the food:
       if(uploadedFile != "" and uploadedFile != nil) then
         picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => foodId, :date_time => Time.now)
         picture.save()
@@ -60,7 +60,6 @@ class FoodController < ApplicationController
           file.write(uploadedFile.read)
         end
       end
-
       rating = params[:rating] # 1-5
       review = params[:review] # potentially ""
       rating = Rating.new(:ratable_id => foodId, :ratable_type => "Food", :user_id => session[:user_id], :score => rating, :comment => review)

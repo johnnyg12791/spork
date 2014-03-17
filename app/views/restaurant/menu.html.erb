@@ -27,7 +27,9 @@
 </form>
 </br>
 
-<!-- Modal -->
+<!-- Modal that is responsible for allowing the user to add a dish to the menu, and to also allow the user to add a review
+at the same time through a dropdown that appears if the user clicks "Want to review the dish now? Click here."
+-->
 <div class="modal fade" id="addDishModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <form id="dishForm" action="/restaurant/addDish" method="post" enctype="multipart/form-data">
 
@@ -39,12 +41,16 @@
       </div>
       <div class="modal-body">
         Please fill out the following form to add a dish: </br>
-          Dish Name: <input id="nameDish" name="name"> </br>
-          Price (optional): <input id="priceDish" name="price"></br>
+          Dish Name: <input class="clickWhite" id="nameDish" name="name"> </br>
+          Price (optional): <input class="clickWhite" id="priceDish" name="price"></br>
           Description (optional): <input id="descriptionDish" name="description"></br>
           Picture (optional): <input id="fileDish" type="file" name="image"></br>
-
           <input type="hidden" name="restaurantId" value=<%= @restaurant.id %> >
+
+<!--
+The below input fields to the form are invisible until the user clicks the button to drop it down; if the user clicks the button again, whose text has changed
+to reflect the change, then the review form disappears.
+-->
           <p id="reviewDishNow">Want to review the dish now?</p><button type="button" class="btn btn-default" id="showReviewForm">Click here</button>
           <div style="display:none" id="hiddenDish">
           </br>
@@ -56,11 +62,10 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                   </select>
-          
             Review (optional): <textarea id="reviewDish" name="review" rows="3" cols="75"></textarea>
             <input id="hiddenReviewBool" type="hidden" name="reviewOrNot" value="false">
           </div>
-
+          <div id="errorDivAddDish"></div>
 
       </div>
       <div class="modal-footer">

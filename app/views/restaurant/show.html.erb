@@ -14,12 +14,17 @@
   </div>
 
   <div class="row info">
-    <% if @restaurant.hours %>
+    <% hours = Hour.where("restaurant_id = ?", @restaurant.id)[0] %>
+    <% if hours %>
       <div class="col-md-2">
         <strong>Hours</strong>
       </div>
       <div class="col-md-4">
-        <%= @restaurant.hours %>
+        <% days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"] %>
+        <% days.each do |day| %>
+          <% capitalizedDay = day.capitalize %>
+          <p><%= capitalizedDay %>: <%= hours[day] %> </p>
+        <% end %>
       </div>
     <% end %>
     <% if @restaurant.address %>

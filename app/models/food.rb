@@ -7,15 +7,4 @@ class Food < ActiveRecord::Base
 
   validates :dish_name, :length => { :minimum => 1 }
 
-    def get_avg_rating
-      result = 0
-      ratings = Rating.where(ratable_id: self.id)
-      if self.ratings.length > 0
-        for rating in self.ratings do
-          result += rating.score
-        end
-        result = result/self.ratings.length
-      end
-      return result
-    end
 end

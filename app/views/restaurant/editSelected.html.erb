@@ -1,3 +1,10 @@
+<!--
+This form is to edit the selected dishes the admin chose in the admin page. This form creates a table form full of the dishes he or she selected,
+all populated by the current values for their names, descriptions, prices, and if they are currently on the menu. The form below, as well as the javascript in
+restaurant.js, allows the admin to click the header of one of the columns to toggle all currently_on_menu attributes of all dishes, click a single on_menu attribute to toggle it, and change any field they wish. If the user submits improper data (all dishes must have names and if they ahve a price, it must be a # > 0), then
+the impropr fields are highlighted red until the user clicks on it again and the submit is canceled.
+-->
+
  <form id="editDishesForm" action="/restaurant/updateMenu" method="post">
 
 	<table>

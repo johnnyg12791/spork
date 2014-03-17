@@ -14,7 +14,7 @@
     <% if !@food.price.blank? %>
       <div class="col-md-5">
         <h1 class="price">
-          $<%= @food.price %>
+          <%= @food.price %>
         </h1>
       </div>
     <% end %>
@@ -69,7 +69,7 @@
   Add a review!
 </button>
 
-<!-- Modal -->
+<!-- Modal  Used to add a review to a dish-->
 <div class="modal fade" id="addDishModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <form id="dishForm" action="/food/addRating" method="post" enctype="multipart/form-data">
 

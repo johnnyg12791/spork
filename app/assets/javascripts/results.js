@@ -2,7 +2,8 @@ function initializeMap() {
   // options for Google Maps
   var myOptions = {
     zoom: 14,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    scrollwheel: false
   };
   // init Google Map
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
@@ -122,9 +123,9 @@ $(document).ready(function() {
       });
       ajax.done(function(response) {
         response = $(response);
-        restaurants = response.filter('#results-data').data('restaurants');
+        restaurants = response.filter('#dish-results-data').data('restaurants');
         var new_search_results = response.filter('#search-results').html();
-        $('#search-results-container').html(new_search_results);
+        $('#dish-results-container').html(new_search_results);
         numPages = response.filter('#data-for-paginator').data('num-pages')
         initPagination(numPages);
         clearOverlays();

@@ -3,8 +3,8 @@
 function initPagination(numPages) {
 
   function onPageChanged(e, oldPage, newPage) {
-    $('[class*=item-squares-page-' + oldPage + ']').hide();
-    $('[class*=item-squares-page-' + newPage + ']').show();
+    $('[class*=item-squares-page-' + oldPage + '-]').hide();
+    $('[class*=item-squares-page-' + newPage + '-]').show();
   }
 
   var options = {

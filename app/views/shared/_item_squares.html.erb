@@ -1,15 +1,15 @@
 <% content_for :javascript_includes do javascript_include_tag '_item_squares.js' end %>
 
-<% num_pages = (dishes.length / ResultsController::NUM_ITEMS_PER_PAGE).ceil %>
-<% num_rows = (dishes.length / ResultsController::NUM_ITEMS_PER_ROW).ceil %>
-
+<% num_rows = (num_results / num_items_per_row).ceil %>
+<% num_pages = (num_results / num_items_per_row / num_rows_per_page).ceil %>
+<% col_width = ResultsController::NUM_BOOTSTRAP_COLS / num_items_per_row %>
 <%= tag "div", { id: "data-for-paginator", data: { num_pages: num_pages } }, true %></div>
 
 <% if with_json then %>
-<%= tag "div", { id: "results-data", data: { restaurants: restaurants } }, true %></div>
+<%= tag "div", { id: "restaurant-results-data", data: { restaurants: restaurants } }, true %></div>
 <% end %>
 
-<div id='search-results'>
+<div id='dish-search-results'>
 
   <div class="row pagination-row">
     <div class="col-sm-12">
@@ -20,17 +20,17 @@
 
   <% page_num = 1 %>
   <% for i in (1..num_rows) %>
-  <div class="row item-squares-row item-squares-page-<%= page_num %>">
-    <% for j in (1..ResultsController::NUM_ITEMS_PER_ROW) %>
-    <div class="col-sm-2">
-      <% index = ((i-1)*ResultsController::NUM_ITEMS_PER_ROW)+(j-1) %>
+  <div class="row item-squares-row item-squares-page-<%= page_num %>-">
+    <% for j in (1..num_items_per_row) %>
+    <div class="col-sm-<%= col_width %>">
+      <% index = ((i-1)*num_items_per_row)+(j-1) %>
       <% if index <= dishes.length then %>
         <%= render :partial => "shared/item_square", :locals => {:dish => dishes[index]} %>
       <% end %>
     </div>
     <% end %>
   </div>
-  <% if i % ResultsController::NUM_ROWS_PER_PAGE == 0 then page_num += 1 end %>
+  <% if i % num_rows_per_page == 0 then page_num += 1 end %>
   <% end %>
 
 </div>

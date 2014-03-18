@@ -29,7 +29,7 @@ function getCurrLoc() {
             // send ajax request to get most popular items near current location
             var ajax = $.ajax({
               type: "POST",
-              url: "/results/search?render=partials_only",
+              url: "/results/search?render=partials_only&results=60&itemspr=6&rows=2",
               data: { search_lat: lat.value, search_long: lng.value }
             });
             // if ajax successful, display results

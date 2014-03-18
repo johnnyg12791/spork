@@ -2,16 +2,14 @@ require 'net/http'
 
 class ResultsController < ApplicationController
 
-	NUM_ITEMS_PER_PAGE = 12
-	NUM_ITEMS_PER_ROW = 6
-	NUM_ROWS_PER_PAGE = 2
+	DEFAULT_SEARCH_DISTANCE = 5
+	DEFAULT_NUM_RESULTS = 60
+	DEFAULT_NUM_ITEMS_PER_ROW = 3
+	DEFAULT_NUM_ROWS_PER_PAGE = 2
+	NUM_BOOTSTRAP_COLS = 12
 
 # Called when the user searches for a given food item / location.
 	def search
-		@render = 'default'
-		if params[:render] then
-			@render = params[:render]
-		end
 
 		@search_loc = params[:search_loc] # address user searched for
 		@search_lat = params[:search_lat] # the user's current location latitude. If the address searched for fails to give a new latitude, this is used instead
@@ -35,9 +33,14 @@ class ResultsController < ApplicationController
 		@search_item.downcase
 
 		# the default search distance (max circular radius of a restaurant from the searched for location) is 5 unless the user specified a search radius
-		@search_distance = 5
+		@search_distance = DEFAULT_SEARCH_DISTANCE
 		if params[:search_distance] then
 			@search_distance = params[:search_distance]
+		end
+
+		@num_results = DEFAULT_NUM_RESULTS
+		if params[:results] then
+			@num_results = params[:results].to_i
 		end
 
 		# Based on the Haversine Formula found on google maps API. The below is a Sql query to find all restaurants that has dishes with a dish name containing the search query or a dish description containing the search query,
@@ -47,8 +50,8 @@ class ResultsController < ApplicationController
 			(3959*acos(cos(radians(?))*cos(radians(restaurants.latitude))*cos(radians(restaurants.longitude)-radians(?)) + 
 			sin(radians(?))*sin(radians(restaurants.latitude)))) < ? AND ((lower(restaurants.name) like ? OR 
 			lower(restaurants.description) like ?) OR (lower(foods.dish_name) like ? OR lower(foods.description) like ?)) AND 
-			foods.restaurant_id = restaurants.id LIMIT 60", @search_lat, @search_long, @search_lat, @search_distance, "%#{@search_item}%", 
-			"%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%"])
+			foods.restaurant_id = restaurants.id LIMIT ?", @search_lat, @search_long, @search_lat, @search_distance, "%#{@search_item}%", 
+			"%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%", @num_results])
 
 		# All of the dishes returned below are ordered by average rating from highest to lowest.
 		# Similar to the above query, but returns the dishes that are within restaurants within the given distance radius that has a dish name or description
@@ -57,15 +60,31 @@ class ResultsController < ApplicationController
 			(3959*acos(cos(radians(?))*cos(radians(restaurants.latitude))*cos(radians(restaurants.longitude)-radians(?)) + 
 			sin(radians(?))*sin(radians(restaurants.latitude)))) < ? AND ((lower(restaurants.name) like ? OR 
 			lower(restaurants.description) like ?) OR (lower(foods.dish_name) like ? OR lower(foods.description) like ?)) AND 
-			foods.restaurant_id = restaurants.id ORDER BY foods.rating DESC NULLS LAST LIMIT 60", @search_lat, @search_long, @search_lat, 
-			@search_distance, "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%"])
+			foods.restaurant_id = restaurants.id ORDER BY foods.rating DESC NULLS LAST LIMIT ?", @search_lat, @search_long, @search_lat, 
+			@search_distance, "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%", @num_results])
+
+		@num_items_per_row = DEFAULT_NUM_ITEMS_PER_ROW
+		@num_rows_per_page = DEFAULT_NUM_ROWS_PER_PAGE
+		if params[:itemspr] then
+			@num_items_per_row = params[:itemspr].to_i
+		end
+		if params[:rows] then
+			@nnum_rows_per_page = params[:rows].to_i
+		end
+
+		@render = 'default'
+		if params[:render] then
+			@render = params[:render]
+		end
 
 		if @render == 'json_only' then
 			render :json => {:restaurants => @restaurants, :dishes => @dishes}
 		elsif @render == 'partials_only' then
-			render :partial => 'shared/item_squares', :locals => {:dishes => @dishes, :with_json => false}
+			render :partial => 'shared/item_squares', :locals => {:dishes => @dishes, :with_json => false, :num_results => @num_results,
+				:num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page}
 		elsif @render == 'partials_and_json_only' then
-			render :partial => 'shared/item_squares', :locals => {:dishes => @dishes, :with_json => true, :restaurants => @restaurants}
+			render :partial => 'shared/item_squares', :locals => {:dishes => @dishes, :with_json => true, :restaurants => @restaurants,
+				:num_results => @num_results, :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page}
 		end
 		# else search.html.erb (the default) will be rendered
 

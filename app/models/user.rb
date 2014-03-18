@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base	
 	has_many :ratings
 	has_many :pictures
+	has_one :admin
 
 	validates :first_name, :length => { :minimum => 1 }
   validates :last_name, :length => { :minimum => 1 }

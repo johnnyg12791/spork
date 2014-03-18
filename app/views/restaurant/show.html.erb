@@ -45,7 +45,7 @@
       <% numToDisplay = (@foods_by_rating.length < 4) ? @foods_by_rating.length : 4 %>
       <% for i in 0..numToDisplay-1 %>
         <div class="col-md-2">
-          <%= render :partial => "shared/item_square", :locals => {:dish => @foods_by_rating[i]} %>
+          <%= render :partial => "shared/dish_square", :locals => {:dish => @foods_by_rating[i]} %>
         </div>
       <% end %>
     </div>

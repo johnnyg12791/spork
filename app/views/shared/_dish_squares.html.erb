@@ -1,0 +1,34 @@
+<% num_rows = (dishes.length / num_items_per_row).ceil %>
+<% num_pages = (dishes.length / num_items_per_row / num_rows_per_page).ceil %>
+<% col_width = ResultsController::NUM_BOOTSTRAP_COLS / num_items_per_row %>
+<%= tag "div", { id: "data-for-paginator", data: { num_pages: num_pages } }, true %></div>
+
+<% if with_json then %>
+<%= tag "div", { id: "restaurant-results-data", data: { restaurants: restaurants } }, true %></div>
+<% end %>
+
+<div id='dish-search-results'>
+
+  <div class="row pagination-row">
+    <div class="col-sm-12">
+      <ul class="paginator">
+      </ul>
+    </div>
+  </div>
+
+  <% page_num = 1 %>
+  <% for i in (1..num_rows) %>
+  <div class="row item-squares-row item-squares-page-<%= page_num %>-">
+    <% for j in (1..num_items_per_row) %>
+    <div class="col-sm-<%= col_width %>">
+      <% index = ((i-1)*num_items_per_row)+(j-1) %>
+      <% if index <= dishes.length then %>
+        <%= render :partial => "shared/dish_square", :locals => {:dish => dishes[index]} %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <% if i % num_rows_per_page == 0 then page_num += 1 end %>
+  <% end %>
+
+</div>

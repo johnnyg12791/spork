@@ -4,7 +4,7 @@
       <% if dish.pictures[1] == nil %>
         <%= image_tag('spork.jpg') %>
       <% else %>
-        <%= image_tag('food_items/'+ dish.pictures[1]) %>
+        <%= image_tag('food_items/'+ dish.pictures[1].file_name) %>
       <% end %>
     </a>
     <p/>

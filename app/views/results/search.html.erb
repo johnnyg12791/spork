@@ -1,3 +1,5 @@
+<% content_for :javascript_includes do javascript_include_tag 'init-pagination.js' end %>
+
 <%= tag "div", { id: "results-data", data: { search_item: @search_item, search_loc: @search_loc, search_lat: @search_lat, 
   search_long: @search_long, restaurants: @restaurants } }, true %></div>
 
@@ -31,12 +33,13 @@
   <div class="row">
     <div class="col-sm-6">
       <div id="dish-results-container">
-        <%= render :partial => "shared/item_squares", :locals => {:dishes => @dishes, :with_json => false, :num_results => @num_results,
-          :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page} %>
+        <%= render :partial => "shared/dish_squares", :locals => {:dishes => @dishes, :with_json => false, :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page} %>
       </div>
     </div>
     <div class="col-sm-6">
       <div id="restaurant-results-container">
+        <%= render :partial => "shared/restaurant_squares", :locals => {:restaurants => @restaurants, :num_items_per_row => @num_items_per_row,
+          :num_rows_per_page => @num_rows_per_page} %>
       </div>
     </div>
   </div>

@@ -1,0 +1,16 @@
+<div class="item-square">
+  <% if restaurant %>
+    <a href="/restaurant/show/<%= restaurant.id %>">
+      <% if restaurant.pictures[1] == nil %>
+        <%= image_tag('spork.jpg') %>
+      <% else %>
+        <%= image_tag('restaurants/'+ restaurant.pictures[1].file_name) %>
+      <% end %>
+    </a>
+    <p/>
+    <a class="item-link" href="/restaurant/show/<%= restaurant.id %>"><%= restaurant.name %></a>
+    <div>
+      <span><%= restaurant.address %></span>
+    </div>
+  <% end %>
+</div>

@@ -25,10 +25,14 @@ function initPagination(numPages) {
     onPageChanged: onPageChanged,
   }
 
-  $('#paginator').bootstrapPaginator(options);
+  $('.paginator').each(function(index, element) {
+    $(element).bootstrapPaginator(options);
+  });
   $("[title='Go to previous page']").parent().attr('class', '');
-  $('#paginator').click(function() {
-    $("[title='Go to previous page']").parent().attr('class', '');
-    $("[title='Go to next page']").parent().attr('class', '');
+  $('.paginator').each(function(index, element) {
+    $(element).click(function() {
+      $("[title='Go to previous page']").parent().attr('class', '');
+      $("[title='Go to next page']").parent().attr('class', '');
+    });
   });
 }

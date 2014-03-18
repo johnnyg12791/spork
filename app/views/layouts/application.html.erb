@@ -12,6 +12,7 @@
   <%= javascript_include_tag params[:controller] %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
@@ -40,7 +41,7 @@
     <% end %>
     <ul class="nav navbar-nav navbar-right">
       <% if session[:user_id] == nil then %>
-      <li><a href="#" data-toggle="modal" data-target="#login-modal" id="header-login-button">Log In</a></li>
+      <li><a href="#" data-toggle="modal" data-target="#login-modal" id="header-login-button">Log in</a></li>
       <% else %>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="header-user-dropdown">
@@ -48,7 +49,7 @@
         </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="user-dropdown-button">
           <li role="presentation"><a role="menuitem" tabindex="-1" href="/user/profile/<%= session[:user_id] %>">Profile</a></li>
-          <li role="presentation"><a role="menuitem" tabidnex="-1" href="#" id="app-logout-button">Log Out</a></li>
+          <li role="presentation"><a role="menuitem" tabidnex="-1" href="#" id="app-logout-button">Log out</a></li>
         </ul>
       </li>
     <% end %>

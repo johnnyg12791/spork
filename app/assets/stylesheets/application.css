@@ -16,6 +16,9 @@
 }*/
 body {
   padding-top: 50px;
+  background-color: #F4F0EC;
+  font-family: 'Muli', sans-serif;
+
 }
 #application-header {
   background-color: #8B0000;

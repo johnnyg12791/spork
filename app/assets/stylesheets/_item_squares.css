@@ -15,17 +15,18 @@
 }
 .item-square {
   padding: 10px;
-  background-color: #dddddd;
+  background-color: #343434;
+  color: #F4F0EC;
 }
 .item-square img {
   max-width: 100%;
-  border: 1px solid #888888;
+  //border: 1px solid #888888;
 }
 .item-square .item-square-price {
   float: right;
 }
 .item-square .item-link {
-  color: #000000;
+  color: #FF91A4;
   font-weight: bold;
 }
 .item-square .restaurant-link {

@@ -4,9 +4,10 @@
       <% if dish.pictures[1] == nil %>
         <%= image_tag('spork.jpg') %>
       <% else %>
-        <%= image_tag(dish.pictures[1]) %>
+        <%= image_tag('food_items/'+ dish.pictures[1]) %>
       <% end %>
     </a>
+    <p/>
     <div>
       <% if dish.rating == nil %>
         <span>Not rated yet</span>

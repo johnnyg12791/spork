@@ -6,6 +6,7 @@ class Restaurant < ActiveRecord::Base
     belongs_to :category
     has_one :hours
 	validates :description, :length => { :maximum => 200 }
+	has_one :admin
 
 
 end

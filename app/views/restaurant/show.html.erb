@@ -1,13 +1,5 @@
 <div id="restaurant-page" class="page container">
  <h1><%=@restaurant.name %></h1>
- <div class="stars">
-  <% for star in 1..@average_score %>
-    <span class="glyphicon glyphicon-star"></span>
-  <% end %>
-  <% for star in @average_score+1..5 %>
-    <span class="glyphicon glyphicon-star-empty"></span>
-  <% end %>
- </div>
 
   <div class="hero">
     <%= image_tag("restaurants/" + @hero_image, alt: "Hero image of #{@restaurant.name}") %>

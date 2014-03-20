@@ -19,8 +19,7 @@ class RestaurantController < ApplicationController
     @num_reviews = @ratings.count
     @average_score = 0
     # retrieves all food for the restaurant and it's dish pictures ordered by highest rating
-    @foods_by_rating = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", id])
-
+    @foods_by_rating = @restaurant.foods.where("rating <= 5").order('rating desc')
     @hours = nil
     days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     if @restaurant.hour

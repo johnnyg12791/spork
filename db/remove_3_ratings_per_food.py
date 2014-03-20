@@ -1,5 +1,5 @@
 #go down from 5 ratings per food item to just 2
-
+#with 5 ratings per item, the seeding was taking so long
 
 def main():
   with open("final_seeds_3.yml") as f:
@@ -21,45 +21,6 @@ def main():
 
         else:
           f2.write(line)
-
-  #ratings:
-  # - 
-  #   ratable_id: 1
-  #   ratable_type: Food
-  #   score: 2
-  #   comment: You should try this for yourself...
-  #   user_id: 1
-  # -
-  #   ratable_id: 1
-  #   ratable_type: Food
-  #   score: 3
-  #   comment: What did they put in this?
-  #   user_id: 2
-  # -
-  #   ratable_id: 1
-  #   ratable_type: Food
-  #   score: 2
-  #   comment: I can't tell if I like it or not...
-  #   user_id: 3
-  # -
-  #   ratable_id: 1
-  #   ratable_type: Food
-  #   score: 5
-  #   comment: Do you like food? Then come here
-  #   user_id: 4
-  # -
-  #   ratable_id: 1
-  #   ratable_type: Food
-  #   score: 4
-  #   comment: Heaven? Or Hell? Try to know
-  #   user_id: 5
-  # -
-  #   ratable_id: 2
-  #   ratable_type: Food
-  #   score: 4
-  #   comment: You should try this for yourself...
-  #   user_id: 6
-  # -
 
 
 if (__name__ == '__main__'):

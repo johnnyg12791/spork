@@ -9,7 +9,7 @@ def main():
   output_restaurant_yml(restaurants, 'restaurant_yml.txt')
   output_foods_yml(menu_items, 'food_yml.txt')
 
-
+#Nicely formats the restaurants into the YML file
 def output_restaurant_yml(restaurants, file):
   with open(file, 'w') as fout:
     for restaurant in restaurants:
@@ -22,7 +22,7 @@ def output_restaurant_yml(restaurants, file):
       fout.write('    hours: '+ '\''  + restaurant[5] + '\'' + '\n')
 
 
-
+#Nicely formats the dishes into the YML file
 def output_foods_yml(foods, file):
   with open(file, 'w') as fout:
     for restaurant_menu in foods:
@@ -32,21 +32,19 @@ def output_foods_yml(foods, file):
         fout.write('    restaurant_id: ' + str(menu_item[1]) + '\n')
         fout.write('    price: '+ '\''  + menu_item[2] + '\'' + '\n')
         fout.write('    description: '+ '\"'  + menu_item[3] + '\"' + '\n')
-        #fout.write('    size: ' + menu_item[0] + '\n')
-        #fout.write('    dish_name: ' + menu_item[0] + '\n')
 
 
 
 
-
-
-
+#Builds and array of restaurants and dishes
+#The restaurant array is: [Restaurant[Restaurant_Info]]
+#The dish array is: [Restaurant[Dish[Dish_info]]]
 def format_arrays():
   array_of_restaurant_arrays = []
   triple_array_of_items = []
   restaurant_dict = get_restaurant_dict()
   print restaurant_dict
-  #start with 2
+  #start with id=2
   restaurant_id = START_RESTAURANT_ID
   for name, url_address in restaurant_dict.items():
     restaurant_array = []
@@ -85,8 +83,7 @@ def format_arrays():
     triple_array_of_items.append(items_in_restaurant)
     array_of_restaurant_arrays.append(restaurant_array)   
 
-  #print array_of_restaurant_arrays
-  #print triple_array_of_items
+
   return (array_of_restaurant_arrays, triple_array_of_items)
 
 

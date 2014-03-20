@@ -72,7 +72,7 @@ def upload(url, index):
 
 def getDishNames():
   dish_names = []
-  with open("../db/final_seeds.yml") as f:
+  with open("../db/final_seeds_6.yml") as f:
     content = f.readlines()
     for line in content:
       if("dish_name" in line):

@@ -91,7 +91,10 @@ Finally, you can click on a user name at various point in the site to be brought
 
 
 
-
+MAIN Page:
+  -Load Location
+  -Ajax request to get highest rated results
+  -Checks for Facebook Login
 
 
 

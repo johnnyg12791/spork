@@ -117,7 +117,7 @@
         <div class="col-md-1">
           <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
         </div>
-        <div class="col-md-11">
+        <div class="col-md-10 col-md-offset-1">
           <% for star in 1..review.score %>
             <span class="glyphicon glyphicon-star"></span>
           <% end %>
@@ -130,7 +130,7 @@
                 {controller: "user", action: "profile", id: user.id } %>
             </h4>
           <% end %>
-          <p>"<%= review.comment %>"</p>
+          <div>"<%= review.comment %>"</div>
         </div>
       </div>
     <% end %>

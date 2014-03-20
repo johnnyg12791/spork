@@ -5,12 +5,20 @@
 	<div class="col-md-8 col-md-offset-2" id="name">
 		<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
 		<small>User since: <%=@user.created_at.to_formatted_s(:long_ordinal)%></small>
-		<h3><%= @user.first_name %>'s favorite dishes so far:</h3>
+
 		<div class="row padded">
-		<%for favorite in @favorites %>
-			<div class="col-md-3">
-				<%= render :partial => "shared/dish_square", :locals => {:dish => Food.find(favorite.ratable_id)} %>
-			</div>
+		<%if @favorites.nil? then%>
+		<div class="col-md-3">
+          <%= image_tag("spork.jpg", alt: "spork", height: "150px", width: "250px") %>
+          </div>
+		<%else%>
+			<h3><%= @user.first_name %>'s favorite dishes so far:</h3>
+			
+			<%for favorite in @favorites %>
+				<div class="col-md-3">
+					<%= render :partial => "shared/dish_square", :locals => {:dish => Food.find(favorite.ratable_id)} %>
+				</div>
+			<%end%>
 		<%end%>
 		</div>
 	</div>
@@ -18,7 +26,7 @@
 
 <%if @review_display_info.empty? %>
 	<div class = "row padded">
-	<h2 class="col-md-5">You haven't reviewed anything yet! Start sporking!</h2>
+	<h2 class="col-md-8 col-md-offset-2">You haven't reviewed anything yet! Get sporkin'!</h2>
 	</div>
 <%else%>
 	<div class = "row padded">

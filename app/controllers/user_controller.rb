@@ -47,7 +47,7 @@ class UserController < ApplicationController
 
     # sorted_reviews = @review_display_info.sort_by{|review| review[2]}
     # @favorites = sorted_reviews.first(3)
-    sorted_reviews = reviews_array.sort_by{|review| review.score}
+    sorted_reviews = reviews_array.sort_by{|review| review.score}.reverse
     @favorites=sorted_reviews.first(3)
 
   end

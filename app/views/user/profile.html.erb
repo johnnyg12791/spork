@@ -1,3 +1,4 @@
+
 <div id="userProfilePage" class="container">
 	<div class="row padded">
 		<div class="col-md-4">
@@ -7,19 +8,23 @@
 			<h1>
 				<%= @user.first_name + ' ' + @user.last_name %>
 			</h1>
-			<small>
+			<small id="user-since">
 				User since: <%= @user.created_at.to_formatted_s(:long_ordinal)%>
 			</small>
-			<h3>
-				<%= @user.first_name %>'s favorite dishes so far:
-			</h3>
-			<div class="row padded">
-			<%for favorite in @favorites %>
-				<div class="col-md-3">
-					<%= render :partial => "shared/dish_square", :locals => {:dish => Food.find(favorite.ratable_id)} %>
+			<%if @favorites.empty? then%>
+				<h3><%= link_to "No favorites yet!", controller: "home", action: "index"%></h3>
+			<%else%>
+				<h3>
+					<%= @user.first_name %>'s favorite dishes so far:
+				</h3>
+				<div class="row padded">
+				<%for favorite in @favorites %>
+					<div class="col-md-3">
+						<%= render :partial => "shared/dish_square", :locals => {:dish => Food.find(favorite.ratable_id)} %>
+					</div>
+				<%end%>
 				</div>
 			<%end%>
-			</div>
 		</div>
 	</div>
 

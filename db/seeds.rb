@@ -2,7 +2,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
-seed_file = File.join(Rails.root, 'db', 'final_seeds_3.yml')
+seed_file = File.join(Rails.root, 'db', 'final_seeds_5.yml')
 config = YAML::load_file(seed_file)
 Restaurant.create(config["restaurants"])
 Food.create(config["foods"])

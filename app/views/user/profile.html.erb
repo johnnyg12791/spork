@@ -1,6 +1,6 @@
 <div class="row padded">
 	<div class="col-md-2">
-		<img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=200' id="prof-pic" class="img-circle">
+		<img src='http://graph.facebook.com/<%=@user.fb_id%>/picture?height=160&weight=160' id="prof-pic" class="img-circle">
 	</div>
 	<div class="col-md-8 col-md-offset-2" id="name">
 		<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
@@ -42,7 +42,7 @@
 			</div>
 		</div>
 		<div class = "review row">
-			<div class="col-md-7 col-md-offset-2">---- <%= review[3] %></div>
+			<div class="col-md-7 col-md-offset-2">---- "<%= review[3] %>"</div>
 		</div>
 	<% end %>
 <%end%>

@@ -24,54 +24,39 @@ class UserController < ApplicationController
   end
 
   def profile
-    curr_user = params[:id]
-    #@user2 = User.where("id = ?", params[:id])
-    @user = User.find_by id: curr_user
-    reviews_array = Rating.where("user_id = ?", curr_user)
-    #want to get name of restuarant, item_name
-    @review_display_info = []
-    reviews_array.each do |review|
-      info = []
-      item = Food.find(review.ratable_id)
-      restaurant = Restaurant.find(item.restaurant_id)
-      restaurant_name = restaurant.name
-      item_name = item.dish_name
-      item_id = item.id
-      info.push(item_name)
-      info.push([restaurant_name, item.restaurant_id])
-      info.push(review.score)
-      info.push(review.comment)
-      info.push(item_id)
-      @review_display_info.push(info)
+    @user = User.find_by_id params[:id]
+    if @user.nil?
+      raise ActionController::RoutingError.new('No such user')
     end
+    
+    @reviews = Rating.where(user_id: @user.id)
+    @favorites = @reviews.order('score').first(3)
+  end
 
-
-    def update
-      @user = User.find(params[:id])
-      @user.first_name = params[:user][:first_name]
-      @user.last_name = params[:user][:last_name]
-      if @user.save then
-        redirect_to(:action => :profile)
-      else
-        render(:action => :edit)
-      end
-    end #end of update
-
-
-    def create
-      @var1 = "var1"
+  def update
+    @user = User.find(params[:id])
+    @user.first_name = params[:user][:first_name]
+    @user.last_name = params[:user][:last_name]
+    if @user.save then
+      redirect_to(:action => :profile)
+    else
+      render(:action => :edit)
     end
+  end #end of update
 
 
-    def new
-      @user = User.new(params[:user])
-      if @user.save then
-        redirect_to(:action => :show)
-      else
-        render(:action => :edit)
-      end
-    end #end of new
+  def create
+    @var1 = "var1"
+  end
 
-  end #end of class
 
-end #end of file
+  def new
+    @user = User.new(params[:user])
+    if @user.save then
+      redirect_to(:action => :show)
+    else
+      render(:action => :edit)
+    end
+  end #end of new
+
+end #end of class

@@ -1,42 +1,55 @@
 <div id="restaurant-page" class="page container">
  <h1><%=@restaurant.name %></h1>
 
-  <div class="hero">
-    <%= image_tag("restaurants/" + @hero_image, alt: "Hero image of #{@restaurant.name}") %>
-  </div>
+  <div class="row padded">
+    <div class="col-md-7 no-overflow hero">
+      <%= image_tag("restaurants/" + @hero_image, alt: "Hero image of #{@restaurant.name}") %>
+    </div>
 
-  <div class="row info">
-    <% hours = Hour.where("restaurant_id = ?", @restaurant.id)[0] %>
-    <% if hours %>
-      <div class="col-md-2">
-        <strong>Hours</strong>
+    <div class="col-md-5">
+      <% if @hours %>
+      <div class="row padded">
+        <div class="col-md-2 text-right">
+          <strong>Hours</strong>
+        </div>
+        <div class="hours col-md-8">
+          <% @hours.each do |time| %>
+            <strong><%= time[0] %></strong>: 
+            <span><%= time[1] %></span><br />
+          <% end %>
+        </div>
       </div>
-      <div class="col-md-4">
-        <% days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"] %>
-        <% days.each do |day| %>
-          <% capitalizedDay = day.capitalize %>
-          <p><%= capitalizedDay %>: <%= hours[day] %> </p>
-        <% end %>
+      <% end %>
+    
+      <% if @address %>
+        <div class="row padded">
+          <div class="col-md-2 text-right">
+            <strong>Address</strong>
+          </div>
+          <div class="col-md-8">
+            <%= @address %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="row padded">
+        <div class="col-md-2 text-right">
+          <strong>Menu</strong>
+        </div>
+        <div class="col-md-8">
+          <%= link_to "See Full Menu >>", {controller: "restaurant", action: "menu", id: @restaurant.id } %>
+        </div>
       </div>
-    <% end %>
-    <% if @restaurant.address %>
-      <div class="col-md-2">
-        <strong>Address</strong>
-      </div>
-      <div class="col-md-4">
-        <%= @restaurant.address %>
-      </div>
-    <% end %>
+    </div>
+
   </div>
 
   <div class="top-rated padded">
-    <h2>Top Rated
-      <small><%= link_to "Menu >>", {controller: "restaurant", action: "menu", id: @restaurant.id } %></small>
-    </h2>
+    <h3>Top Rated Items</h3>
     <div class="row image-tile-row">
       <% numToDisplay = (@foods_by_rating.length < 4) ? @foods_by_rating.length : 4 %>
       <% for i in 0..numToDisplay-1 %>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <%= render :partial => "shared/dish_square", :locals => {:dish => @foods_by_rating[i]} %>
         </div>
       <% end %>
@@ -44,33 +57,45 @@
   </div>
 
   <div class="reviews padded">
-    <h2>Reviews (<%= @num_reviews %>)</h2>
+    <h3>Reviews (<%= @num_reviews %>)</h3>
 
-    <% for review in @ratings %>
-      <div class="review">
-        <div class="col-md-2 left">
-          <%= image_tag("test.jpg", :alt => "test", height: "100px", width: "100px") %>
-        </div>
-        <div class="col-md-10 right">
-          <a href="../../food/index/<%=review.ratable.id%>">
-            <h3><%= review.ratable.dish_name %></h3>
-          </a>
-          <p>
-            <% for star in 1..review.score %>
-              <span class="glyphicon glyphicon-star"></span>
-            <% end %>
-            <% for star in review.score+1..5 %>
-              <span class="glyphicon glyphicon-star-empty"></span>
-            <% end %>
-          </p>
-          <% if user = User.find_by_id(review.user_id) %>
-            <h4>
-              Review by <%= link_to "#{user.first_name} #{user.last_name}", 
+    <% for slice in @ratings.each_slice(2) %>
+      <div class="review row">
+
+        <% for review in slice %>
+          <div class="col-md-1 no-overflow">
+            <%= image_tag("test.jpg", :alt => "test", height: "75px", width: "75px") %>
+            <% if user = User.find_by_id(review.user_id) %>
+              <small class="padded">
+                <%= link_to "#{user.first_name} #{user.last_name}", 
                 {controller: "user", action: "profile", id: user.id } %>
-            </h4>
-          <% end %>
-          <p>"<%= review.comment %>"</p>
-        </div>
+              </small>
+            <% end %>
+          </div>
+
+          <div class="col-md-4">
+            <a href="../../food/index/<%=review.ratable.id%>">
+              <h4><%= review.ratable.dish_name %></h4>
+            </a>
+            <p>
+              <% for star in 1..review.score %>
+                <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+              <% for star in review.score+1..5 %>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              <% end %>
+            </p>
+            
+            <p>"<%= review.comment %>"</p>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+
+    <% if @ratings.count == 0 %>
+      <div class="padded">
+        <h4 class="padded-side">No Ratings Yet!</h4>
       </div>
     <% end %>
   </div>

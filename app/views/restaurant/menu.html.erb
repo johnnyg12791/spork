@@ -1,18 +1,18 @@
 <h1> <%= params[:error] %> </h1>
 
-
 <div id="restaurant-menu" class="container">
+  <form action="/restaurant/edit/<%=@restaurant.id %>" method="post">
+    <button class="btn btn-primary">Update Menu</button></br>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  </form>
+
   <small>
     <%= link_to "<< Back to #{@restaurant.name}", controller: "restaurant", action: "show", id: @restaurant.id %>
   </small>
   <h1><%= @restaurant.name %> Menu</h1>
+  <h4><%= @restaurant.description %></h4>
 
-<form action="/restaurant/edit/<%=@restaurant.id %>" method="post">
-  <button class="btn btn-primary">Update Menu</button></br>
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-</form>
-
-<form id="changeMenuForm" action="/restaurant/menu/<%=@restaurant.id%>" method="post">
+<!-- <form id="changeMenuForm" action="/restaurant/menu/<%=@restaurant.id%>" method="post">
   <div class="changeMenu">
   <% if(@display_current_menu == true) then %>
     <p>Showing all food items currently on the menu. To see all food items ever on menu, please click below:</p>
@@ -24,8 +24,7 @@
   <% end %>
   </div>
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-</form>
-</br>
+</form> -->
 
 <!-- Modal that is responsible for allowing the user to add a dish to the menu, and to also allow the user to add a review
 at the same time through a dropdown that appears if the user clicks "Want to review the dish now? Click here."
@@ -75,30 +74,53 @@ to reflect the change, then the review form disappears.
     </div>
   </div>
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-          </form>
+  </form>
 </div>
 
 <div class="padded">
   <% if @foods.empty? %>
     <h2> Sorry, menu not available </h2>
   <% else %>
-    <% for food in @foods %>
-      <div class="food">
-        <div class="row">
-          <div class="col-md-5">
-            <h4><%= link_to food.dish_name, controller: "food", action: "index", id: food.id %></h4>
-          </div>
-          <div class="col-md-3">
-            <h4><%= food.price %></h4>
-          </div>
-        </div>
-        <div class="row">
+    <% i = 0; cats = ["Appetizers", "Entrées", "Desserts"] %>
+    <% @foods.each_slice((@foods.count/3.0).ceil).with_index do |cat, i| %>
+      <h2><%= cats[i] %></h2>
+
+      <div class="row">
+        <% for slice in cat.each_slice((cat.count/2.0).ceil) %>
           <div class="col-md-6">
-            <%= food.description %>
+            <% for food in slice %>
+              <div class="food">
+                <div class="row name-line">
+                  <div class="col-md-8 name">
+                    <h4><%= link_to food.dish_name, controller: "food", action: "index", id: food.id %></h4>
+                  </div>
+                  <div class="col-md-3 text-right price">
+                    <h4><%= food.price %></h4>
+                  </div>
+                </div>
+
+                <div class="average-score">
+                  <% for star in 1..food.rating.round %>
+                    <span class="glyphicon glyphicon-star">
+                    </span>
+                  <% end %>
+                  <% for star in food.rating.round+1..5 %>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                  <% end %>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-10 description">
+                    <%= food.description %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
+
   <% end %>
 </div>
 

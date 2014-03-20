@@ -80,7 +80,11 @@ FOOD PAGE:
 	- /spork/app/controllers/food_controller: The food controller handles the controller logic for the food page. The main food view is the view associated with the method index to get the neccessary data for the food item.  A user can add a review for the particular food item, which will display a popup to add a review and call the method in the controller addRating to add the associated pictures to the filesystem and database, and rating to the database.
 
 PROFILE PAGE:
-	- /spork/app/controllers/user_controller: The user controller formats the review information for proper display
+	- ex: http://0.0.0.0:3000/user/profile/80
+	- /spork/app/controllers/user_controller: The user controller handles the logic for the user profile page.
+	    - "profile", and it's associated view in views/user/profile.html.erb, shows the user's profile picture, as well as the user's favorite dishes and all the items they user has reviewed.
+    	- "login" and associated views in views/user/create.html.erb and lines 35-55 in views/layouts/application.html.erb, allows users to login using their Facebook profile, as well as allows logged in users to add reviews.
+    	- "logout" clears the users's session.
 
 Finally, you can click on a user name at various point in the site to be brought to the profile page:
 

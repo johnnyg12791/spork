@@ -1,4 +1,5 @@
 #reformat food_yml.txt
+#just edits to the yml file
 
 def main():
   with open("food_yml.txt") as f:
@@ -11,8 +12,6 @@ def main():
           string = line[quote_start:quote_end]
           string = string.replace("\"", "\'")
           line = line[:quote_start] + string + line[quote_end:]
-          #print line
-          #raw_input("")
         f2.write(line)
 
 

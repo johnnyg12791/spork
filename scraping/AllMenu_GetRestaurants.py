@@ -6,11 +6,10 @@ from bs4 import BeautifulSoup
 import csv
 import unicodedata
 
-#URL = ("http://www.allmenus.com/custom-results/-/699018-palo-alto-ca/?filters=filter_delivery,")
 URL = ("http://www.allmenus.com/ca/palo-alto/-/&filters=none")
 OUTPUT_FILENAME = ("output4.csv")
 
-
+#Gets a dictionary of all restaurants from the URL
 def get_restaurant_dict():
   web_page = urllib2.urlopen(URL).read()
   soup = BeautifulSoup(web_page)
@@ -25,10 +24,9 @@ def get_restaurant_dict():
 
 def main():
   restaurant_dict = get_restaurant_dict()
-  #print restaurant_dict
   CreateOutputFile(restaurant_dict)
 
-
+#creates an output file with from the dictionary
 def CreateOutputFile(restaurant_dict):
   with open(OUTPUT_FILENAME, 'w') as fout:
     for key, value in restaurant_dict.items():
@@ -53,11 +51,8 @@ def ParseRestaurantList(restaurant_list):
       #Get the restaurant address
       address_start_index = restaurant_string.find("restaurant_address\">") + len("restaurant_address\">")
       address_end_index = restaurant_string.find("</p>", address_start_index)
-      #print address_start_index
-      #print address_end_index
-      #raw_input("")
       address = restaurant_string[address_start_index:address_end_index]
-
+      #add to dictionary
       restaurant_dict[restaurant_name] = [url, address]
 
   return restaurant_dict

@@ -1,4 +1,7 @@
 #getting rid of strange characters...
+#There was an annoying bug converting strings-unicode-utf8...
+#Eventually fixed using sublime --> File --> Reopen with Encoding 
+#(Instead of programmatically)
 
 def main():
   with open("../db/new_seeds_file_2.yml") as f:

@@ -1,5 +1,7 @@
 #SeedTest2.py
 #This is for MenuPages.com
+#never got completely finished
+#At this point most of the code is just a copy from SeedTest1
 
 from MenuPages_GetRestaurants import *
 from MenuPages_Scraper import *
@@ -35,8 +37,6 @@ def output_foods_yml(foods, file):
         fout.write('    restaurant_id: ' + str(menu_item[1]) + '\n')
         fout.write('    price: '+ '\''  + menu_item[2] + '\'' + '\n')
         fout.write('    description: '+ '\"'  + menu_item[3] + '\"' + '\n')
-        #fout.write('    size: ' + menu_item[0] + '\n')
-        #fout.write('    dish_name: ' + menu_item[0] + '\n')
 
 
 #Builds 2 arrays, one of restuarants, one of menu items.

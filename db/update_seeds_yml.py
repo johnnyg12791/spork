@@ -41,14 +41,10 @@ def main():
                 f2.write("    rating_score: 3\n")
                 counter += 1
         elif("score: 1" in line):
-        # #delete if it has 3 or 4
-        # #if it has a 1, convert to 3 or 4 with p=1/3 each
-        # #if it has a 2, convert to 5 with p=1/2
-
-        #   if(random.random() < .5):
-        #     f2.write(line)
-        #   else:
-        #     f2.write("    score: 5\n")
+          if(random.random() < .5):
+            f2.write(line)
+          else:
+            f2.write("    score: 5\n")
         else:
           f2.write(line)
 

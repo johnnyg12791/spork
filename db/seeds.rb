@@ -10,4 +10,5 @@ Picture.create(config["pictures"])
 User.create(config["users"])
 Rating.create(config["ratings"])
 
+
 #Formatted file located in seeds.yml

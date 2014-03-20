@@ -30,7 +30,7 @@ class UserController < ApplicationController
     end
     
     @reviews = Rating.where(user_id: @user.id)
-    @favorites = @reviews.order('score').first(3)
+    @favorites = @reviews.order('score').reverse.first(3)
   end
 
   def update

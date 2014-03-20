@@ -86,9 +86,10 @@
 
       <div class="row">
         <div class="col-md-6">
+          <% user = @rating_best.user %>
           <div class="review row padded">
             <div class="col-md-2">
-              <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
+              <img src='http://graph.facebook.com/<%= user[:fb_id] %>/picture?height=75' />
             </div>
             <div class="col-md-6 col-md-offset-1">
               <% for star in 1..@rating_best.score %>
@@ -98,12 +99,10 @@
               <% for star in @rating_best.score+1..5 %>
                 <span class="glyphicon glyphicon-star-empty"></span>
               <% end %>
-              <% if user = User.find_by_id(@rating_best.user_id) %>
-                <h4>
-                  Review by <%= link_to "#{user.first_name} #{user.last_name}", 
-                    {controller: "user", action: "profile", id: user.id } %>
-                </h4>
-              <% end %>
+              <h4>
+                Review by <%= link_to "#{user.first_name} #{user.last_name}", 
+                  {controller: "user", action: "profile", id: user.id } %>
+              </h4>
               <div>"<%= @rating_best.comment %>"</div>
             </div>
           </div>

@@ -3,8 +3,9 @@
 function initPagination(numPages) {
 
   function onPageChanged(e, oldPage, newPage) {
-    $('[class*=item-squares-page-' + oldPage + '-]').hide();
-    $('[class*=item-squares-page-' + newPage + '-]').show();
+    var prefix = $(e.target).attr('id').split('-')[0];
+    $('[class*=' + prefix + '-squares-page-' + oldPage + '-]').hide();
+    $('[class*=' + prefix + '-squares-page-' + newPage + '-]').show();
   }
 
   var options = {
@@ -25,14 +26,16 @@ function initPagination(numPages) {
     onPageChanged: onPageChanged,
   }
 
-  $('.paginator').each(function(index, element) {
+  $('ul[id*=-paginator]').each(function(index, element) {
     $(element).bootstrapPaginator(options);
   });
-  $("[title='Go to previous page']").parent().attr('class', '');
-  $('.paginator').each(function(index, element) {
+
+  $('ul[id*=-paginator]').each(function(index, element) {
     $(element).click(function() {
       $("[title='Go to previous page']").parent().attr('class', '');
       $("[title='Go to next page']").parent().attr('class', '');
     });
   });
+
+  $("[title='Go to previous page']").parent().attr('class', '');
 }

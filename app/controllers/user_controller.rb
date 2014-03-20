@@ -33,8 +33,8 @@ class UserController < ApplicationController
     @review_display_info = []
     reviews_array.each do |review|
       info = []
-      item = Food.find(review.ratable_id)
-      restaurant = Restaurant.find(item.restaurant_id)
+      item = Food.find_by_id(review.ratable_id)
+      restaurant = Restaurant.find_by_id(item.restaurant_id)
       restaurant_name = restaurant.name
       item_name = item.dish_name
       item_id = item.id

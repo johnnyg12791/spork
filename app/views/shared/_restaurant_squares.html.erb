@@ -3,18 +3,18 @@
 <% col_width = ResultsController::NUM_BOOTSTRAP_COLS / num_items_per_row %>
 <%= tag "div", { id: "data-for-paginator", data: { num_pages: num_pages } }, true %></div>
 
-<div id='restaurant-search-results'>
+<div id='restaurant-results'>
 
   <div class="row pagination-row">
     <div class="col-sm-12">
-      <ul class="paginator">
+      <ul id="restaurant-paginator">
       </ul>
     </div>
   </div>
 
   <% page_num = 1 %>
   <% for i in (1..num_rows) %>
-  <div class="row item-squares-row item-squares-page-<%= page_num %>-">
+  <div class="row item-squares-row restaurant-squares-page-<%= page_num %>-">
     <% for j in (1..num_items_per_row) %>
     <div class="col-sm-<%= col_width %>">
       <% index = ((i-1)*num_items_per_row)+(j-1) %>

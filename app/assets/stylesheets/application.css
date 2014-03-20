@@ -18,7 +18,6 @@ body {
   padding-top: 50px;
   background-color: #F4F0EC;
   font-family: 'Muli', sans-serif;
-
 }
 #application-header {
   background-color: #8B0000;
@@ -57,3 +56,24 @@ body {
 #login-modal {
   text-align: center;
 }
+
+.padded {
+  padding: 1rem 0;
+}
+
+.full-padded {
+  padding: 1rem;
+}
+
+.padded-side {
+  padding: 0 2rem;
+}
+
+.padded-1-2 {
+  padding: 1rem 2rem;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+

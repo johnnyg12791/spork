@@ -39,22 +39,27 @@
 		<%for review in @reviews %>
 			<div class="review">
 				<div class ="row">
-					<h3>
-						<%= link_to "#{review.ratable.dish_name}", controller: "food", action: "index", id: "#{review.ratable.id }" %><br />
-						<small>
-							at <%= link_to "#{review.ratable.restaurant.name}", controller: "restaurant", action: "index", id: "#{review.ratable.id }" %>
-						</small>
-					</h3>
+					<div class="col-md-2">
+						<%= image_tag("https://s3.amazonaws.com/spork-pictures-2/food_item_#{review.ratable.id}.jpg", class: "review-item") %>
+					</div>
+					<div class="col-md-10">
+						<h3>
+							<%= link_to "#{review.ratable.dish_name}", controller: "food", action: "index", id: "#{review.ratable.id }" %>
+							<small>
+								at <%= link_to "#{review.ratable.restaurant.name}", controller: "restaurant", action: "index", id: "#{review.ratable.id }" %>
+							</small>
+						</h3>
             <% for star in 1..review.score %>
               <span class="glyphicon glyphicon-star"></span>
             <% end %>
             <% for star in review.score+1..5 %>
               <span class="glyphicon glyphicon-star-empty"></span>
             <% end %>
-				</div>
 
-				<div>
-					<%= review.comment %>
+						<div>
+							<%= review.comment %>
+						</div>
+					</div>
 				</div>
 			</div>
 		<% end %>

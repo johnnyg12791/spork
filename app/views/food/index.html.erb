@@ -9,6 +9,7 @@
       </h4>
       <div class="stars"></div>
     </div>
+
     <% if !@food.price.blank? %>
       <div class="col-md-2 text-right">
         <h1 class="price">
@@ -38,16 +39,9 @@
   <% end %>
 
   <div class="food-images row">
-    <% if @pictures.length > 0 %>
-      <h1>Photos</h1>
-      <div class="row image-tile-row">
-        <% for photo in @pictures %>
-          <div class="col-md-2">
-            <%= image_tag 'food_items/' + photo.file_name %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="col-md-10">
+      <%= image_tag('https://s3.amazonaws.com/spork-pictures-2/food_item_' + @food.id.to_s + '.jpg', class: "fill-image") %>
+    </div>
   </div>
 
   <% if @food.size %>
@@ -69,8 +63,6 @@
       <%= @food.calories %> kCal
     </div>
   <% end %>
-
-
 
   <div class="reviews"> 
     <% if (@ratings.count > 2) %>

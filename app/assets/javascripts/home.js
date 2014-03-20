@@ -29,14 +29,15 @@ function getCurrLoc() {
             // send ajax request to get most popular items near current location
             var ajax = $.ajax({
               type: "POST",
-              url: "/results/search?render=partials_only&results=60&itemspr=6&rows=2",
+              url: "/results/search?render=dish_partials_only&results=60&itemspr=6&rowspp=2",
               data: { search_lat: lat.value, search_long: lng.value }
             });
             // if ajax successful, display results
             ajax.done(function(response) {
               $('#popular-items').html(response);
-              var numPages = $(response).filter('#data-for-paginator').data('num-pages');
-              initPagination(numPages);
+              numDishPages = $(response).find('#data-for-dish-paginator').data('num-pages');
+              numRestPages = $(response).find('#data-for-restaurant-paginator').data('num-pages');
+              initPagination(numDishPages, numRestPages);
               getCurrLocUI(false, formattedAddress);
             });
             // if ajax is not successful...

@@ -50,34 +50,36 @@ function findRestaurants(location) {
   map.fitBounds(bounds);
   marker.setMap(map);
   marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-  for(var i = 0; i < restaurants.length; i++) {
-    var place = restaurants[i];
-    var pictures = restaurants[i].pictures;
-    var latlng = new google.maps.LatLng(place.latitude, place.longitude);
-    var marker = new google.maps.Marker({
-      position: latlng,
-      title:  place.name,
-      id: place.id,
-      description: place.description,
-      pictures: pictures
-    });
-    markersArray.push(marker);
-    google.maps.event.addListener(marker, 'click', function() {
-      var contentString = "<a href='/restaurant/show/" + this.id + "'>" + this.title + "</a></br> " + this.description;
-      if(this.pictures) {
-        contentString = contentString + "</br>";
-        var numPics = this.pictures.length;
-        var numPicsToDisplay = (numPics < 3) ? numPics : 3;
-        for(var i = 0; i < numPicsToDisplay; i++) {
-          contentString = contentString + "<img src='/assets/" + this.pictures[i].file_name + "' width='40' height='40'>";
+  if (restaurants != undefined) {
+    for(var i = 0; i < restaurants.length; i++) {
+      var place = restaurants[i];
+      var pictures = restaurants[i].pictures;
+      var latlng = new google.maps.LatLng(place.latitude, place.longitude);
+      var marker = new google.maps.Marker({
+        position: latlng,
+        title:  place.name,
+        id: place.id,
+        description: place.description,
+        pictures: pictures
+      });
+      markersArray.push(marker);
+      google.maps.event.addListener(marker, 'click', function() {
+        var contentString = "<a href='/restaurant/show/" + this.id + "'>" + this.title + "</a></br> " + this.description;
+        if(this.pictures) {
+          contentString = contentString + "</br>";
+          var numPics = this.pictures.length;
+          var numPicsToDisplay = (numPics < 3) ? numPics : 3;
+          for(var i = 0; i < numPicsToDisplay; i++) {
+            contentString = contentString + "<img src='/assets/" + this.pictures[i].file_name + "' width='40' height='40'>";
+          }
         }
-      }
-      infowindow.setContent(contentString);//this.title);
-      infowindow.open(map, this);
-    });
-    bounds.extend(latlng);
-    map.fitBounds(bounds);
-    marker.setMap(map);
+        infowindow.setContent(contentString);//this.title);
+        infowindow.open(map, this);
+      });
+      bounds.extend(latlng);
+      map.fitBounds(bounds);
+      marker.setMap(map);
+    }
   }
 }
 
@@ -90,8 +92,9 @@ function clearOverlays() {
 }
 
 $(document).ready(function() {
-  var numPages = $('#data-for-paginator').data('num-pages')
-  initPagination(numPages);
+  var numDishPages = $('#data-for-dish-paginator').data('num-pages');
+  var numRestPages = $('#data-for-restaurant-paginator').data('num-pages');
+  initPagination(numDishPages, numRestPages);
 
   // read data returned from the controller
   var search_item = $('#results-data').data('search-item');
@@ -123,11 +126,14 @@ $(document).ready(function() {
       });
       ajax.done(function(response) {
         response = $(response);
-        restaurants = response.filter('#dish-results-data').data('restaurants');
-        var new_search_results = response.filter('#search-results').html();
-        $('#dish-results-container').html(new_search_results);
-        numPages = response.filter('#data-for-paginator').data('num-pages')
-        initPagination(numPages);
+        restaurants = response.filter('#restaurant-json').data('restaurants');
+        var new_dish_results = response.find('#dish-results').html();
+        var new_restaurant_results = response.find('#restaurant-results').html();
+        $('#dish-results-container').html(new_dish_results);
+        $('#restaurant-results-container').html(new_restaurant_results);
+        numDishPages = response.find('#data-for-dish-paginator').data('num-pages');
+        numRestPages = response.find('#data-for-restaurant-paginator').data('num-pages');
+        initPagination(numDishPages, numRestPages);
         clearOverlays();
         findRestaurants(pos);   
       });

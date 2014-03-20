@@ -1,7 +1,7 @@
-<% num_rows = (restaurants.length / num_items_per_row).ceil %>
-<% num_pages = (restaurants.length / num_items_per_row / num_rows_per_page).ceil %>
+<% num_rows = (restaurants.length.to_f / num_items_per_row).ceil %>
+<% num_pages = (restaurants.length.to_f / num_items_per_row / num_rows_per_page).ceil %>
 <% col_width = ResultsController::NUM_BOOTSTRAP_COLS / num_items_per_row %>
-<%= tag "div", { id: "data-for-paginator", data: { num_pages: num_pages } }, true %></div>
+<%= tag "div", { id: "data-for-restaurant-paginator", data: { num_pages: num_pages } }, true %></div>
 
 <div id='restaurant-results'>
 
@@ -18,7 +18,7 @@
     <% for j in (1..num_items_per_row) %>
     <div class="col-sm-<%= col_width %>">
       <% index = ((i-1)*num_items_per_row)+(j-1) %>
-      <% if index <= restaurants.length then %>
+      <% if index < restaurants.length then %>
         <%= render :partial => "shared/restaurant_square", :locals => {:restaurant => restaurants[index]} %>
       <% end %>
     </div>

@@ -68,8 +68,8 @@ class ResultsController < ApplicationController
 		if params[:itemspr] then
 			@num_items_per_row = params[:itemspr].to_i
 		end
-		if params[:rows] then
-			@nnum_rows_per_page = params[:rows].to_i
+		if params[:rowspp] then
+			@num_rows_per_page = params[:rowspp].to_i
 		end
 
 		@render = 'default'
@@ -80,11 +80,17 @@ class ResultsController < ApplicationController
 		if @render == 'json_only' then
 			render :json => {:restaurants => @restaurants, :dishes => @dishes}
 		elsif @render == 'partials_only' then
-			render :partial => 'shared/dish_squares', :locals => {:dishes => @dishes, :restaurants => @restaurants, :with_json => false,
-				:num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page}
+			render :partial => 'shared/results', :locals => {:rend => 'all', :dishes => @dishes, :restaurants => @restaurants,
+				:with_json => false, :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page}
 		elsif @render == 'partials_and_json_only' then
-			render :partial => 'shared/dish_squares', :locals => {:dishes => @dishes, :restaurants => @restaurants, :with_json => true,
-				:num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page}
+			render :partial => 'shared/results', :locals => {:rend => 'all', :dishes => @dishes, :restaurants => @restaurants,
+				:with_json => true, :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page}
+		elsif @render == 'dish_partials_only' then
+			render :partial => 'shared/results', :locals => {:rend => 'dishes_only', :render_restaurants => false, :results => 'dishes',
+				:dishes => @dishes, :with_json => false, :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page}
+		elsif @render == 'restaurant_partials_only' then
+			render :partial => 'shared/results', :locals => {:rend => 'restaurants_only', :results => 'restaurants',
+				:restaurants => @restaurants, :with_json => false, :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page}
 		end
 		# else search.html.erb (the default) will be rendered
 

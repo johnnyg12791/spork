@@ -46,6 +46,7 @@ class RestaurantController < ApplicationController
       raise ActionController::RoutingError.new('No such restaurant')
     end
     current_menu = params[:current_menu] # used as a parameter for page refresh if the user clicks to show all food items ever / only current menu items
+    
     @display_current_menu = true
     if(current_menu.blank?) then ## no parameter (initial first time going to page) - display only current menu
       @display_current_menu = true
@@ -58,6 +59,7 @@ class RestaurantController < ApplicationController
     # @foods = Food.where(restaurant_id: @restaurant.id).inject(Hash.new{|h, k| h[k] = []}) do |h, food| 
     #   h[food.category] << food
     # }
+
     if(@display_current_menu == false) then #display all food items ever
       @foods = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", @restaurant.id])
     else # display only current menu items

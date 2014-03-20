@@ -1,18 +1,18 @@
 <h1> <%= params[:error] %> </h1>
 
-
 <div id="restaurant-menu" class="container">
+  <form action="/restaurant/edit/<%=@restaurant.id %>" method="post">
+    <button class="btn btn-primary">Update Menu</button></br>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  </form>
+
   <small>
     <%= link_to "<< Back to #{@restaurant.name}", controller: "restaurant", action: "show", id: @restaurant.id %>
   </small>
   <h1><%= @restaurant.name %> Menu</h1>
+  <h4><%= @restaurant.description %></h4>
 
-<form action="/restaurant/edit/<%=@restaurant.id %>" method="post">
-  <button class="btn btn-primary">Update Menu</button></br>
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-</form>
-
-<form id="changeMenuForm" action="/restaurant/menu/<%=@restaurant.id%>" method="post">
+<!-- <form id="changeMenuForm" action="/restaurant/menu/<%=@restaurant.id%>" method="post">
   <div class="changeMenu">
   <% if(@display_current_menu == true) then %>
     <p>Showing all food items currently on the menu. To see all food items ever on menu, please click below:</p>
@@ -24,8 +24,7 @@
   <% end %>
   </div>
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-</form>
-</br>
+</form> -->
 
 <!-- Modal that is responsible for allowing the user to add a dish to the menu, and to also allow the user to add a review
 at the same time through a dropdown that appears if the user clicks "Want to review the dish now? Click here."
@@ -82,12 +81,12 @@ to reflect the change, then the review form disappears.
   <% if @foods.empty? %>
     <h2> Sorry, menu not available </h2>
   <% else %>
-    <% i = 0; cats = ["Appetizers", "Entrees", "Desserts"] %>
-    <% @foods.each_slice((@foods.count/3.to_f).ceil).with_index do |cat, i| %>
+    <% i = 0; cats = ["Appetizers", "Entrées", "Desserts"] %>
+    <% @foods.each_slice((@foods.count/3.0).ceil).with_index do |cat, i| %>
       <h2><%= cats[i] %></h2>
 
       <div class="row">
-        <% for slice in cat.each_slice((cat.count/2.to_f).ceil) %>
+        <% for slice in cat.each_slice((cat.count/2.0).ceil) %>
           <div class="col-md-6">
             <% for food in slice %>
               <div class="food">

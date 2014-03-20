@@ -8,7 +8,11 @@ class FoodController < ApplicationController
 		else
 			@restaurant = Restaurant.find_by_id(@food.restaurant_id)
 			@pictures = @food.pictures
+
 			@ratings = Rating.where(ratable_id: @food.id)
+      order = @ratings.order('score desc')
+      @rating_best = order.first
+      @rating_worst = order.last
 		end
 	end
 

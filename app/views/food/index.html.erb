@@ -3,16 +3,14 @@
     <div class="col-md-7">
       <h2>
         <%= @food.dish_name %>
-        <br />
-        <small> At 
-          <%= link_to "#{@restaurant.name}", controller: "restaurant", 
-            action: "show", id: @restaurant.id %>
-        </small>
       </h2>
+      <h4> At <%= link_to "#{@restaurant.name}", controller: "restaurant", 
+            action: "show", id: @restaurant.id %>
+      </h4>
       <div class="stars"></div>
     </div>
     <% if !@food.price.blank? %>
-      <div class="col-md-5">
+      <div class="col-md-2 text-right">
         <h1 class="price">
           <%= @food.price %>
         </h1>
@@ -20,13 +18,22 @@
     <% end %>
   </div>
 
+  <div class="average-score">
+    <% for star in 1..@food.rating.round %>
+      <span class="glyphicon glyphicon-star">
+      </span>
+    <% end %>
+    <% for star in @food.rating.round+1..5 %>
+      <span class="glyphicon glyphicon-star-empty"></span>
+    <% end %>
+  </div>
+
   <% #Food properties %>
   <% if @food.description %>
-    <div class="row">
+    <div class="row padded">
       <div class="col-md-8">
         <%=@food.description%>
       </div>
-
     </div>
   <% end %>
 
@@ -65,9 +72,109 @@
 
 
 
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addDishModal">
-  Add a review!
-</button>
+  <div class="reviews"> 
+    <% if (@ratings.count > 2) %>
+      <div class="row padded">
+        <div class="col-md-6">
+          <h3>Best Review</h3>
+        </div>
+
+        <div class="col-md-6">
+          <h3>Worst Review</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="review row padded">
+            <div class="col-md-2">
+              <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
+            </div>
+            <div class="col-md-6 col-md-offset-1">
+              <% for star in 1..@rating_best.score %>
+                <span class="glyphicon glyphicon-star">
+                </span>
+              <% end %>
+              <% for star in @rating_best.score+1..5 %>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              <% end %>
+              <% if user = User.find_by_id(@rating_best.user_id) %>
+                <h4>
+                  Review by <%= link_to "#{user.first_name} #{user.last_name}", 
+                    {controller: "user", action: "profile", id: user.id } %>
+                </h4>
+              <% end %>
+              <div>"<%= @rating_best.comment %>"</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="review row padded">
+            <div class="col-md-2">
+              <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
+            </div>
+            <div class="col-md-6 col-md-offset-1">
+              <% for star in 1..@rating_worst.score %>
+                <span class="glyphicon glyphicon-star">
+                </span>
+              <% end %>
+              <% for star in @rating_worst.score+1..5 %>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              <% end %>
+              <% if user = User.find_by_id(@rating_worst.user_id) %>
+                <h4>
+                  Review by <%= link_to "#{user.first_name} #{user.last_name}", 
+                    {controller: "user", action: "profile", id: user.id } %>
+                </h4>
+              <% end %>
+              <div>"<%= @rating_worst.comment %>"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>
+          Reviews (<%= @ratings.count %>)
+        </h2>
+      </div>
+      <div class="col-md-6">
+        <h2>
+          <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#addDishModal">
+            Add a review!
+          </button>
+        </h2>
+      </div>
+    </div>
+
+    <% for review in @ratings %>
+      <div class="review row padded">
+        <div class="col-md-1">
+          <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+          <% for star in 1..review.score %>
+            <span class="glyphicon glyphicon-star">
+            </span>
+          <% end %>
+          <% for star in review.score+1..5 %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+          <% if user = User.find_by_id(review.user_id) %>
+            <h4>
+              Review by <%= link_to "#{user.first_name} #{user.last_name}", 
+                {controller: "user", action: "profile", id: user.id } %>
+            </h4>
+          <% end %>
+          <div>"<%= review.comment %>"</div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <!-- Modal  Used to add a review to a dish-->
 <div class="modal fade" id="addDishModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -103,37 +210,5 @@
     </div>
   </div>
     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-          </form>
-</div>
-
-
-<h2>Average Rating: <%= @food.rating %> </h2>
-
-
-  <div class="reviews">
-    <h3>Reviews (<%= @ratings.count %>)</h3>
-    <% for review in @ratings %>
-      <div class="review row padded">
-        <div class="col-md-1">
-          <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
-        </div>
-        <div class="col-md-10 col-md-offset-1">
-          <% for star in 1..review.score %>
-            <span class="glyphicon glyphicon-star"></span>
-          <% end %>
-          <% for star in review.score+1..5 %>
-            <span class="glyphicon glyphicon-star-empty"></span>
-          <% end %>
-          <% if user = User.find_by_id(review.user_id) %>
-            <h4>
-              Review by <%= link_to "#{user.first_name} #{user.last_name}", 
-                {controller: "user", action: "profile", id: user.id } %>
-            </h4>
-          <% end %>
-          <div>"<%= review.comment %>"</div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
+  </form>
 </div>

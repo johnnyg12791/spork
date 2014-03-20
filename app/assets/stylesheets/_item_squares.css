@@ -7,10 +7,15 @@
 .item-squares-row {
   margin: 0px 0px 25px 0px;
 }
-[class*=item-squares-page-] {
+/*.item-squares-row [class*=col-] {
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}*/
+[class*=-squares-page-] {
   display: none;
 }
-.item-squares-page-1- {
+[class*=-squares-page-1-] {
   display: block;
 }
 .item-square {
@@ -20,7 +25,6 @@
 }
 .item-square img {
   max-width: 100%;
-  //border: 1px solid #888888;
 }
 .item-square .item-square-price {
   float: right;

@@ -12,7 +12,7 @@
   <%= javascript_include_tag params[:controller] %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
@@ -45,7 +45,7 @@
       <% else %>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="header-user-dropdown">
-          <img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=25' id="header-fb-pic">
+          <img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=50' id="header-fb-pic">
         </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="user-dropdown-button">
           <li role="presentation"><a role="menuitem" tabindex="-1" href="/user/profile/<%= session[:user_id] %>">Profile</a></li>

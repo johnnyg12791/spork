@@ -20,8 +20,13 @@
 }
 .item-square {
   padding: 10px;
-  background-color: #343434;
   color: #F4F0EC;
+}
+#dish-results .item-square {
+  background-color: #343434;
+}
+#restaurant-results .item-square {
+  background-color: #555555;
 }
 .item-square img {
   max-width: 100%;

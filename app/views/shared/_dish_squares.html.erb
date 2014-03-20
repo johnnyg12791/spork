@@ -1,11 +1,7 @@
-<% num_rows = (dishes.length / num_items_per_row).ceil %>
-<% num_pages = (dishes.length / num_items_per_row / num_rows_per_page).ceil %>
+<% num_rows = (dishes.length.to_f / num_items_per_row).ceil %>
+<% num_pages = (dishes.length.to_f / num_items_per_row / num_rows_per_page).ceil %>
 <% col_width = ResultsController::NUM_BOOTSTRAP_COLS / num_items_per_row %>
-<%= tag "div", { id: "data-for-paginator", data: { num_pages: num_pages } }, true %></div>
-
-<% if with_json then %>
-<%= tag "div", { id: "restaurant-results-data", data: { restaurants: restaurants } }, true %></div>
-<% end %>
+<%= tag "div", { id: "data-for-dish-paginator", data: { num_pages: num_pages } }, true %></div>
 
 <div id='dish-results'>
 

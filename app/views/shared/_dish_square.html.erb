@@ -1,11 +1,7 @@
 <div class="item-square">
   <% if dish %>
     <a href="/food/index/<%= dish.id %>">
-      <% if dish.pictures[1] == nil %>
-        <%= image_tag('spork.jpg') %>
-      <% else %>
-        <%= image_tag('food_items/'+ dish.pictures[1].file_name) %>
-      <% end %>
+      <%= image_tag('https://s3.amazonaws.com/spork-pictures-2/food_item_' + dish.id.to_s + '.jpg') %>
     </a>
     <p/>
     <div>

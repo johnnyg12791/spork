@@ -5,7 +5,7 @@
 
 <div id="map-canvas" style="width:100%;height:380px;"></div>
 
-<div class="container-fluid" id="search-results-container">
+<div class="container-fluid" id="search-results-supercontainer">
   <div class="row">
     <div class="col-sm-12" id="distance-selector">
       <span>Search Distance:</span>
@@ -30,17 +30,8 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div id="dish-results-container">
-        <%= render :partial => "shared/dish_squares", :locals => {:dishes => @dishes, :with_json => false, :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page} %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div id="restaurant-results-container">
-        <%= render :partial => "shared/restaurant_squares", :locals => {:restaurants => @restaurants, :num_items_per_row => @num_items_per_row,
-          :num_rows_per_page => @num_rows_per_page} %>
-      </div>
-    </div>
+  <div id="search-results-container">
+    <%= render :partial => 'shared/results', :locals => {:rend => 'all', :dishes => @dishes, :restaurants => @restaurants, :with_json => false,
+      :num_items_per_row => @num_items_per_row, :num_rows_per_page => @num_rows_per_page } %>
   </div>
 </div>

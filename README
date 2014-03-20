@@ -70,6 +70,9 @@ Let us go back to the menu page and click on a food item: http://0.0.0.0:3000/re
 FOOD PAGE:
 	- /spork/app/controllers/food_controller: The food controller handles the controller logic for the food page. The main food view is the view associated with the method index to get the neccessary data for the food item.  A user can add a review for the particular food item, which will display a popup to add a review and call the method in the controller addRating to add the associated pictures to the filesystem and database, and rating to the database.
 
+PROFILE PAGE:
+	- /spork/app/controllers/user_controller: The user controller formats the review information for proper display
+
 Finally, you can click on a user name at various point in the site to be brought to the profile page:
 
 

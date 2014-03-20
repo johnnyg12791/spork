@@ -1,22 +1,16 @@
-We will be going through each page of the website, and pointing to the code that runs for that page.
+To run our website, go to
+spork194.herokuapp.com
+(enable google maps to look for your current location if it asks, and sign in with facebook).
 
-To run our code, you must have ruby and rails installed, and run:
+We used Rails and Bootstrap.
+Deployed to Heroku.
+Dish images are on AWS.
 
-rake db:migrate:reset
-rake db:setup
-(the above setup command may take a while due to the large YAML file)
-
-Then run 
-
-rails server
-
-and go to http://0.0.0.0:3000/ on chrome browser (enable google maps to look for your current location if it asks, and sign in with facebook).
-
-We used bootstrap to assist with the front end development.
+*****HEROKU WILL CUT US OFF IN 7 DAYS BECAUSE WE ARE EXCEEDING THE NUMBER OF ROWS FOR A FREE ACCOUNT*****
 
 --------------------------------------
 
-Code:
+We will be going through each page of the website, and pointing to the code that runs for that page.
 
 spork/scraping: 
 -One of the main issues with this website was data collection. The first problem was that we needed restaurants and menus with items to review. We looked online and found 2 good websites that aggregated menus: allmenus.com and menupages.com. The first thing we built was a scraper for each of these sites given a restaurant specific url (AllMenu_Scraper.py and MenuPages_Scraper.py). The code was written so that you could pass in a single url, and it would return some sort of formatted csv of the menu. After that, we created a script on allmenus.com that would get the ~200 restaurants in the palo alto area, with some information about them. Putting this all together, SeedTest1.py used the list of restaurants to get all menus from each of the palo alto restaurants. At this point we had plenty of data, and never finished SeedTest2.py (the end to end scraper for menupages.com).
@@ -42,14 +36,14 @@ spork/app/models:
 We will now discuss each page of the website and the associated controller, views, and javascript files. We'll discuss them as a user going through the site. The user starts at the homepage:
 
 HOME PAGE (http://spork194.herokuapp.com):
-  - When this page is accessed, the first loaded item is location.  The main page prompts the user to allow location tracking.  We then autofill the location query in our search bar.
+  - When this page is accessed, we first get your location.  The main page prompts the user to allow location tracking.  We then autofill the location query in our search bar.
   - Once we have the location, we send an ajax request with the location to find the most popular results near the location and we display them using the dish partial page templates, found in app/views/shared.
-  - Login: The login button is present all throughout the app.  If you try to log in, but our app has never seen you before, you get added to the users table in our database.  
+  - Login: The login button is present all throughout the app.  If you try to log in, but our app has never seen you before, you get added to the users table in our database. We take note of your facebook id, which we use to render your profile picture.
 
 From here, the user will probably enter a search term and location to arrive at the results page:
 
 RESULTS PAGE:
-- /spork/app/controllers/results_controller: The results controller handles the controller logic for the results page.  If an address was entered, it pulls the coordinates for the address using google maps. If the address entered isn't valid, then it will choose the user's current location as the address.  If the user isn't allowing their current location to be read, then it will use San Francisco.  The page does complex SQL queries to find all dishes whose dish name contains the search query, dish description contains the search query, the restaurant name that the dish belongs to contains the search query, and it must belong to a restaurant that is within the circular mile radius distance specified by the search result from the given address, all sorted by average rating.  A SQL query is also done to find all restaurants who have dishes that fit the above criteria, and restaurants within the specified distance.
+- /spork/app/controllers/results_controller: The results controller handles the controller logic for the results page.  If an address was entered, it pulls the coordinates for the address using google maps. If the address entered isn't valid or no location was entered, then it will choose the user's current location as the address. The page does complex SQL queries to find all dishes whose dish name contains the search query, dish description contains the search query, the restaurant name that the dish belongs to contains the search query, and it must belong to a restaurant that is within the circular mile radius distance specified by the search result from the given address, all sorted by average rating.  A SQL query is also done to find all restaurants who have dishes that fit the above criteria, and restaurants within the specified distance.
 - /spork/app/views/results/search.html.erb: The associated search view displays the dishes and restaurants organized by rating in a paginized partial.  The user can also change the max distance radius for restaurants they are searching for, which is done in ajax to prevent page refreshes.
 - /spork/app/assets/javascripts/results.js: This javascript file handles all of the google map interactions. It adds all of the pin and data to the map, sizes the map based on the bounds of the pins added, and uses AJAX to retrieve the dishes and restaurants from the results_controller to display on the map upon a user change.
 
@@ -89,5 +83,14 @@ PROFILE PAGE:
     	- "logout" clears the users's session.
 	- The current user's profile picture is always on the top navigation bar so the current user can always reach his own profile easily.
 
+PARTIAL PAGE TEMPLATES
+We have a flexible set of partial page templates for both dish and restauarant results. There are partials for the individual squares as well as the pages of results as a whole. If you look near the end of the ResultsController, you will notice there are a lot of options for rendering these partials. The reason is that the partials are rendered in very different ways depending on the page requesting them. For example, the home page only shows dish results, and the partial spans the width of the page. On the other hand, the results page shows both dish and restaurant results, each taking up half the width of the page. The parameters you can change while rendering the partials include:
+  -limit on the total results returned
+  -the number of items per row
+  -the number of rows per page (page as in the pagination, not the web page)
+  -whether you want dish results only, restauarant results only, or both-
+  -whether you want json to be returned in addition to the HTML (this case refers specifically to the results page, where we feed the JSON to the Google Map, but we also want a pre-rendered template that we just insert into the DOM as a whole, rather than parsing the JSON)
 
-
+PAGINATION
+We used the bootstrap-paginator.js plugin to simplify the pagination on our site. The native Bootstrap paginator is purely markup and has no functionality. The plugin makes setting options and callbacks easier.
+There is a javascript file called init-pagination.js, which has a function that is meant to be called from other javascript files to initialize the paginators. For example, we can't initalize the paginator on the home page until the AJAX response with the partials comes in. So we call the function at that time to init the paginator. On the results page, we call it on load (since the partials are already rendered), and then again when AJAX returns new results.

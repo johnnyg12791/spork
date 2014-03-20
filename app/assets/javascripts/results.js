@@ -11,7 +11,8 @@ function initializeMap() {
     infowindow.close();
   });
 
-  if (search_loc == null) {
+  console.log(search_loc);
+  if (search_loc == null || search_loc == '') {
     // try HTML5 geolocation
     if (navigator.geolocation) {
       // get current position

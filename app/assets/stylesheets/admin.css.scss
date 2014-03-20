@@ -1,0 +1,13 @@
+// Place all the styles related to the admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#admin-signup-login {
+  margin-top: 50px;
+}
+#admin-signup-login h3, {
+  text-align: center;
+}
+#admin-signup, #admin-login {
+  background-color: #ffffff;
+  border: 1px solid #808080;
+}

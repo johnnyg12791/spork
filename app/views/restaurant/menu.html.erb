@@ -90,7 +90,7 @@ to reflect the change, then the review form disappears.
           <div class="col-md-6">
             <% for food in slice %>
               <div class="food">
-                <div class="row">
+                <div class="row name-line">
                   <div class="col-md-8 name">
                     <h4><%= link_to food.dish_name, controller: "food", action: "index", id: food.id %></h4>
                   </div>
@@ -98,6 +98,17 @@ to reflect the change, then the review form disappears.
                     <h4><%= food.price %></h4>
                   </div>
                 </div>
+
+                <div class="average-score">
+                  <% for star in 1..food.rating.round %>
+                    <span class="glyphicon glyphicon-star">
+                    </span>
+                  <% end %>
+                  <% for star in food.rating.round+1..5 %>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                  <% end %>
+                </div>
+
                 <div class="row">
                   <div class="col-md-10 description">
                     <%= food.description %>
@@ -108,7 +119,6 @@ to reflect the change, then the review form disappears.
           </div>
         <% end %>
       </div>
-
     <% end %>
 
   <% end %>

@@ -1,16 +1,40 @@
-
-You are visiting the profile of:
-<%= @user.first_name + ' ' + @user.last_name %>
-<img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?' id="header-fb-pic">
-<br>
-Here are <%= @user.first_name %>'s reviews:
-
-<% for review in @review_display_info %>
-<div>
-  <a href="../../food/index/<%=review[4]%>"> <%= review[0] %> </a> at 
-  <a href="../../restaurant/show/<%= review[1][1] %>" >
-  <%= review[1][0] %> </a>,
-  for a score of: <%= review[2] %> =>"<%= review[3] %>"
-  <br>
+<div class="row padded">
+	<div class="col-md-2">
+		<img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?height=200' id="prof-pic" class="img-circle">
+	</div>
+	<div class="col-md-8 col-md-offset-2" id="name">
+		<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
+		<small>User since: <%=@user.created_at.to_formatted_s(:long_ordinal)%></small>
+		<h3><%= @user.first_name %>'s favorite dishes so far:</h3>
+		<div class="row padded">
+		<%for favorite in @favorites %>
+			<div class="col-md-3">
+				<%= render :partial => "shared/dish_square", :locals => {:dish => Food.find(favorite.ratable_id)} %>
+			</div>
+		<%end%>
+		</div>
+	</div>
 </div>
-<% end %>
+
+<%if @review_display_info.empty? %>
+	<div class = "row padded">
+	<h2 class="col-md-5">You haven't reviewed anything yet! Start sporking!</h2>
+	</div>
+<%else%>
+	<div class = "row padded">
+		<div class = "col-md-5">
+			<h2><%= @user.first_name %>'s Reviews: </h2>
+		</div>
+		</div>
+	<%for review in @review_display_info%>
+		<div class ="row padded">
+			<div class="review col-md-11 col-md-offset-1">
+			  <a href="../../food/index/<%=review[4]%>"> <%= review[0] %> </a> at <a href="../../restaurant/show/<%= review[1][1] %>" >
+			  <%= review[1][0] %> </a>, for a score of: <%= review[2] %>
+			</div>
+		</div>
+		<div class = "review row">
+			<div class="col-md-7 col-md-offset-2">---- <%= review[3] %></div>
+		</div>
+	<% end %>
+<%end%>

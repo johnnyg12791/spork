@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#prof-pic{
-	margin: auto
+#name{
+	text-align: center;
+}
+.row{
+	margin-left: 5px;
+}
+.review{
+	font-size: 20px;
+}
+small{
+	text-align: center;
+	margin-left: 20px;
 }

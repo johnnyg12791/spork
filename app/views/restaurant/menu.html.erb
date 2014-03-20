@@ -39,37 +39,58 @@ at the same time through a dropdown that appears if the user clicks "Want to rev
         <h4 class="modal-title" id="myModalLabel">Add a Dish to <%= @restaurant.name %></h4>
       </div>
       <div class="modal-body">
-        Please fill out the following form to add a dish: </br>
-          Dish Name: <input class="clickWhite" id="nameDish" name="name"> </br>
-          Price (optional): <input class="clickWhite" id="priceDish" name="price"></br>
-          Description (optional): <input id="descriptionDish" name="description"></br>
-          Picture (optional): <input id="fileDish" type="file" name="image"></br>
-          <input type="hidden" name="restaurantId" value=<%= @restaurant.id %> >
+        <table>
+          <tr>
+            <td>Please fill out the following form to add a dish:</td>
+          </tr>
+          <tr>
+            <td>Dish Name:</td>
+            <td><input class="clickWhite" id="nameDish" name="name"></td>
+          </tr>
+          <tr>
+            <td>Price (optional):</td>
+            <td><input class="clickWhite" id="priceDish" name="price"></td>
+          </tr>
+          <tr>
+            <td>Description (optional):</td>
+            <td><input id="descriptionDish" name="description"></td>
+          </tr>
+          <tr>
+            <td>Picture (optional):</td>
+            <td><input id="fileDish" type="file" name="image"></td>
+          </tr>
+          <tr>
+            <td><input type="hidden" name="restaurantId" value='<%= @restaurant.id %>'></td>
+          </tr>
+        </table>
 
 <!--
 The below input fields to the form are invisible until the user clicks the button to drop it down; if the user clicks the button again, whose text has changed
 to reflect the change, then the review form disappears.
 -->
-          <p id="reviewDishNow">Want to review the dish now?</p><button type="button" class="btn btn-default" id="showReviewForm">Click here</button>
-          <div style="display:none" id="hiddenDish">
-          </br>
+        <p class="padded" id="reviewDishNow">Want to review the dish now?</p>
+        <button type="button" class="btn btn-default" id="showReviewForm">Click here</button>
+        <div style="display:none" id="hiddenDish">
+          <div class="padded">
             Rating:
-                  <select id="ratingDropdown" name="rating">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3" selected="selected">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
+            <select id="ratingDropdown" name="rating">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected="selected">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div>
             Review (optional): <textarea id="reviewDish" name="review" rows="3" cols="75"></textarea>
             <input id="hiddenReviewBool" type="hidden" name="reviewOrNot" value="false">
           </div>
           <div id="errorDivAddDish"></div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <input type="submit" value="Save Changes" class="btn btn-primary" id="addDish" data-restaurantid=<%=@restaurant.id %>>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" value="Save Changes" class="btn btn-primary" id="addDish" data-restaurantid=<%=@restaurant.id %>>
+        </div>
       </div>
     </div>
   </div>
@@ -98,16 +119,18 @@ to reflect the change, then the review form disappears.
                     <h4><%= food.price %></h4>
                   </div>
                 </div>
-
-                <div class="average-score">
-                  <% for star in 1..food.rating.round %>
-                    <span class="glyphicon glyphicon-star">
-                    </span>
-                  <% end %>
-                  <% for star in food.rating.round+1..5 %>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                  <% end %>
-                </div>
+                
+                <% if food.rating %>
+                  <div class="average-score">
+                    <% for star in 1..food.rating.round %>
+                      <span class="glyphicon glyphicon-star">
+                      </span>
+                    <% end %>
+                    <% for star in food.rating.round+1..5 %>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                    <% end %>
+                  </div>
+                <% end %>
 
                 <div class="row">
                   <div class="col-md-10 description">

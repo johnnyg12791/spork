@@ -7,4 +7,11 @@ class Food < ActiveRecord::Base
 
   validates :dish_name, :length => { :minimum => 1 }
 
+  before_save :update_average
+
+  def update_average
+    self.num_ratings = self.ratings.count
+    self.rating = (self.ratings.inject(0){|sum, x| sum + x.score})/self.ratings.count.to_f
+    return true
+  end
 end

@@ -25,4 +25,17 @@
 }
 
 #restaurant-menu {
+  .food {
+    padding: 0.5em 0;
+
+    h4 {
+      margin-bottom: 0.25em;
+      line-height: 1.4;
+    }
+  }
+
+  .description {
+    line-height: 1.25;
+    color: #686868;
+  }
 }

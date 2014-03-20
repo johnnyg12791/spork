@@ -1,7 +1,7 @@
 
 You are visiting the profile of:
 <%= @user.first_name + ' ' + @user.last_name %>
-
+<img src='http://graph.facebook.com/<%= session[:fb_id] %>/picture?' id="header-fb-pic">
 <br>
 Here are <%= @user.first_name %>'s reviews:
 

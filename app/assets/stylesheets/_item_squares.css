@@ -22,10 +22,10 @@
   padding: 10px;
   color: #F4F0EC;
 }
-#dish-results .item-square {
+#dish-results-container .item-square {
   background-color: #343434;
 }
-#restaurant-results .item-square {
+#restaurant-results-container .item-square {
   background-color: #555555;
 }
 .item-square img {

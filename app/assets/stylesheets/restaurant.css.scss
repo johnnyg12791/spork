@@ -3,20 +3,39 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #restaurant-page {
-  .hero {
-    width: 100%;
-    text-align: center;
-  }
-  
   .review {
-    margin: 1em 0;
+    padding: 1em 0;
+  }
+
+  .bold {
+    font-weight: 800;
+  }
+
+  .hero img {
+    zoom: 2;  //increase if you have very small images
+
+    display: block;
+
+    height: auto;
+    max-height: 100%;
+
+    width: auto;
+    max-width: 100%;
   }
 }
 
 #restaurant-menu {
-}
+  .food {
+    padding: 0.5em 0;
 
-div.padded {
-  padding: 1em 0;
-}
+    h4 {
+      margin-bottom: 0.25em;
+      line-height: 1.4;
+    }
+  }
 
+  .description {
+    line-height: 1.25;
+    color: #686868;
+  }
+}

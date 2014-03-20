@@ -29,11 +29,12 @@ class UserController < ApplicationController
     @user = User.find_by id: curr_user
     reviews_array = Rating.where("user_id = ?", curr_user)
     #want to get name of restuarant, item_name
+    reviews_array.sort_by{|review| review.date_time}.reverse
     @review_display_info = []
     reviews_array.each do |review|
       info = []
-      item = Food.find(review.ratable_id)
-      restaurant = Restaurant.find(item.restaurant_id)
+      item = Food.find_by_id(review.ratable_id)
+      restaurant = Restaurant.find_by_id(item.restaurant_id)
       restaurant_name = restaurant.name
       item_name = item.dish_name
       item_id = item.id
@@ -43,7 +44,13 @@ class UserController < ApplicationController
       info.push(review.comment)
       info.push(item_id)
       @review_display_info.push(info)
-    end
+
+    # sorted_reviews = @review_display_info.sort_by{|review| review[2]}
+    # @favorites = sorted_reviews.first(3)
+    sorted_reviews = reviews_array.sort_by{|review| review.score}
+    @favorites=sorted_reviews.first(3)
+
+  end
 
 
     def update

@@ -12,7 +12,7 @@ class RestaurantController < ApplicationController
       @restaurant_images = @restaurant.pictures
       @hero_image = @restaurant_images.where(picture_type: "banner").first.file_name
     rescue
-      @hero_image = "test.jpg"
+      @hero_image = "../test.jpg"
     end
 
     @ratings = Rating.where(ratable_id: @restaurant.foods)
@@ -20,6 +20,18 @@ class RestaurantController < ApplicationController
     @average_score = 0
     # retrieves all food for the restaurant and it's dish pictures ordered by highest rating
     @foods_by_rating = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", id])
+
+    @hours = nil
+    days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    if @restaurant.hour
+      @hours = Array.new
+      days.each {|d| @hours << [d.capitalize, @restaurant.hour.send(d)] }
+    end
+
+    if @restaurant.address
+      @address = @restaurant.address.split(",")
+        .map{|line| "#{line}<br />"}.join("\n").html_safe
+    end
 
     respond_to do |format|
       format.json {render json: { restaurant: @restaurant, img: @hero_image }}
@@ -34,6 +46,7 @@ class RestaurantController < ApplicationController
       raise ActionController::RoutingError.new('No such restaurant')
     end
     current_menu = params[:current_menu] # used as a parameter for page refresh if the user clicks to show all food items ever / only current menu items
+    
     @display_current_menu = true
     if(current_menu.blank?) then ## no parameter (initial first time going to page) - display only current menu
       @display_current_menu = true
@@ -46,6 +59,7 @@ class RestaurantController < ApplicationController
     # @foods = Food.where(restaurant_id: @restaurant.id).inject(Hash.new{|h, k| h[k] = []}) do |h, food| 
     #   h[food.category] << food
     # }
+
     if(@display_current_menu == false) then #display all food items ever
       @foods = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", @restaurant.id])
     else # display only current menu items

@@ -51,4 +51,10 @@ $(document).ready(function() {
   $('#app-logout-button').click(function() {
     appLogout();
   });
+
+  $('img').error(function(){
+    $(this).attr('src', '/assets/test.jpg');
+    console.log("broken image");
+  });
+
 });

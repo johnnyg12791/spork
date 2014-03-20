@@ -2,8 +2,56 @@
 This page handles the view for the admin page. There are two forms: one to edit the restaurant information for the admin (validated through javascript in restaurant.js) and one to choose which items to edit on the menu, which is passed to editSelected in the restaurant controller.
 -->
 
+<div class="editRestaurant container">
+  <div class="row">
+    <h3>
+      <%= link_to "Back to #{@restaurant.name} Menu", action: "menu", id: @restaurant.id  %>
+    </h3>
+  </div>
 
+  <div class="row">
 <!--
+This form is to edit the menu. There is a checkbox for every item currently on the menu, followed by a different section
+with checkboxes for items not currently on the menu. All of the selected items are passed to editSelected in the restaurant controller (and the associated view)
+for the admin to edit.
+-->
+    <div class="col-md-6 padded">
+      <h3> Update Your Menu </h3> 
+       <form id="adminForm" action="/restaurant/editSelected" method="post">
+        <input type="hidden" name="restaurantId" value=<%= @restaurant.id %> >
+        <div class="food-on-menu-form">
+          Food curently on menu: </br>
+          <% for food in @foods %>
+            <% if(food.on_menu == true) then %>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="on_menu_ids[]" value=<%=food.id %>> <%= food.dish_name %>
+              </label>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="food-prior-menu-form">
+          Food on menu at a prior point in time / different season:
+          <% for food in @foods %>
+            <% if(food.on_menu == false) then %>
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="off_menu_ids[]" value=<%=food.id %>> <%= food.dish_name %>
+                </label>
+            </div>
+            <% end %>
+            <% end %>
+        </div>
+          <div class="padded">
+            <input type="submit" value="Edit These Items" class="btn btn-primary" id="changeMenu" data-restaurantid=<%=@restaurant.id %>>
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+          </div>
+      </form>
+    </div>
+
+    <!--
 This form is to edit the restaurant. All of the fields have default values of the values currently in the database.
 The large ruby block in the middle is for putting the current values in for the hours in the days of the week.
 Any field that is incorrect (restaurants must have a name and address for example) are highlighted red and the form submit is prevented
@@ -11,71 +59,67 @@ until the user edits the fields (which then become white).
 
 If the admin uploads a photo, a new file input field is added to the DOM for the admin to choose to add more images.
 -->
-<div class="editRestaurant" style="float:right">
-<p> Use the following form to update your restaurant information </p>
- <form id="restaurantEditForm" action="/restaurant/editRestaurant/<%=@restaurant.id%>" method="post" enctype="multipart/form-data">
-          Restaurant Name: <input class="clickWhite" id="nameRestaurant" name="name" value='<%= @restaurant.name %>' data-restaurantname=<%=@restaurant.name %>> </br>
-          Restaurant Address: <input class="clickWhite" id="addressRestaurant" name="address" value='<%= @restaurant.address %>' data-restaurantaddress=<%=@restaurant.address %>></br>
-          Restaurant Hours:  </br>
-          <% hours = Hour.where("restaurant_id = ?", @restaurant.id)[0] %>
-          <% days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"] %>
-          <% days.each do |day| %>
-          	<% val = "" %>
-          	<% if hours %>
-          		<% val = hours[day] %>
-          	<% end %>
-    	  	<%= day.capitalize %><input name="hours[]" value="<%= val %>"></br>
-          <% end %>
-          Restaurant Description: <textArea id="descriptionRestaurant" name="description" rows="3" cols="75" data-restaurantdescription=<%=@restaurant.description %>><%= @restaurant.description %></textArea></br>
-          Upload Photos: <input class="uploadPhoto" type="file" name="file[]"> 
-          <button id="submitRestaurant" type="submit" class="btn btn-primary">Save Changes</button>
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    <input type="hidden" name="restaurantId" value=<%= @restaurant.id %> >
-    <input type="hidden" id="hiddenLat" name="latitude" value="">
-    <input type="hidden" id="hiddenLng" name="longitude" value="">
-</form>
-<div id="restErrorDiv"></div>
+    <div class="col-md-6 padded">
+      <h3> Restaurant Information </h3>
+      <form id="restaurantEditForm" action="/restaurant/editRestaurant/<%=@restaurant.id%>" method="post" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-4">
+            Restaurant Name: 
+          </div>
+          <div class="col-md-8">
+            <input class="clickWhite" id="nameRestaurant" name="name" value='<%= @restaurant.name %>' data-restaurantname='<%=@restaurant.name %>'>
+          </div>
+        </div>
 
- </form>
+        <div class="row">
+          <div class="col-md-4">
+            Restaurant Address: 
+          </div>
+          <div class="col-md-8">
+            <input class="clickWhite" id="addressRestaurant" name="address" value='<%= @restaurant.address %>' data-restaurantaddress='<%=@restaurant.address %>'>
+          </div>
+        </div>
 
+        Restaurant Hours:  </br>
+        <% hours = Hour.where("restaurant_id = ?", @restaurant.id)[0] %>
+        <% days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"] %>
+        <% days.each do |day| %>
+        	<% val = "" %>
+        	<% if hours %>
+        		<% val = hours[day] %>
+        	<% end %>
+          <div class="row">
+            <div class="col-md-4">
+            	<%= day.capitalize %>
+            </div>
+            <div class="col-md-8">
+              <input name="hours[]" value="<%= val %>"></br>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="row">
+          <div class="col-md-4">
+            Restaurant Description: 
+          </div>
+          <div class="col-md-8">
+            <textArea id="descriptionRestaurant" name="description" rows="3" cols="30" data-restaurantdescription=<%=@restaurant.description %>><%= @restaurant.description %></textArea>
+          </div>
+        </div>
+
+        Upload Photos: <input class="uploadPhoto" type="file" name="file[]"> 
+        <div class="padded">
+          <button id="submitRestaurant" type="submit" class="btn btn-primary">
+            Save Changes
+          </button>
+        </div>
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <input type="hidden" name="restaurantId" value=<%= @restaurant.id %> >
+        <input type="hidden" id="hiddenLat" name="latitude" value="">
+        <input type="hidden" id="hiddenLng" name="longitude" value="">
+      </form>
+      <div id="restErrorDiv"></div>
+    </div>
+
+  </div>
 </div>
-
-
-<!--
-This form is to edit the menu. There is a checkbox for every item currently on the menu, followed by a different section
-with checkboxes for items not currently on the menu. All of the selected items are passed to editSelected in the restaurant controller (and the associated view)
-for the admin to edit.
--->
-<p> Use the following form to update your menu: </p> 
- <form id="adminForm" action="/restaurant/editSelected" method="post">
-    <input type="hidden" name="restaurantId" value=<%= @restaurant.id %> >
-	<div class="food-on-menu-form">
-		Food curently on menu: </br>
-		<% for food in @foods %>
-			<% if(food.on_menu == true) then %>
-			<div class="checkbox">
-		  		<label>
-		   		 	<input type="checkbox" name="on_menu_ids[]" value=<%=food.id %>> <%= food.dish_name %>
-		  		</label>
-			</div>
-			<% end %>
-	    <% end %>
-	</div>
-
-	</br>
-
-	<div class="food-prior-menu-form">
-		Food on menu at a prior point in time / different season:
-		<% for food in @foods %>
-			<% if(food.on_menu == false) then %>
-			<div class="checkbox">
-		  		<label>
-		   		 	<input type="checkbox" name="off_menu_ids[]" value=<%=food.id %>> <%= food.dish_name %>
-		  		</label>
-			</div>
-			<% end %>
-	    <% end %>
-	</div>
-    <input type="submit" value="Edit Menu" class="btn btn-primary" id="changeMenu" data-restaurantid=<%=@restaurant.id %>>
-    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-</form>

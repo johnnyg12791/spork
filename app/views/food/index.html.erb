@@ -9,6 +9,7 @@
       </h4>
       <div class="stars"></div>
     </div>
+
     <% if !@food.price.blank? %>
       <div class="col-md-2 text-right">
         <h1 class="price">
@@ -38,16 +39,9 @@
   <% end %>
 
   <div class="food-images row">
-    <% if @pictures.length > 0 %>
-      <h1>Photos</h1>
-      <div class="row image-tile-row">
-        <% for photo in @pictures %>
-          <div class="col-md-2">
-            <%= image_tag 'food_items/' + photo.file_name %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="col-md-10">
+      <%= image_tag('https://s3.amazonaws.com/spork-pictures-2/food_item_' + @food.id.to_s + '.jpg', class: "fill-image") %>
+    </div>
   </div>
 
   <% if @food.size %>
@@ -70,8 +64,6 @@
     </div>
   <% end %>
 
-
-
   <div class="reviews"> 
     <% if (@ratings.count > 2) %>
       <div class="row padded">
@@ -86,9 +78,10 @@
 
       <div class="row">
         <div class="col-md-6">
+          <% user = @rating_best.user %>
           <div class="review row padded">
             <div class="col-md-2">
-              <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
+              <img src='http://graph.facebook.com/<%= user[:fb_id] %>/picture?height=75' />
             </div>
             <div class="col-md-6 col-md-offset-1">
               <% for star in 1..@rating_best.score %>
@@ -98,12 +91,10 @@
               <% for star in @rating_best.score+1..5 %>
                 <span class="glyphicon glyphicon-star-empty"></span>
               <% end %>
-              <% if user = User.find_by_id(@rating_best.user_id) %>
-                <h4>
-                  Review by <%= link_to "#{user.first_name} #{user.last_name}", 
-                    {controller: "user", action: "profile", id: user.id } %>
-                </h4>
-              <% end %>
+              <h4>
+                Review by <%= link_to "#{user.first_name} #{user.last_name}", 
+                  {controller: "user", action: "profile", id: user.id } %>
+              </h4>
               <div>"<%= @rating_best.comment %>"</div>
             </div>
           </div>
@@ -143,7 +134,7 @@
       </div>
       <div class="col-md-6">
         <h2>
-          <button class="btn btn-primary btn-default" data-toggle="modal" data-target="#addDishModal">
+          <button class="btn btn-primary btn-default" data-toggle="modal" data-target="<%= (session[:user_id].nil?) ? "#login-modal" : "#addDishModal" %>">
             Add a review!
           </button>
         </h2>

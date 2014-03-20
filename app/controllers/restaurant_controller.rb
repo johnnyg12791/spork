@@ -19,8 +19,7 @@ class RestaurantController < ApplicationController
     @num_reviews = @ratings.count
     @average_score = 0
     # retrieves all food for the restaurant and it's dish pictures ordered by highest rating
-    @foods_by_rating = Food.find_by_sql(["select foods.*, pictures.file_name from foods LEFT OUTER JOIN pictures ON pictures.imageable_id = foods.id AND pictures.imageable_type = 'Food' where foods.restaurant_id = ? ORDER BY (select avg(score) from ratings where ratings.ratable_id = foods.id) DESC", id])
-
+    @foods_by_rating = @restaurant.foods.where("rating <= 5").order('rating desc')
     @hours = nil
     days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     if @restaurant.hour
@@ -76,31 +75,33 @@ class RestaurantController < ApplicationController
 
   # Called after a form is submitted for adding a dish to a menu
   def addDish
-      dishName = params[:name] # front end validated to ensure not ""
-      price = params[:price] # front end validated to ensure a real number, may be "" if no price entered
-      description = params[:description] # potentially "" if no description entered in form
-      uploadedFile = params[:image] # potentially "" if no image uploaded for dish
-      toReviewBool = params[:reviewOrNot] # either true or false (String)
-      restaurantId = params[:restaurantId]
-      food = Food.new(:dish_name => dishName, :price => price, :description => description, :restaurant_id => restaurantId)
-      food.save()
-      food_in_db = Food.where("restaurant_id = ? AND dish_name = ?", restaurantId, dishName)
-      if(!uploadedFile.blank?) then # adds the file to the picture table and stores the jpeg in file system to retrieve
-        picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => food_in_db[0].id)
-        picture.save()
-        File.open(Rails.root.join('app', 'assets', 'images', 'food_items', uploadedFile.original_filename), 'wb') do |file|
-          file.write(uploadedFile.read)
-        end
-      end
-      # toReview is used to determine if the user entered a review when submitting the form
-      if(toReviewBool == "true") then # add review
-        rating = params[:rating] # 1-5
-        review = params[:review] # potentially ""
-        rating = Rating.new(:ratable_id => food_in_db[0].id, :ratable_type => "Food", :user_id => session[:user_id], :score => rating, :comment => review)
-        rating.save()
-      end
+    dishName = params[:name] # front end validated to ensure not ""
+    price = params[:price] # front end validated to ensure a real number, may be "" if no price entered
+    description = params[:description] # potentially "" if no description entered in form
+    uploadedFile = params[:image] # potentially "" if no image uploaded for dish
+    toReviewBool = params[:reviewOrNot] # either true or false (String)
+    restaurantId = params[:restaurantId]
+    food = Food.new(:dish_name => dishName, :price => price, :description => description, :restaurant_id => restaurantId)
+    food.save()
 
-      redirect_to(:action => 'menu/' + restaurantId) # go back to menu page after adding dish
+    # food = Food.where("restaurant_id = ? AND dish_name = ?", restaurantId, dishName)
+    if(!uploadedFile.blank?) then # adds the file to the picture table and stores the jpeg in file system to retrieve
+      picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => food.id)
+      picture.save()
+      File.open(Rails.root.join('app', 'assets', 'images', 'food_items', uploadedFile.original_filename), 'wb') do |file|
+        file.write(uploadedFile.read)
+      end
+    end
+
+    # toReview is used to determine if the user entered a review when submitting the form
+    if(toReviewBool == "true") then # add review
+      rating = params[:rating] # 1-5
+      review = params[:review] # potentially ""
+      rating = Rating.new(:ratable_id => food.id, :ratable_type => "Food", :user_id => session[:user_id], :score => rating, :comment => review)
+      rating.save()
+    end
+
+    redirect_to(:action => 'menu/' + restaurantId) # go back to menu page after adding dish
   end
 
   # Finds all of the foods for the given restaurant to display for the admin as check boxes to decide

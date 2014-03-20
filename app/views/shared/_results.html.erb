@@ -1,0 +1,39 @@
+<% if with_json then %>
+<%= tag "div", { id: "restaurant-json", data: { restaurants: restaurants } }, true %></div>
+<% end %>
+
+<% if rend == 'all' %>
+<div class="row">
+  <div class="col-sm-6">
+    <div id="dish-results-container">
+      <%= render :partial => "shared/dish_squares", :locals => {:dishes => dishes, :num_items_per_row => num_items_per_row,
+        :num_rows_per_page => num_rows_per_page} %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div id="restaurant-results-container">
+
+      <%= render :partial => "shared/restaurant_squares", :locals => {:restaurants => restaurants, :num_items_per_row => num_items_per_row,
+        :num_rows_per_page => num_rows_per_page} %>
+    </div>
+  </div>
+</div>
+
+<% elsif rend == 'dishes_only' %>
+<div class="row">
+  <div class="col-sm-12">
+    <div id="dish-results-container">
+      <%= render :partial => "shared/dish_squares", :locals => {:dishes => dishes, :num_items_per_row => num_items_per_row,
+        :num_rows_per_page => num_rows_per_page} %>
+    </div>
+  </div>
+</div>
+
+<% elsif rend == 'restaurants_only' %>
+<div class="col-sm-12">
+  <div id="restaurant-results-container">
+    <%= render :partial => "shared/restaurant_squares", :locals => {:restaurants => restaurants, :num_items_per_row => num_items_per_row,
+      :num_rows_per_page => num_rows_per_page} %>
+  </div>
+</div>
+<% end %>

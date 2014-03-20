@@ -54,21 +54,21 @@ class FoodController < ApplicationController
 
 # Called when the user submits the add a rating form to add images to the database/file system, and add the rating to the database
 	def addRating
-      uploadedFile = params[:image] # potentially "" or nil
-      foodId = params[:foodId]
-      #if the user uploaded an image of the food:
-      if(uploadedFile != "" and uploadedFile != nil) then
-        picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => foodId, :date_time => Time.now)
-        picture.save()
-        File.open(Rails.root.join('app', 'assets', 'images', 'food_items', uploadedFile.original_filename), 'wb') do |file|
-          file.write(uploadedFile.read)
-        end
+    uploadedFile = params[:image] # potentially "" or nil
+    foodId = params[:foodId]
+    #if the user uploaded an image of the food:
+    if(uploadedFile != "" and uploadedFile != nil) then
+      picture = Picture.new(:file_name => uploadedFile.original_filename, :imageable_type => "Food", :imageable_id => foodId, :date_time => Time.now)
+      picture.save()
+      File.open(Rails.root.join('app', 'assets', 'images', 'food_items', uploadedFile.original_filename), 'wb') do |file|
+        file.write(uploadedFile.read)
       end
-      rating = params[:rating] # 1-5
-      review = params[:review] # potentially ""
-      rating = Rating.new(:ratable_id => foodId, :ratable_type => "Food", :user_id => session[:user_id], :score => rating, :comment => review)
-      rating.save()
+    end
+    rating = params[:rating] # 1-5
+    review = params[:review] # potentially ""
+    rating = Rating.new(:ratable_id => foodId, :ratable_type => "Food", :user_id => session[:user_id], :score => rating, :comment => review)
+    rating.save()
 
-      redirect_to(:action => 'index/' + foodId)
+    redirect_to(:action => 'index/' + foodId)
 	end
 end

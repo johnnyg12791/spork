@@ -1,48 +1,69 @@
-<div class="row padded">
-	<div class="col-md-2">
-		<img src='http://graph.facebook.com/<%=@user.fb_id%>/picture?height=160&weight=160' id="prof-pic" class="img-circle">
-	</div>
-	<div class="col-md-8 col-md-offset-2" id="name">
-		<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
-		<small>User since: <%=@user.created_at.to_formatted_s(:long_ordinal)%></small>
 
-		<div class="row padded">
-		<%if @favorites.nil? then%>
-		<div class="col-md-3">
-          <%= image_tag("spork.jpg", alt: "spork", height: "150px", width: "250px") %>
-          </div>
-		<%else%>
-			<h3><%= @user.first_name %>'s favorite dishes so far:</h3>
-			
+<div id="userProfilePage" class="container">
+	<div class="row padded">
+		<div class="col-md-4">
+			<img src='http://graph.facebook.com/<%= @user[:fb_id] %>/picture?height=300' id="prof-pic" class="img-circle" />
+		</div>
+		<div class="col-md-8" id="name">
+			<h1>
+				<%= @user.first_name + ' ' + @user.last_name %>
+			</h1>
+			<small>
+				User since: <%= @user.created_at.to_formatted_s(:long_ordinal)%>
+			</small>
+			<h3>
+				<%= @user.first_name %>'s favorite dishes so far:
+			</h3>
+			<div class="row padded">
 			<%for favorite in @favorites %>
 				<div class="col-md-3">
 					<%= render :partial => "shared/dish_square", :locals => {:dish => Food.find(favorite.ratable_id)} %>
 				</div>
 			<%end%>
-		<%end%>
-		</div>
-	</div>
-</div>
-
-<%if @review_display_info.empty? %>
-	<div class = "row padded">
-	<h2 class="col-md-8 col-md-offset-2">You haven't reviewed anything yet! Get sporkin'!</h2>
-	</div>
-<%else%>
-	<div class = "row padded">
-		<div class = "col-md-5">
-			<h2><%= @user.first_name %>'s Reviews: </h2>
-		</div>
-		</div>
-	<%for review in @review_display_info%>
-		<div class ="row padded">
-			<div class="review col-md-11 col-md-offset-1">
-			  <a href="../../food/index/<%=review[4]%>"> <%= review[0] %> </a> at <a href="../../restaurant/show/<%= review[1][1] %>" >
-			  <%= review[1][0] %> </a>, for a score of: <%= review[2] %>
 			</div>
 		</div>
-		<div class = "review row">
-			<div class="col-md-7 col-md-offset-2">---- "<%= review[3] %>"</div>
+	</div>
+
+
+	<% if @reviews.empty? %>
+		<div class = "row padded">
+		<h2 class="col-md-5">
+			No reviews!
+		</h2>
 		</div>
-	<% end %>
-<%end%>
+	<% else %>
+		<div class = "row padded">
+			<div class = "col-md-5">
+				<h2><%= @user.first_name %>'s Reviews: (<%= @reviews.count %>)</h2>
+			</div>
+		</div>
+
+		<%for review in @reviews %>
+			<div class="review">
+				<div class ="row">
+					<div class="col-md-2">
+						<%= image_tag("https://s3.amazonaws.com/spork-pictures-2/food_item_#{review.ratable.id}.jpg", class: "review-item") %>
+					</div>
+					<div class="col-md-10">
+						<h3>
+							<%= link_to "#{review.ratable.dish_name}", controller: "food", action: "index", id: "#{review.ratable.id }" %>
+							<small>
+								at <%= link_to "#{review.ratable.restaurant.name}", controller: "restaurant", action: "index", id: "#{review.ratable.id }" %>
+							</small>
+						</h3>
+            <% for star in 1..review.score %>
+              <span class="glyphicon glyphicon-star"></span>
+            <% end %>
+            <% for star in review.score+1..5 %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+            <% end %>
+
+						<div>
+							<%= review.comment %>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	<%end%>
+</div>

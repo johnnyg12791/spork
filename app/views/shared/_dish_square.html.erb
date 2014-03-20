@@ -1,19 +1,20 @@
 <div class="item-square">
   <% if dish %>
     <a href="/food/index/<%= dish.id %>">
-      <% if dish.pictures[1] == nil %>
-        <%= image_tag('spork.jpg') %>
-      <% else %>
-        <%= image_tag('food_items/'+ dish.pictures[1].file_name) %>
-      <% end %>
+      <%= image_tag('https://s3.amazonaws.com/spork-pictures-2/food_item_' + dish.id.to_s + '.jpg') %>
     </a>
     <p/>
     <div>
       <% if dish.rating == nil %>
         <span>Not rated yet</span>
-      <% else for i in (1..dish.rating.round) %>
-        <span class="glyphicon glyphicon-star"></span>
-      <% end end %>
+      <% else %>
+        <% for i in (1..dish.rating.round) %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% for i in (dish.rating.round+1..5) %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+      <% end %>
       <span class="item-square-price"><%= dish.price %></span>
     </div>
     <a class="item-link" href="/food/index/<%= dish.id %>"><%= dish.dish_name %></a>

@@ -81,7 +81,7 @@
           <% user = @rating_best.user %>
           <div class="review row padded">
             <div class="col-md-2">
-              <img src='http://graph.facebook.com/<%= user[:fb_id] %>/picture?height=75' />
+              <img src='http://graph.facebook.com/<%= user[:fb_id] %>/picture?height=50' />
             </div>
             <div class="col-md-6 col-md-offset-1">
               <% for star in 1..@rating_best.score %>
@@ -103,7 +103,8 @@
         <div class="col-md-6">
           <div class="review row padded">
             <div class="col-md-2">
-              <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
+              <% user = @rating_worst.user %>
+              <img src='http://graph.facebook.com/<%= user[:fb_id] %>/picture?height=50' />
             </div>
             <div class="col-md-6 col-md-offset-1">
               <% for star in 1..@rating_worst.score %>
@@ -113,7 +114,7 @@
               <% for star in @rating_worst.score+1..5 %>
                 <span class="glyphicon glyphicon-star-empty"></span>
               <% end %>
-              <% if user = User.find_by_id(@rating_worst.user_id) %>
+              <% if user %>
                 <h4>
                   Review by <%= link_to "#{user.first_name} #{user.last_name}", 
                     {controller: "user", action: "profile", id: user.id } %>
@@ -144,7 +145,8 @@
     <% for review in @ratings %>
       <div class="review row padded">
         <div class="col-md-1">
-          <%= image_tag("test.jpg", alt: "test", height: "100px", width: "100px") %>
+        <%user = review.user%>
+        <img src='http://graph.facebook.com/<%= user[:fb_id] %>/picture?height=50'/>
         </div>
         <div class="col-md-10 col-md-offset-1">
           <% for star in 1..review.score %>
@@ -154,7 +156,7 @@
           <% for star in review.score+1..5 %>
             <span class="glyphicon glyphicon-star-empty"></span>
           <% end %>
-          <% if user = User.find_by_id(review.user_id) %>
+          <% if user %>
             <h4>
               Review by <%= link_to "#{user.first_name} #{user.last_name}", 
                 {controller: "user", action: "profile", id: user.id } %>

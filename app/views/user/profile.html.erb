@@ -1,3 +1,4 @@
+
 <div id="userProfilePage" class="container">
 	<div class="row padded">
 		<div class="col-md-4">
@@ -7,19 +8,23 @@
 			<h1>
 				<%= @user.first_name + ' ' + @user.last_name %>
 			</h1>
-			<small>
+			<small id="user-since">
 				User since: <%= @user.created_at.to_formatted_s(:long_ordinal)%>
 			</small>
-			<h3>
-				<%= @user.first_name %>'s favorite dishes so far:
-			</h3>
-			<div class="row padded">
-			<%for favorite in @favorites %>
-				<div class="col-md-3">
-					<%= render :partial => "shared/dish_square", :locals => {:dish => Food.find(favorite.ratable_id)} %>
+			<%if @favorites.empty? then%>
+				<h3><%= link_to "No favorites yet!", controller: "home", action: "index"%></h3>
+			<%else%>
+				<h3>
+					<%= @user.first_name %>'s favorite dishes so far:
+				</h3>
+				<div class="row padded">
+				<%for favorite in @favorites %>
+					<div class="col-md-3">
+						<%= render :partial => "shared/dish_square", :locals => {:dish => Food.find(favorite.ratable_id)} %>
+					</div>
+				<%end%>
 				</div>
 			<%end%>
-			</div>
 		</div>
 	</div>
 
@@ -39,22 +44,27 @@
 		<%for review in @reviews %>
 			<div class="review">
 				<div class ="row">
-					<h3>
-						<%= link_to "#{review.ratable.dish_name}", controller: "food", action: "index", id: "#{review.ratable.id }" %><br />
-						<small>
-							at <%= link_to "#{review.ratable.restaurant.name}", controller: "restaurant", action: "index", id: "#{review.ratable.id }" %>
-						</small>
-					</h3>
+					<div class="col-md-2">
+						<%= image_tag("https://s3.amazonaws.com/spork-pictures-2/food_item_#{review.ratable.id}.jpg", class: "review-item") %>
+					</div>
+					<div class="col-md-10">
+						<h3>
+							<%= link_to "#{review.ratable.dish_name}", controller: "food", action: "index", id: "#{review.ratable.id }" %>
+							<small>
+								at <%= link_to "#{review.ratable.restaurant.name}", controller: "restaurant", action: "index", id: "#{review.ratable.id }" %>
+							</small>
+						</h3>
             <% for star in 1..review.score %>
               <span class="glyphicon glyphicon-star"></span>
             <% end %>
             <% for star in review.score+1..5 %>
               <span class="glyphicon glyphicon-star-empty"></span>
             <% end %>
-				</div>
 
-				<div>
-					<%= review.comment %>
+						<div>
+							<%= review.comment %>
+						</div>
+					</div>
 				</div>
 			</div>
 		<% end %>

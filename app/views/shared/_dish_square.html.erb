@@ -7,9 +7,14 @@
     <div>
       <% if dish.rating == nil %>
         <span>Not rated yet</span>
-      <% else for i in (1..dish.rating.round) %>
-        <span class="glyphicon glyphicon-star"></span>
-      <% end end %>
+      <% else %>
+        <% for i in (1..dish.rating.round) %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% for i in (dish.rating.round+1..5) %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+      <% end %>
       <span class="item-square-price"><%= dish.price %></span>
     </div>
     <a class="item-link" href="/food/index/<%= dish.id %>"><%= dish.dish_name %></a>

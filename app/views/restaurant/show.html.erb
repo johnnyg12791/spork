@@ -64,13 +64,14 @@
 
         <% for review in slice %>
           <div class="col-md-1 no-overflow">
-            <%= image_tag("test.jpg", :alt => "test", height: "75px", width: "75px") %>
-            <% if user = User.find_by_id(review.user_id) %>
-              <small class="padded">
-                <%= link_to "#{user.first_name} #{user.last_name}", 
-                {controller: "user", action: "profile", id: user.id } %>
-              </small>
-            <% end %>
+          <%user = review.user%>
+          <% if user %>
+            <img src='http://graph.facebook.com/<%= user[:fb_id] %>/picture?height=35&amp;width=50'/>
+            <small class="padded">
+              <%= link_to "#{user.first_name} #{user.last_name}", 
+              {controller: "user", action: "profile", id: user.id } %>
+            </small>
+          <% end %>
           </div>
 
           <div class="col-md-4">

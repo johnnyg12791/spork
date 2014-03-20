@@ -60,7 +60,7 @@ class ResultsController < ApplicationController
 			(3959*acos(cos(radians(?))*cos(radians(restaurants.latitude))*cos(radians(restaurants.longitude)-radians(?)) + 
 			sin(radians(?))*sin(radians(restaurants.latitude)))) < ? AND ((lower(restaurants.name) like ? OR 
 			lower(restaurants.description) like ?) OR (lower(foods.dish_name) like ? OR lower(foods.description) like ?)) AND 
-			foods.restaurant_id = restaurants.id ORDER BY foods.rating DESC NULLS LAST LIMIT ?", @search_lat, @search_long, @search_lat, 
+			foods.restaurant_id = restaurants.id ORDER BY foods.rating DESC NULLS LAST OFFSET 2 LIMIT ?", @search_lat, @search_long, @search_lat, 
 			@search_distance, "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%", "%#{@search_item}%", @max_results])
 
 		@num_items_per_row = DEFAULT_NUM_ITEMS_PER_ROW

@@ -58,5 +58,3 @@ $(document).ready(function() {
   });
 
 });
-
-window.onunload = function(){};

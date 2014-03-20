@@ -11,19 +11,26 @@ function initializeMap() {
     infowindow.close();
   });
 
-  // try HTML5 geolocation
-  if(navigator.geolocation) {
-    // get current position
-    navigator.geolocation.getCurrentPosition(function(position) {
-      // center map around pos and find restaurants
-      pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-      map.setCenter(pos);
-      findRestaurants(pos);
-    });
+  if (search_loc == null) {
+    // try HTML5 geolocation
+    if (navigator.geolocation) {
+      // get current position
+      navigator.geolocation.getCurrentPosition(function(position) {
+        // center map around pos and find restaurants
+        pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        map.setCenter(pos);
+        findRestaurants(pos);
+      });
+    }
+    // Browser doesn't support Geolocation
+    else {
+      handleNoGeolocation(false);
+    }
   }
-  // Browser doesn't support Geolocation
   else {
-    handleNoGeolocation(false);
+    pos = new google.maps.LatLng(search_lat, search_long);
+    map.setCenter(pos);
+    findRestaurants(pos);
   }
 }
 
@@ -97,10 +104,10 @@ $(document).ready(function() {
   initPagination(numDishPages, numRestPages);
 
   // read data returned from the controller
-  var search_item = $('#results-data').data('search-item');
-  var search_loc = $('#results-data').data('search-loc');
-  var search_lat = $('#results-data').data('search-lat');
-  var search_long = $('#results-data').data('search-long')
+  search_item = $('#results-data').data('search-item');
+  search_loc = $('#results-data').data('search-loc');
+  search_lat = $('#results-data').data('search-lat');
+  search_long = $('#results-data').data('search-long')
   restaurants = $('#results-data').data('restaurants');
 
   // init Google Maps vars

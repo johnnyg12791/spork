@@ -36,3 +36,7 @@
 .item-square .restaurant-link {
   font-style: italic;
 }
+.no-results {
+  text-align: center;
+  font-style: italic;
+}

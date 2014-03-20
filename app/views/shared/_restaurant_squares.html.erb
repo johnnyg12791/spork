@@ -12,19 +12,28 @@
     </div>
   </div>
 
-  <% page_num = 1 %>
-  <% for i in (1..num_rows) %>
-  <div class="row item-squares-row restaurant-squares-page-<%= page_num %>-">
-    <% for j in (1..num_items_per_row) %>
-    <div class="col-sm-<%= col_width %>">
-      <% index = ((i-1)*num_items_per_row)+(j-1) %>
-      <% if index < restaurants.length then %>
-        <%= render :partial => "shared/restaurant_square", :locals => {:restaurant => restaurants[index]} %>
+  <% if restaurants.length > 0 %>
+    <% page_num = 1 %>
+    <% for i in (1..num_rows) %>
+    <div class="row item-squares-row restaurant-squares-page-<%= page_num %>-">
+      <% for j in (1..num_items_per_row) %>
+      <div class="col-sm-<%= col_width %>">
+        <% index = ((i-1)*num_items_per_row)+(j-1) %>
+        <% if index < restaurants.length then %>
+          <%= render :partial => "shared/restaurant_square", :locals => {:restaurant => restaurants[index]} %>
+        <% end %>
+      </div>
       <% end %>
     </div>
+    <% if i % num_rows_per_page == 0 then page_num += 1 end %>
     <% end %>
+  
+  <% else %>
+  <div class="row item-squares-row no-results">
+    <div class="col-sm-12">
+      <h3>No results</h3>
+    </div>
   </div>
-  <% if i % num_rows_per_page == 0 then page_num += 1 end %>
   <% end %>
 
 </div>
